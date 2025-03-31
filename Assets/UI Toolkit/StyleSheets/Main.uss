@@ -1,0 +1,22 @@
+.handUI {
+    position: absolute;
+    left: 160px;
+    bottom: -1040px;
+    width: 1600px;
+    height: 300px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cardFrame {
+    width: 200px;
+    height: 300px;
+    background-color: rgb(160, 160, 160)
+}
+
+.cardLabel {
+    align-self: center;
+}
+
+.cardDescription {
+}
