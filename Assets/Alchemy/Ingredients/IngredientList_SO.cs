@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "IngredientList_SO", menuName = "Scriptable Objects/IngredientList_SO")]
+[CreateAssetMenu(fileName = "IngredientList_SO", menuName = "Scriptable Objects/Alchemy/IngredientList_SO")]
 public class IngredientList_SO : ScriptableObject
 {
     public Ingredient_SO[] Ingredients { get => ingredients; }

@@ -4,23 +4,46 @@ using System;
 public class PlayerHand : MonoBehaviour
 {
     [SerializeField] private IngredientList_SO ingredientList;
-    [SerializeField] private Ingredient_SO[] ingredients = new Ingredient_SO[6];
+    [SerializeField] private Ingredient_SO[] ingredients;
+    [SerializeField] private Potion_SO[] potions = new Potion_SO[3];
 
-    public event Action<Ingredient_SO[]> OnDrawNewHand;
+    private AlchemancerMediator mediator;
+    private int drawAmount = 6;
+
+    public event Action<Ingredient_SO[]> OnHandUpdate;
+    public event Action<Potion_SO[]> OnPotionUpdate;
 
 
-    private void Start()
+    private void Awake()
     {
-        DrawNewHand();
+        mediator = GetComponent<AlchemancerMediator>();
     }
 
     public void DrawNewHand()
     {
+        ingredients = new Ingredient_SO[drawAmount];
+
         for (int i = 0; i < ingredients.Length; i++) 
         {
             ingredients[i] = ingredientList.Ingredients[UnityEngine.Random.Range(0, ingredientList.Ingredients.Length)];
         }
 
-        OnDrawNewHand(ingredients);
+        OnHandUpdate(ingredients);
+    }
+
+    public void CraftNewPotion(Ingredient_SO[] ingredients)
+    {
+        if (!mediator.Cauldron.TryCombineIngredients(ingredients, out Potion_SO potion)) return;
+        
+        for (int i = 0; i < potions.Length; i++)
+        {
+            if (potions[i] != null) continue;
+
+            potions[i] = potion;
+
+            OnPotionUpdate?.Invoke(potions);
+
+            break;
+        }
     }
 }

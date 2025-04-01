@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 95812033}
   - component: {fileID: 95812035}
   m_Layer: 5
-  m_Name: ViewController
+  m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c510f7d4a3c194f93305864b0aa0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHand: {fileID: 1948359763}
+  mediator: {fileID: 1948359766}
   uiDocument: {fileID: 95812033}
   styleSheet: {fileID: 11400000, guid: 556b260768c56074b83476f7a4e6d2a9, type: 2}
 --- !u!1 &519420028
@@ -416,7 +416,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1948359764}
+  - component: {fileID: 1948359766}
   - component: {fileID: 1948359763}
+  - component: {fileID: 1948359765}
   m_Layer: 0
   m_Name: Alchemancer
   m_TagString: Untagged
@@ -444,6 +446,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  potions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1948359764
 Transform:
   m_ObjectHideFlags: 0
@@ -459,6 +465,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1948359765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948359762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b53b7a41683a584e91cd0d52f03cdc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RecipeList: {fileID: 11400000, guid: e79c61727b3a92f4bb316e2a53811743, type: 2}
+--- !u!114 &1948359766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948359762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a4c77b67785974ea6601c596551df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

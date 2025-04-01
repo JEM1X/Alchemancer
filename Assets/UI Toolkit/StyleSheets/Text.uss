@@ -4,8 +4,9 @@
     padding: 4px;
 }
 
-.MainText{
+.MainText {
     font-size: 32px;
+    white-space: normal;
 }
 
 .SubText {

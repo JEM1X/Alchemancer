@@ -1,22 +1,67 @@
 .handUI {
     position: absolute;
-    left: 160px;
+    left: 460px;
     bottom: -1040px;
-    width: 1600px;
+    width: 1000px;
     height: 300px;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.cauldronUI {
+    position: absolute;
+    left: 760px;
+    bottom: -700px;
+    width: 400px;
+    height: 300px;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.beltUI {
+    position: absolute;
+    left: 40px;
+    bottom: -1040px;
+    width: 200px;
+    height: 600px;
+    justify-content: space-around;
 }
 
 .cardFrame {
     width: 200px;
     height: 300px;
-    background-color: rgb(160, 160, 160)
+    background-color: rgb(160, 160, 160);
+    flex-shrink: 0;
 }
+
+    .cardFrame:hover {
+        scale: 1.2 1.2;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    .beltUI .cardFrame:hover {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 150px;
+        margin-bottom: 150px;
+    }
 
 .cardLabel {
     align-self: center;
 }
 
 .cardDescription {
+}
+
+.endTurnButton {
+    position: absolute;
+    right: 40px;
+    bottom: -1040px;
+}
+
+.brewButton {
+    position: absolute;
+    right: 40px;
+    bottom: -940px;
 }
