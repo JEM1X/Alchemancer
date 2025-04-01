@@ -5,23 +5,29 @@ using System.Collections.Generic;
 
 public class MainUI : MonoBehaviour
 {
+    [Header("Scene")]
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private Horde horde;
     [SerializeField] private AlchemancerMediator mediator;
+
+    [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private UIStyle_SO styleSheet;
 
     private VisualElement handUI;
     private VisualElement cauldronUI;
     private VisualElement beltUI;
-    [SerializeField] private List<IngredientCard> cardsInCauldron = new List<IngredientCard>(0);
-    //private Dictionary<Ingredient_SO, IngredientCard> ingredientCardDict;
+    private VisualElement hordeUI;
+    private List<IngredientCard> cardsInCauldron = new List<IngredientCard>(0);
 
     private void Awake()
     {
         //StartCoroutine(InitializeUI());
         InitializeUI();
 
-        mediator.PlayerHand.OnHandUpdate += InitializeHand;
-        mediator.PlayerHand.OnPotionUpdate += InitializeBelt;
+        mediator.PlayerHand.OnHandChange += InitializeHand;
+        mediator.PlayerHand.OnPotionChange += InitializeBelt;
+        horde.OnNewEnemy += InitializeEnemy;
     }
 
     //private void OnValidate()
@@ -31,13 +37,6 @@ public class MainUI : MonoBehaviour
 
     //    StartCoroutine(InitializeUI());
     //}
-
-    private void OnDestroy()
-    {
-        mediator.PlayerHand.OnHandUpdate -= InitializeHand;
-        mediator.PlayerHand.OnPotionUpdate -= InitializeBelt;
-
-    }
 
     private void InitializeUI()
     {
@@ -56,6 +55,8 @@ public class MainUI : MonoBehaviour
         cauldronUI = UITK.AddElement(canvas, "cauldronUI");
 
         beltUI = UITK.AddElement(canvas, "beltUI");
+
+        hordeUI = UITK.AddElement(canvas, "hordeUI");
 
         var endTurnButton = UITK.AddElement<Button>(canvas, "endTurnButton");
         endTurnButton.text = "Завершить Ход";
@@ -91,6 +92,21 @@ public class MainUI : MonoBehaviour
 
             beltUI.Add(potionsCard.cardFrame);
         }
+    }
+
+    private void InitializeEnemy(Enemy enemy)
+    { 
+        Vector2 enemyScreenPos = mainCamera.WorldToScreenPoint(enemy.transform.position);
+        Vector2 framePos = new Vector2(enemyScreenPos.x, Screen.height - enemyScreenPos.y);
+
+        var enemyFrame = UITK.AddElement(hordeUI, "enemyFrame");
+        enemyFrame.style.top = framePos.y - 150 - 120;
+        enemyFrame.style.left = framePos.x - 980 - 70;
+
+        var healthFrame = UITK.AddElement(enemyFrame, "healthFrame");
+
+        var healthAmount = UITK.AddElement<Label>(healthFrame, "healthAmount");
+        healthAmount.text = enemy.Health.ToString();
     }
 
     private void MoveCauldronHand(IngredientCard card)

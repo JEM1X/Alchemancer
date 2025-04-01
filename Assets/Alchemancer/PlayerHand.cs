@@ -10,8 +10,8 @@ public class PlayerHand : MonoBehaviour
     private AlchemancerMediator mediator;
     private int drawAmount = 6;
 
-    public event Action<Ingredient_SO[]> OnHandUpdate;
-    public event Action<Potion_SO[]> OnPotionUpdate;
+    public event Action<Ingredient_SO[]> OnHandChange;
+    public event Action<Potion_SO[]> OnPotionChange;
 
 
     private void Awake()
@@ -28,7 +28,7 @@ public class PlayerHand : MonoBehaviour
             ingredients[i] = ingredientList.Ingredients[UnityEngine.Random.Range(0, ingredientList.Ingredients.Length)];
         }
 
-        OnHandUpdate(ingredients);
+        OnHandChange?.Invoke(ingredients);
     }
 
     public void CraftNewPotion(Ingredient_SO[] ingredients)
@@ -41,7 +41,7 @@ public class PlayerHand : MonoBehaviour
 
             potions[i] = potion;
 
-            OnPotionUpdate?.Invoke(potions);
+            OnPotionChange?.Invoke(potions);
 
             break;
         }

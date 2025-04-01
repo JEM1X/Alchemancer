@@ -34,24 +34,50 @@
     flex-shrink: 0;
 }
 
-    .cardFrame:hover {
-        scale: 1.2 1.2;
-        margin-left: 100px;
-        margin-right: 100px;
-    }
+.cardFrame:hover {
+    scale: 1.2 1.2;
+    margin-left: 100px;
+    margin-right: 100px;
+}
 
-    .beltUI .cardFrame:hover {
-        margin-left: 0px;
-        margin-right: 0px;
-        margin-top: 150px;
-        margin-bottom: 150px;
-    }
+.beltUI .cardFrame:hover {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
 
 .cardLabel {
     align-self: center;
 }
 
 .cardDescription {
+}
+
+.hordeUI {
+    position: absolute;
+    right: 40px;
+    top: 150px;
+    height: 600px;
+    width: 900px;
+}
+
+.enemyFrame {
+    position: absolute;
+    height: 300px;
+    width: 140px;
+    flex-direction: column-reverse;
+}
+
+.healthFrame {
+    height: 70px;
+    width: 70px;
+    background-color: rgba(248, 6, 6, 0.8);
+}
+
+.healthAmount {
+    font-size: 42px;
+    -unity-text-align: middle-center;
 }
 
 .endTurnButton {
