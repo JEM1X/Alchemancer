@@ -18,7 +18,7 @@ public class Enemy : Combatant
     {
         Debug.Log(name + " атакует игрока!");
         
-        GameManager.Instance.PlayerTakeDamage(2); // Условная атака
+        //GameManager.Instance.PlayerTakeDamage(2); // Условная атака
         onTurnEnd.Invoke(); // Передаем ход дальше
     }
 

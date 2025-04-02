@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     public List<Enemy> Enemies { get; }
     [SerializeField] private Horde _horde;
     private Queue<Combatant> turnQueue = new Queue<Combatant>();
-
+    private bool isPlayerTurn = false;
+    private int HordeCounter = 0;
     private void Awake()
     {
         if (Instance == null)
@@ -63,11 +64,17 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && isPlayerTurn)
         {
-            EndPlayerTurn();
+
+            PlayerAttack();
 
 
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && isPlayerTurn)
+        {
+            
+            NextTurn();
         }
     }
     private void NextTurn()
@@ -88,11 +95,13 @@ public class GameManager : MonoBehaviour
 
         if (current is Player)
         {
+            isPlayerTurn = true;
             Debug.Log("Ход игрока!");
             // Ждем действий игрока (использование зелья, пропуск хода и т.д.)
         }
         else if (current is Enemy enemy)
         {
+            isPlayerTurn = false;
             Debug.Log($"Ходит враг {enemy.name}");
             enemy.TakeTurn(() => NextTurn()); // Враг делает ход, затем передает управление
         }
@@ -103,15 +112,75 @@ public class GameManager : MonoBehaviour
         NextTurn();
     }
 
-
-    public void PlayerTakeDamage(int damage)
+    private void PlayerAttack()
     {
-        player.TakeDamage(damage);
-        if (player.Health <= 0)
+        if (_horde.EnemyScript.Count == 0)
         {
-            Debug.Log("Игрок проиграл! Поражение.");
+            Debug.Log("Все враги на уровне повержены");
+            HandleWaveEnd();
             return;
         }
+
+        Enemy target = _horde.EnemyScript[0]; // Берем первого врага в списке
+        int damage = 10; // Урон игрока (можно сделать динамическим)
+
+        target.TakeDamage(damage);
+        Debug.Log($"Игрок атаковал {target.name} и нанес {damage} урона!");
+
+        if (target.Health <= 0)
+        {
+            _horde.EnemyScript.Remove(target); // Удаляем врага из списка, если он умер
+        }
+
+        if (_horde.EnemyScript.Count == 0)
+        {
+            HandleWaveEnd();
+        }
+        else
+        {
+            NextTurn();
+        }
     }
+
+    private void HandleWaveEnd()
+    {
+        Debug.Log("Волна завершена!");
+
+        if (ShouldGoToNextLevel())
+        {
+            LoadNextLevel();
+        }
+        else
+        {
+            StartNewWave();
+            HordeCounter++;
+        }
+    }
+
+    private bool ShouldGoToNextLevel()
+    {
+        //if (HordeCounter > 4) 
+        //{
+        // Здесь можно добавить логику: например, переход на следующий уровень после 3 волн
+        
+        //}
+        return false;
+    }
+
+    private void StartNewWave()
+    {
+        Debug.Log("Начинается новая волна!");
+        _horde.SpawnEnemy();
+        InitializeCombat(); // Запускаем новую волну боя
+    }
+
+    private void LoadNextLevel()
+    {
+        Debug.Log("Переход на следующий уровень!");
+        // Логика загрузки следующего уровня, например:
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+
 
 }
