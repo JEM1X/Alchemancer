@@ -13,6 +13,7 @@ public class MainUI : MonoBehaviour
     [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private UIStyle_SO styleSheet;
+    [SerializeField] private UIEnemyStyle_SO enemyStyle;
 
     private VisualElement handUI;
     private VisualElement beltUI;
@@ -20,6 +21,7 @@ public class MainUI : MonoBehaviour
 
     private List<IngredientCard> cardsInCauldron = new List<IngredientCard>(0);
     private PotionCard potionInUse = null;
+    private List<EnemyCard> enemyCards;
 
     private void Awake()
     {
@@ -40,11 +42,11 @@ public class MainUI : MonoBehaviour
 
         var canvas = UITK.AddElement(root, "canvas", "MainText");
 
+        hordeUI = UITK.AddElement(canvas, "hordeUI");
+
         handUI = UITK.AddElement(canvas, "handUI");
 
         beltUI = UITK.AddElement(canvas, "beltUI");
-
-        hordeUI = UITK.AddElement(canvas, "hordeUI");
 
         var endTurnButton = UITK.AddElement<Button>(canvas, "endTurnButton");
         endTurnButton.text = "Завершить Ход";
@@ -85,19 +87,10 @@ public class MainUI : MonoBehaviour
     }
 
     private void InitializeEnemy(Enemy enemy)
-    { 
-        Vector2 enemyScreenPos = mainCamera.WorldToScreenPoint(enemy.transform.position);
-        Vector2 framePos = new Vector2(enemyScreenPos.x, Screen.height - enemyScreenPos.y);
-
-        var enemyFrame = UITK.AddElement<Button>(hordeUI, "enemyFrame");
-        enemyFrame.clicked += () => AttackEnemy(enemy);
-        enemyFrame.style.top = framePos.y - 150 - 120;
-        enemyFrame.style.left = framePos.x - 980 - 70;
-
-        var healthFrame = UITK.AddElement(enemyFrame, "healthFrame");
-
-        var healthAmount = UITK.AddElement<Label>(healthFrame, "healthAmount");
-        healthAmount.text = enemy.Health.ToString();
+    {
+        var enemyCard = new EnemyCard(enemy, enemyStyle, mainCamera);
+        hordeUI.Add(enemyCard.enemyFrame);
+        enemyCard.enemyFrame.clicked += () => AttackEnemy(enemy);
     }
 
     private void UseIngredientCard(IngredientCard card)
@@ -172,48 +165,6 @@ public class MainUI : MonoBehaviour
             mediator.PlayerHand.UseCapsule(capsule, enemy);
             potionInUse.cardFrame.RemoveFromHierarchy();
             potionInUse = null;
-        }
-    }
-
-    private class Card
-    {
-        public Button cardFrame;
-
-        protected void InitializeCard(Card_SO card)
-        {
-            cardFrame = UITK.CreateElement<Button>("cardFrame");
-
-            var cardLabel = UITK.AddElement<Label>(cardFrame, "cardLabel", "MainText");
-            cardLabel.text = card.Label;
-
-            var cardIcon = UITK.AddElement(cardFrame, "cardIcon");
-
-            var cardDescription = UITK.AddElement<Label>(cardFrame, "cardDescription", "SubText");
-            cardDescription.text = card.Description;
-        }
-    }
-
-    private class IngredientCard : Card
-    {
-        public Ingredient_SO ingredient;
-        public bool isInHand = true;
-
-        public IngredientCard(Ingredient_SO ingredient)
-        {
-            this.ingredient = ingredient;
-            InitializeCard(ingredient);
-        }
-    }
-
-    private class PotionCard : Card
-    {
-        public Potion_SO potion;
-        public bool isInBelt = true;
-
-        public PotionCard(Potion_SO potion)
-        {
-            this.potion = potion;
-            InitializeCard(potion);
         }
     }
 }
