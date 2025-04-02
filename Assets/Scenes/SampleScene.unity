@@ -620,17 +620,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: 00cb3f9a946d9bf4e9427a1f3b4d0e86, type: 2}
-  ingredients:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  potions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  playerIngredients: []
+  playerPotions: []
 --- !u!4 &1948359764
 Transform:
   m_ObjectHideFlags: 0

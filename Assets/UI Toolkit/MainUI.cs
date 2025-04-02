@@ -15,7 +15,6 @@ public class MainUI : MonoBehaviour
     [SerializeField] private UIStyle_SO styleSheet;
 
     private VisualElement handUI;
-    private VisualElement cauldronUI;
     private VisualElement beltUI;
     private VisualElement hordeUI;
 
@@ -24,7 +23,6 @@ public class MainUI : MonoBehaviour
 
     private void Awake()
     {
-        //StartCoroutine(InitializeUI());
         InitializeUI();
 
         mediator.PlayerHand.OnHandChange += InitializeHand;
@@ -32,18 +30,8 @@ public class MainUI : MonoBehaviour
         horde.OnNewEnemy += InitializeEnemy;
     }
 
-    //private void OnValidate()
-    //{
-    //    if (Application.isPlaying)
-    //        return;
-
-    //    StartCoroutine(InitializeUI());
-    //}
-
     private void InitializeUI()
     {
-        //yield return null;
-
         VisualElement root = uiDocument.rootVisualElement;
         root.Clear();
 
@@ -53,8 +41,6 @@ public class MainUI : MonoBehaviour
         var canvas = UITK.AddElement(root, "canvas", "MainText");
 
         handUI = UITK.AddElement(canvas, "handUI");
-
-        cauldronUI = UITK.AddElement(canvas, "cauldronUI");
 
         beltUI = UITK.AddElement(canvas, "beltUI");
 
@@ -120,51 +106,70 @@ public class MainUI : MonoBehaviour
         {
             if (cardsInCauldron.Count >= 3) return;
 
-            cauldronUI.Add(card.cardFrame);
             card.isInHand = false;
             cardsInCauldron.Add(card);
+            card.cardFrame.style.scale = new StyleScale(new Vector2(1.2f, 1.2f));
+            card.cardFrame.style.translate = new StyleTranslate(new Translate(0, -60));
         }
         else
         {
-            handUI.Add(card.cardFrame);
             card.isInHand = true;
             cardsInCauldron.Remove(card);
-        }
-    }
-
-    private void ClearCauldron()
-    {
-        for(int i = cardsInCauldron.Count - 1; i >= 0; i--)
-        {
-            UseIngredientCard(cardsInCauldron[i]);
+            card.cardFrame.style.scale = StyleKeyword.Null;
+            card.cardFrame.style.translate = StyleKeyword.Null;
         }
     }
 
     private void BrewPotion()
     {
-        List<Ingredient_SO> ingredients = new List<Ingredient_SO>(0);
+        if (cardsInCauldron.Count < 3) return;
+        if (beltUI.childCount >= 3) return; 
 
-        foreach(IngredientCard card  in cardsInCauldron)
-        {
-            ingredients.Add(card.ingredient);
-        }
+        Ingredient_SO[] usedIngredients = new Ingredient_SO[cardsInCauldron.Count];
 
-        mediator.PlayerHand.CraftNewPotion(ingredients.ToArray());
-        cardsInCauldron = new List<IngredientCard>(0);
-        cauldronUI.Clear();
+        for (int i = 0; i < cardsInCauldron.Count; i++)
+            usedIngredients[i] = cardsInCauldron[i].ingredient;
+
+        mediator.PlayerHand.CraftNewPotion(usedIngredients);
+
+        //Removing used card
+        foreach (IngredientCard card in cardsInCauldron)
+            card.cardFrame.RemoveFromHierarchy();
+
+        ClearCauldron();
     }
 
-    private void UsePotionCard(PotionCard potion)
+    private void ClearCauldron()
     {
-        potionInUse = potion;
-        Debug.Log(potion);
+        cardsInCauldron = new List<IngredientCard>(0);
+    }
+
+    private void UsePotionCard(PotionCard card)
+    {
+        if (card.isInBelt)
+        {
+            if (potionInUse != null)
+                UsePotionCard(potionInUse);
+            
+            potionInUse = card;
+            card.isInBelt = false;
+            card.cardFrame.style.scale = new StyleScale(new Vector2(1.2f, 1.2f));
+            card.cardFrame.style.translate = new StyleTranslate(new Translate(60, 0));
+        }
+        else
+        {
+            potionInUse = null;
+            card.isInBelt = true;
+            card.cardFrame.style.scale = StyleKeyword.Null;
+            card.cardFrame.style.translate = StyleKeyword.Null;
+        }
     }
 
     private void AttackEnemy(Enemy enemy)
     {
         if (potionInUse?.potion is Capsule_SO capsule)
         {
-            capsule.UseCapsule(enemy);
+            mediator.PlayerHand.UseCapsule(capsule, enemy);
             potionInUse.cardFrame.RemoveFromHierarchy();
             potionInUse = null;
         }
@@ -203,6 +208,7 @@ public class MainUI : MonoBehaviour
     private class PotionCard : Card
     {
         public Potion_SO potion;
+        public bool isInBelt = true;
 
         public PotionCard(Potion_SO potion)
         {

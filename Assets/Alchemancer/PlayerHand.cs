@@ -6,10 +6,11 @@ public class PlayerHand : MonoBehaviour
 {
     [SerializeField] private IngredientList_SO ingredientList;
     [SerializeField] private List<Ingredient_SO> playerIngredients;
-    [SerializeField] private Potion_SO[] playerPotions = new Potion_SO[3];
+    [SerializeField] private List<Potion_SO> playerPotions = new(0);
 
     private AlchemancerMediator mediator;
     private int drawAmount = 6;
+    private int potionMaxAmount = 3;
 
     public event Action<Ingredient_SO[]> OnHandChange;
     public event Action<Potion_SO[]> OnPotionChange;
@@ -34,6 +35,8 @@ public class PlayerHand : MonoBehaviour
 
     public void CraftNewPotion(Ingredient_SO[] ingredients)
     {
+        if (playerPotions.Count >= potionMaxAmount) return;
+
         for (int i = 0; i < ingredients.Length; i++)
         {
             if(playerIngredients.Remove(ingredients[i]))
@@ -43,21 +46,25 @@ public class PlayerHand : MonoBehaviour
             return;
         }
 
-        if (!mediator.Cauldron.TryCombineIngredients(ingredients, out Potion_SO potion))
+        if (!mediator.Cauldron.TryCombineIngredients(ingredients, out Potion_SO craftedPotion))
         {
             Debug.Log("Incorrect recipe");
             return;
         }
-        
-        for (int i = 0; i < playerPotions.Length; i++)
+
+        playerPotions.Add(craftedPotion);
+
+        OnPotionChange?.Invoke(playerPotions.ToArray());
+    }
+
+    public void UseCapsule(Capsule_SO capsule, Enemy enemy)
+    {
+        if (playerPotions.Remove(capsule))
         {
-            if (playerPotions[i] != null) continue;
-
-            playerPotions[i] = potion;
-
-            OnPotionChange?.Invoke(playerPotions);
-
-            break;
+            capsule.UseCapsule(enemy);
+            return;
         }
+
+        Debug.Log("No potion available");
     }
 }
