@@ -19,7 +19,7 @@ public class Horde : MonoBehaviour
         SpawnEnemy();
     }
 
-    private void SpawnEnemy()
+    public void SpawnEnemy()
     {
         for (int i = 0; i < spawnCount; i++)
         {
