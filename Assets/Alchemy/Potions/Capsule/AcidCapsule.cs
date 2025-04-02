@@ -3,8 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AcidCapsule", menuName = "Scriptable Objects/Potion/Capsule/AcidCapsule")]
 public class AcidCapsule : Capsule_SO
 {
-    public override void UseCapsule()
+    [SerializeField] private int damage = 3;
+
+
+    public override void UseCapsule(Enemy enemy)
     {
-        throw new System.NotImplementedException();
+        enemy.TakeDamage(damage);
     }
 }

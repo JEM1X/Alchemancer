@@ -18,7 +18,9 @@ public class MainUI : MonoBehaviour
     private VisualElement cauldronUI;
     private VisualElement beltUI;
     private VisualElement hordeUI;
+
     private List<IngredientCard> cardsInCauldron = new List<IngredientCard>(0);
+    private PotionCard potionInUse = null;
 
     private void Awake()
     {
@@ -60,6 +62,7 @@ public class MainUI : MonoBehaviour
 
         var endTurnButton = UITK.AddElement<Button>(canvas, "endTurnButton");
         endTurnButton.text = "Завершить Ход";
+        endTurnButton.clicked += ClearCauldron;
         endTurnButton.clicked += mediator.PlayerHand.DrawNewHand;
 
         var brewButton = UITK.AddElement<Button>(canvas, "brewButton");
@@ -74,7 +77,7 @@ public class MainUI : MonoBehaviour
         foreach (Ingredient_SO ingredient in ingredients)
         {
             var ingredientCard = new IngredientCard(ingredient);
-            ingredientCard.cardFrame.clicked += () => MoveCauldronHand(ingredientCard);
+            ingredientCard.cardFrame.clicked += () => UseIngredientCard(ingredientCard);
             
             handUI.Add(ingredientCard.cardFrame);
         }
@@ -89,6 +92,7 @@ public class MainUI : MonoBehaviour
             if (potion == null) continue;
 
             var potionsCard = new PotionCard(potion);
+            potionsCard.cardFrame.clicked += () => UsePotionCard(potionsCard);
 
             beltUI.Add(potionsCard.cardFrame);
         }
@@ -99,7 +103,8 @@ public class MainUI : MonoBehaviour
         Vector2 enemyScreenPos = mainCamera.WorldToScreenPoint(enemy.transform.position);
         Vector2 framePos = new Vector2(enemyScreenPos.x, Screen.height - enemyScreenPos.y);
 
-        var enemyFrame = UITK.AddElement(hordeUI, "enemyFrame");
+        var enemyFrame = UITK.AddElement<Button>(hordeUI, "enemyFrame");
+        enemyFrame.clicked += () => AttackEnemy(enemy);
         enemyFrame.style.top = framePos.y - 150 - 120;
         enemyFrame.style.left = framePos.x - 980 - 70;
 
@@ -109,7 +114,7 @@ public class MainUI : MonoBehaviour
         healthAmount.text = enemy.Health.ToString();
     }
 
-    private void MoveCauldronHand(IngredientCard card)
+    private void UseIngredientCard(IngredientCard card)
     {
         if (card.isInHand)
         {
@@ -127,6 +132,14 @@ public class MainUI : MonoBehaviour
         }
     }
 
+    private void ClearCauldron()
+    {
+        for(int i = cardsInCauldron.Count - 1; i >= 0; i--)
+        {
+            UseIngredientCard(cardsInCauldron[i]);
+        }
+    }
+
     private void BrewPotion()
     {
         List<Ingredient_SO> ingredients = new List<Ingredient_SO>(0);
@@ -139,6 +152,22 @@ public class MainUI : MonoBehaviour
         mediator.PlayerHand.CraftNewPotion(ingredients.ToArray());
         cardsInCauldron = new List<IngredientCard>(0);
         cauldronUI.Clear();
+    }
+
+    private void UsePotionCard(PotionCard potion)
+    {
+        potionInUse = potion;
+        Debug.Log(potion);
+    }
+
+    private void AttackEnemy(Enemy enemy)
+    {
+        if (potionInUse?.potion is Capsule_SO capsule)
+        {
+            capsule.UseCapsule(enemy);
+            potionInUse.cardFrame.RemoveFromHierarchy();
+            potionInUse = null;
+        }
     }
 
     private class Card

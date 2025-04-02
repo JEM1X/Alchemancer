@@ -67,7 +67,12 @@
     height: 300px;
     width: 140px;
     flex-direction: column-reverse;
+    background-color: rgba(0, 0, 0, 0);
 }
+
+    .enemyFrame:hover {
+        background-color: rgba(200, 200, 200, 0.2);
+    }
 
 .healthFrame {
     height: 70px;
