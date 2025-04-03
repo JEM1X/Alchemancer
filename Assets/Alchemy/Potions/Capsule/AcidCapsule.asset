@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83559b53bae17042891f01139472ab0, type: 3}
   m_Name: AcidCapsule
   m_EditorClassIdentifier: 
-  label: "\u041A\u0430\u043F\u0441\u0443\u043B\u044C \u0441 \u043A\u0438\u0441\u043B\u043E\u0442\u043E\u0439"
+  label: "\u041A\u0430\u043F\u0441\u044E\u043B\u044C \u0441 \u043A\u0438\u0441\u043B\u043E\u0442\u043E\u0439"
   icon: {fileID: 21300000, guid: 805736230f06ac449a72b0ecb951e522, type: 3}
   description: "\u041D\u0430\u043D\u043E\u0441\u0438\u0442 \u0432\u0440\u0430\u0433\u0443\n4
     \u0443\u0440\u043E\u043D\u0430"
   ingredients:
   - {fileID: 11400000, guid: bf077205630315c4a918b1009ec80f70, type: 2}
-  - {fileID: 11400000, guid: 03d8c2765e035554186406fe69f78b15, type: 2}
   - {fileID: 11400000, guid: 2e72f36a0ab5b484c872d335ec78dd96, type: 2}
+  - {fileID: 11400000, guid: dbb4f5064121bc949b5c20513f33341c, type: 2}
   damage: 4

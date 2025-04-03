@@ -17,7 +17,7 @@ MonoBehaviour:
   description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u0432 \u0440\u0443\u043A\u0443\n4
     \u043A\u0430\u0440\u0442\u044B"
   ingredients:
-  - {fileID: 11400000, guid: 2e72f36a0ab5b484c872d335ec78dd96, type: 2}
+  - {fileID: 11400000, guid: 3d3682a366facc144b11a625599d12a1, type: 2}
+  - {fileID: 11400000, guid: 1c9511ad6c08b0c419813f64acbf3db7, type: 2}
   - {fileID: 11400000, guid: 03d8c2765e035554186406fe69f78b15, type: 2}
-  - {fileID: 11400000, guid: dbb4f5064121bc949b5c20513f33341c, type: 2}
   drawAmount: 4

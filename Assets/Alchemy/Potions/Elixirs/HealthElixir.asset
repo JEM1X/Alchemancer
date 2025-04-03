@@ -17,7 +17,7 @@ MonoBehaviour:
   description: "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\n2
     \u0425\u041F"
   ingredients:
-  - {fileID: 11400000, guid: 03d8c2765e035554186406fe69f78b15, type: 2}
+  - {fileID: 11400000, guid: bf077205630315c4a918b1009ec80f70, type: 2}
   - {fileID: 11400000, guid: dbb4f5064121bc949b5c20513f33341c, type: 2}
   - {fileID: 11400000, guid: 3d3682a366facc144b11a625599d12a1, type: 2}
   heal: 2
