@@ -7,5 +7,5 @@ public abstract class Card_SO : ScriptableObject
     public Sprite Icon { get => icon; }
     [SerializeField] private Sprite icon;
     public string Description { get => description; }
-    [SerializeField] private string description = "Описание";
+    [TextArea] [SerializeField] private string description = "Описание";
 }

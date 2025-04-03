@@ -7,15 +7,17 @@ public class PlayerHand : MonoBehaviour
 {
     [SerializeField] private IngredientList_SO ingredientList;
     [SerializeField] private PotionList_SO RecipeList;
+    public List<Ingredient_SO> PlayerIngredients { get => playerIngredients; }
     [SerializeField] private List<Ingredient_SO> playerIngredients;
-    [SerializeField] private List<Potion_SO> playerPotions = new(0);
+    public List<Potion_SO> PlayerPotions { get => playerPotions; }
+    [SerializeField] private List<Potion_SO> playerPotions;
 
     private AlchemancerMediator mediator;
     private int drawAmount = 6;
     private int potionMaxAmount = 3;
 
-    public event Action<Ingredient_SO[]> OnHandChange;
-    public event Action<Potion_SO[]> OnPotionChange;
+    public event Action<Ingredient_SO> OnNewIngredient;
+    public event Action<Potion_SO> OnNewPotion;
 
 
     private void Awake()
@@ -33,20 +35,19 @@ public class PlayerHand : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            playerIngredients.Add(ingredientList.Ingredients[UnityEngine.Random.Range(0, ingredientList.Ingredients.Length)]);
+            Ingredient_SO newIngredient = ingredientList.Ingredients[UnityEngine.Random.Range(0, ingredientList.Ingredients.Length)];
+            playerIngredients.Add(newIngredient);
+            OnNewIngredient?.Invoke(newIngredient);
         }
-
-        OnHandChange?.Invoke(playerIngredients.ToArray());
     }
 
-    public void CraftNewPotion(Ingredient_SO[] ingredients)
+    public void BrewNewPotion(Ingredient_SO[] ingredients)
     {
         if (playerPotions.Count >= potionMaxAmount) return;
 
         if (!ingredients.All(playerIngredients.Contains))
         {
             Debug.LogWarning("No ingredients available");
-            return;
         }
 
         foreach (var ingredient in ingredients)
@@ -59,7 +60,7 @@ public class PlayerHand : MonoBehaviour
         }
 
         playerPotions.Add(craftedPotion);
-        OnPotionChange?.Invoke(playerPotions.ToArray());
+        OnNewPotion?.Invoke(craftedPotion);
     }
 
     public bool TryCombineIngredients(Ingredient_SO[] ingredients, out Potion_SO craftedPotion)
@@ -74,7 +75,7 @@ public class PlayerHand : MonoBehaviour
     {
         if (playerPotions.Remove(elixir))
         {
-            elixir.UseElixir(mediator.Player);
+            elixir.UseElixir(mediator);
             return;
         }
 

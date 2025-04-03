@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ad155eda7b08554cba6a8836c22da56, type: 3}
-  m_Name: ShadowLeaf
+  m_Name: Obsidian
   m_EditorClassIdentifier: 
-  label: "\u0422\u0435\u043D\u0435\u043B\u0438\u0441\u0442"
-  icon: {fileID: 0}
-  description: "\u041B\u0438\u0441\u0442\u044C\u044F, \u0432\u043F\u0438\u0442\u044B\u0432\u0430\u044E\u0449\u0438\u0435
-    \u0442\u044C\u043C\u0443."
+  label: "\u041E\u0431\u0441\u0438\u0434\u0438\u0430\u043D"
+  icon: {fileID: 21300000, guid: edcbd57032ccbd44e9f228cdd323ab50, type: 3}
+  description: "\u041A\u043B\u0438\u043D\u043E\u043A \u0442\u044C\u043C\u044B,\n\u0432\u0435\u0441\u0442\u043D\u0438\u043A
+    \u0440\u0430\u0437\u0440\u0443\u0448\u0435\u043D\u0438\u044F"

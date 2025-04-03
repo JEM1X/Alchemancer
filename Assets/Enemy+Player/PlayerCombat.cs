@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : Combatant
+public class PlayerCombat : Combatant
 {
     [SerializeField] private GameManager gameManager;
 

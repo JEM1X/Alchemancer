@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class MainUI : MonoBehaviour
 {
@@ -26,8 +27,8 @@ public class MainUI : MonoBehaviour
     {
         InitializeUI();
 
-        mediator.PlayerHand.OnHandChange += InitializeHand;
-        mediator.PlayerHand.OnPotionChange += InitializeBelt;
+        mediator.PlayerHand.OnNewIngredient += InitializeIngredientCard;
+        mediator.PlayerHand.OnNewPotion += InitializePotionCard;
         mediator.Horde.OnNewEnemy += InitializeEnemy;
     }
 
@@ -50,6 +51,7 @@ public class MainUI : MonoBehaviour
         var endTurnButton = UITK.AddElement<Button>(canvas, "endTurnButton");
         endTurnButton.text = "Завершить Ход";
         endTurnButton.clicked += ClearCauldron;
+        endTurnButton.clicked += handUI.Clear;
         endTurnButton.clicked += mediator.PlayerHand.DrawNewHand;
 
         var brewButton = UITK.AddElement<Button>(canvas, "brewButton");
@@ -57,32 +59,24 @@ public class MainUI : MonoBehaviour
         brewButton.clicked += BrewPotion;
     }
 
-    private void InitializeHand(Ingredient_SO[] ingredients)
+    private void InitializeIngredientCard(Ingredient_SO ingredient)
     {
-        handUI.Clear();
-
-        foreach (Ingredient_SO ingredient in ingredients)
-        {
-            var ingredientCard = new IngredientCard(ingredient);
-            ingredientCard.cardFrame.clicked += () => UseIngredientCard(ingredientCard);
+        var ingredientCard = new IngredientCard(ingredient);
+        ingredientCard.cardFrame.clicked += () => UseIngredientCard(ingredientCard);
             
-            handUI.Add(ingredientCard.cardFrame);
-        }
+        handUI.Add(ingredientCard.cardFrame);
+        
     }
 
-    private void InitializeBelt(Potion_SO[] potions)
+    private void InitializePotionCard(Potion_SO potion)
     {
-        beltUI.Clear();
+        if (potion == null) return;
 
-        foreach (Potion_SO potion in potions)
-        {
-            if (potion == null) continue;
+        var potionsCard = new PotionCard(potion);
+        potionsCard.cardFrame.clicked += () => UsePotionCard(potionsCard);
 
-            var potionsCard = new PotionCard(potion);
-            potionsCard.cardFrame.clicked += () => UsePotionCard(potionsCard);
-
-            beltUI.Add(potionsCard.cardFrame);
-        }
+        beltUI.Add(potionsCard.cardFrame);
+        
     }
 
     private void InitializeEnemy(Enemy enemy)
@@ -105,18 +99,13 @@ public class MainUI : MonoBehaviour
     private void BrewPotion()
     {
         if (cardsInCauldron.Count < 3) return;
-        if (beltUI.childCount >= 3) return; 
+        if (beltUI.childCount >= 3) return;
 
-        Ingredient_SO[] usedIngredients = new Ingredient_SO[cardsInCauldron.Count];
+        Ingredient_SO[] usedIngredients = cardsInCauldron.Select(card => card.ingredient).ToArray();
 
-        for (int i = 0; i < cardsInCauldron.Count; i++)
-            usedIngredients[i] = cardsInCauldron[i].ingredient;
+        mediator.PlayerHand.BrewNewPotion(usedIngredients);
 
-        mediator.PlayerHand.CraftNewPotion(usedIngredients);
-
-        //Removing used card
-        foreach (IngredientCard card in cardsInCauldron)
-            card.cardFrame.RemoveFromHierarchy();
+        cardsInCauldron.ForEach(card => card.cardFrame.RemoveFromHierarchy());
 
         ClearCauldron();
     }
@@ -132,12 +121,14 @@ public class MainUI : MonoBehaviour
         {
             mediator.PlayerHand.UseElixir(elixir);
             card.cardFrame.RemoveFromHierarchy();
+            return;
         }
 
         if(card.potion is Flask_SO flask)
         {
             mediator.PlayerHand.UseFlask(flask);
             card.cardFrame.RemoveFromHierarchy();
+            return;
         }
 
         if (!card.isSelected && potionInUse != null)

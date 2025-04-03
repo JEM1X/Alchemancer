@@ -1,15 +1,17 @@
 .unity-label {
-    font-size: 24px;
-    margin: 0px;
+    font-size: 32px;
+    margin: 0;
     padding: 4px;
 }
 
 .MainText {
-    font-size: 24px;
+    font-size: 32px;
     white-space: normal;
+    -unity-font-definition: url("project://database/Assets/Assets/Fonts/AmaticSC-Bold.ttf?fileID=12800000&guid=95b7ddf450f79474ea2bb432e1d191c6&type=3#AmaticSC-Bold");
 }
 
 .SubText {
-    font-size: 16px;
+    font-size: 24px;
     white-space: normal;
+    -unity-font-definition: url("project://database/Assets/Assets/Fonts/AmaticSC-Regular.ttf?fileID=12800000&guid=9cc3d4d6622922649ac8a89d98b85d54&type=3#AmaticSC-Regular");
 }

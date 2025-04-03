@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allPotions:
   - {fileID: 11400000, guid: b98caba5e37530040a2062fc5f1f5ac1, type: 2}
+  - {fileID: 11400000, guid: deeac889ef8fe6440bc4775791bc4ee8, type: 2}
   - {fileID: 11400000, guid: aa5b1e12ef9c9344b8e222187b927b4d, type: 2}
   - {fileID: 11400000, guid: 37206798f0ec4a446b96b8eb31cfeaab, type: 2}

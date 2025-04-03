@@ -2,5 +2,5 @@ using UnityEngine;
 
 public abstract class Elixir_SO : Potion_SO
 {
-    public abstract void UseElixir(Player player);
+    public abstract void UseElixir(AlchemancerMediator mediator);
 }

@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private Player player;
+    [SerializeField] private PlayerCombat player;
     [SerializeField] private List<Enemy> enemies;
     public List<Enemy> Enemies { get; }
     [SerializeField] private Horde _horde;
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if (current is Player)
+        if (current is PlayerCombat)
         {
             isPlayerTurn = true;
             Debug.Log("Ход игрока!");

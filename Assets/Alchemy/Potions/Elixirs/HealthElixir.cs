@@ -6,8 +6,8 @@ public class HealthElixir : Elixir_SO
     [SerializeField] private int heal = 5;
 
 
-    public override void UseElixir(Player player)
+    public override void UseElixir(AlchemancerMediator mediator)
     {
-        player.TakeHeal(heal);
+        mediator.Player.TakeHeal(heal);
     }
 }
