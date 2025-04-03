@@ -4,6 +4,8 @@ public class AlchemancerMediator : MonoBehaviour
 {
     public PlayerHand PlayerHand { get => playerHand; }
     [SerializeField] private PlayerHand playerHand;
-    public Cauldron Cauldron { get => cauldron; }
-    [SerializeField] private Cauldron cauldron;
+    public Player Player { get => player; }
+    [SerializeField] private Player player;
+    public Horde Horde { get => horde; }
+    [SerializeField] private Horde horde;
 }

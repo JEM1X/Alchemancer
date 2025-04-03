@@ -7,7 +7,6 @@ public class MainUI : MonoBehaviour
 {
     [Header("Scene")]
     [SerializeField] private Camera mainCamera;
-    [SerializeField] private Horde horde;
     [SerializeField] private AlchemancerMediator mediator;
 
     [Header("UI Toolkit")]
@@ -29,7 +28,7 @@ public class MainUI : MonoBehaviour
 
         mediator.PlayerHand.OnHandChange += InitializeHand;
         mediator.PlayerHand.OnPotionChange += InitializeBelt;
-        horde.OnNewEnemy += InitializeEnemy;
+        mediator.Horde.OnNewEnemy += InitializeEnemy;
     }
 
     private void InitializeUI()
@@ -95,22 +94,12 @@ public class MainUI : MonoBehaviour
 
     private void UseIngredientCard(IngredientCard card)
     {
-        if (card.isInHand)
-        {
-            if (cardsInCauldron.Count >= 3) return;
+        if (!card.isSelected && cardsInCauldron.Count >= 3) return;
 
-            card.isInHand = false;
+        if (card.Select())
             cardsInCauldron.Add(card);
-            card.cardFrame.style.scale = new StyleScale(new Vector2(1.2f, 1.2f));
-            card.cardFrame.style.translate = new StyleTranslate(new Translate(0, -60));
-        }
         else
-        {
-            card.isInHand = true;
             cardsInCauldron.Remove(card);
-            card.cardFrame.style.scale = StyleKeyword.Null;
-            card.cardFrame.style.translate = StyleKeyword.Null;
-        }
     }
 
     private void BrewPotion()
@@ -139,22 +128,28 @@ public class MainUI : MonoBehaviour
 
     private void UsePotionCard(PotionCard card)
     {
-        if (card.isInBelt)
+        if(card.potion is Elixir_SO elixir)
         {
-            if (potionInUse != null)
-                UsePotionCard(potionInUse);
-            
+            mediator.PlayerHand.UseElixir(elixir);
+            card.cardFrame.RemoveFromHierarchy();
+        }
+
+        if(card.potion is Flask_SO flask)
+        {
+            mediator.PlayerHand.UseFlask(flask);
+            card.cardFrame.RemoveFromHierarchy();
+        }
+
+        if (!card.isSelected && potionInUse != null)
+            UsePotionCard(potionInUse);
+
+        if (card.Select())
+        {
             potionInUse = card;
-            card.isInBelt = false;
-            card.cardFrame.style.scale = new StyleScale(new Vector2(1.2f, 1.2f));
-            card.cardFrame.style.translate = new StyleTranslate(new Translate(60, 0));
         }
         else
         {
             potionInUse = null;
-            card.isInBelt = true;
-            card.cardFrame.style.scale = StyleKeyword.Null;
-            card.cardFrame.style.translate = StyleKeyword.Null;
         }
     }
 

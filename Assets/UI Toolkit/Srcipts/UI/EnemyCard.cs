@@ -25,6 +25,9 @@ public class EnemyCard
 
         var healthAmount = UITK.AddElement<Label>(healthFrame, "healthAmount");
         healthAmount.text = enemy.Health.ToString();
+
+        enemy.OnHealthChange += (int health) => healthAmount.text = enemy.Health.ToString();
+        enemy.OnDeath += EnemyDeath;
     }
 
     private void UpdateFramePos(Camera mainCamera)
@@ -34,5 +37,10 @@ public class EnemyCard
 
         enemyFrame.style.top = framePos.y - 150 - 120;
         enemyFrame.style.left = framePos.x - 980 - 70;
+    }
+
+    private void EnemyDeath()
+    {
+        enemyFrame.RemoveFromHierarchy();
     }
 }

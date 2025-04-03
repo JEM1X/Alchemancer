@@ -215,10 +215,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
-  horde: {fileID: 1540369659}
   mediator: {fileID: 1948359766}
   uiDocument: {fileID: 95812033}
   styleSheet: {fileID: 11400000, guid: 556b260768c56074b83476f7a4e6d2a9, type: 2}
+  enemyStyle: {fileID: 11400000, guid: 24276db82a1fcc04eba2b5bc26ddeba0, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,8 +598,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1948359764}
   - component: {fileID: 1948359766}
+  - component: {fileID: 1948359767}
   - component: {fileID: 1948359763}
-  - component: {fileID: 1948359765}
   m_Layer: 0
   m_Name: Alchemancer
   m_TagString: Untagged
@@ -620,6 +620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientList: {fileID: 11400000, guid: 00cb3f9a946d9bf4e9427a1f3b4d0e86, type: 2}
+  RecipeList: {fileID: 11400000, guid: e79c61727b3a92f4bb316e2a53811743, type: 2}
   playerIngredients: []
   playerPotions: []
 --- !u!4 &1948359764
@@ -637,19 +638,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1948359765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1948359762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b53b7a41683a584e91cd0d52f03cdc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RecipeList: {fileID: 11400000, guid: e79c61727b3a92f4bb316e2a53811743, type: 2}
 --- !u!114 &1948359766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,7 +651,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHand: {fileID: 1948359763}
-  cauldron: {fileID: 1948359765}
+  player: {fileID: 1948359767}
+  horde: {fileID: 1540369659}
+--- !u!114 &1948359767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948359762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9dee932103fc13479ff02ce56a9e87b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax: 10
+  health: 10
+  gameManager: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

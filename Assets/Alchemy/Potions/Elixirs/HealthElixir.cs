@@ -3,8 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "HealthElixir", menuName = "Scriptable Objects/Potion/Elixir/HealthElixir")]
 public class HealthElixir : Elixir_SO
 {
-    public override void UseElixir()
+    [SerializeField] private int heal = 5;
+
+
+    public override void UseElixir(Player player)
     {
-        throw new System.NotImplementedException();
+        player.TakeHeal(heal);
     }
 }

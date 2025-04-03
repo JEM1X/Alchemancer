@@ -84,7 +84,6 @@
 .healthFrame {
     height: 70px;
     width: 70px;
-    background-color: rgba(248, 6, 6, 0.8);
 }
 
 .healthAmount {

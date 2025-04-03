@@ -3,12 +3,6 @@ using System;
 
 public class Enemy : Combatant
 {
-    
-    [SerializeField] private int health = 5;
-    private void Awake()
-    {
-        Health = health;    
-    }
     protected override void Death()
     {
         base.Death();

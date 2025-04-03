@@ -1,10 +1,12 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class PlayerHand : MonoBehaviour
 {
     [SerializeField] private IngredientList_SO ingredientList;
+    [SerializeField] private PotionList_SO RecipeList;
     [SerializeField] private List<Ingredient_SO> playerIngredients;
     [SerializeField] private List<Potion_SO> playerPotions = new(0);
 
@@ -24,8 +26,12 @@ public class PlayerHand : MonoBehaviour
     public void DrawNewHand()
     {
         playerIngredients.Clear();
+        DrawCards(drawAmount);
+    }
 
-        for (int i = 0; i < drawAmount; i++) 
+    public void DrawCards(int amount)
+    {
+        for (int i = 0; i < amount; i++)
         {
             playerIngredients.Add(ingredientList.Ingredients[UnityEngine.Random.Range(0, ingredientList.Ingredients.Length)]);
         }
@@ -37,24 +43,42 @@ public class PlayerHand : MonoBehaviour
     {
         if (playerPotions.Count >= potionMaxAmount) return;
 
-        for (int i = 0; i < ingredients.Length; i++)
+        if (!ingredients.All(playerIngredients.Contains))
         {
-            if(playerIngredients.Remove(ingredients[i]))
-                continue;
-            
-            Debug.Log("No ingredients available");
+            Debug.LogWarning("No ingredients available");
             return;
         }
 
-        if (!mediator.Cauldron.TryCombineIngredients(ingredients, out Potion_SO craftedPotion))
+        foreach (var ingredient in ingredients)
+            playerIngredients.Remove(ingredient);
+
+        if (!TryCombineIngredients(ingredients, out Potion_SO craftedPotion))
         {
             Debug.Log("Incorrect recipe");
             return;
         }
 
         playerPotions.Add(craftedPotion);
-
         OnPotionChange?.Invoke(playerPotions.ToArray());
+    }
+
+    public bool TryCombineIngredients(Ingredient_SO[] ingredients, out Potion_SO craftedPotion)
+    {
+        craftedPotion = RecipeList.AllPotions.FirstOrDefault(potion =>
+        potion.Ingredients.Length == ingredients.Length && ingredients.All(potion.IsinRecipe));
+
+        return craftedPotion != null;
+    }
+
+    public void UseElixir(Elixir_SO elixir)
+    {
+        if (playerPotions.Remove(elixir))
+        {
+            elixir.UseElixir(mediator.Player);
+            return;
+        }
+
+        Debug.Log("No potion available");
     }
 
     public void UseCapsule(Capsule_SO capsule, Enemy enemy)
@@ -62,6 +86,17 @@ public class PlayerHand : MonoBehaviour
         if (playerPotions.Remove(capsule))
         {
             capsule.UseCapsule(enemy);
+            return;
+        }
+
+        Debug.Log("No potion available");
+    }
+
+    public void UseFlask(Flask_SO flask)
+    {
+        if (playerPotions.Remove(flask))
+        {
+            flask.UseFlask(mediator.Horde.EnemyScript.ToArray());
             return;
         }
 
