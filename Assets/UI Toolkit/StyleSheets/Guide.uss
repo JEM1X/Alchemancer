@@ -1,0 +1,33 @@
+.background{
+    width: 1920px;
+    height: 1080px;
+    background-color: rgba(40, 40, 40, 0.8);
+    align-items: center;
+}
+
+.guideFrame {
+    top: 200px;
+    width: 1000px;
+    height: 600px;
+    background-color: rgb(222, 203, 133);
+    border-width: 16px;
+    border-left-width: 20px;
+    border-right-width: 20px;
+    border-radius: 20px;
+    border-color: rgb(40, 40, 40);
+    flex-direction: row;
+}
+
+.guidePage {
+    width: 480px;
+    border-width: 6px;
+    border-color: rgb(40, 40, 40);
+}
+
+.pageLabel{
+    white-space: normal;
+}
+
+.toggleButton{
+    position: absolute;
+}

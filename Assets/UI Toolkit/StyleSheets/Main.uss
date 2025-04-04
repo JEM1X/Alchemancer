@@ -1,4 +1,4 @@
-.handUI {
+.bagUI {
     position: absolute;
     left: 460px;
     bottom: -1040px;
