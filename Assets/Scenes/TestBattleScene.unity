@@ -287,8 +287,8 @@ MonoBehaviour:
   audioSource: {fileID: 95812036}
   uiDocument: {fileID: 95812033}
   styleSheet: {fileID: 11400000, guid: 556b260768c56074b83476f7a4e6d2a9, type: 2}
-  CombatStyle: {fileID: 11400000, guid: 24276db82a1fcc04eba2b5bc26ddeba0, type: 2}
-  AudioStyle: {fileID: 11400000, guid: 8d0a05920a28ae641ba8c5324148efa0, type: 2}
+  combatStyle: {fileID: 11400000, guid: 24276db82a1fcc04eba2b5bc26ddeba0, type: 2}
+  audioStyle: {fileID: 11400000, guid: 8d0a05920a28ae641ba8c5324148efa0, type: 2}
 --- !u!82 &95812036
 AudioSource:
   m_ObjectHideFlags: 0
@@ -302,7 +302,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0

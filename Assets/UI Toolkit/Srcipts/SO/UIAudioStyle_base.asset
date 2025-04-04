@@ -13,4 +13,11 @@ MonoBehaviour:
   m_Name: UIAudioStyle_base
   m_EditorClassIdentifier: 
   soundList:
-  - {fileID: 8300000, guid: 26125788ecf19ca4fa23477befc4fdec, type: 3}
+  - {fileID: 8300000, guid: 4bd791ff7fd937a40868b306c655b67b, type: 3}
+  - {fileID: 8300000, guid: a571a3225c1845444adaaa1c7a5fe788, type: 3}
+  - {fileID: 8300000, guid: 23cb2da23f38ff44bbfaedada78a9072, type: 3}
+  - {fileID: 8300000, guid: 2c8ec9701949f7044b922485bae5a2c2, type: 3}
+  - {fileID: 8300000, guid: af78d8f0ac29878469e02b47ccd3945a, type: 3}
+  - {fileID: 8300000, guid: 7949fffe1452317428048a397e8875ba, type: 3}
+  - {fileID: 8300000, guid: 153821f79f8fa38429d94ab89d62c47e, type: 3}
+  - {fileID: 8300000, guid: 2ab60841bd8c67e40a62e6de1bb21dc1, type: 3}

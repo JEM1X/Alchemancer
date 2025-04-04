@@ -14,8 +14,8 @@ public class MainUI : MonoBehaviour
     [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private UIStyle_SO styleSheet;
-    [SerializeField] private UICombatStyle_SO CombatStyle;
-    [SerializeField] private UIAudioStyle_SO AudioStyle;
+    [SerializeField] private UICombatStyle_SO combatStyle;
+    [SerializeField] private UIAudioStyle_SO audioStyle;
 
     private VisualElement handUI;
     private VisualElement beltUI;
@@ -53,7 +53,7 @@ public class MainUI : MonoBehaviour
 
         var endTurnButton = UITK.AddElement<Button>(canvas, "endTurnButton", "MainButton");
         endTurnButton.text = "Завершить Ход";
-        endTurnButton.clicked += () => audioSource.PlayOneShot(AudioStyle.SoundList[0]);
+        endTurnButton.clicked += () => audioSource.PlayOneShot(audioStyle.SoundList[0]);
         endTurnButton.clicked += ClearCauldron;
         endTurnButton.clicked += handUI.Clear;
         endTurnButton.clicked += mediator.PlayerHand.DrawNewHand;
@@ -67,32 +67,36 @@ public class MainUI : MonoBehaviour
     {
         var ingredientCard = new IngredientCard(ingredient);
         ingredientCard.cardFrame.clicked += () => UseIngredientCard(ingredientCard);
-            
+
         handUI.Add(ingredientCard.cardFrame);
-        
+
+        ingredientCard.cardFrame.RegisterCallback<PointerEnterEvent>(evt =>
+            audioSource.PlayOneShot(audioStyle.SoundList[3]));
     }
 
     private void InitializePotionCard(Potion_SO potion)
     {
         if (potion == null) return;
 
-        var potionsCard = new PotionCard(potion);
-        potionsCard.cardFrame.clicked += () => UsePotionCard(potionsCard);
+        var potionCard = new PotionCard(potion);
+        potionCard.cardFrame.clicked += () => UsePotionCard(potionCard);
+       
+        beltUI.Add(potionCard.cardFrame);
 
-        beltUI.Add(potionsCard.cardFrame);
-        
+        potionCard.cardFrame.RegisterCallback<PointerEnterEvent>(evt =>
+            audioSource.PlayOneShot(audioStyle.SoundList[3]));
     }
 
     private void InitializeEnemy(Enemy enemy)
     {
-        var enemyCard = new CombatantCard(enemy, CombatStyle, mainCamera);
+        var enemyCard = new CombatantCard(enemy, combatStyle, mainCamera);
         hordeUI.Add(enemyCard.combatantFrame);
         enemyCard.combatantFrame.clicked += () => AttackEnemy(enemy);
     }
 
     private void InitializePlayer(PlayerCombat player)
     {
-        var playerCard = new CombatantCard(player, CombatStyle, mainCamera);
+        var playerCard = new CombatantCard(player, combatStyle, mainCamera);
         hordeUI.Add(playerCard.combatantFrame);
     }
 
@@ -101,9 +105,15 @@ public class MainUI : MonoBehaviour
         if (!card.isSelected && cardsInCauldron.Count >= 3) return;
 
         if (card.Select())
+        {
             cardsInCauldron.Add(card);
+            audioSource.PlayOneShot(audioStyle.SoundList[1]);
+        }
         else
+        {
             cardsInCauldron.Remove(card);
+            audioSource.PlayOneShot(audioStyle.SoundList[2]);
+        }
     }
 
     private void BrewPotion()
@@ -118,6 +128,8 @@ public class MainUI : MonoBehaviour
         cardsInCauldron.ForEach(card => card.cardFrame.RemoveFromHierarchy());
 
         ClearCauldron();
+
+        audioSource.PlayOneShot(audioStyle.SoundList[4]);
     }
 
     private void ClearCauldron()
@@ -131,6 +143,7 @@ public class MainUI : MonoBehaviour
         {
             mediator.PlayerHand.UseElixir(elixir);
             card.cardFrame.RemoveFromHierarchy();
+            audioSource.PlayOneShot(audioStyle.SoundList[5]);
             return;
         }
 
@@ -138,6 +151,7 @@ public class MainUI : MonoBehaviour
         {
             mediator.PlayerHand.UseFlask(flask);
             card.cardFrame.RemoveFromHierarchy();
+            audioSource.PlayOneShot(audioStyle.SoundList[6]);
             return;
         }
 
@@ -147,10 +161,12 @@ public class MainUI : MonoBehaviour
         if (card.Select())
         {
             potionInUse = card;
+            audioSource.PlayOneShot(audioStyle.SoundList[1]);
         }
         else
         {
             potionInUse = null;
+            audioSource.PlayOneShot(audioStyle.SoundList[2]);
         }
     }
 
@@ -161,6 +177,7 @@ public class MainUI : MonoBehaviour
             mediator.PlayerHand.UseCapsule(capsule, enemy);
             potionInUse.cardFrame.RemoveFromHierarchy();
             potionInUse = null;
+            audioSource.PlayOneShot(audioStyle.SoundList[7]);
         }
     }
 }
