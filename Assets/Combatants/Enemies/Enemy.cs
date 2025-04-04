@@ -3,6 +3,7 @@ using System;
 
 public class Enemy : Combatant
 {
+    
     protected override void Death()
     {
         base.Death();
@@ -12,8 +13,17 @@ public class Enemy : Combatant
     {
         Debug.Log(name + " атакует игрока!");
         
-        BattleManager.Instance.PlayerTakeDamage(2); // Условная атака
+        
+        BM.Instance.PlayerTakeDamage(2); // Условная атака
         onTurnEnd.Invoke(); // Передаем ход дальше
+    }
+    public void UseFlask(System.Action onTurnEnd) 
+    {
+        Debug.Log(name + " использует зелье!");
+
+        BM.Instance.PlayerTakeDamage(2); // Условная атака
+        onTurnEnd.Invoke(); // Передаем ход дальше    
+
     }
 
 }

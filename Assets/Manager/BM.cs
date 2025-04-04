@@ -77,13 +77,7 @@ public class BM : MonoBehaviour
         // Активируем UI для хода игрока
         // Например: EnablePlayerUI(true);
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && isPlayerTurn) 
-        {
-            CompletePlayerTurn();
-        }
-    }
+   
     public void CompletePlayerTurn()
     {
         if (!isPlayerTurn || isPlayerMoveCompleted || isBattleOver) return;
@@ -115,6 +109,7 @@ public class BM : MonoBehaviour
             if (isBattleOver || !isWaveInProgress) yield break;
 
             bool enemyTurnCompleted = false;
+            yield return new WaitForSeconds(3f);
             enemy.TakeTurn(() => enemyTurnCompleted = true);
 
             while (!enemyTurnCompleted && !isBattleOver)
@@ -163,5 +158,15 @@ public class BM : MonoBehaviour
     {
         player.OnDeath -= OnPlayerDeath;
         horde.OnNoEnemyLeft -= OnWaveCleared;
+    }
+    public void PlayerTakeDamage(int damage)
+    {
+        if (player == null)
+        {
+            Debug.LogWarning("Игрок не назначен в BattleManager!");
+            return;
+        }
+
+        player.TakeDamage(damage);
     }
 }
