@@ -7,7 +7,7 @@ public class Horde : MonoBehaviour
     public List<Enemy> EnemyScripts { get => enemyScripts; }
     [SerializeField] private List<Enemy> enemyScripts;
 
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private int spawnCount;
 
@@ -17,14 +17,14 @@ public class Horde : MonoBehaviour
 
     private void Start()
     {
-        SpawnEnemy();
+        //SpawnEnemy();
     }
 
     public void SpawnEnemy()
     {
         for (int i = 0; i < spawnCount; i++)
         {
-            var enemy = Instantiate(enemyPrefab, spawnPoints[i].position, spawnPoints[i].rotation, transform);
+            var enemy = Instantiate(enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)], spawnPoints[i].position, spawnPoints[i].rotation, transform);
 
             if(!enemy.TryGetComponent<Enemy>(out Enemy script))
             {

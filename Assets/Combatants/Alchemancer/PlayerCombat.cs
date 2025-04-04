@@ -2,25 +2,19 @@ using UnityEngine;
 
 public class PlayerCombat : Combatant
 {
-    [SerializeField] private GameManager gameManager;
+    [SerializeField] private BattleManager battleManager;
 
-    
-    protected override void Death()
+
+    //protected override void Death()
+    //{
+    //    base.Death();
+    //    //Логика завершения игры
+    //}
+    protected virtual void OnDestroy()
     {
-        base.Death();
-        //Логика завершения игры
+        ClearAllListeners();
     }
 
-    //private void Attack() 
-    //{
-    //    if (Input.GetKeyDown("KeyCode.Alpha1") ) 
-    //    {
-    //        gameManager.Enemies[0].TakeDamage(2);
-    //        Debug.Log("Вы атаковали врага");
-    //    }
-
-    //    GameManager.Instance.EndPlayerTurn();
-    //}
 
 
 }

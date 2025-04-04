@@ -1,17 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class BattleManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
+    public static BattleManager Instance { get; private set; }
 
     [SerializeField] private PlayerCombat player;
-    [SerializeField] private List<Enemy> enemies;
-    public List<Enemy> Enemies { get; }
     [SerializeField] private Horde _horde;
+    [SerializeField] private int Maxhordes;
+
     private Queue<Combatant> turnQueue = new Queue<Combatant>();
     private bool isPlayerTurn = false;
     private int HordeCounter = 0;
+
     private void Awake()
     {
         if (Instance == null)
@@ -22,9 +23,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (player != null)
+            player.OnDeath += OnPlayerDeath;
+
         RegisterHorde();
         InitializeCombat();
     }
+
     private void RegisterHorde()
     {
         if (_horde == null)
@@ -33,24 +38,25 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        // Подписываемся на событие спавна новых врагов
         _horde.OnNewEnemy += AddEnemyToQueue;
 
-        // Добавляем уже заспавненных врагов
         foreach (var enemy in _horde.EnemyScripts)
         {
             AddEnemyToQueue(enemy);
         }
     }
+
     private void InitializeCombat()
     {
-        turnQueue.Clear(); // Чистим очередь перед заполнением
+        turnQueue.Clear();
 
-        turnQueue.Enqueue(player);
+        if (player != null && player.Health > 0)
+            turnQueue.Enqueue(player);
 
         foreach (var enemy in _horde.EnemyScripts)
         {
-            turnQueue.Enqueue(enemy);
+            if (enemy != null && enemy.Health > 0)
+                turnQueue.Enqueue(enemy);
         }
 
         NextTurn();
@@ -58,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     private void AddEnemyToQueue(Enemy enemy)
     {
-        if (enemy == null) return;
+        if (enemy == null || enemy.Health <= 0) return;
         turnQueue.Enqueue(enemy);
     }
 
@@ -66,45 +72,40 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && isPlayerTurn)
         {
-
             PlayerAttack();
-
-
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && isPlayerTurn)
         {
-            
             NextTurn();
         }
     }
+
     private void NextTurn()
     {
-        if (turnQueue.Count == 0)
+        while (turnQueue.Count > 0)
         {
-            InitializeCombat(); // Перезапускаем ходовой цикл, если все прошли
-            return;
+            Combatant current = turnQueue.Dequeue();
+
+            if (current == null || current.Health <= 0)
+                continue;
+
+            if (current is PlayerCombat)
+            {
+                isPlayerTurn = true;
+                Debug.Log("Ход игрока!");
+                return;
+            }
+            else if (current is Enemy enemy)
+            {
+                isPlayerTurn = false;
+                Debug.Log($"Ходит враг {enemy.name}");
+                enemy.TakeTurn(() => NextTurn());
+                return;
+            }
         }
 
-        Combatant current = turnQueue.Dequeue();
-
-        if (current == null || current.Health <= 0)
-        {
-            NextTurn(); // Пропускаем мертвых
-            return;
-        }
-
-        if (current is PlayerCombat)
-        {
-            isPlayerTurn = true;
-            Debug.Log("Ход игрока!");
-            // Ждем действий игрока (использование зелья, пропуск хода и т.д.)
-        }
-        else if (current is Enemy enemy)
-        {
-            isPlayerTurn = false;
-            Debug.Log($"Ходит враг {enemy.name}");
-            enemy.TakeTurn(() => NextTurn()); // Враг делает ход, затем передает управление
-        }
+        Debug.Log("Очередь пуста. Начинаем новый цикл.");
+        InitializeCombat();
     }
 
     public void EndPlayerTurn()
@@ -121,15 +122,15 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        Enemy target = _horde.EnemyScripts[0]; // Берем первого врага в списке
-        int damage = 10; // Урон игрока (можно сделать динамическим)
+        Enemy target = _horde.EnemyScripts[0];
+        int damage = 10;
 
         target.TakeDamage(damage);
         Debug.Log($"Игрок атаковал {target.name} и нанес {damage} урона!");
 
         if (target.Health <= 0)
         {
-            _horde.EnemyScripts.Remove(target); // Удаляем врага из списка, если он умер
+            _horde.EnemyScripts.Remove(target);
         }
 
         if (_horde.EnemyScripts.Count == 0)
@@ -159,25 +160,59 @@ public class GameManager : MonoBehaviour
 
     private bool ShouldGoToNextLevel()
     {
-        //if (HordeCounter > 4) 
-        //{
-        // Здесь можно добавить логику: например, переход на следующий уровень после 3 волн
-        
-        //}
-        return false;
+        return HordeCounter >= Maxhordes;
     }
 
     private void StartNewWave()
     {
         Debug.Log("Начинается новая волна!");
         _horde.SpawnEnemy();
-        InitializeCombat(); // Запускаем новую волну боя
+        InitializeCombat();
     }
 
     private void LoadNextLevel()
     {
         Debug.Log("Переход на следующий уровень!");
-        // Логика загрузки следующего уровня, например:
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void PlayerTakeDamage(int damage)
+    {
+        if (player == null)
+        {
+            Debug.LogWarning("Игрок не назначен в BattleManager!");
+            return;
+        }
+
+        player.TakeDamage(damage);
+    }
+
+    private void OnPlayerDeath()
+    {
+        Debug.Log("Игрок погиб!");
+
+        // Удаляем игрока из очереди
+        Queue<Combatant> newQueue = new Queue<Combatant>();
+        while (turnQueue.Count > 0)
+        {
+            var unit = turnQueue.Dequeue();
+            if (unit != player && unit != null && unit.Health > 0)
+                newQueue.Enqueue(unit);
+        }
+        turnQueue = newQueue;
+
+        // Завершаем бой, можно заменить на экран "поражение"
+        Debug.Log("Бой окончен. Игра окончена.");
+
+        // Здесь можно вызвать GameOver экран или что-то другое
+        // SceneManager.LoadScene("GameOverScene");
+    }
+    private void OnDestroy()
+    {
+        if (player != null)
+            player.OnDeath -= OnPlayerDeath;
+
+        if (_horde != null)
+            _horde.OnNewEnemy -= AddEnemyToQueue;
     }
 }

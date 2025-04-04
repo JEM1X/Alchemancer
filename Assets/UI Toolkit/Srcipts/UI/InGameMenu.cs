@@ -42,7 +42,7 @@ public class InGameMenu : MonoBehaviour
         nextButton.clicked += () => SceneManager.LoadScene(1);
 
         ToggleVictoryScreen();
-        mediator.Horde.OnNoEnemyLeft += ToggleVictoryScreen;
+        //mediator.Horde.OnNoEnemyLeft += ToggleVictoryScreen;
     }
 
     private void ToggleVictoryScreen()

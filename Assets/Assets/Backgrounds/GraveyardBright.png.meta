@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GraveyardBright_0: 7471936631545347180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

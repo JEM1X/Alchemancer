@@ -67,6 +67,15 @@ public abstract class Combatant : MonoBehaviour
     protected virtual void Death()
     {
         OnDeath?.Invoke();
+        ClearAllListeners();
         //Destroy(gameObject);
+    }
+    public void ClearAllListeners()
+    {
+        OnSpawn = null;
+        OnHealthChange = null;
+        OnVulnerableResilientChange = null;
+        OnWeakStrongChange = null;
+        OnDeath = null;
     }
 }
