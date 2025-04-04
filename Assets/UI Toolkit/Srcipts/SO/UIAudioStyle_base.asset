@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a12646dc999d2e44b91c4c9610420de7, type: 3}
   m_Name: UIAudioStyle_base
   m_EditorClassIdentifier: 
-  soundList: []
+  soundList:
+  - {fileID: 8300000, guid: 26125788ecf19ca4fa23477befc4fdec, type: 3}
