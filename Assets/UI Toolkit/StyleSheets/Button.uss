@@ -1,12 +1,20 @@
 .unity-button {
     padding: 12px;
-    border-width: 0;
+    border-width: 0px;
     margin: 0;
     transition-duration: 0.2s;
     transition-timing-function: ease;
+    font-size: 32px;
 }
 
 .unity-button:hover {
     background-color: whitesmoke;
     scale: 1.1 1.1;
+}
+
+.MainButton {
+    border-width: 6px;
+    border-radius: 10px;
+    border-color: rgb(40, 40, 40);
+    font-size: 48px;
 }

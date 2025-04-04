@@ -8,6 +8,6 @@ public class HealthElixir : Elixir_SO
 
     public override void UseElixir(AlchemancerMediator mediator)
     {
-        mediator.Player.TakeHeal(heal);
+        mediator.PlayerCombat.TakeHeal(heal);
     }
 }

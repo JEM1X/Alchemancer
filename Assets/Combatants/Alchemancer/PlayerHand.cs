@@ -65,6 +65,12 @@ public class PlayerHand : MonoBehaviour
 
     public bool TryCombineIngredients(Ingredient_SO[] ingredients, out Potion_SO craftedPotion)
     {
+        if(ingredients.Distinct().Count() != ingredients.Length)
+        {
+            craftedPotion = null;
+            return false;
+        }
+
         craftedPotion = RecipeList.AllPotions.FirstOrDefault(potion =>
         potion.Ingredients.Length == ingredients.Length && ingredients.All(potion.IsinRecipe));
 
@@ -97,7 +103,7 @@ public class PlayerHand : MonoBehaviour
     {
         if (playerPotions.Remove(flask))
         {
-            flask.UseFlask(mediator.Horde.EnemyScript.ToArray());
+            flask.UseFlask(mediator.Horde.EnemyScripts.ToArray());
             return;
         }
 

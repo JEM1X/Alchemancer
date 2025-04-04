@@ -12,18 +12,24 @@ public abstract class Combatant : MonoBehaviour
     public int WeakStrong { get => weakStrong; }
     [SerializeField] protected int weakStrong = 0;
 
+    public event Action<Combatant> OnSpawn;
     public event Action<int> OnHealthChange;
     public event Action<int> OnVulnerableResilientChange;
     public event Action<int> OnWeakStrongChange;
     public event Action OnDeath;
 
 
+    protected void Start()
+    {
+        OnSpawn?.Invoke(this);
+    }
+
     public virtual void TakeDamage(int damage)
     {
-        if (vulnerableResilient > 0)
+        if (vulnerableResilient < 0)
             damage *= 2;
 
-        if (vulnerableResilient < 0)
+        if (vulnerableResilient > 0)
             damage = damage / 2;
 
         health -= damage;

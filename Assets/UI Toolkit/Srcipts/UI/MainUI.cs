@@ -9,11 +9,13 @@ public class MainUI : MonoBehaviour
     [Header("Scene")]
     [SerializeField] private Camera mainCamera;
     [SerializeField] private AlchemancerMediator mediator;
+    [SerializeField] private AudioSource audioSource;
 
     [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private UIStyle_SO styleSheet;
-    [SerializeField] private UIEnemyStyle_SO enemyStyle;
+    [SerializeField] private UICombatStyle_SO CombatStyle;
+    [SerializeField] private UIAudioStyle_SO AudioStyle;
 
     private VisualElement handUI;
     private VisualElement beltUI;
@@ -21,7 +23,7 @@ public class MainUI : MonoBehaviour
 
     private List<IngredientCard> cardsInCauldron = new List<IngredientCard>(0);
     private PotionCard potionInUse = null;
-    private List<EnemyCard> enemyCards;
+    private List<CombatantCard> enemyCards;
 
     private void Awake()
     {
@@ -29,6 +31,7 @@ public class MainUI : MonoBehaviour
 
         mediator.PlayerHand.OnNewIngredient += InitializeIngredientCard;
         mediator.PlayerHand.OnNewPotion += InitializePotionCard;
+        mediator.PlayerCombat.OnSpawn += (Combatant combatant) => InitializePlayer((PlayerCombat)combatant);
         mediator.Horde.OnNewEnemy += InitializeEnemy;
     }
 
@@ -48,13 +51,14 @@ public class MainUI : MonoBehaviour
 
         beltUI = UITK.AddElement(canvas, "beltUI");
 
-        var endTurnButton = UITK.AddElement<Button>(canvas, "endTurnButton");
+        var endTurnButton = UITK.AddElement<Button>(canvas, "endTurnButton", "MainButton");
         endTurnButton.text = "Завершить Ход";
+        endTurnButton.clicked += () => audioSource.PlayOneShot(AudioStyle.SoundList[0]);
         endTurnButton.clicked += ClearCauldron;
         endTurnButton.clicked += handUI.Clear;
         endTurnButton.clicked += mediator.PlayerHand.DrawNewHand;
 
-        var brewButton = UITK.AddElement<Button>(canvas, "brewButton");
+        var brewButton = UITK.AddElement<Button>(canvas, "brewButton", "MainButton");
         brewButton.text = "Сварить";
         brewButton.clicked += BrewPotion;
     }
@@ -81,9 +85,15 @@ public class MainUI : MonoBehaviour
 
     private void InitializeEnemy(Enemy enemy)
     {
-        var enemyCard = new EnemyCard(enemy, enemyStyle, mainCamera);
-        hordeUI.Add(enemyCard.enemyFrame);
-        enemyCard.enemyFrame.clicked += () => AttackEnemy(enemy);
+        var enemyCard = new CombatantCard(enemy, CombatStyle, mainCamera);
+        hordeUI.Add(enemyCard.combatantFrame);
+        enemyCard.combatantFrame.clicked += () => AttackEnemy(enemy);
+    }
+
+    private void InitializePlayer(PlayerCombat player)
+    {
+        var playerCard = new CombatantCard(player, CombatStyle, mainCamera);
+        hordeUI.Add(playerCard.combatantFrame);
     }
 
     private void UseIngredientCard(IngredientCard card)

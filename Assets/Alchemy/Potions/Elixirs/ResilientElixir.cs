@@ -8,6 +8,6 @@ public class ResilientElixir : Elixir_SO
 
     public override void UseElixir(AlchemancerMediator mediator)
     {
-        mediator.Player.InflictVulnerableResilient(amount);
+        mediator.PlayerCombat.InflictVulnerableResilient(amount);
     }
 }

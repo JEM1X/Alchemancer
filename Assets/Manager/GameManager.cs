@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         _horde.OnNewEnemy += AddEnemyToQueue;
 
         // Добавляем уже заспавненных врагов
-        foreach (var enemy in _horde.EnemyScript)
+        foreach (var enemy in _horde.EnemyScripts)
         {
             AddEnemyToQueue(enemy);
         }
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
 
         turnQueue.Enqueue(player);
 
-        foreach (var enemy in _horde.EnemyScript)
+        foreach (var enemy in _horde.EnemyScripts)
         {
             turnQueue.Enqueue(enemy);
         }
@@ -114,14 +114,14 @@ public class GameManager : MonoBehaviour
 
     private void PlayerAttack()
     {
-        if (_horde.EnemyScript.Count == 0)
+        if (_horde.EnemyScripts.Count == 0)
         {
             Debug.Log("Все враги на уровне повержены");
             HandleWaveEnd();
             return;
         }
 
-        Enemy target = _horde.EnemyScript[0]; // Берем первого врага в списке
+        Enemy target = _horde.EnemyScripts[0]; // Берем первого врага в списке
         int damage = 10; // Урон игрока (можно сделать динамическим)
 
         target.TakeDamage(damage);
@@ -129,10 +129,10 @@ public class GameManager : MonoBehaviour
 
         if (target.Health <= 0)
         {
-            _horde.EnemyScript.Remove(target); // Удаляем врага из списка, если он умер
+            _horde.EnemyScripts.Remove(target); // Удаляем врага из списка, если он умер
         }
 
-        if (_horde.EnemyScript.Count == 0)
+        if (_horde.EnemyScripts.Count == 0)
         {
             HandleWaveEnd();
         }
@@ -180,7 +180,4 @@ public class GameManager : MonoBehaviour
         // Логика загрузки следующего уровня, например:
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
-
-
 }

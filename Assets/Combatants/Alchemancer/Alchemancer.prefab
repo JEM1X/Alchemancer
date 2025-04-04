@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHand: {fileID: 265192376240970198}
-  player: {fileID: 7218480434924797693}
+  playerCombat: {fileID: 7218480434924797693}
   horde: {fileID: 0}
 --- !u!114 &7218480434924797693
 MonoBehaviour:
@@ -152,6 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 10
   health: 10
+  vulnerableResilient: 0
+  weakStrong: 0
   gameManager: {fileID: 0}
 --- !u!114 &265192376240970198
 MonoBehaviour:

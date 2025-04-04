@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Horde : MonoBehaviour
 {
-    public List<Enemy> EnemyScript { get => enemyScripts; }
+    public List<Enemy> EnemyScripts { get => enemyScripts; }
     [SerializeField] private List<Enemy> enemyScripts;
 
     [SerializeField] private GameObject enemyPrefab;
@@ -12,6 +12,7 @@ public class Horde : MonoBehaviour
     [SerializeField] private int spawnCount;
 
     public event Action<Enemy> OnNewEnemy;
+    public event Action OnNoEnemyLeft;
 
 
     private void Start()
@@ -34,6 +35,22 @@ public class Horde : MonoBehaviour
             enemyScripts.Add(script);
 
             OnNewEnemy?.Invoke(script);
+            script.OnDeath += () => UpdateEnemyList(script);
+
         }
+    }
+
+    private void UpdateEnemyList(Enemy enemy)
+    {
+        if (!enemyScripts.Remove(enemy))
+        {
+            Debug.LogWarning("No enemy found");
+            return;
+        }
+
+        if (enemyScripts.Count > 0) return;
+
+        Debug.Log("No enemy left");
+        OnNoEnemyLeft?.Invoke();
     }
 }
