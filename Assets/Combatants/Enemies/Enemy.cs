@@ -19,8 +19,14 @@ public class Enemy : Combatant
 
         if (attackParticles != null)
             attackParticles.Play();
-
-        BattleM.Instance.PlayerTakeDamage(_damage);
+        if (weakStrong != 0)
+        {
+            BattleM.Instance.PlayerTakeDamage(_damage / 2);
+        }
+        else 
+        {
+            BattleM.Instance.PlayerTakeDamage(_damage);
+        }
         onTurnEnd?.Invoke();
     }
 
