@@ -13,11 +13,18 @@ public class InGameMenu : MonoBehaviour
 
     private VisualElement victoryScreen;
     private bool isVictoryVisible = true;
-
+    private VisualElement defeatScreen;
+    private bool isDefeatVisible = true;
 
     private void Awake()
     {
         InitializeUI();
+    }
+
+    private void Start()
+    {
+        BattleM.Instance.OnAllWavesCleared += ToggleVictoryScreen;
+        BattleM.Instance.OnPlayerLose += ToggleDefeatScreen;
     }
 
     private void InitializeUI()
@@ -39,10 +46,22 @@ public class InGameMenu : MonoBehaviour
 
         var nextButton = UITK.AddElement<Button>(victoryFrame, "nextButton", "MainButton");
         nextButton.text = "Дальше";
-        nextButton.clicked += () => SceneManager.LoadScene(1);
+        nextButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
         ToggleVictoryScreen();
-        //mediator.Horde.OnNoEnemyLeft += ToggleVictoryScreen;
+
+        defeatScreen = UITK.AddElement(canvas, "defeatScreen");
+
+        var defeatFrame = UITK.AddElement(defeatScreen, "defeatFrame");
+
+        var defeatLabel = UITK.AddElement<Label>(defeatFrame, "defeatLabel");
+        defeatLabel.text = "Поражение";
+
+        var againButton = UITK.AddElement<Button>(defeatFrame, "againButton", "MainButton");
+        againButton.text = "Начать занаво";
+        againButton.clicked += () => SceneManager.LoadScene(1);
+
+        ToggleDefeatScreen();
     }
 
     private void ToggleVictoryScreen()
@@ -56,6 +75,20 @@ public class InGameMenu : MonoBehaviour
         {
             victoryScreen.style.display = DisplayStyle.Flex;
             isVictoryVisible = true;
+        }
+    }
+
+    private void ToggleDefeatScreen()
+    {
+        if (isDefeatVisible)
+        {
+            defeatScreen.style.display = DisplayStyle.None;
+            isDefeatVisible = false;
+        }
+        else
+        {
+            defeatScreen.style.display = DisplayStyle.Flex;
+            isDefeatVisible = true;
         }
     }
 }

@@ -29,6 +29,7 @@ public class MainMenu : MonoBehaviour
 
         var startButton = UITK.AddElement<Button>(menu, "startButton", "MainButton");
         startButton.text = "Начать игру";
+        startButton.clicked += () => AudioM.Instance.PlaySound(AudioM.Instance.uiSounds[0]);
         startButton.clicked += () => SceneManager.LoadScene(1);
 
         //var optionsButton = UITK.AddElement<Button>(menu, "optionsButton", "MainButton");
@@ -36,6 +37,7 @@ public class MainMenu : MonoBehaviour
 
         var exitButton = UITK.AddElement<Button>(menu, "exitButton", "MainButton");
         exitButton.text = "Выход";
+        exitButton.clicked += () => AudioM.Instance.PlaySound(AudioM.Instance.uiSounds[0]);
         exitButton.clicked += Application.Quit;
     }
 }

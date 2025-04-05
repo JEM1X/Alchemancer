@@ -20,7 +20,7 @@ public class Enemy : Combatant
         if (attackParticles != null)
             attackParticles.Play();
 
-        BM.Instance.PlayerTakeDamage(_damage);
+        BattleM.Instance.PlayerTakeDamage(_damage);
         onTurnEnd?.Invoke();
     }
 

@@ -136,3 +136,12 @@
         opacity: 1;
         background-color: rgba(0, 0, 0, 0);
     }
+
+.waveCounter {
+    position: absolute;
+    align-self: center;
+    top: 10px;
+    color: rgb(235, 235, 235);
+    font-size: 56px;
+    text-shadow: -6px 3px 0 rgb(0, 0, 0);
+}
