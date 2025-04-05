@@ -733,7 +733,11 @@ MonoBehaviour:
   enemyScripts: []
   enemyPrefabs:
   - {fileID: 6408667138530730140, guid: 5eea85d22df0d2a4f8fe863dcffc3f8d, type: 3}
+  - {fileID: 6408667138530730140, guid: 5eea85d22df0d2a4f8fe863dcffc3f8d, type: 3}
+  - {fileID: 6408667138530730140, guid: 5eea85d22df0d2a4f8fe863dcffc3f8d, type: 3}
   - {fileID: 6408667138530730140, guid: 0c572437e99428a43810db28b8b3b0c9, type: 3}
+  - {fileID: 6408667138530730140, guid: 0c572437e99428a43810db28b8b3b0c9, type: 3}
+  - {fileID: 6408667138530730140, guid: 89daa385863e15f4ea62d3dae12ecc50, type: 3}
   spawnPoints:
   - {fileID: 1619143737}
   - {fileID: 1278090437}

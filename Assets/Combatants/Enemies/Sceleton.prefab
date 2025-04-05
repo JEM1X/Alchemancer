@@ -281,10 +281,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae7c5b321f285b43ab01e75899333d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 10
-  health: 10
+  healthMax: 7
+  health: 7
   vulnerableResilient: 0
   weakStrong: 0
+  bleedStacks: 0
   attackMoveDistance: 5
   attackDuration: 0.25
   attackParticles: {fileID: 0}
