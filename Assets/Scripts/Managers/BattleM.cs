@@ -1,21 +1,14 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class BM : MonoBehaviour
+public class BattleM : Singleton<BattleM>
 {
-    public static BM Instance;
-
     [Header("Battle Settings")]
     [SerializeField] private Horde horde;
     [SerializeField] private Combatant player;
     [SerializeField] private int totalWaves = 3;
     [SerializeField] private float waveDelay = 2f;
-
-    public event Action OnPlayerTurnStarted;
-    public event Action OnEnemyTurnStarted;
 
     private int currentWave = 0;
     private bool isPlayerTurn = true;
@@ -24,16 +17,13 @@ public class BM : MonoBehaviour
     private bool isEnemyTurnInProgress = false;
     private bool isWaveInProgress = false;
     private bool isWaveCleared = false;
+
+    public event Action OnPlayerTurnStarted;
+    public event Action OnEnemyTurnStarted;
     public event Action OnAllWavesCleared;
     public event Action OnPlayerLose;
     public event Action<int> OnWaveClear;
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
-    }
+
 
     private void Start()
     {

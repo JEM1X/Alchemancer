@@ -27,7 +27,7 @@ public class PlayerHand : MonoBehaviour
 
     private void Start()
     {
-        BM.Instance.OnPlayerTurnStarted += DrawNewHand;
+        BattleM.Instance.OnPlayerTurnStarted += DrawNewHand;
     }
 
     public void DrawNewHand()

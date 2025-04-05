@@ -67,14 +67,14 @@ public class InGameGuide : MonoBehaviour
             isVisible = false;
 
             if(sound)
-                AudioManager.Instance.PlaySound(AudioManager.Instance.guideSounds[1]);
+                AudioM.Instance.PlaySound(AudioM.Instance.guideSounds[1]);
         }
         else
         {
             background.style.display = DisplayStyle.Flex;
             isVisible = true;
             if(sound)
-                AudioManager.Instance.PlaySound(AudioManager.Instance.guideSounds[0]);
+                AudioM.Instance.PlaySound(AudioM.Instance.guideSounds[0]);
         }
     }
 }

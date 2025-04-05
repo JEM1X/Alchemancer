@@ -20,6 +20,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                 instance = newInstance.AddComponent<T>();
                 Debug.LogWarning($"Could not find {typeof(T).Name}, new instance was created");
             }
+
             return instance;
         }
     }

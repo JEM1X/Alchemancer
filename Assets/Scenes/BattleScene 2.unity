@@ -1040,10 +1040,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 265192376240970198, guid: efaebaac153717e4fa93dfe4d253b239, type: 3}
-      propertyPath: potionList
-      value: 
-      objectReference: {fileID: 11400000, guid: e79c61727b3a92f4bb316e2a53811743, type: 2}
     - target: {fileID: 2454345752319418725, guid: efaebaac153717e4fa93dfe4d253b239, type: 3}
       propertyPath: horde
       value: 

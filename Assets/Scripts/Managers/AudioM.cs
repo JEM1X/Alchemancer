@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AudioManager : Singleton<AudioManager>
+public class AudioM : Singleton<AudioM>
 {
     public AudioClip[] music;
     public AudioClip[] uiSounds;
@@ -15,7 +15,6 @@ public class AudioManager : Singleton<AudioManager>
         audioSource.Play();
     }
 
-
     public void PlaySound(AudioClip sound)
     {
         audioSource.PlayOneShot(sound);
@@ -23,6 +22,7 @@ public class AudioManager : Singleton<AudioManager>
 
     public void PlayOnLoop(AudioClip sound)
     {
+        audioSource.resource = sound;
         audioSource.Play();
     }
 }
