@@ -5,6 +5,7 @@ public class InGameGuide : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private UIStyle_SO styleSheet;
+    [SerializeField] private Sprite sprite;
 
     private VisualElement background;
     private bool isVisible = true;
@@ -53,22 +54,28 @@ public class InGameGuide : MonoBehaviour
 
         var toggleButton = UITK.AddElement<Button>(canvas, "toggleButton");
         toggleButton.text = "Гайд";
-        toggleButton.clicked += ToggleGuide;
+        toggleButton.style.backgroundImage = new StyleBackground(sprite);
+        toggleButton.clicked += () => ToggleGuide();
 
-        ToggleGuide();
+        ToggleGuide(false);
     }
 
-    private void ToggleGuide()
+    private void ToggleGuide(bool sound = true)
     {
         if (isVisible)
         {
             background.style.display = DisplayStyle.None;
             isVisible = false;
+
+            if(sound)
+                AudioManager.Instance.PlaySound(AudioManager.Instance.guideSounds[1]);
         }
         else
         {
             background.style.display = DisplayStyle.Flex;
             isVisible = true;
+            if(sound)
+                AudioManager.Instance.PlaySound(AudioManager.Instance.guideSounds[0]);
         }
     }
 }

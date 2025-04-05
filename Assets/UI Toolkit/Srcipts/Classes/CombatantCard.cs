@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -35,20 +34,20 @@ public class CombatantCard
         var healthFrame = UITK.AddElement(combatantFrame, "healthFrame", "effectFrame");
         healthFrame.style.backgroundImage = new StyleBackground(combatantStyle.healthIcon);
 
-        var healthAmount = UITK.AddElement<Label>(healthFrame, "healthAmount", "effectAmount");
+        var healthAmount = UITK.AddElement<Label>(healthFrame, "healthAmount", "effectAmount", "ClearText");
         healthAmount.text = combatant.Health.ToString();
 
         //vulnerable
         vulnerableFrame = UITK.AddElement(combatantFrame, "vulnerableFrame", "effectFrame");
         vulnerableFrame.style.backgroundImage = new StyleBackground(combatantStyle.vulnerableIcon);
 
-        vulnerableAmount = UITK.AddElement<Label>(vulnerableFrame, "vulnerableAmount", "effectAmount");
+        vulnerableAmount = UITK.AddElement<Label>(vulnerableFrame, "vulnerableAmount", "effectAmount", "ClearText");
 
         //resilient
         resilientFrame = UITK.AddElement(combatantFrame, "resilientFrame", "effectFrame");
         resilientFrame.style.backgroundImage = new StyleBackground(combatantStyle.resilientIcon);
 
-        resilientAmount = UITK.AddElement<Label>(resilientFrame, "resilientAmount", "effectAmount");
+        resilientAmount = UITK.AddElement<Label>(resilientFrame, "resilientAmount", "effectAmount", "ClearText");
 
         UpdateVulnerableResilient(0);
 
@@ -56,13 +55,13 @@ public class CombatantCard
         weakFrame = UITK.AddElement(combatantFrame, "weakFrame", "effectFrame");
         weakFrame.style.backgroundImage = new StyleBackground(combatantStyle.weakIcon);
 
-        weakAmount = UITK.AddElement<Label>(weakFrame, "weakAmount", "effectAmount");
+        weakAmount = UITK.AddElement<Label>(weakFrame, "weakAmount", "effectAmount", "ClearText");
 
         //strong
         strongFrame = UITK.AddElement(combatantFrame, "strongFrame", "effectFrame");
         strongFrame.style.backgroundImage = new StyleBackground(combatantStyle.weakIcon);
 
-        strongAmount = UITK.AddElement<Label>(strongFrame, "strongAmount", "effectAmount");
+        strongAmount = UITK.AddElement<Label>(strongFrame, "strongAmount", "effectAmount", "ClearText");
 
         UpdateWeakStrong(0);
 
