@@ -286,6 +286,6 @@ MonoBehaviour:
   vulnerableResilient: 0
   weakStrong: 0
   attackMoveDistance: 5
-  attackDuration: 0.5
+  attackDuration: 0.25
   attackParticles: {fileID: 0}
   _damage: 2

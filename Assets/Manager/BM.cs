@@ -71,6 +71,7 @@ public class BM : MonoBehaviour
 
         // Вызываем событие начала хода игрока
         OnPlayerTurnStarted?.Invoke();
+        player.ReduceStatusEffects();   
     }
 
     public void CompletePlayerTurn()

@@ -284,11 +284,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
   mediator: {fileID: 1948359766}
-  audioSource: {fileID: 95812036}
   uiDocument: {fileID: 95812033}
   styleSheet: {fileID: 11400000, guid: 556b260768c56074b83476f7a4e6d2a9, type: 2}
   combatStyle: {fileID: 11400000, guid: 24276db82a1fcc04eba2b5bc26ddeba0, type: 2}
-  audioStyle: {fileID: 11400000, guid: 8d0a05920a28ae641ba8c5324148efa0, type: 2}
 --- !u!82 &95812036
 AudioSource:
   m_ObjectHideFlags: 0
@@ -618,6 +616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 1066335577}
   styleSheet: {fileID: 11400000, guid: 556b260768c56074b83476f7a4e6d2a9, type: 2}
+  sprite: {fileID: 0}
 --- !u!114 &1066335577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,6 +667,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1484934167}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1421937383
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 869823348420331411, guid: 81c9242ebca228d48aeab8c7c1814dea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869823348420331411, guid: 81c9242ebca228d48aeab8c7c1814dea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869823348420331411, guid: 81c9242ebca228d48aeab8c7c1814dea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869823348420331411, guid: 81c9242ebca228d48aeab8c7c1814dea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 869823348420331411, guid: 81c9242ebca228d48aeab8c7c1814dea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869823348420331411, guid: 81c9242ebca228d48aeab8c7c1814dea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869823348420331411, guid: 81c9242ebca228d48aeab8c7c1814dea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869823348420331411, guid: 81c9242ebca228d48aeab8c7c1814dea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869823348420331411, guid: 81c9242ebca228d48aeab8c7c1814dea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869823348420331411, guid: 81c9242ebca228d48aeab8c7c1814dea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3084813893208651892, guid: 81c9242ebca228d48aeab8c7c1814dea, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 81c9242ebca228d48aeab8c7c1814dea, type: 3}
 --- !u!1 &1484934166
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,8 +789,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyScripts: []
   enemyPrefabs:
-  - {fileID: 6408667138530730140, guid: 5eea85d22df0d2a4f8fe863dcffc3f8d, type: 3}
-  - {fileID: 6408667138530730140, guid: 0c572437e99428a43810db28b8b3b0c9, type: 3}
+  - {fileID: 6408667138530730140, guid: 9ac0c0536b8f5744490c140f4c128283, type: 3}
+  - {fileID: 6408667138530730140, guid: 9ac0c0536b8f5744490c140f4c128283, type: 3}
+  - {fileID: 6408667138530730140, guid: 8d7ab5e04401749408e63525fae3bd0b, type: 3}
+  - {fileID: 6408667138530730140, guid: 89daa385863e15f4ea62d3dae12ecc50, type: 3}
   spawnPoints:
   - {fileID: 1619143737}
   - {fileID: 1278090437}
@@ -1051,3 +1109,4 @@ SceneRoots:
   - {fileID: 2119657626}
   - {fileID: 1927931459}
   - {fileID: 302657338}
+  - {fileID: 1421937383}

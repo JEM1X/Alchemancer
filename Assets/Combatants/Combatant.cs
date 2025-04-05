@@ -9,14 +9,15 @@ public abstract class Combatant : MonoBehaviour
     public int Health { get => health; }
     [SerializeField] protected int health = 5;
     public int VulnerableResilient { get => vulnerableResilient; }
-    [SerializeField] protected int vulnerableResilient = 0;
     public int WeakStrong { get => weakStrong; }
+    [SerializeField] protected int vulnerableResilient = 0;
     [SerializeField] protected int weakStrong = 0;
-
+    [SerializeField] protected int bleedStacks = 0; // Новый статус
     public event Action<Combatant> OnSpawn;
     public event Action<int> OnHealthChange;
     public event Action<int> OnVulnerableResilientChange;
     public event Action<int> OnWeakStrongChange;
+    public event Action<int> OnBleedChanged;
     public event Action OnDeath;
 
 
@@ -64,7 +65,11 @@ public abstract class Combatant : MonoBehaviour
         weakStrong += amount;
         OnWeakStrongChange?.Invoke(amount);
     }
-
+    public virtual void InflictBleed(int stacks)
+    {
+        bleedStacks += stacks;
+        OnBleedChanged?.Invoke(bleedStacks);
+    }
     protected virtual void Death()
     {
         OnDeath?.Invoke();
@@ -77,11 +82,24 @@ public abstract class Combatant : MonoBehaviour
         OnHealthChange = null;
         OnVulnerableResilientChange = null;
         OnWeakStrongChange = null;
+        OnBleedChanged = null;
         OnDeath = null;
     }
     public virtual void ReduceStatusEffects()
     {
-        
+        // Обработка кровотечения
+        if (bleedStacks > 0)
+        {
+            TakeDamage(bleedStacks); // Наносим урон
+            int oldBleed = bleedStacks;
+            bleedStacks = Mathf.Max(0, bleedStacks - 1); // Уменьшаем стаки
+            if (oldBleed != bleedStacks)
+            {
+                OnBleedChanged?.Invoke(bleedStacks);
+            }
+        }
+
+        // Оригинальная логика для других статусов
         if (weakStrong != 0)
         {
             int change = weakStrong > 0 ? -1 : 1;
@@ -89,7 +107,6 @@ public abstract class Combatant : MonoBehaviour
             OnWeakStrongChange?.Invoke(change);
         }
 
-        
         if (vulnerableResilient != 0)
         {
             int change = vulnerableResilient > 0 ? -1 : 1;
