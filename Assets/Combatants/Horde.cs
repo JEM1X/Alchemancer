@@ -53,4 +53,14 @@ public class Horde : MonoBehaviour
         Debug.Log("No enemy left");
         OnNoEnemyLeft?.Invoke();
     }
+    
+    
+        // Замените List на ObservableCollection или добавьте:
+    public void RemoveEnemy(Enemy enemy)
+    {
+        EnemyScripts.Remove(enemy);
+        if (EnemyScripts.Count == 0)
+            OnNoEnemyLeft?.Invoke();
+    }
+    
 }

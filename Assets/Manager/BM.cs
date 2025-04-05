@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -100,18 +101,28 @@ public class BM : MonoBehaviour
 
     private IEnumerator ExecuteEnemyTurns()
     {
-        foreach (var enemy in horde.EnemyScripts)
+        // —оздаем копию списка дл€ безопасного перебора
+        var enemies = new List<Enemy>(horde.EnemyScripts);
+
+        foreach (var enemy in enemies)
         {
-            if (isBattleOver || !isWaveInProgress) yield break;
+            if (isBattleOver || !isWaveInProgress || enemy == null)
+                yield break;
 
             bool enemyTurnCompleted = false;
             yield return new WaitForSeconds(1f);
-            enemy.TakeTurn(() => enemyTurnCompleted = true);
 
-            while (!enemyTurnCompleted && !isBattleOver)
-                yield return null;
+            // ѕровер€ем, не уничтожен ли враг
+            if (enemy != null)
+            {
+                enemy.TakeTurn(() => enemyTurnCompleted = true);
 
-            enemy.ReduceStatusEffects();
+                while (!enemyTurnCompleted && !isBattleOver && enemy != null)
+                    yield return null;
+
+                if (enemy != null)
+                    enemy.ReduceStatusEffects();
+            }
         }
 
         isEnemyTurnInProgress = false;
