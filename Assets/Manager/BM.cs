@@ -14,7 +14,6 @@ public class BM : MonoBehaviour
     [SerializeField] private int totalWaves = 3;
     [SerializeField] private float waveDelay = 2f;
 
-    // События
     public event Action OnPlayerTurnStarted;
     public event Action OnEnemyTurnStarted;
 
@@ -24,7 +23,10 @@ public class BM : MonoBehaviour
     private bool isPlayerMoveCompleted = false;
     private bool isEnemyTurnInProgress = false;
     private bool isWaveInProgress = false;
-
+    private bool isWaveCleared = false;
+    public event Action OnAllWavesCleared;
+    public event Action OnPlayerLose;
+    public event Action<int> OnWaveClear;
     private void Awake()
     {
         if (Instance == null)
@@ -41,25 +43,33 @@ public class BM : MonoBehaviour
 
     private IEnumerator BattleLoop()
     {
-        for (currentWave = 1; currentWave <= totalWaves; currentWave++)
+        currentWave = 1;
+        yield return ContinueBattleLoop();
+    }
+
+    private IEnumerator ContinueBattleLoop()
+    {
+        yield return new WaitForSeconds(waveDelay);
+
+        if (currentWave > totalWaves)
         {
-            Debug.Log($"Начинается волна {currentWave}/{totalWaves}");
-            isWaveInProgress = true;
-
-            horde.SpawnEnemy();
-            horde.OnNoEnemyLeft += OnWaveCleared;
-
-            StartPlayerTurn();
-
-            while (isWaveInProgress && !isBattleOver)
-                yield return null;
-
-            if (isBattleOver) yield break;
-
-            yield return new WaitForSeconds(waveDelay);
+            Victory();
+            yield break;
         }
 
-        Victory();
+        Debug.Log($"Начинается волна {currentWave}/{totalWaves}");
+        isWaveInProgress = true;
+
+        horde.SpawnEnemy();
+        horde.OnNoEnemyLeft += OnWaveCleared;
+
+        if (horde.EnemyScripts.Count == 0)
+        {
+            OnWaveCleared();
+            yield break;
+        }
+
+        StartPlayerTurn();
     }
 
     public void StartPlayerTurn()
@@ -70,18 +80,30 @@ public class BM : MonoBehaviour
         isPlayerMoveCompleted = false;
         Debug.Log($"Ход игрока (волна {currentWave})");
 
-        // Вызываем событие начала хода игрока
         OnPlayerTurnStarted?.Invoke();
-        player.ReduceStatusEffects();   
+        player.ReduceStatusEffects();
     }
 
     public void CompletePlayerTurn()
     {
-        if (!isPlayerTurn || isPlayerMoveCompleted || isBattleOver) return;
+        if (!isPlayerTurn || isPlayerMoveCompleted || isBattleOver)
+        {
+            Debug.Log($"[CompletePlayerTurn] Пропущено. Условия: isPlayerTurn={isPlayerTurn}, isPlayerMoveCompleted={isPlayerMoveCompleted}, isBattleOver={isBattleOver}");
+            return;
+        }
 
         isPlayerMoveCompleted = true;
         isPlayerTurn = false;
         Debug.Log("Ход игрока завершен");
+
+        if (isWaveCleared)
+        {
+            isWaveCleared = false;
+            isWaveInProgress = false;
+            currentWave++;
+            StartCoroutine(ContinueBattleLoop());
+            return;
+        }
 
         StartEnemyTurn();
     }
@@ -93,7 +115,6 @@ public class BM : MonoBehaviour
         isEnemyTurnInProgress = true;
         Debug.Log($"Ход врагов (волна {currentWave})");
 
-        // Вызываем событие начала хода врагов
         OnEnemyTurnStarted?.Invoke();
 
         StartCoroutine(ExecuteEnemyTurns());
@@ -101,18 +122,22 @@ public class BM : MonoBehaviour
 
     private IEnumerator ExecuteEnemyTurns()
     {
-        // Создаем копию списка для безопасного перебора
-        var enemies = new List<Enemy>(horde.EnemyScripts);
+        var aliveEnemies = horde.EnemyScripts.FindAll(e => e != null);
 
-        foreach (var enemy in enemies)
+        if (aliveEnemies.Count == 0)
         {
-            if (isBattleOver || !isWaveInProgress || enemy == null)
-                yield break;
+            isEnemyTurnInProgress = false;
+            OnWaveCleared();
+            yield break;
+        }
+
+        foreach (var enemy in aliveEnemies)
+        {
+            if (isBattleOver || !isWaveInProgress) yield break;
 
             bool enemyTurnCompleted = false;
             yield return new WaitForSeconds(1f);
 
-            // Проверяем, не уничтожен ли враг
             if (enemy != null)
             {
                 enemy.TakeTurn(() => enemyTurnCompleted = true);
@@ -120,24 +145,26 @@ public class BM : MonoBehaviour
                 while (!enemyTurnCompleted && !isBattleOver && enemy != null)
                     yield return null;
 
-                if (enemy != null)
-                    enemy.ReduceStatusEffects();
+                if (!isWaveInProgress || isBattleOver) yield break;
             }
         }
 
         isEnemyTurnInProgress = false;
 
-        if (!isBattleOver && isWaveInProgress)
+        if (!isBattleOver && isWaveInProgress && horde.EnemyScripts.Exists(e => e != null))
+        {
             StartPlayerTurn();
+        }
     }
 
     private void OnWaveCleared()
     {
         if (!isWaveInProgress || isBattleOver) return;
-
+        OnWaveClear?.Invoke(currentWave);
         Debug.Log($"Волна {currentWave} пройдена!");
         horde.OnNoEnemyLeft -= OnWaveCleared;
-        isWaveInProgress = false;
+
+        isWaveCleared = true;
     }
 
     private void OnPlayerDeath()
@@ -152,13 +179,12 @@ public class BM : MonoBehaviour
     private void Victory()
     {
         isBattleOver = true;
-        Debug.Log("Победа! Все волны пройдены!");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        OnAllWavesCleared?.Invoke();
     }
 
     private void Defeat()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        OnPlayerLose?.Invoke();
     }
 
     private void OnDestroy()
@@ -166,7 +192,6 @@ public class BM : MonoBehaviour
         player.OnDeath -= OnPlayerDeath;
         horde.OnNoEnemyLeft -= OnWaveCleared;
 
-        // Очищаем все подписки
         OnPlayerTurnStarted = null;
         OnEnemyTurnStarted = null;
     }
