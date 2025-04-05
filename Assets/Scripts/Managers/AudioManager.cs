@@ -10,6 +10,11 @@ public class AudioManager : Singleton<AudioManager>
 
     [SerializeField] private AudioSource audioSource;
 
+    private void Start()
+    {
+        audioSource.Play();
+    }
+
 
     public void PlaySound(AudioClip sound)
     {

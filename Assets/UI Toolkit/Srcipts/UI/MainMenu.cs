@@ -31,10 +31,11 @@ public class MainMenu : MonoBehaviour
         startButton.text = "Начать игру";
         startButton.clicked += () => SceneManager.LoadScene(1);
 
-        var optionsButton = UITK.AddElement<Button>(menu, "optionsButton", "MainButton");
-        optionsButton.text = "Настройки";
+        //var optionsButton = UITK.AddElement<Button>(menu, "optionsButton", "MainButton");
+        //optionsButton.text = "Настройки";
 
         var exitButton = UITK.AddElement<Button>(menu, "exitButton", "MainButton");
         exitButton.text = "Выход";
+        exitButton.clicked += Application.Quit;
     }
 }
