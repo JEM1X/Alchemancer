@@ -9,8 +9,7 @@ public class MultiCapsule : Capsule_SO
     public override void UseCapsule(Enemy enemy)
     {
         enemy.InflictWeakStrong(-amount);
-        enemy.TakeDamage(amount);
+        enemy.InflictBleed(amount);
         enemy.InflictVulnerableResilient(-amount);
     }
-
 }

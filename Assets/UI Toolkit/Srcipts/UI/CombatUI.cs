@@ -9,6 +9,7 @@ public class CombatUI : MonoBehaviour
     [Header("Scene")]
     [SerializeField] private Camera mainCamera;
     [SerializeField] private AlchemancerMediator mediator;
+    [SerializeField] private string stageName;
 
     [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
@@ -40,7 +41,7 @@ public class CombatUI : MonoBehaviour
     private void Start()
     {
         BattleM.Instance.OnPlayerTurnStarted += ToggleHand;
-        BattleM.Instance.OnWaveStart += (int wave) =>  UpdateWaveCounter(wave + 1);
+        BattleM.Instance.OnWaveStart += UpdateWaveCounter;
     }
 
     private void InitializeUI()
@@ -64,7 +65,10 @@ public class CombatUI : MonoBehaviour
         beltUI = UITK.AddElement(handUI, "beltUI");
 
         waveCounter = UITK.AddElement<Label>(canvas, "waveCounter");
-        UpdateWaveCounter(1);
+
+        var stageLabel = UITK.AddElement<Label>(canvas, "stageLabel");
+        stageLabel.text = stageName;
+        BattleM.Instance.OnWaveStart += (int amount) => stageLabel.style.opacity = 0;
 
         var endTurnButton = UITK.AddElement<Button>(interactionUI, "endTurnButton", "MainButton");
         endTurnButton.style.backgroundImage = new StyleBackground(combatStyle.forward);
@@ -219,6 +223,6 @@ public class CombatUI : MonoBehaviour
 
     private void UpdateWaveCounter(int wave)
     {
-        waveCounter.text = "Волна " + wave + "/3";
+        waveCounter.text = "Волна " + wave + "/" + BattleM.Instance.TotalWaves;
     }
 }

@@ -8,6 +8,7 @@ public class BattleM : Singleton<BattleM>
     [Header("Battle Settings")]
     [SerializeField] private Horde horde;
     [SerializeField] private Combatant player;
+    public int TotalWaves { get => totalWaves; }
     [SerializeField] private int totalWaves = 3;
     [SerializeField] private float waveDelay = 2f;
 
@@ -18,6 +19,7 @@ public class BattleM : Singleton<BattleM>
     private bool isEnemyTurnInProgress = false;
     private bool isWaveInProgress = false;
     private bool isWaveCleared = false;
+
 
     public event Action OnPlayerTurnStarted;
     public event Action OnEnemyTurnStarted;
