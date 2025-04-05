@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleM : Singleton<BattleM>
+public class BM : MonoBehaviour
 {
     [Header("Battle Settings")]
     [SerializeField] private Horde horde;
@@ -23,7 +22,8 @@ public class BattleM : Singleton<BattleM>
     public event Action OnEnemyTurnStarted;
     public event Action OnAllWavesCleared;
     public event Action OnPlayerLose;
-    public event Action<int> OnWaveStart;
+    public event Action<int> OnWaveClear;
+
 
     private void Start()
     {
@@ -49,15 +49,12 @@ public class BattleM : Singleton<BattleM>
 
         Debug.Log($"Начинается волна {currentWave}/{totalWaves}");
         isWaveInProgress = true;
-        isWaveCleared = false;
 
         horde.SpawnEnemy();
-        OnWaveStart?.Invoke(currentWave);
         horde.OnNoEnemyLeft += OnWaveCleared;
 
-        if (!HasAliveEnemies())
+        if (horde.EnemyScripts.Count == 0)
         {
-            Debug.LogWarning("Не удалось заспавнить врагов!");
             OnWaveCleared();
             yield break;
         }
@@ -79,22 +76,26 @@ public class BattleM : Singleton<BattleM>
 
     public void CompletePlayerTurn()
     {
-        if (!isPlayerTurn || isPlayerMoveCompleted || isBattleOver) return;
+        if (!isPlayerTurn || isPlayerMoveCompleted || isBattleOver)
+        {
+            Debug.Log($"[CompletePlayerTurn] Пропущено. Условия: isPlayerTurn={isPlayerTurn}, isPlayerMoveCompleted={isPlayerMoveCompleted}, isBattleOver={isBattleOver}");
+            return;
+        }
 
         isPlayerMoveCompleted = true;
         isPlayerTurn = false;
         Debug.Log("Ход игрока завершен");
 
-        if (!HasAliveEnemies())
+        if (isWaveCleared)
         {
-            OnWaveCleared();
+            isWaveCleared = false;
+            isWaveInProgress = false;
+            currentWave++;
+            StartCoroutine(ContinueBattleLoop());
             return;
         }
 
-        if (!isWaveCleared)
-        {
-            StartEnemyTurn();
-        }
+        StartEnemyTurn();
     }
 
     private void StartEnemyTurn()
@@ -105,53 +106,42 @@ public class BattleM : Singleton<BattleM>
         Debug.Log($"Ход врагов (волна {currentWave})");
 
         OnEnemyTurnStarted?.Invoke();
+
         StartCoroutine(ExecuteEnemyTurns());
     }
 
     private IEnumerator ExecuteEnemyTurns()
     {
-        var enemiesToProcess = GetAliveEnemies();
+        var aliveEnemies = horde.EnemyScripts.FindAll(e => e != null);
 
-        if (enemiesToProcess.Count == 0)
+        if (aliveEnemies.Count == 0)
         {
             isEnemyTurnInProgress = false;
             OnWaveCleared();
             yield break;
         }
 
-        foreach (var enemy in enemiesToProcess)
+        foreach (var enemy in aliveEnemies)
         {
             if (isBattleOver || !isWaveInProgress) yield break;
 
-            if (enemy == null || enemy.Health <= 0) continue;
-
-            enemy.ReduceStatusEffects();
-
-            if (enemy.Health <= 0 || !HasAliveEnemies())
-            {
-                OnWaveCleared();
-                yield break;
-            }
-
+            bool enemyTurnCompleted = false;
             yield return new WaitForSeconds(1f);
 
-            if (enemy == null || enemy.Health <= 0) continue;
-
-            bool turnCompleted = false;
-            enemy.TakeTurn(() => turnCompleted = true);
-
-            yield return new WaitUntil(() => turnCompleted || isBattleOver || enemy == null || enemy.Health <= 0);
-
-            if (!HasAliveEnemies())
+            if (enemy != null)
             {
-                OnWaveCleared();
-                yield break;
+                enemy.TakeTurn(() => enemyTurnCompleted = true);
+
+                while (!enemyTurnCompleted && !isBattleOver && enemy != null)
+                    yield return null;
+
+                if (!isWaveInProgress || isBattleOver) yield break;
             }
         }
 
         isEnemyTurnInProgress = false;
 
-        if (!isBattleOver && isWaveInProgress && HasAliveEnemies())
+        if (!isBattleOver && isWaveInProgress && horde.EnemyScripts.Exists(e => e != null))
         {
             StartPlayerTurn();
         }
@@ -160,32 +150,11 @@ public class BattleM : Singleton<BattleM>
     private void OnWaveCleared()
     {
         if (!isWaveInProgress || isBattleOver) return;
-
+        OnWaveClear?.Invoke(currentWave);
         Debug.Log($"Волна {currentWave} пройдена!");
         horde.OnNoEnemyLeft -= OnWaveCleared;
-        isWaveInProgress = false;
+
         isWaveCleared = true;
-
-        StopAllCoroutines();
-        isEnemyTurnInProgress = false;
-
-        // Сохраняем текущий номер волны перед инкрементом
-        int clearedWave = currentWave;
-        currentWave++;
-
-        //OnWaveStart?.Invoke(clearedWave);
-
-        if (currentWave > totalWaves)
-        {
-            Victory();
-        }
-        else
-        {
-            // Всегда запускаем новую волну через ContinueBattleLoop
-            StartCoroutine(ContinueBattleLoop());
-            StartPlayerTurn();
-            CompletePlayerTurn();
-        }
     }
 
     private void OnPlayerDeath()
@@ -215,9 +184,6 @@ public class BattleM : Singleton<BattleM>
 
         OnPlayerTurnStarted = null;
         OnEnemyTurnStarted = null;
-        OnAllWavesCleared = null;
-        OnPlayerLose = null;
-        OnWaveStart = null;
     }
 
     public void PlayerTakeDamage(int damage)
@@ -229,16 +195,5 @@ public class BattleM : Singleton<BattleM>
         }
 
         player.TakeDamage(damage);
-    }
-
-    // Вспомогательные методы для проверки живых врагов
-    private bool HasAliveEnemies()
-    {
-        return horde.EnemyScripts.Exists(e => e != null && e.Health > 0);
-    }
-
-    private List<Enemy> GetAliveEnemies()
-    {
-        return horde.EnemyScripts.FindAll(e => e != null && e.Health > 0);
     }
 }

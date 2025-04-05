@@ -40,7 +40,7 @@ public class CombatUI : MonoBehaviour
     private void Start()
     {
         BattleM.Instance.OnPlayerTurnStarted += ToggleHand;
-        BattleM.Instance.OnWaveClear += (int wave) =>  UpdateWaveCounter(wave + 1);
+        BattleM.Instance.OnWaveStart += (int wave) =>  UpdateWaveCounter(wave + 1);
     }
 
     private void InitializeUI()
