@@ -11,7 +11,7 @@ public class BattleM : Singleton<BattleM>
     public int TotalWaves { get => totalWaves; }
     [SerializeField] private int totalWaves = 3;
     [SerializeField] private float waveDelay = 2f;
-
+     
     private int currentWave = 0;
     private bool isPlayerTurn = true;
     private bool isBattleOver = false;
@@ -231,6 +231,7 @@ public class BattleM : Singleton<BattleM>
         }
 
         player.TakeDamage(damage);
+        AudioM.Instance.PlaySound(AudioM.Instance.punchSounds[UnityEngine.Random.Range(0, AudioM.Instance.punchSounds.Length)]);
     }
 
     // ¬спомогательные методы дл€ проверки живых врагов
