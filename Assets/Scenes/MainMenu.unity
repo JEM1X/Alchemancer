@@ -127,9 +127,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 265192376240970198, guid: efaebaac153717e4fa93dfe4d253b239, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2454345752319418725, guid: efaebaac153717e4fa93dfe4d253b239, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5798681244293298209, guid: efaebaac153717e4fa93dfe4d253b239, type: 3}
       propertyPath: m_Name
       value: Alchemancer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218480434924797693, guid: efaebaac153717e4fa93dfe4d253b239, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8613749604661357334, guid: efaebaac153717e4fa93dfe4d253b239, type: 3}
       propertyPath: m_LocalPosition.x
@@ -185,9 +197,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 657481041244905367, guid: 770b41a42da1978479a8c55f146a1bd2, type: 3}
+      propertyPath: m_Size.x
+      value: 17.777779
+      objectReference: {fileID: 0}
+    - target: {fileID: 657481041244905367, guid: 770b41a42da1978479a8c55f146a1bd2, type: 3}
+      propertyPath: m_Size.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 657481041244905367, guid: 770b41a42da1978479a8c55f146a1bd2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2067096144042513170, guid: efe9e99e8641a5f41b4a1fa8596f22b4, type: 3}
+      objectReference: {fileID: 21300000, guid: efe9e99e8641a5f41b4a1fa8596f22b4, type: 3}
+    - target: {fileID: 657481041244905367, guid: 770b41a42da1978479a8c55f146a1bd2, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 721300949891170579, guid: 770b41a42da1978479a8c55f146a1bd2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
