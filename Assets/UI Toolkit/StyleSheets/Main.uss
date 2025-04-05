@@ -84,8 +84,9 @@
     height: 300px;
     width: 150px;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: rgba(0, 0, 0, 0);
+    overflow: visible;
 }
 
 .enemyFrame:hover {
@@ -95,6 +96,7 @@
 .effectFrame {
     height: 76px;
     width: 76px;
+    flex-shrink: 0;
 }
 
 .effectAmount {
@@ -106,7 +108,7 @@
 .endTurnButton {
     position: absolute;
     right: 80px;
-    bottom: -1040px;
+    bottom: -1060px;
     width: 180px;
     height: 180px;
     opacity: 0.9;
@@ -123,7 +125,7 @@
     opacity: 0.9;
     position: absolute;
     right: 80px;
-    bottom: -840px;
+    bottom: -880px;
     width: 180px;
     height: 180px;
     background-color: rgba(0, 0, 0, 0);
