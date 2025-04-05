@@ -79,4 +79,22 @@ public abstract class Combatant : MonoBehaviour
         OnWeakStrongChange = null;
         OnDeath = null;
     }
+    public virtual void ReduceStatusEffects()
+    {
+        
+        if (weakStrong != 0)
+        {
+            int change = weakStrong > 0 ? -1 : 1;
+            weakStrong += change;
+            OnWeakStrongChange?.Invoke(change);
+        }
+
+        
+        if (vulnerableResilient != 0)
+        {
+            int change = vulnerableResilient > 0 ? -1 : 1;
+            vulnerableResilient += change;
+            OnVulnerableResilientChange?.Invoke(change);
+        }
+    }
 }

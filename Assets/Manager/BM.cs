@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,9 +13,9 @@ public class BM : MonoBehaviour
     [SerializeField] private int totalWaves = 3;
     [SerializeField] private float waveDelay = 2f;
 
-    //[Header("Game Over UI")]
-    //[SerializeField] private GameObject victoryScreen;
-    //[SerializeField] private GameObject defeatScreen;
+    // События
+    public event Action OnPlayerTurnStarted;
+    public event Action OnEnemyTurnStarted;
 
     private int currentWave = 0;
     private bool isPlayerTurn = true;
@@ -45,24 +45,19 @@ public class BM : MonoBehaviour
             Debug.Log($"Начинается волна {currentWave}/{totalWaves}");
             isWaveInProgress = true;
 
-            // Спавн новой волны врагов
             horde.SpawnEnemy();
             horde.OnNoEnemyLeft += OnWaveCleared;
 
-            // Начинаем бой волны
             StartPlayerTurn();
 
-            // Ждем завершения волны (либо победы, либо поражения)
             while (isWaveInProgress && !isBattleOver)
                 yield return null;
 
             if (isBattleOver) yield break;
 
-            // Задержка между волнами
             yield return new WaitForSeconds(waveDelay);
         }
 
-        // Все волны пройдены
         Victory();
     }
 
@@ -74,10 +69,10 @@ public class BM : MonoBehaviour
         isPlayerMoveCompleted = false;
         Debug.Log($"Ход игрока (волна {currentWave})");
 
-        // Активируем UI для хода игрока
-        // Например: EnablePlayerUI(true);
+        // Вызываем событие начала хода игрока
+        OnPlayerTurnStarted?.Invoke();
     }
-   
+
     public void CompletePlayerTurn()
     {
         if (!isPlayerTurn || isPlayerMoveCompleted || isBattleOver) return;
@@ -85,9 +80,6 @@ public class BM : MonoBehaviour
         isPlayerMoveCompleted = true;
         isPlayerTurn = false;
         Debug.Log("Ход игрока завершен");
-
-        // Деактивируем UI для хода игрока
-        // Например: EnablePlayerUI(false);
 
         StartEnemyTurn();
     }
@@ -98,6 +90,9 @@ public class BM : MonoBehaviour
 
         isEnemyTurnInProgress = true;
         Debug.Log($"Ход врагов (волна {currentWave})");
+
+        // Вызываем событие начала хода врагов
+        OnEnemyTurnStarted?.Invoke();
 
         StartCoroutine(ExecuteEnemyTurns());
     }
@@ -114,6 +109,8 @@ public class BM : MonoBehaviour
 
             while (!enemyTurnCompleted && !isBattleOver)
                 yield return null;
+
+            enemy.ReduceStatusEffects();
         }
 
         isEnemyTurnInProgress = false;
@@ -144,13 +141,11 @@ public class BM : MonoBehaviour
     {
         isBattleOver = true;
         Debug.Log("Победа! Все волны пройдены!");
-        //victoryScreen.SetActive(true);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void Defeat()
     {
-        //defeatScreen.SetActive(true);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -158,7 +153,12 @@ public class BM : MonoBehaviour
     {
         player.OnDeath -= OnPlayerDeath;
         horde.OnNoEnemyLeft -= OnWaveCleared;
+
+        // Очищаем все подписки
+        OnPlayerTurnStarted = null;
+        OnEnemyTurnStarted = null;
     }
+
     public void PlayerTakeDamage(int damage)
     {
         if (player == null)
