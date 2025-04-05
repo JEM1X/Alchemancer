@@ -6,7 +6,7 @@ using System.Linq;
 public class PlayerHand : MonoBehaviour
 {
     [SerializeField] private IngredientList_SO ingredientList;
-    [SerializeField] private PotionList_SO RecipeList;
+    [SerializeField] private PotionList_SO potionList;
     public List<Ingredient_SO> PlayerIngredients { get => playerIngredients; }
     [SerializeField] private List<Ingredient_SO> playerIngredients;
     public List<Potion_SO> PlayerPotions { get => playerPotions; }
@@ -23,6 +23,11 @@ public class PlayerHand : MonoBehaviour
     private void Awake()
     {
         mediator = GetComponent<AlchemancerMediator>();
+    }
+
+    private void Start()
+    {
+        BM.Instance.OnPlayerTurnStarted += DrawNewHand;
     }
 
     public void DrawNewHand()
@@ -65,13 +70,21 @@ public class PlayerHand : MonoBehaviour
 
     public bool TryCombineIngredients(Ingredient_SO[] ingredients, out Potion_SO craftedPotion)
     {
-        if(ingredients.Distinct().Count() != ingredients.Length)
+        int uniqueness = ingredients.Distinct().Count();
+
+        if (uniqueness == 1)
+        {
+            craftedPotion = potionList.AllPotions[UnityEngine.Random.Range(0, potionList.AllPotions.Length)];
+            return true;
+        }
+
+        if (ingredients.Distinct().Count() != ingredients.Length)
         {
             craftedPotion = null;
             return false;
         }
 
-        craftedPotion = RecipeList.AllPotions.FirstOrDefault(potion =>
+        craftedPotion = potionList.AllPotions.FirstOrDefault(potion =>
         potion.Ingredients.Length == ingredients.Length && ingredients.All(potion.IsinRecipe));
 
         return craftedPotion != null;

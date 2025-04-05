@@ -24,7 +24,7 @@ public class CombatUI : MonoBehaviour
     private List<IngredientCard> cardsInCauldron = new List<IngredientCard>(0);
     private PotionCard potionInUse = null;
     private List<CombatantCard> enemyCards;
-    private bool isHandVisible = true;
+    private bool isHandVisible = false;
 
     private void Awake()
     {
@@ -34,6 +34,11 @@ public class CombatUI : MonoBehaviour
         mediator.PlayerHand.OnNewPotion += InitializePotionCard;
         mediator.PlayerCombat.OnSpawn += (Combatant combatant) => InitializePlayer((PlayerCombat)combatant);
         mediator.Horde.OnNewEnemy += InitializeEnemy;
+    }
+
+    private void Start()
+    {
+        BM.Instance.OnPlayerTurnStarted += ToggleHand;
     }
 
     private void Update()
@@ -68,11 +73,15 @@ public class CombatUI : MonoBehaviour
 
         var endTurnButton = UITK.AddElement<Button>(interactionUI, "endTurnButton", "MainButton");
         endTurnButton.text = "Завершить Ход";
-        endTurnButton.clicked += () => AudioManager.Instance.PlaySound(AudioManager.Instance.uiSounds[0]);
-        endTurnButton.clicked += ClearCauldron;
-        endTurnButton.clicked += bagUI.Clear;
-        endTurnButton.clicked += mediator.PlayerHand.DrawNewHand;
-        endTurnButton.clicked += () => BM.Instance.CompletePlayerTurn();
+        endTurnButton.clicked += () =>
+        {
+            ClearCauldron();
+            bagUI.Clear();
+            ToggleHand();
+            BM.Instance.CompletePlayerTurn();
+
+            AudioManager.Instance.PlaySound(AudioManager.Instance.uiSounds[0]);
+        };
 
         var brewButton = UITK.AddElement<Button>(interactionUI, "brewButton", "MainButton");
         brewButton.text = "Сварить";
