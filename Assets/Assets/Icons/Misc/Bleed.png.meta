@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d41cf7a5ba2954f47bc529a21ff5590d
+guid: cd83922c009da4a4b879192cfaff7c67
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2414513881415659510
-    second: icons8-drop-of-blood-32_0
+      213: -6995123011722499173
+    second: Bleed_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: icons8-drop-of-blood-32_0
+      name: Bleed_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 0
-        width: 21
-        height: 31
+        x: 11
+        y: 2
+        width: 43
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a0058f0ea6ced7ed0800000000000000
-      internalID: -2414513881415659510
+      spriteID: b9bae1ebea45cee90800000000000000
+      internalID: -6995123011722499173
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      icons8-drop-of-blood-32_0: -2414513881415659510
+      Bleed_0: -6995123011722499173
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

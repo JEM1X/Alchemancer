@@ -58,7 +58,7 @@ public class InGameMenu : MonoBehaviour
         defeatLabel.text = "Поражение";
 
         var againButton = UITK.AddElement<Button>(defeatFrame, "againButton", "MainButton");
-        againButton.text = "Начать занаво";
+        againButton.text = "Начать заново";
         againButton.clicked += () => SceneManager.LoadScene(1);
 
         ToggleDefeatScreen();
