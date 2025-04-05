@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: ad9eab52fb829cb4f8b20e85cc019276
+guid: 25e2cb42208e68547a304a8ab3955124
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5734888567148846429
-    second: Cauldron_0
+      213: 8647823593821616703
+    second: Bat_0
+  - first:
+      213: 5681806813702538305
+    second: Bat_1
+  - first:
+      213: 697682191857345388
+    second: Bat_2
+  - first:
+      213: 6993031405965254486
+    second: Bat_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cauldron_0
+      name: Bat_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 60
-        height: 64
+        x: 12
+        y: 17
+        width: 42
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a2e4a0ab359960b0800000000000000
-      internalID: -5734888567148846429
+      spriteID: f3abafd8dbd330870800000000000000
+      internalID: 8647823593821616703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat_1
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 19
+        width: 41
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 144422d8135d9de40800000000000000
+      internalID: 5681806813702538305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat_2
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 15
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c63e5cbc14aaea900800000000000000
+      internalID: 697682191857345388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat_3
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 18
+        width: 37
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65f95b7530d3c0160800000000000000
+      internalID: 6993031405965254486
       vertices: []
       indices: 
       edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cauldron_0: -5734888567148846429
+      Bat_0: 8647823593821616703
+      Bat_1: 5681806813702538305
+      Bat_2: 697682191857345388
+      Bat_3: 6993031405965254486
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

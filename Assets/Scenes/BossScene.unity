@@ -789,17 +789,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyScripts: []
   enemyPrefabs:
-  - {fileID: 6408667138530730140, guid: 8d7ab5e04401749408e63525fae3bd0b, type: 3}
-  - {fileID: 6408667138530730140, guid: 8d7ab5e04401749408e63525fae3bd0b, type: 3}
-  - {fileID: 6408667138530730140, guid: 8d7ab5e04401749408e63525fae3bd0b, type: 3}
-  - {fileID: 6408667138530730140, guid: 89daa385863e15f4ea62d3dae12ecc50, type: 3}
-  - {fileID: 6408667138530730140, guid: 6b0d1b7504a696d44be92e2aef29a887, type: 3}
-  - {fileID: 6408667138530730140, guid: 6b0d1b7504a696d44be92e2aef29a887, type: 3}
+  - {fileID: 6408667138530730140, guid: b0be409f9a2a0d740926d2ca5d7cbf61, type: 3}
   spawnPoints:
-  - {fileID: 1619143737}
   - {fileID: 1278090437}
-  - {fileID: 41867262}
-  spawnCount: 3
+  spawnCount: 1
 --- !u!4 &1540369660
 Transform:
   m_ObjectHideFlags: 0

@@ -289,4 +289,4 @@ MonoBehaviour:
   attackMoveDistance: 5
   attackDuration: 0.25
   attackParticles: {fileID: 0}
-  _damage: 4
+  _damage: 5
