@@ -145,7 +145,7 @@ public class BM : MonoBehaviour
         isBattleOver = true;
         Debug.Log("Победа! Все волны пройдены!");
         //victoryScreen.SetActive(true);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void Defeat()

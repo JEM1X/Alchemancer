@@ -734,7 +734,8 @@ MonoBehaviour:
   enemyScripts: []
   enemyPrefabs:
   - {fileID: 6408667138530730140, guid: 5eea85d22df0d2a4f8fe863dcffc3f8d, type: 3}
-  - {fileID: 6408667138530730140, guid: 0c572437e99428a43810db28b8b3b0c9, type: 3}
+  - {fileID: 6408667138530730140, guid: 9ac0c0536b8f5744490c140f4c128283, type: 3}
+  - {fileID: 6408667138530730140, guid: 8d7ab5e04401749408e63525fae3bd0b, type: 3}
   spawnPoints:
   - {fileID: 1619143737}
   - {fileID: 1278090437}
@@ -927,6 +928,10 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 657481041244905367, guid: 770b41a42da1978479a8c55f146a1bd2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2067096144042513170, guid: efe9e99e8641a5f41b4a1fa8596f22b4, type: 3}
     - target: {fileID: 721300949891170579, guid: 770b41a42da1978479a8c55f146a1bd2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -74,6 +74,7 @@ public class CombatUI : MonoBehaviour
         endTurnButton.clicked += ClearCauldron;
         endTurnButton.clicked += bagUI.Clear;
         endTurnButton.clicked += mediator.PlayerHand.DrawNewHand;
+        endTurnButton.clicked += () => BM.Instance.CompletePlayerTurn();
 
         var brewButton = UITK.AddElement<Button>(interactionUI, "brewButton", "MainButton");
         brewButton.text = "Сварить";

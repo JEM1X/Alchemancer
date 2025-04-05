@@ -3,6 +3,7 @@ using System;
 
 public abstract class Combatant : MonoBehaviour
 {
+    
     public int HealthMax { get => healthMax; }
     [SerializeField] protected int healthMax = 5;
     public int Health { get => health; }
