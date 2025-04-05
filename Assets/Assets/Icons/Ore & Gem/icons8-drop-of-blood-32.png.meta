@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 08dc6702d42710b49859a5802a891504
+guid: d41cf7a5ba2954f47bc529a21ff5590d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6337757556742298555
-    second: Forward_0
+      213: -2414513881415659510
+    second: icons8-drop-of-blood-32_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Forward_0
+      name: icons8-drop-of-blood-32_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 3
-        width: 63
-        height: 58
+        x: 6
+        y: 0
+        width: 21
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bbb1c224bec34f750800000000000000
-      internalID: 6337757556742298555
+      spriteID: a0058f0ea6ced7ed0800000000000000
+      internalID: -2414513881415659510
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Forward_0: 6337757556742298555
+      icons8-drop-of-blood-32_0: -2414513881415659510
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
