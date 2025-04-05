@@ -41,14 +41,6 @@ public class CombatUI : MonoBehaviour
         BM.Instance.OnPlayerTurnStarted += ToggleHand;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            ToggleHand();
-        }
-    }
-
     private void InitializeUI()
     {
         VisualElement root = uiDocument.rootVisualElement;

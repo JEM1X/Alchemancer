@@ -15,6 +15,8 @@ public class CombatantCard
     public Label weakAmount;
     public VisualElement strongFrame;
     public Label strongAmount;
+    public VisualElement bleedFrame;
+    public Label bleedAmount;
 
 
     private UICombatStyle_SO combatantStyle;
@@ -65,11 +67,20 @@ public class CombatantCard
 
         UpdateWeakStrong(0);
 
+        //bleed
+        bleedFrame = UITK.AddElement(combatantFrame, "bleedFrame", "effectFrame");
+        bleedFrame.style.backgroundImage = new StyleBackground(combatantStyle.bleedIcon);
+
+        bleedAmount = UITK.AddElement<Label>(bleedFrame, "bleedAmount", "effectAmount", "ClearText");
+
+        UpdateBleed(0);
+
         //Events
         combatant.OnHealthChange += (int health) => healthAmount.text = combatant.Health.ToString();
         combatant.OnDeath += EnemyDeath;
         combatant.OnVulnerableResilientChange += UpdateVulnerableResilient;
         combatant.OnWeakStrongChange += UpdateWeakStrong;
+        combatant.OnBleedChanged += UpdateBleed;
     }
 
     private void UpdateFramePos(Camera mainCamera)
@@ -122,7 +133,7 @@ public class CombatantCard
             strongFrame.style.display = DisplayStyle.None;
 
             weakFrame.style.display = DisplayStyle.Flex;
-            weakAmount.text = combatant.WeakStrong.ToString();
+            weakAmount.text = weakStrong.ToString();
         }
 
         if (weakStrong > 0)
@@ -130,7 +141,23 @@ public class CombatantCard
             weakFrame.style.display = DisplayStyle.None;
 
             strongFrame.style.display = DisplayStyle.Flex;
-            strongAmount.text = combatant.WeakStrong.ToString();
+            strongAmount.text = weakStrong.ToString();
+        }
+    }
+
+    private void UpdateBleed(int amount)
+    {
+        int bleed = combatant.BleedStacks;
+
+        if(bleed <= 0)
+        {
+            bleedFrame.style.display = DisplayStyle.None;
+        }
+
+        if(bleed > 0)
+        {
+            bleedFrame.style.display = DisplayStyle.Flex;
+            bleedAmount.text = bleed.ToString();
         }
     }
 

@@ -3,16 +3,17 @@ using System;
 
 public abstract class Combatant : MonoBehaviour
 {
-    
     public int HealthMax { get => healthMax; }
     [SerializeField] protected int healthMax = 5;
     public int Health { get => health; }
     [SerializeField] protected int health = 5;
     public int VulnerableResilient { get => vulnerableResilient; }
-    public int WeakStrong { get => weakStrong; }
     [SerializeField] protected int vulnerableResilient = 0;
+    public int WeakStrong { get => weakStrong; }
     [SerializeField] protected int weakStrong = 0;
-    [SerializeField] protected int bleedStacks = 0; // Новый статус
+    public int BleedStacks { get => bleedStacks; }
+    [SerializeField] protected int bleedStacks = 0;
+
     public event Action<Combatant> OnSpawn;
     public event Action<int> OnHealthChange;
     public event Action<int> OnVulnerableResilientChange;
@@ -65,17 +66,20 @@ public abstract class Combatant : MonoBehaviour
         weakStrong += amount;
         OnWeakStrongChange?.Invoke(amount);
     }
+
     public virtual void InflictBleed(int stacks)
     {
         bleedStacks += stacks;
         OnBleedChanged?.Invoke(bleedStacks);
     }
+
     protected virtual void Death()
     {
         OnDeath?.Invoke();
         ClearAllListeners();
         //Destroy(gameObject);
     }
+
     public void ClearAllListeners()
     {
         OnSpawn = null;
@@ -85,6 +89,7 @@ public abstract class Combatant : MonoBehaviour
         OnBleedChanged = null;
         OnDeath = null;
     }
+
     public virtual void ReduceStatusEffects()
     {
         // Обработка кровотечения

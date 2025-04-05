@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59bb0708533d4d14a9203619c5a862a1, type: 3}
   m_Name: UICombatStyle_base
   m_EditorClassIdentifier: 
-  forward: {fileID: 6337757556742298555, guid: 08dc6702d42710b49859a5802a891504, type: 3}
-  cauldron: {fileID: 21300000, guid: ad9eab52fb829cb4f8b20e85cc019276, type: 3}
+  forward: {fileID: 21300000, guid: 29a1226f7b5e20240942612e151c3c4c, type: 3}
+  cauldron: {fileID: -5734888567148846429, guid: ad9eab52fb829cb4f8b20e85cc019276, type: 3}
   healthIcon: {fileID: 21300000, guid: 87a7c4321fd50514c8e41d6779a071da, type: 3}
   vulnerableIcon: {fileID: 21300000, guid: 615f3cdaa1374bd4db14286066f31cde, type: 3}
   resilientIcon: {fileID: 21300000, guid: 256205b9c6ca12c45ab7762da8a65631, type: 3}
   weakIcon: {fileID: 21300000, guid: 2ddf0348701148a4d8a7c6a0f7f146b3, type: 3}
   strongIcon: {fileID: 21300000, guid: 90e99a7fde056a4418b9fe16084adb5c, type: 3}
+  bleedIcon: {fileID: -2414513881415659510, guid: d41cf7a5ba2954f47bc529a21ff5590d, type: 3}
