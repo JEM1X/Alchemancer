@@ -90,7 +90,7 @@ public abstract class Combatant : MonoBehaviour
         // Обработка кровотечения
         if (bleedStacks > 0)
         {
-            TakeDamage(bleedStacks); // Наносим урон
+            TakeDamage(1); // Наносим урон
             int oldBleed = bleedStacks;
             bleedStacks = Mathf.Max(0, bleedStacks - 1); // Уменьшаем стаки
             if (oldBleed != bleedStacks)

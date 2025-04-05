@@ -10,7 +10,7 @@ public class MultiCapsule : Capsule_SO
     {
         enemy.InflictWeakStrong(-amount);
         enemy.TakeDamage(amount);
-        enemy.InflictWeakStrong(-amount);
+        enemy.InflictVulnerableResilient(-amount);
     }
 
 }

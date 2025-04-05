@@ -105,7 +105,7 @@ public class BM : MonoBehaviour
             if (isBattleOver || !isWaveInProgress) yield break;
 
             bool enemyTurnCompleted = false;
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1f);
             enemy.TakeTurn(() => enemyTurnCompleted = true);
 
             while (!enemyTurnCompleted && !isBattleOver)
