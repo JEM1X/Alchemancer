@@ -6,6 +6,7 @@ public class AudioM : Singleton<AudioM>
     public AudioClip[] uiSounds;
     public AudioClip[] cardSounds;
     public AudioClip[] potionSounds;
+    public AudioClip[] punchSounds;
     public AudioClip[] guideSounds;
 
     [SerializeField] private AudioSource audioSource;
