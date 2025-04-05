@@ -93,12 +93,11 @@
 }
 
 .effectFrame {
-    height: 70px;
-    width: 70px;
+    height: 76px;
+    width: 76px;
 }
 
 .effectAmount {
-    top: -4px;
     color: rgb(243, 243, 243);
     -unity-text-align: upper-center;
     text-shadow: -6px 3px 0 rgba(0, 0, 0, 1);
@@ -106,12 +105,32 @@
 
 .endTurnButton {
     position: absolute;
-    right: 40px;
+    right: 80px;
     bottom: -1040px;
+    width: 180px;
+    height: 180px;
+    opacity: 0.9;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
 }
 
+    .endTurnButton:hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0);
+    }
+
 .brewButton {
+    opacity: 0.9;
     position: absolute;
-    right: 40px;
-    bottom: -940px;
+    right: 80px;
+    bottom: -840px;
+    width: 180px;
+    height: 180px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
 }
+
+    .brewButton:hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0);
+    }

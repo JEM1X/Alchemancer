@@ -53,7 +53,6 @@ public class InGameGuide : MonoBehaviour
             "¬аша цель Ч победить всех врагов и не погибнуть на пути. ”дачи!";
 
         var toggleButton = UITK.AddElement<Button>(canvas, "toggleButton");
-        toggleButton.text = "√айд";
         toggleButton.style.backgroundImage = new StyleBackground(sprite);
         toggleButton.clicked += () => ToggleGuide();
 

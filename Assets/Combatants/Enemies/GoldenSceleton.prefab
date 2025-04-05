@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 7200341705851854303}
   - component: {fileID: 2930564932927166387}
   m_Layer: 0
-  m_Name: sprite
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,6 +285,7 @@ MonoBehaviour:
   health: 12
   vulnerableResilient: 0
   weakStrong: 0
+  bleedStacks: 0
   attackMoveDistance: 5
   attackDuration: 0.25
   attackParticles: {fileID: 0}

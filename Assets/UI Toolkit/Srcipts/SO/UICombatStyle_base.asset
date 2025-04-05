@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59bb0708533d4d14a9203619c5a862a1, type: 3}
   m_Name: UICombatStyle_base
   m_EditorClassIdentifier: 
+  forward: {fileID: 6337757556742298555, guid: 08dc6702d42710b49859a5802a891504, type: 3}
+  cauldron: {fileID: 21300000, guid: ad9eab52fb829cb4f8b20e85cc019276, type: 3}
   healthIcon: {fileID: 21300000, guid: 87a7c4321fd50514c8e41d6779a071da, type: 3}
   vulnerableIcon: {fileID: 21300000, guid: 615f3cdaa1374bd4db14286066f31cde, type: 3}
   resilientIcon: {fileID: 21300000, guid: 256205b9c6ca12c45ab7762da8a65631, type: 3}

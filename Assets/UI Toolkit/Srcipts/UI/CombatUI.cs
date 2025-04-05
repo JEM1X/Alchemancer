@@ -72,7 +72,7 @@ public class CombatUI : MonoBehaviour
 
 
         var endTurnButton = UITK.AddElement<Button>(interactionUI, "endTurnButton", "MainButton");
-        endTurnButton.text = "Завершить Ход";
+        endTurnButton.style.backgroundImage = new StyleBackground(combatStyle.forward);
         endTurnButton.clicked += () =>
         {
             ClearCauldron();
@@ -84,7 +84,7 @@ public class CombatUI : MonoBehaviour
         };
 
         var brewButton = UITK.AddElement<Button>(interactionUI, "brewButton", "MainButton");
-        brewButton.text = "Сварить";
+        brewButton.style.backgroundImage = new StyleBackground(combatStyle.cauldron);
         brewButton.clicked += BrewPotion;
     }
 
