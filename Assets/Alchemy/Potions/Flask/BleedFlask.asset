@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BleedFlask
   m_EditorClassIdentifier: 
   label: "\u041A\u043E\u043B\u0431\u0430 \u043A\u0440\u043E\u0432\u043E\u0442\u0435\u0447\u0435\u043D\u0438\u044F"
-  icon: {fileID: 2049591058125318977, guid: 3d9f1b354d52b2c41bcddd0c2023d789, type: 3}
+  icon: {fileID: 21300000, guid: 3d9f1b354d52b2c41bcddd0c2023d789, type: 3}
   description: "\u041A\u0440\u043E\u0432\u043E\u0442\u0435\u0447\u0435\u043D\u0438\u0435
     \u0432\u0441\u0435\u043C \u043D\u0430 3 \u0445\u043E\u0434\u0430"
   ingredients:

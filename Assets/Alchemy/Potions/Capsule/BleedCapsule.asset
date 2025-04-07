@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BleedCapsule
   m_EditorClassIdentifier: 
   label: "\u041A\u0430\u043F\u0441\u044E\u043B\u044C \u043A\u0440\u043E\u0432\u043E\u0442\u0435\u0447\u0435\u043D\u0438\u044F"
-  icon: {fileID: -1304403080953308627, guid: 40bf50d1d6c36f948a16cb5cbb4a596a, type: 3}
+  icon: {fileID: 21300000, guid: 40bf50d1d6c36f948a16cb5cbb4a596a, type: 3}
   description: "\u041A\u0440\u043E\u0432\u043E\u0442\u0435\u0447\u0435\u043D\u0438\u0435
     \u043D\u0430 \n5 \u0445\u043E\u0434\u043E\u0432"
   ingredients:

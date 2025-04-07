@@ -652,6 +652,10 @@ PrefabInstance:
       propertyPath: mediator
       value: 
       objectReference: {fileID: 1948359766}
+    - target: {fileID: 1449901830896665373, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
+      propertyPath: stageName
+      value: "\u0420\u0443\u0438\u043D\u044B \u0421\u0432\u044F\u0442\u043E\u0433\u043E"
+      objectReference: {fileID: 0}
     - target: {fileID: 3610072112875724854, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
       propertyPath: m_Name
       value: UI
@@ -660,14 +664,6 @@ PrefabInstance:
       propertyPath: mediator
       value: 
       objectReference: {fileID: 1948359766}
-    - target: {fileID: 4721977691319670551, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
-      propertyPath: sceneName
-      value: "\u0420\u0443\u0438\u043D\u044B \u0421\u0432\u044F\u0442\u043E\u0433\u043E"
-      objectReference: {fileID: 0}
-    - target: {fileID: 4721977691319670551, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
-      propertyPath: stageName
-      value: "\u0420\u0443\u0438\u043D\u044B \u0421\u0432\u044F\u0442\u043E\u0433\u043E"
-      objectReference: {fileID: 0}
     - target: {fileID: 4721977691319670551, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
       propertyPath: mainCamera
       value: 

@@ -9,7 +9,6 @@ public class CombatUI : MonoBehaviour
     [Header("Scene")]
     [SerializeField] private Camera mainCamera;
     [SerializeField] private AlchemancerMediator mediator;
-    [SerializeField] private string stageName;
 
     [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
@@ -21,7 +20,6 @@ public class CombatUI : MonoBehaviour
     private VisualElement bagUI;
     private VisualElement beltUI;
     private VisualElement interactionUI;
-    private Label waveCounter;
 
     private List<IngredientCard> cardsInCauldron = new List<IngredientCard>(0);
     private PotionCard potionInUse = null;
@@ -41,7 +39,6 @@ public class CombatUI : MonoBehaviour
     private void Start()
     {
         BattleM.Instance.OnPlayerTurnStarted += ToggleHand;
-        BattleM.Instance.OnWaveStart += UpdateWaveCounter;
     }
 
     private void InitializeUI()
@@ -63,12 +60,6 @@ public class CombatUI : MonoBehaviour
         bagUI = UITK.AddElement(handUI, "bagUI");
 
         beltUI = UITK.AddElement(handUI, "beltUI");
-
-        waveCounter = UITK.AddElement<Label>(canvas, "waveCounter");
-
-        var stageLabel = UITK.AddElement<Label>(canvas, "stageLabel");
-        stageLabel.text = stageName;
-        BattleM.Instance.OnWaveStart += (int amount) => stageLabel.style.opacity = 0;
 
         var endTurnButton = UITK.AddElement<Button>(interactionUI, "endTurnButton", "MainButton");
         endTurnButton.style.backgroundImage = new StyleBackground(combatStyle.forward);
@@ -93,9 +84,6 @@ public class CombatUI : MonoBehaviour
         ingredientCard.cardFrame.clicked += () => UseIngredientCard(ingredientCard);
 
         bagUI.Add(ingredientCard.cardFrame);
-
-        ingredientCard.cardFrame.RegisterCallback<PointerEnterEvent>(evt =>
-            AudioM.Instance.PlaySound(AudioM.Instance.cardSounds[0]));
     }
 
     private void InitializePotionCard(Potion_SO potion)
@@ -106,9 +94,6 @@ public class CombatUI : MonoBehaviour
         potionCard.cardFrame.clicked += () => UsePotionCard(potionCard);
        
         beltUI.Add(potionCard.cardFrame);
-
-        potionCard.cardFrame.RegisterCallback<PointerEnterEvent>(evt =>
-            AudioM.Instance.PlaySound(AudioM.Instance.cardSounds[0]));
     }
 
     private void InitializeEnemy(Enemy enemy)
@@ -219,10 +204,5 @@ public class CombatUI : MonoBehaviour
             handUI.pickingMode = PickingMode.Position;
             isHandVisible = true;
         }
-    }
-
-    private void UpdateWaveCounter(int wave)
-    {
-        waveCounter.text = "Волна " + wave + "/" + BattleM.Instance.TotalWaves;
     }
 }

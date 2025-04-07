@@ -9,6 +9,9 @@ public class UICard
     {
         cardFrame = UITK.CreateElement<Button>("cardFrame");
 
+        cardFrame.RegisterCallback<PointerEnterEvent>(evt =>
+            AudioM.Instance.PlaySound(AudioM.Instance.cardSounds[0]));
+
         var cardLabel = UITK.AddElement<Label>(cardFrame, "cardLabel", "MainText");
         cardLabel.text = card.Label;
 

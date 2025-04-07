@@ -727,6 +727,10 @@ PrefabInstance:
       propertyPath: mediator
       value: 
       objectReference: {fileID: 1948359766}
+    - target: {fileID: 1449901830896665373, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
+      propertyPath: stageName
+      value: "\u0421\u043A\u043B\u0435\u043F \u0413\u043E\u0440\u0433\u043E\u043D\u044B"
+      objectReference: {fileID: 0}
     - target: {fileID: 3610072112875724854, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
       propertyPath: m_Name
       value: UI
