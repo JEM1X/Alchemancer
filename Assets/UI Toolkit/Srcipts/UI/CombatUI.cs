@@ -24,7 +24,6 @@ public class CombatUI : MonoBehaviour
     private List<IngredientCard> cardsInCauldron = new List<IngredientCard>(0);
     private PotionCard potionInUse = null;
     private List<CombatantCard> enemyCards;
-    private bool isHandVisible = false;
 
     private void Awake()
     {
@@ -33,12 +32,13 @@ public class CombatUI : MonoBehaviour
         mediator.PlayerHand.OnNewIngredient += InitializeIngredientCard;
         mediator.PlayerHand.OnNewPotion += InitializePotionCard;
         mediator.PlayerCombat.OnSpawn += (Combatant combatant) => InitializePlayer((PlayerCombat)combatant);
+        mediator.PlayerCombat.OnTurnStart += ShowHand;  
         mediator.Horde.OnNewEnemy += InitializeEnemy;
     }
 
     private void Start()
     {
-        BattleManager.Instance.OnPlayerTurnStarted += ToggleHand;
+        //BattleManager.Instance.OnPlayerTurnStarted += ToggleHand;
     }
 
     private void InitializeUI()
@@ -67,8 +67,9 @@ public class CombatUI : MonoBehaviour
         {
             ClearCauldron();
             bagUI.Clear();
-            ToggleHand();
-            BattleManager.Instance.CompletePlayerTurn();
+            HideHand();
+            mediator.PlayerCombat.CompletePlayerTurn?.Invoke();
+            //BattleManager.Instance.CompletePlayerTurn();
 
             AudioM.Instance.PlaySound(AudioM.Instance.uiSounds[0]);
         };
@@ -190,19 +191,15 @@ public class CombatUI : MonoBehaviour
         }
     }
 
-    private void ToggleHand()
+    private void ShowHand()
     {
-        if (isHandVisible)
-        {
-            handUI.SetEnabled(false);
-            handUI.pickingMode = PickingMode.Ignore;
-            isHandVisible = false;
-        }
-        else
-        {
-            handUI.SetEnabled(true);
-            handUI.pickingMode = PickingMode.Position;
-            isHandVisible = true;
-        }
+        handUI.SetEnabled(true);
+        handUI.pickingMode = PickingMode.Position;
+    }
+
+    private void HideHand()
+    {
+        handUI.SetEnabled(false);
+        handUI.pickingMode = PickingMode.Ignore;
     }
 }

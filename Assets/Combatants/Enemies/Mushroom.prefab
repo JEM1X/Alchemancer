@@ -287,6 +287,6 @@ MonoBehaviour:
   weakStrong: 0
   bleedStacks: 0
   attackMoveDistance: 5
-  attackDuration: 0.25
+  attackDuration: 0.5
   attackParticles: {fileID: 0}
   damage: 1

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -23,13 +24,13 @@ public class InGameMenu : MonoBehaviour
 
     private void Awake()
     {
-        InitializeUI();
+        StartCoroutine(InitializeUI());
     }
 
     private void Start()
     {
-        BattleManager.Instance.OnAllWavesCleared += ToggleVictoryScreen;
-        BattleManager.Instance.OnWaveStart += UpdateWaveCounter;
+        BattleM.Instance.OnAllWavesCleared += ToggleVictoryScreen;
+        BattleM.Instance.OnWaveStart += UpdateWaveCounter;
         mediator.PlayerCombat.OnDeath += ToggleDefeatScreen;
     }
 
@@ -41,7 +42,7 @@ public class InGameMenu : MonoBehaviour
         }
     }
 
-    private void InitializeUI()
+    private IEnumerator InitializeUI()
     {
         VisualElement root = uiDocument.rootVisualElement;
         root.Clear();
@@ -62,7 +63,11 @@ public class InGameMenu : MonoBehaviour
         var stageLabel = UITK.AddElement<Label>(canvas, "stageLabel");
         stageLabel.text = stageName;
         stageLabel.pickingMode = PickingMode.Ignore;
-        BattleManager.Instance.OnWaveStart += (int amount) => stageLabel.style.opacity = 0;
+
+        yield return new WaitForSeconds(2);
+        stageLabel.style.opacity = 0;
+
+        yield return null;
     }
 
     private void InitPauseScreen()
@@ -166,6 +171,6 @@ public class InGameMenu : MonoBehaviour
 
     private void UpdateWaveCounter(int wave)
     {
-        waveCounter.text = "Волна " + wave + "/" + BattleManager.Instance.TotalWaves;
+        waveCounter.text = "Волна " + wave + "/" + BattleM.Instance.TotalWaves;
     }
 }

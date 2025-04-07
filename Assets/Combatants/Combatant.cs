@@ -18,17 +18,62 @@ public abstract class Combatant : MonoBehaviour
     private Animator _animator;
 
     public event Action<Combatant> OnSpawn;
+    public event Action OnDeath;
+    public event Action OnTurnStart;
+    public event Action OnTurnEnd;
     public event Action<int> OnHealthChange;
     public event Action<int> OnVulnerableResilientChange;
     public event Action<int> OnWeakStrongChange;
     public event Action<int> OnBleedChanged;
-    public event Action OnDeath;
+
+    private event Action CompleteTurn;
 
 
     protected void Start()
     {
         //_animator = GetComponent<Animator>();
         OnSpawn?.Invoke(this);
+    }
+
+    public virtual IEnumerator TakeTurn(Action CompleteTurn)
+    {
+        this.CompleteTurn = CompleteTurn;
+
+        OnTurnStart?.Invoke();
+        BeforeTurnEffects();
+
+        yield return StartCoroutine(Attack());
+
+        AfterTurnEffects();
+        OnTurnEnd?.Invoke();
+
+        CompleteTurn?.Invoke();
+    }
+
+    protected abstract IEnumerator Attack();
+
+    protected virtual void Death()
+    {
+        CompleteTurn?.Invoke();
+        OnDeath?.Invoke();
+        ClearAllListeners();
+
+        //if (_animator != null) 
+        //{
+        //    _animator.SetBool("isDead", true);
+        //}
+        //Destroy(gameObject);
+    }
+
+    public void ClearAllListeners()
+    {
+        OnSpawn = null;
+        OnHealthChange = null;
+        OnVulnerableResilientChange = null;
+        OnWeakStrongChange = null;
+        OnBleedChanged = null;
+        CompleteTurn = null;
+        OnDeath = null;
     }
 
     public virtual void TakeDamage(int damage)
@@ -59,6 +104,12 @@ public abstract class Combatant : MonoBehaviour
         OnHealthChange?.Invoke(heal);
     }
 
+    public virtual void InflictBleed(int stacks)
+    {
+        bleedStacks += stacks;
+        OnBleedChanged?.Invoke(bleedStacks);
+    }
+
     public virtual void InflictVulnerableResilient(int amount)
     {
         vulnerableResilient += amount;
@@ -71,60 +122,47 @@ public abstract class Combatant : MonoBehaviour
         OnWeakStrongChange?.Invoke(amount);
     }
 
-    public virtual void InflictBleed(int stacks)
+    protected virtual void BeforeTurnEffects()
     {
-        bleedStacks += stacks;
-        OnBleedChanged?.Invoke(bleedStacks);
+        ReduceBleed();
     }
 
-    protected virtual void Death()
+    protected virtual void AfterTurnEffects()
     {
-        OnDeath?.Invoke();
-        ClearAllListeners();
-        //if (_animator != null) 
-        //{
-        //    _animator.SetBool("isDead", true);
-        //}
-        //Destroy(gameObject);
-    }
-    
-    public void ClearAllListeners()
-    {
-        OnSpawn = null;
-        OnHealthChange = null;
-        OnVulnerableResilientChange = null;
-        OnWeakStrongChange = null;
-        OnBleedChanged = null;
-        OnDeath = null;
+        ReduceWeakStrong();
+
+        ReduceVulnerableResilient();
     }
 
-    public virtual void ReduceStatusEffects()
+    private void ReduceBleed()
     {
-        // Обработка кровотечения
         if (bleedStacks > 0)
         {
-            TakeDamage(1); // Наносим урон
-            int oldBleed = bleedStacks;
-            bleedStacks = Mathf.Max(0, bleedStacks - 1); // Уменьшаем стаки
-            if (oldBleed != bleedStacks)
-            {
-                OnBleedChanged?.Invoke(bleedStacks);
-            }
-        }
+            int bleedDamage = Mathf.Max(1, bleedStacks / 2);
+            TakeDamage(bleedDamage);
+            bleedStacks = Mathf.Max(0, bleedStacks - bleedDamage);
 
-        // Оригинальная логика для других статусов
-        if (weakStrong != 0)
-        {
-            int change = weakStrong > 0 ? -1 : 1;
-            weakStrong += change;
-            OnWeakStrongChange?.Invoke(change);
+            OnBleedChanged?.Invoke(bleedStacks);
         }
+    }
 
+    private void ReduceVulnerableResilient()
+    {
         if (vulnerableResilient != 0)
         {
             int change = vulnerableResilient > 0 ? -1 : 1;
             vulnerableResilient += change;
             OnVulnerableResilientChange?.Invoke(change);
+        }
+    }
+
+    private void ReduceWeakStrong()
+    {
+        if (weakStrong != 0)
+        {
+            int change = weakStrong > 0 ? -1 : 1;
+            weakStrong += change;
+            OnWeakStrongChange?.Invoke(change);
         }
     }
 }

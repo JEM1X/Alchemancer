@@ -15,11 +15,6 @@ public class Horde : MonoBehaviour
     public event Action OnNoEnemyLeft;
 
 
-    private void Start()
-    {
-        //SpawnEnemy();
-    }
-
     public void SpawnEnemy()
     {
         for (int i = 0; i < spawnCount; i++)
@@ -36,7 +31,6 @@ public class Horde : MonoBehaviour
 
             OnNewEnemy?.Invoke(script);
             script.OnDeath += () => UpdateEnemyList(script);
-
         }
     }
 
@@ -53,14 +47,4 @@ public class Horde : MonoBehaviour
         Debug.Log("No enemy left");
         OnNoEnemyLeft?.Invoke();
     }
-
-
-    
-    public void RemoveEnemy(Enemy enemy)
-    {
-        EnemyScripts.Remove(enemy);
-        if (EnemyScripts.Count == 0 || !EnemyScripts.Exists(e => e != null))
-            OnNoEnemyLeft?.Invoke();
-    }
-
 }

@@ -10,28 +10,25 @@ public class Enemy : Combatant
     [SerializeField] private int damage;
 
 
-    public void TakeTurn(System.Action onTurnEnd)
-    {
-        StartCoroutine(AttackSequence(onTurnEnd));
-    }
-
-    private IEnumerator AttackSequence(System.Action onTurnEnd)
+    protected override IEnumerator Attack()
     {
         yield return StartCoroutine(AttackLunge());
 
         if (attackParticles != null)
             attackParticles.Play();
-        if (weakStrong != 0)
-        {
-            BattleManager.Instance.Player.TakeDamage(damage / 2);
-        }
-        else 
-        {
-            BattleManager.Instance.Player.TakeDamage(damage);
-        }
 
-        onTurnEnd?.Invoke();
-        ReduceStatusEffects();
+        if (weakStrong < 0)
+        {
+            BattleM.Instance.Player.TakeDamage(damage / 2);
+        }
+        else if(weakStrong > 0)
+        {
+            BattleM.Instance.Player.TakeDamage(damage * 2);
+        }
+        else
+        {
+            BattleM.Instance.Player.TakeDamage(damage);
+        }
     }
 
     private IEnumerator AttackLunge()
@@ -65,8 +62,8 @@ public class Enemy : Combatant
 
     protected override void Death()
     {
-        StopAllCoroutines();
         base.Death();
+        StopAllCoroutines();
         Destroy(gameObject);
     }
 }

@@ -133,7 +133,7 @@ public class CombatantCard
             strongFrame.style.display = DisplayStyle.None;
 
             weakFrame.style.display = DisplayStyle.Flex;
-            weakAmount.text = weakStrong.ToString();
+            weakAmount.text = (-weakStrong).ToString();
         }
 
         if (weakStrong > 0)
