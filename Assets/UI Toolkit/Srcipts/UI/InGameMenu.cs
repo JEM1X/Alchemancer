@@ -8,7 +8,6 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private AlchemancerMediator mediator;
     [SerializeField] private string stageName;
 
-
     [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private UIStyle_SO styleSheet;
@@ -30,8 +29,8 @@ public class InGameMenu : MonoBehaviour
     private void Start()
     {
         BattleManager.Instance.OnAllWavesCleared += ToggleVictoryScreen;
-        BattleManager.Instance.OnPlayerLose += ToggleDefeatScreen;
         BattleManager.Instance.OnWaveStart += UpdateWaveCounter;
+        mediator.PlayerCombat.OnDeath += ToggleDefeatScreen;
     }
 
     private void Update()

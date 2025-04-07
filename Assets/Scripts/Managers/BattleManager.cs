@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class BattleManager : Singleton<BattleManager>
 {
@@ -17,12 +15,11 @@ public class BattleManager : Singleton<BattleManager>
     private int currentWave = 0;
     private bool isWaveInProgress = false;
 
-
     public event Action OnPlayerTurnStarted;
     public event Action OnEnemyTurnStarted;
     public event Action OnAllWavesCleared;
-    public event Action OnPlayerLose;
     public event Action<int> OnWaveStart;
+
 
     private void Start()
     {
@@ -30,12 +27,14 @@ public class BattleManager : Singleton<BattleManager>
         
         BattleLogic();
     }
+
     private void BattleLogic() 
     {
         if (horde.EnemyScripts.Count == 0) 
         {
             isWaveInProgress = false;   
         }
+
         if (!isWaveInProgress && currentWave < totalWaves)
         {
             horde.SpawnEnemy();
@@ -45,30 +44,23 @@ public class BattleManager : Singleton<BattleManager>
         }
         else if (currentWave >= totalWaves && horde.EnemyScripts.Count == 0)
         {
-            Victory();
+            OnAllWavesCleared();
             return;
         }
-
         
         StartCoroutine(EachEnemyTurn());
-        
-
-
-
     }
+
     public void StartPlayerTurn() 
     {
         OnPlayerTurnStarted?.Invoke();
         Debug.Log("Ход игрока начался");
     }
+
     public void CompletePlayerTurn() 
     {
         BattleLogic();
         Debug.Log("Ход игрока закончен");
-    }
-    private void Victory() 
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private IEnumerator EachEnemyTurn() 
@@ -81,13 +73,14 @@ public class BattleManager : Singleton<BattleManager>
             bool turnCompleted = false;
             enemy.TakeTurn(() => turnCompleted = true);
             //enemy.ReduceStatusEffects();
-
         }
+
         List<Enemy> enemiesCopy = new List<Enemy>(horde.EnemyScripts);
         foreach (var enemy in enemiesCopy) 
         {
             enemy.ReduceStatusEffects();
         }
+
         yield return new WaitForSeconds(enemyAttackDelay);
         StartPlayerTurn();
     }

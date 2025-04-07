@@ -285,7 +285,8 @@ MonoBehaviour:
   health: 7
   vulnerableResilient: 0
   weakStrong: 0
+  bleedStacks: 0
   attackMoveDistance: 5
   attackDuration: 0.25
   attackParticles: {fileID: 0}
-  _damage: 2
+  damage: 2

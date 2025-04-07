@@ -7,7 +7,9 @@ public class Enemy : Combatant
     [SerializeField] private float attackMoveDistance = 0.5f;
     [SerializeField] private float attackDuration = 0.3f;
     [SerializeField] private ParticleSystem attackParticles;
-    [SerializeField] private int _damage;
+    [SerializeField] private int damage;
+
+
     public void TakeTurn(System.Action onTurnEnd)
     {
         StartCoroutine(AttackSequence(onTurnEnd));
@@ -21,12 +23,13 @@ public class Enemy : Combatant
             attackParticles.Play();
         if (weakStrong != 0)
         {
-            BattleManager.Instance.Player.TakeDamage(_damage / 2);
+            BattleManager.Instance.Player.TakeDamage(damage / 2);
         }
         else 
         {
-            BattleManager.Instance.Player.TakeDamage(_damage);
+            BattleManager.Instance.Player.TakeDamage(damage);
         }
+
         onTurnEnd?.Invoke();
     }
 
