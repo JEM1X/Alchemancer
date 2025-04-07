@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 public abstract class Combatant : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public abstract class Combatant : MonoBehaviour
     public int BleedStacks { get => bleedStacks; }
     [SerializeField] protected int bleedStacks = 0;
 
+    private Animator _animator;
+
     public event Action<Combatant> OnSpawn;
     public event Action<int> OnHealthChange;
     public event Action<int> OnVulnerableResilientChange;
@@ -24,6 +27,7 @@ public abstract class Combatant : MonoBehaviour
 
     protected void Start()
     {
+        //_animator = GetComponent<Animator>();
         OnSpawn?.Invoke(this);
     }
 
@@ -77,9 +81,13 @@ public abstract class Combatant : MonoBehaviour
     {
         OnDeath?.Invoke();
         ClearAllListeners();
+        //if (_animator != null) 
+        //{
+        //    _animator.SetBool("isDead", true);
+        //}
         //Destroy(gameObject);
     }
-
+    
     public void ClearAllListeners()
     {
         OnSpawn = null;
