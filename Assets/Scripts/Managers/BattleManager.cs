@@ -60,6 +60,7 @@ public class BattleManager : Singleton<BattleManager>
     public void CompletePlayerTurn() 
     {
         BattleLogic();
+        player.ReduceStatusEffects();
         Debug.Log("Ход игрока закончен");
     }
 
@@ -67,7 +68,8 @@ public class BattleManager : Singleton<BattleManager>
     {
         OnEnemyTurnStarted?.Invoke();
         Debug.Log("Ход врага");
-        foreach (var enemy in horde.EnemyScripts)
+        List<Enemy> enemiesCopy = new List<Enemy>(horde.EnemyScripts);
+        foreach (var enemy in enemiesCopy)
         {
             yield return new WaitForSeconds(enemyAttackDelay);
             bool turnCompleted = false;
@@ -75,11 +77,10 @@ public class BattleManager : Singleton<BattleManager>
             //enemy.ReduceStatusEffects();
         }
 
-        List<Enemy> enemiesCopy = new List<Enemy>(horde.EnemyScripts);
-        foreach (var enemy in enemiesCopy) 
-        {
-            enemy.ReduceStatusEffects();
-        }
+        //foreach (var enemy in enemiesCopy) 
+        //{
+        //    //enemy.ReduceStatusEffects();
+        //}
 
         yield return new WaitForSeconds(enemyAttackDelay);
         StartPlayerTurn();

@@ -31,6 +31,7 @@ public class Enemy : Combatant
         }
 
         onTurnEnd?.Invoke();
+        ReduceStatusEffects();
     }
 
     private IEnumerator AttackLunge()
