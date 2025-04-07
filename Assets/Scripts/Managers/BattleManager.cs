@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -79,8 +80,13 @@ public class BattleManager : Singleton<BattleManager>
             yield return new WaitForSeconds(enemyAttackDelay);
             bool turnCompleted = false;
             enemy.TakeTurn(() => turnCompleted = true);
-            enemy.ReduceStatusEffects();
+            //enemy.ReduceStatusEffects();
 
+        }
+        List<Enemy> enemiesCopy = new List<Enemy>(horde.EnemyScripts);
+        foreach (var enemy in enemiesCopy) 
+        {
+            enemy.ReduceStatusEffects();
         }
         yield return new WaitForSeconds(enemyAttackDelay);
         StartPlayerTurn();
