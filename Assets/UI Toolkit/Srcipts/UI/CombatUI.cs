@@ -38,7 +38,7 @@ public class CombatUI : MonoBehaviour
 
     private void Start()
     {
-        BattleM.Instance.OnPlayerTurnStarted += ToggleHand;
+        BattleManager.Instance.OnPlayerTurnStarted += ToggleHand;
     }
 
     private void InitializeUI()
@@ -68,7 +68,7 @@ public class CombatUI : MonoBehaviour
             ClearCauldron();
             bagUI.Clear();
             ToggleHand();
-            BattleM.Instance.CompletePlayerTurn();
+            BattleManager.Instance.CompletePlayerTurn();
 
             AudioM.Instance.PlaySound(AudioM.Instance.uiSounds[0]);
         };

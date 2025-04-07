@@ -21,11 +21,11 @@ public class Enemy : Combatant
             attackParticles.Play();
         if (weakStrong != 0)
         {
-            BattleM.Instance.PlayerTakeDamage(_damage / 2);
+            BattleManager.Instance.Player.TakeDamage(_damage / 2);
         }
         else 
         {
-            BattleM.Instance.PlayerTakeDamage(_damage);
+            BattleManager.Instance.Player.TakeDamage(_damage);
         }
         onTurnEnd?.Invoke();
     }

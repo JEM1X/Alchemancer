@@ -29,9 +29,9 @@ public class InGameMenu : MonoBehaviour
 
     private void Start()
     {
-        BattleM.Instance.OnAllWavesCleared += ToggleVictoryScreen;
-        BattleM.Instance.OnPlayerLose += ToggleDefeatScreen;
-        BattleM.Instance.OnWaveStart += UpdateWaveCounter;
+        BattleManager.Instance.OnAllWavesCleared += ToggleVictoryScreen;
+        BattleManager.Instance.OnPlayerLose += ToggleDefeatScreen;
+        BattleManager.Instance.OnWaveStart += UpdateWaveCounter;
     }
 
     private void Update()
@@ -63,7 +63,7 @@ public class InGameMenu : MonoBehaviour
         var stageLabel = UITK.AddElement<Label>(canvas, "stageLabel");
         stageLabel.text = stageName;
         stageLabel.pickingMode = PickingMode.Ignore;
-        BattleM.Instance.OnWaveStart += (int amount) => stageLabel.style.opacity = 0;
+        BattleManager.Instance.OnWaveStart += (int amount) => stageLabel.style.opacity = 0;
     }
 
     private void InitPauseScreen()
@@ -167,6 +167,6 @@ public class InGameMenu : MonoBehaviour
 
     private void UpdateWaveCounter(int wave)
     {
-        waveCounter.text = "Волна " + wave + "/" + BattleM.Instance.TotalWaves;
+        waveCounter.text = "Волна " + wave + "/" + BattleManager.Instance.TotalWaves;
     }
 }

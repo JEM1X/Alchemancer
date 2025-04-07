@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6557110002780192226}
-  - component: {fileID: 585091240705898258}
+  - component: {fileID: 3642017888385160230}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &585091240705898258
+--- !u!114 &3642017888385160230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6486528426389239222}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44ebe92e9b846ca4a9a90ebc3216bfa3, type: 3}
+  m_Script: {fileID: 11500000, guid: 616b1871912fe764da4e4c1cb02b3695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   horde: {fileID: 0}
   player: {fileID: 0}
   totalWaves: 3
-  waveDelay: 2
+  enemyAttackDelay: 1
