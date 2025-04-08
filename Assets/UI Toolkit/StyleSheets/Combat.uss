@@ -108,9 +108,9 @@
 .endTurnButton {
     position: absolute;
     right: 80px;
-    bottom: -1060px;
-    width: 180px;
-    height: 180px;
+    bottom: -1040px;
+    width: 150px;
+    height: 150px;
     opacity: 0.9;
     background-color: rgba(0, 0, 0, 0);
     border-width: 0;
@@ -126,8 +126,8 @@
     position: absolute;
     right: 80px;
     bottom: -880px;
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
     background-color: rgba(0, 0, 0, 0);
     border-width: 0;
 }

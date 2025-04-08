@@ -17,7 +17,8 @@ public class CombatantCard
     public Label strongAmount;
     public VisualElement bleedFrame;
     public Label bleedAmount;
-
+    public VisualElement stunFrame;
+    public Label stunAmount;
 
     private UICombatStyle_SO combatantStyle;
 
@@ -75,12 +76,21 @@ public class CombatantCard
 
         UpdateBleed(0);
 
+        //stun
+        stunFrame = UITK.AddElement(combatantFrame, "stunFrame", "effectFrame");
+        stunFrame.style.backgroundImage = new StyleBackground(combatantStyle.stunIcon);
+
+        stunAmount = UITK.AddElement<Label>(stunFrame, "stunAmount", "effectAmount", "ClearText");
+
+        UpdateStun(0);
+
         //Events
         combatant.OnHealthChange += (int health) => healthAmount.text = combatant.Health.ToString();
         combatant.OnDeath += EnemyDeath;
         combatant.OnVulnerableResilientChange += UpdateVulnerableResilient;
         combatant.OnWeakStrongChange += UpdateWeakStrong;
         combatant.OnBleedChanged += UpdateBleed;
+        combatant.OnStunChanged += UpdateStun;
     }
 
     private void UpdateFramePos(Camera mainCamera)
@@ -147,7 +157,7 @@ public class CombatantCard
 
     private void UpdateBleed(int amount)
     {
-        int bleed = combatant.BleedStacks;
+        int bleed = combatant.Bleed;
 
         if(bleed <= 0)
         {
@@ -158,6 +168,22 @@ public class CombatantCard
         {
             bleedFrame.style.display = DisplayStyle.Flex;
             bleedAmount.text = bleed.ToString();
+        }
+    }
+
+    private void UpdateStun(int amount)
+    {
+        int stun = combatant.Stun;
+
+        if (stun <= 0)
+        {
+            stunFrame.style.display = DisplayStyle.None;
+        }
+
+        if (stun > 0)
+        {
+            stunFrame.style.display = DisplayStyle.Flex;
+            stunAmount.text = stun.ToString();
         }
     }
 

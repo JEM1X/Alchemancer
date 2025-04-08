@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 [CreateAssetMenu(fileName = "UICombatStyle", menuName = "Scriptable Objects/UI/UICombatStyle_SO")]
 public class UICombatStyle_SO : ScriptableObject
@@ -12,4 +11,5 @@ public class UICombatStyle_SO : ScriptableObject
     public Sprite weakIcon;
     public Sprite strongIcon;
     public Sprite bleedIcon;
+    public Sprite stunIcon;
 }

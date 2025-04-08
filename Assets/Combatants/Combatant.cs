@@ -12,19 +12,22 @@ public abstract class Combatant : MonoBehaviour
     [SerializeField] protected int vulnerableResilient = 0;
     public int WeakStrong { get => weakStrong; }
     [SerializeField] protected int weakStrong = 0;
-    public int BleedStacks { get => bleedStacks; }
-    [SerializeField] protected int bleedStacks = 0;
+    public int Bleed { get => bleed; }
+    [SerializeField] protected int bleed = 0;
+    public int Stun { get => stun; }
+    [SerializeField] protected int stun = 0; 
 
     private Animator _animator;
 
     public event Action<Combatant> OnSpawn;
-    public event Action OnDeath;
     public event Action OnTurnStart;
     public event Action OnTurnEnd;
+    public event Action OnDeath;
     public event Action<int> OnHealthChange;
     public event Action<int> OnVulnerableResilientChange;
     public event Action<int> OnWeakStrongChange;
     public event Action<int> OnBleedChanged;
+    public event Action<int> OnStunChanged;
 
     private event Action CompleteTurn;
 
@@ -40,11 +43,28 @@ public abstract class Combatant : MonoBehaviour
         this.CompleteTurn = CompleteTurn;
 
         OnTurnStart?.Invoke();
-        BeforeTurnEffects();
 
+        //pre-attack effects
+        ReduceBleed();
+
+        if (ReduceStun())
+        {
+            ReduceWeakStrong();
+            ReduceVulnerableResilient();
+
+            OnTurnEnd?.Invoke();
+            CompleteTurn?.Invoke();
+            yield break;
+        }
+
+        //Attack
         yield return StartCoroutine(Attack());
 
-        AfterTurnEffects();
+        //post-attack effects
+        ReduceWeakStrong();
+
+        ReduceVulnerableResilient();
+
         OnTurnEnd?.Invoke();
 
         CompleteTurn?.Invoke();
@@ -56,6 +76,7 @@ public abstract class Combatant : MonoBehaviour
     {
         CompleteTurn?.Invoke();
         OnDeath?.Invoke();
+        StopAllCoroutines();
         ClearAllListeners();
 
         //if (_animator != null) 
@@ -72,6 +93,7 @@ public abstract class Combatant : MonoBehaviour
         OnVulnerableResilientChange = null;
         OnWeakStrongChange = null;
         OnBleedChanged = null;
+        OnStunChanged = null;
         CompleteTurn = null;
         OnDeath = null;
     }
@@ -104,65 +126,66 @@ public abstract class Combatant : MonoBehaviour
         OnHealthChange?.Invoke(heal);
     }
 
-    public virtual void InflictBleed(int stacks)
+    public void InflictBleed(int amount)
     {
-        bleedStacks += stacks;
-        OnBleedChanged?.Invoke(bleedStacks);
+        bleed += amount;
+        OnBleedChanged?.Invoke(amount);
     }
 
-    public virtual void InflictVulnerableResilient(int amount)
+    public void InflictStun(int amount)
+    {
+        stun += amount;
+        OnStunChanged?.Invoke(amount);
+    }
+
+    public void InflictVulnerableResilient(int amount)
     {
         vulnerableResilient += amount;
         OnVulnerableResilientChange?.Invoke(amount);
     }
 
-    public virtual void InflictWeakStrong(int amount)
+    public void InflictWeakStrong(int amount)
     {
         weakStrong += amount;
         OnWeakStrongChange?.Invoke(amount);
     }
 
-    protected virtual void BeforeTurnEffects()
-    {
-        ReduceBleed();
-    }
-
-    protected virtual void AfterTurnEffects()
-    {
-        ReduceWeakStrong();
-
-        ReduceVulnerableResilient();
-    }
-
     private void ReduceBleed()
     {
-        if (bleedStacks > 0)
-        {
-            int bleedDamage = Mathf.Max(1, bleedStacks / 2);
-            TakeDamage(bleedDamage);
-            bleedStacks = Mathf.Max(0, bleedStacks - bleedDamage);
+        if (bleed <= 0) return;
+        
+        int bleedDamage = Mathf.Max(1, bleed / 2);
+        TakeDamage(bleedDamage);
+        bleed = Mathf.Max(0, bleed - bleedDamage);
 
-            OnBleedChanged?.Invoke(bleedStacks);
-        }
+        OnBleedChanged?.Invoke(bleed);
+    }
+
+    private bool ReduceStun()
+    {
+        if (stun <= 0) return false;
+
+        stun -= 1;
+        OnStunChanged?.Invoke(-1);
+
+        return true;
     }
 
     private void ReduceVulnerableResilient()
     {
-        if (vulnerableResilient != 0)
-        {
-            int change = vulnerableResilient > 0 ? -1 : 1;
-            vulnerableResilient += change;
-            OnVulnerableResilientChange?.Invoke(change);
-        }
+        if (vulnerableResilient == 0) return;
+        
+        int change = vulnerableResilient > 0 ? -1 : 1;
+        vulnerableResilient += change;
+        OnVulnerableResilientChange?.Invoke(change);
     }
 
     private void ReduceWeakStrong()
     {
-        if (weakStrong != 0)
-        {
-            int change = weakStrong > 0 ? -1 : 1;
-            weakStrong += change;
-            OnWeakStrongChange?.Invoke(change);
-        }
+        if (weakStrong == 0) return;
+        
+        int change = weakStrong > 0 ? -1 : 1;
+        weakStrong += change;
+        OnWeakStrongChange?.Invoke(change);
     }
 }

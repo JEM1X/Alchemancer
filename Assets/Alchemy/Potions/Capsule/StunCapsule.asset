@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0ca3b313bb1b72428dc5861d1fe0c76, type: 3}
+  m_Name: StunCapsule
+  m_EditorClassIdentifier: 
+  label: "\u041A\u0430\u043F\u0441\u044E\u043B\u044C \u043E\u0433\u043B\u0443\u0448\u0435\u043D\u0438\u044F"
+  icon: {fileID: 0}
+  description: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435"
+  ingredients:
+  - {fileID: 11400000, guid: 2e72f36a0ab5b484c872d335ec78dd96, type: 2}
+  - {fileID: 11400000, guid: dbb4f5064121bc949b5c20513f33341c, type: 2}
+  - {fileID: 11400000, guid: 03d8c2765e035554186406fe69f78b15, type: 2}
+  amount: 1

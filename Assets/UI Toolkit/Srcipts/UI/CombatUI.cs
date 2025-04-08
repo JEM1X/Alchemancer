@@ -36,11 +36,6 @@ public class CombatUI : MonoBehaviour
         mediator.Horde.OnNewEnemy += InitializeEnemy;
     }
 
-    private void Start()
-    {
-        //BattleManager.Instance.OnPlayerTurnStarted += ToggleHand;
-    }
-
     private void InitializeUI()
     {
         VisualElement root = uiDocument.rootVisualElement;

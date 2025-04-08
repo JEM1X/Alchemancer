@@ -63,7 +63,6 @@ public class Enemy : Combatant
     protected override void Death()
     {
         base.Death();
-        StopAllCoroutines();
         Destroy(gameObject);
     }
 }
