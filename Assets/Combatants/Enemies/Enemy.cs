@@ -7,7 +7,6 @@ public class Enemy : Combatant
     [SerializeField] private float attackMoveDistance = 0.5f;
     [SerializeField] private float attackDuration = 0.3f;
     [SerializeField] private ParticleSystem attackParticles;
-    [SerializeField] private int damage;
 
 
     protected override IEnumerator Attack()
@@ -17,18 +16,7 @@ public class Enemy : Combatant
         if (attackParticles != null)
             attackParticles.Play();
 
-        if (weakStrong < 0)
-        {
-            BattleM.Instance.Player.TakeDamage(damage / 2);
-        }
-        else if(weakStrong > 0)
-        {
-            BattleM.Instance.Player.TakeDamage(damage * 2);
-        }
-        else
-        {
-            BattleM.Instance.Player.TakeDamage(damage);
-        }
+        BattleM.Instance.Player.TakeDamage(Damage / 2);
     }
 
     private IEnumerator AttackLunge()

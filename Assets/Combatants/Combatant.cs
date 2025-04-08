@@ -8,6 +8,8 @@ public abstract class Combatant : MonoBehaviour
     [SerializeField] protected int healthMax = 5;
     public int Health { get => health; }
     [SerializeField] protected int health = 5;
+
+    [SerializeField] private int damage;
     public int VulnerableResilient { get => vulnerableResilient; }
     [SerializeField] protected int vulnerableResilient = 0;
     public int WeakStrong { get => weakStrong; }
@@ -31,6 +33,16 @@ public abstract class Combatant : MonoBehaviour
 
     private event Action CompleteTurn;
 
+    public int Damage
+    {
+        get
+        {
+            if (weakStrong == 0)
+                return damage;
+
+            return weakStrong > 0 ? damage * 2: damage / 2;
+        }
+    }
 
     protected void Start()
     {
@@ -47,10 +59,11 @@ public abstract class Combatant : MonoBehaviour
         //pre-attack effects
         ReduceBleed();
 
+        ReduceVulnerableResilient();
+
         if (ReduceStun())
         {
             ReduceWeakStrong();
-            ReduceVulnerableResilient();
 
             OnTurnEnd?.Invoke();
             CompleteTurn?.Invoke();
@@ -62,8 +75,6 @@ public abstract class Combatant : MonoBehaviour
 
         //post-attack effects
         ReduceWeakStrong();
-
-        ReduceVulnerableResilient();
 
         OnTurnEnd?.Invoke();
 
