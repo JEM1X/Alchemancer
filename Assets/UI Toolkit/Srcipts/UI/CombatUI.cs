@@ -80,6 +80,8 @@ public class CombatUI : MonoBehaviour
         ingredientCard.cardFrame.clicked += () => UseIngredientCard(ingredientCard);
 
         bagUI.Add(ingredientCard.cardFrame);
+
+        StartCoroutine(DrawCardAnim(ingredientCard));
     }
 
     private void InitializePotionCard(Potion_SO potion)
@@ -196,5 +198,20 @@ public class CombatUI : MonoBehaviour
     {
         handUI.SetEnabled(false);
         handUI.pickingMode = PickingMode.Ignore;
+    }
+
+    private IEnumerator DrawCardAnim(UICard card)
+    {
+        float duration = 0;
+        while (duration < 1f)
+        {
+            Length xPos = new Length(1700 * (1 - UITK.EaseInOutQuad(duration)));
+            Length yPos = new Length(0);
+            card.cardFrame.style.translate = new StyleTranslate( new Translate(xPos, yPos));
+            duration += Time.deltaTime;
+            yield return null;
+        }
+
+        card.cardFrame.style.translate = new StyleTranslate(StyleKeyword.Null);
     }
 }

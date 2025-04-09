@@ -28,4 +28,9 @@ public class UITK
 
         return element;
     }
+
+    public static float EaseInOutQuad(float x)
+    {
+        return x < 0.5f ? 2f * x * x : 1f - Mathf.Pow(-2f * x + 2f, 2f) / 2f;
+    }
 }

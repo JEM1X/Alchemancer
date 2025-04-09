@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 9395668a1dcc2e44896ffe0a79ac275c
+guid: 316515ecb69f5d54698840b768b1852b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 418060582191273543
-    second: Skeleton_01_White_Hurt_0
+      213: 303854554312539980
+    second: Skeleton-Idle_0
   - first:
-      213: 165141955181463246
-    second: Skeleton_01_White_Hurt_1
+      213: -7969776883741174648
+    second: Skeleton-Idle_1
   - first:
-      213: 6421821576006471594
-    second: Skeleton_01_White_Hurt_2
+      213: 2794140543023437591
+    second: Skeleton-Idle_2
   - first:
-      213: 2454245034970752087
-    second: Skeleton_01_White_Hurt_3
-  - first:
-      213: 8356227401173498364
-    second: Skeleton_01_White_Hurt_4
+      213: 2312121367507405550
+    second: Skeleton-Idle_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -87,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skeleton_01_White_Hurt_0
+      name: Skeleton-Idle_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 0
-        width: 36
-        height: 47
+        x: 58
+        y: 47
+        width: 49
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7469a1072ef3dc500800000000000000
-      internalID: 418060582191273543
+      spriteID: c4ffe257b12873400800000000000000
+      internalID: 303854554312539980
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_01_White_Hurt_1
+      name: Skeleton-Idle_1
       rect:
         serializedVersion: 2
-        x: 125
-        y: 0
-        width: 29
-        height: 43
+        x: 208
+        y: 47
+        width: 49
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec6ca18bbb3ba4200800000000000000
-      internalID: 165141955181463246
+      spriteID: 884dc71662aa56190800000000000000
+      internalID: -7969776883741174648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_01_White_Hurt_2
+      name: Skeleton-Idle_2
       rect:
         serializedVersion: 2
-        x: 223
-        y: 0
-        width: 28
-        height: 44
+        x: 358
+        y: 47
+        width: 49
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aaf0ec8f2b4ee1950800000000000000
-      internalID: 6421821576006471594
+      spriteID: 717dd671508c6c620800000000000000
+      internalID: 2794140543023437591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_01_White_Hurt_3
+      name: Skeleton-Idle_3
       rect:
         serializedVersion: 2
-        x: 321
-        y: 0
-        width: 34
-        height: 46
+        x: 508
+        y: 47
+        width: 49
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,30 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 754a23d2bda3f0220800000000000000
-      internalID: 2454245034970752087
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton_01_White_Hurt_4
-      rect:
-        serializedVersion: 2
-        x: 417
-        y: 0
-        width: 36
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cf9f4555c8847f370800000000000000
-      internalID: 8356227401173498364
+      spriteID: eea8ed3322e461020800000000000000
+      internalID: 2312121367507405550
       vertices: []
       indices: 
       edges: []
@@ -235,11 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Skeleton_01_White_Hurt_0: 418060582191273543
-      Skeleton_01_White_Hurt_1: 165141955181463246
-      Skeleton_01_White_Hurt_2: 6421821576006471594
-      Skeleton_01_White_Hurt_3: 2454245034970752087
-      Skeleton_01_White_Hurt_4: 8356227401173498364
+      Skeleton-Idle_0: 303854554312539980
+      Skeleton-Idle_1: -7969776883741174648
+      Skeleton-Idle_2: 2794140543023437591
+      Skeleton-Idle_3: 2312121367507405550
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
