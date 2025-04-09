@@ -599,6 +599,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1948359767}
+    - target: {fileID: 3642017888385160230, guid: b957ae3a5c197b447bbbfe2d37ba04d3, type: 3}
+      propertyPath: totalWaves
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6486528426389239222, guid: b957ae3a5c197b447bbbfe2d37ba04d3, type: 3}
       propertyPath: m_Name
       value: BattleManager

@@ -283,10 +283,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 15
   health: 15
+  damage: 3
   vulnerableResilient: 0
   weakStrong: 0
-  bleedStacks: 0
+  bleed: 0
+  stun: 0
   attackMoveDistance: 5
   attackDuration: 0.25
   attackParticles: {fileID: 0}
-  damage: 3
+  _scorePoints: 50

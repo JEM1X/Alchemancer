@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,8 +8,8 @@ public class Enemy : Combatant
     [SerializeField] private float attackMoveDistance = 0.5f;
     [SerializeField] private float attackDuration = 0.3f;
     [SerializeField] private ParticleSystem attackParticles;
-
-
+    [SerializeField] private int _scorePoints;
+    public static event Action<int> OnScoreGain;
     protected override IEnumerator Attack()
     {
         yield return StartCoroutine(AttackLunge());
@@ -51,6 +52,7 @@ public class Enemy : Combatant
     protected override void Death()
     {
         base.Death();
+        OnScoreGain?.Invoke(_scorePoints);
         Destroy(gameObject);
     }
 }
