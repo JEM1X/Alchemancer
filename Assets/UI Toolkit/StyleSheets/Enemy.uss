@@ -1,0 +1,53 @@
+.hordeUI {
+    position: absolute;
+    right: 40px;
+    top: 150px;
+    height: 600px;
+    width: 900px;
+}
+
+.enemyFrame {
+    position: absolute;
+    height: 300px;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+    .enemyFrame:hover {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+.statusPanel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.healthBar{
+    overflow: visible;
+}
+
+.healthFrame{
+    position: absolute;
+    left: -36px;
+    top: -30px;
+}
+
+.effectsPanel {
+    flex-direction: row;
+    justify-content: space-evenly;
+    overflow: visible;
+}
+
+.EffectFrame {
+    height: 76px;
+    width: 76px;
+    flex-shrink: 0;
+}
+
+.EffectAmount {
+    color: rgb(243, 243, 243);
+    -unity-text-align: upper-center;
+    text-shadow: -6px 3px 0 rgba(0, 0, 0, 1);
+}

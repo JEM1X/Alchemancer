@@ -6,21 +6,26 @@ public class CombatantCard
     public Combatant combatant;
     public Button combatantFrame;
 
+    private ProgressBar healthBar;
+    private VisualElement healthFrame;
+    private Label healthAmount;
+
     //Buff and Debuffs
-    public VisualElement vulnerableFrame;
-    public Label vulnerableAmount;
-    public VisualElement resilientFrame;
-    public Label resilientAmount;
-    public VisualElement weakFrame;
-    public Label weakAmount;
-    public VisualElement strongFrame;
-    public Label strongAmount;
-    public VisualElement bleedFrame;
-    public Label bleedAmount;
-    public VisualElement stunFrame;
-    public Label stunAmount;
+    private VisualElement vulnerableFrame;
+    private Label vulnerableAmount;
+    private VisualElement resilientFrame;
+    private Label resilientAmount;
+    private VisualElement weakFrame;
+    private Label weakAmount;
+    private VisualElement strongFrame;
+    private Label strongAmount;
+    private VisualElement bleedFrame;
+    private Label bleedAmount;
+    private VisualElement stunFrame;
+    private Label stunAmount;
 
     private UICombatStyle_SO combatantStyle;
+
 
     public CombatantCard(Combatant combatant, UICombatStyle_SO enemyStyle, Camera mainCamera)
     {
@@ -34,50 +39,58 @@ public class CombatantCard
         combatantFrame = UITK.CreateElement<Button>("enemyFrame");
         UpdateFramePos(mainCamera);
 
-        var healthFrame = UITK.AddElement(combatantFrame, "healthFrame", "effectFrame");
+        var statusPanel = UITK.AddElement(combatantFrame, "statusPanel");
+
+        var effectsPanel = UITK.AddElement(statusPanel, "effectsPanel");
+
+        healthBar = UITK.AddElement<ProgressBar>(statusPanel, "healthBar");
+        healthBar.highValue = combatant.HealthMax;
+
+        healthFrame = UITK.AddElement(healthBar, "healthFrame", "EffectFrame");
         healthFrame.style.backgroundImage = new StyleBackground(combatantStyle.healthIcon);
 
-        var healthAmount = UITK.AddElement<Label>(healthFrame, "healthAmount", "effectAmount", "ClearText");
-        healthAmount.text = combatant.Health.ToString();
+        healthAmount = UITK.AddElement<Label>(healthFrame, "healthAmount", "EffectAmount", "ClearText");
+
+        UpdateHealth(0);
 
         //vulnerable
-        vulnerableFrame = UITK.AddElement(combatantFrame, "vulnerableFrame", "effectFrame");
+        vulnerableFrame = UITK.AddElement(effectsPanel, "vulnerableFrame", "EffectFrame");
         vulnerableFrame.style.backgroundImage = new StyleBackground(combatantStyle.vulnerableIcon);
 
-        vulnerableAmount = UITK.AddElement<Label>(vulnerableFrame, "vulnerableAmount", "effectAmount", "ClearText");
+        vulnerableAmount = UITK.AddElement<Label>(vulnerableFrame, "vulnerableAmount", "EffectAmount", "ClearText");
 
         //resilient
-        resilientFrame = UITK.AddElement(combatantFrame, "resilientFrame", "effectFrame");
+        resilientFrame = UITK.AddElement(effectsPanel, "resilientFrame", "EffectFrame");
         resilientFrame.style.backgroundImage = new StyleBackground(combatantStyle.resilientIcon);
 
-        resilientAmount = UITK.AddElement<Label>(resilientFrame, "resilientAmount", "effectAmount", "ClearText");
+        resilientAmount = UITK.AddElement<Label>(resilientFrame, "resilientAmount", "EffectAmount", "ClearText");
 
         UpdateVulnerableResilient(0);
 
         //weak
-        weakFrame = UITK.AddElement(combatantFrame, "weakFrame", "effectFrame");
+        weakFrame = UITK.AddElement(effectsPanel, "weakFrame", "EffectFrame");
         weakFrame.style.backgroundImage = new StyleBackground(combatantStyle.weakIcon);
 
-        weakAmount = UITK.AddElement<Label>(weakFrame, "weakAmount", "effectAmount", "ClearText");
+        weakAmount = UITK.AddElement<Label>(weakFrame, "weakAmount", "EffectAmount", "ClearText");
 
         //strong
-        strongFrame = UITK.AddElement(combatantFrame, "strongFrame", "effectFrame");
+        strongFrame = UITK.AddElement(effectsPanel, "strongFrame", "EffectFrame");
         strongFrame.style.backgroundImage = new StyleBackground(combatantStyle.weakIcon);
 
-        strongAmount = UITK.AddElement<Label>(strongFrame, "strongAmount", "effectAmount", "ClearText");
+        strongAmount = UITK.AddElement<Label>(strongFrame, "strongAmount", "EffectAmount", "ClearText");
 
         UpdateWeakStrong(0);
 
         //bleed
-        bleedFrame = UITK.AddElement(combatantFrame, "bleedFrame", "effectFrame");
+        bleedFrame = UITK.AddElement(effectsPanel, "bleedFrame", "EffectFrame");
         bleedFrame.style.backgroundImage = new StyleBackground(combatantStyle.bleedIcon);
 
-        bleedAmount = UITK.AddElement<Label>(bleedFrame, "bleedAmount", "effectAmount", "ClearText");
+        bleedAmount = UITK.AddElement<Label>(bleedFrame, "bleedAmount", "EffectAmount", "ClearText");
 
         UpdateBleed(0);
 
         //stun
-        stunFrame = UITK.AddElement(combatantFrame, "stunFrame", "effectFrame");
+        stunFrame = UITK.AddElement(effectsPanel, "stunFrame", "effectFrame");
         stunFrame.style.backgroundImage = new StyleBackground(combatantStyle.stunIcon);
 
         stunAmount = UITK.AddElement<Label>(stunFrame, "stunAmount", "effectAmount", "ClearText");
@@ -85,7 +98,7 @@ public class CombatantCard
         UpdateStun(0);
 
         //Events
-        combatant.OnHealthChange += (int health) => healthAmount.text = combatant.Health.ToString();
+        combatant.OnHealthChange += UpdateHealth;
         combatant.OnDeath += EnemyDeath;
         combatant.OnVulnerableResilientChange += UpdateVulnerableResilient;
         combatant.OnWeakStrongChange += UpdateWeakStrong;
@@ -98,8 +111,14 @@ public class CombatantCard
         Vector2 enemyScreenPos = mainCamera.WorldToScreenPoint(combatant.transform.position);
         Vector2 framePos = new Vector2(enemyScreenPos.x, Screen.height - enemyScreenPos.y);
 
-        combatantFrame.style.top = framePos.y - 150 - 200;
-        combatantFrame.style.left = framePos.x - 980 - 75;
+        combatantFrame.style.top = framePos.y - 150 - 250;
+        combatantFrame.style.left = framePos.x - 980 - 100;
+    }
+
+    private void UpdateHealth(int amount)
+    {
+        healthBar.value = combatant.Health;
+        healthAmount.text = combatant.Health.ToString();
     }
 
     private void UpdateVulnerableResilient(int amount)

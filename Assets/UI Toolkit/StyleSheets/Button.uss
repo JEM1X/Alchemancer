@@ -1,10 +1,12 @@
 .unity-button {
     padding: 12px;
-    border-width: 0px;
+    border-width: 0;
     margin: 0;
-    transition-duration: 0.2s;
-    transition-timing-function: ease;
     font-size: 32px;
+    overflow: visible;
+    transition-duration: 0.2s, 0.2s;
+    transition-timing-function: ease-in-out-cubic, ease-in-out-cubic;
+    transition-property: scale, background-color;
 }
 
 .unity-button:hover {

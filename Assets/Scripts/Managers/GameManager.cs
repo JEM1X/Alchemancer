@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    public int TotalScore;
 
-    
-    public int TotalScore; // чтобы писать очки за забег
+
     protected override void Awake()
     {
         base.Awake();

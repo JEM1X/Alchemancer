@@ -24,6 +24,7 @@ public class CombatUI : MonoBehaviour
     private List<IngredientCard> cardsInCauldron = new List<IngredientCard>(0);
     private PotionCard potionInUse = null;
     private List<CombatantCard> enemyCards;
+    private bool isCardAnim = false;
 
     private void Awake()
     {
@@ -202,16 +203,28 @@ public class CombatUI : MonoBehaviour
 
     private IEnumerator DrawCardAnim(UICard card)
     {
+        card.cardFrame.style.translate = new StyleTranslate(new Translate(new Length(1700), new Length(0)));
+
+        while (isCardAnim)
+        {
+            yield return null;
+        }
+
+        isCardAnim = true;
+
+        AudioM.Instance.PlaySound(AudioM.Instance.cardSounds[1]);
+
         float duration = 0;
         while (duration < 1f)
         {
             Length xPos = new Length(1700 * (1 - UITK.EaseInOutQuad(duration)));
             Length yPos = new Length(0);
             card.cardFrame.style.translate = new StyleTranslate( new Translate(xPos, yPos));
-            duration += Time.deltaTime;
+            duration += Time.deltaTime / 0.3f;
             yield return null;
         }
 
         card.cardFrame.style.translate = new StyleTranslate(StyleKeyword.Null);
+        isCardAnim = false;
     }
 }

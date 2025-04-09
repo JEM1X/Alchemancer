@@ -9,7 +9,10 @@ public class Enemy : Combatant
     [SerializeField] private float attackDuration = 0.3f;
     [SerializeField] private ParticleSystem attackParticles;
     [SerializeField] private int _scorePoints;
+
     public static event Action<int> OnScoreGain;
+
+
     protected override IEnumerator Attack()
     {
         yield return StartCoroutine(AttackLunge());
