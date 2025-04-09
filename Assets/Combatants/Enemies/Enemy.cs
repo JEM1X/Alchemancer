@@ -16,7 +16,7 @@ public class Enemy : Combatant
         if (attackParticles != null)
             attackParticles.Play();
 
-        BattleM.Instance.Player.TakeDamage(Damage / 2);
+        BattleM.Instance.Player.TakeDamage(Damage);
     }
 
     private IEnumerator AttackLunge()
