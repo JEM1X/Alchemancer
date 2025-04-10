@@ -15,6 +15,11 @@ public class CombatUI : MonoBehaviour
     [SerializeField] private UIStyle_SO styleSheet;
     [SerializeField] private UICombatStyle_SO combatStyle;
 
+    [Header ("Animations")]
+    [SerializeField] private bool isCardAnim = false;
+    [SerializeField] private float drawDuration = 0.4f;
+    [SerializeField] private float overlapDuration = 0.5f;
+
     private VisualElement hordeUI;
     private VisualElement handUI;
     private VisualElement bagUI;
@@ -24,7 +29,6 @@ public class CombatUI : MonoBehaviour
     private List<IngredientCard> cardsInCauldron = new List<IngredientCard>(0);
     private PotionCard potionInUse = null;
     private List<CombatantCard> enemyCards;
-    private bool isCardAnim = false;
 
     private void Awake()
     {
@@ -65,7 +69,6 @@ public class CombatUI : MonoBehaviour
             bagUI.Clear();
             HideHand();
             mediator.PlayerCombat.CompletePlayerTurn?.Invoke();
-            //BattleManager.Instance.CompletePlayerTurn();
 
             AudioM.Instance.PlaySound(AudioM.Instance.uiSounds[0]);
         };
@@ -82,7 +85,7 @@ public class CombatUI : MonoBehaviour
 
         bagUI.Add(ingredientCard.cardFrame);
 
-        StartCoroutine(DrawCardAnim(ingredientCard));
+        StartCoroutine(DrawCardAnim(ingredientCard, new Vector2Int(1700, 100)));
     }
 
     private void InitializePotionCard(Potion_SO potion)
@@ -93,6 +96,7 @@ public class CombatUI : MonoBehaviour
         potionCard.cardFrame.clicked += () => UsePotionCard(potionCard);
        
         beltUI.Add(potionCard.cardFrame);
+        StartCoroutine(DrawCardAnim(potionCard, new Vector2Int(0, 500)));
     }
 
     private void InitializeEnemy(Enemy enemy)
@@ -201,9 +205,9 @@ public class CombatUI : MonoBehaviour
         handUI.pickingMode = PickingMode.Ignore;
     }
 
-    private IEnumerator DrawCardAnim(UICard card)
+    private IEnumerator DrawCardAnim(UICard card, Vector2Int pos)
     {
-        card.cardFrame.style.translate = new StyleTranslate(new Translate(new Length(1700), new Length(0)));
+        card.cardFrame.style.translate = new StyleTranslate(new Translate(new Length(pos.x), new Length(pos.y)));
 
         while (isCardAnim)
         {
@@ -214,17 +218,23 @@ public class CombatUI : MonoBehaviour
 
         AudioM.Instance.PlaySound(AudioM.Instance.cardSounds[1]);
 
+        bool nextCard = true;
         float duration = 0;
         while (duration < 1f)
         {
-            Length xPos = new Length(1700 * (1 - UITK.EaseInOutQuad(duration)));
-            Length yPos = new Length(0);
+            if (duration > overlapDuration && nextCard)
+            {
+                isCardAnim = false;
+                nextCard = false;
+            }
+
+            Length xPos = new Length(pos.x * (1 - UITK.EaseInOutQuad(duration)));
+            Length yPos = new Length(pos.y * (1 - UITK.EaseInOutQuad(duration)));
             card.cardFrame.style.translate = new StyleTranslate( new Translate(xPos, yPos));
-            duration += Time.deltaTime / 0.3f;
+            duration += Time.deltaTime / drawDuration;
             yield return null;
         }
 
         card.cardFrame.style.translate = new StyleTranslate(StyleKeyword.Null);
-        isCardAnim = false;
     }
 }

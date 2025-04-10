@@ -204,6 +204,9 @@ MonoBehaviour:
   uiDocument: {fileID: 6088067238973858789}
   styleSheet: {fileID: 11400000, guid: 556b260768c56074b83476f7a4e6d2a9, type: 2}
   combatStyle: {fileID: 11400000, guid: 24276db82a1fcc04eba2b5bc26ddeba0, type: 2}
+  isCardAnim: 0
+  drawDuration: 0.4
+  overlapDuration: 0.5
 --- !u!1 &3610072112875724854
 GameObject:
   m_ObjectHideFlags: 0
