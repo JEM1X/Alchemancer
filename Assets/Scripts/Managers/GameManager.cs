@@ -19,7 +19,7 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
         Enemy.OnScoreGain += AddScore;
         DontDestroyOnLoad(gameObject);
-        GenerateRecipes();
+        //GenerateRecipes();
         mediator.PlayerHand.OnNewPotion += UnlockPotion;
     }
 

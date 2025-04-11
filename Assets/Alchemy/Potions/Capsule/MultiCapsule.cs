@@ -11,5 +11,6 @@ public class MultiCapsule : Capsule_SO
         enemy.InflictWeakStrong(-amount);
         enemy.InflictBleed(amount);
         enemy.InflictVulnerableResilient(-amount);
+        enemy.InflictStun(amount);
     }
 }

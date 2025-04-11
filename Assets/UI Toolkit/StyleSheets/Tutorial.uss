@@ -1,0 +1,9 @@
+.welcomeScreen {
+    align-self: center;
+    justify-content: space-between
+}
+
+.handScreen{
+    align-self: center;
+    justify-content: space-between
+}
