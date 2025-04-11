@@ -5,12 +5,27 @@ public class RecipePage
 {
     public Potion_SO potion;
     public VisualElement page;
-    public VisualElement[] ingredientIcons = new VisualElement[3];
+
+    private VisualElement[] ingredientIcons = new VisualElement[3];
+    private Label pageCover;
+
 
     public RecipePage(Potion_SO potion)
     {
         this.potion = potion;
         InitializeRecipePage();
+        
+        if (GameManager.Instance.discoveredPotions.Contains(potion))
+        {
+            UncoverPage();
+            return;
+        }
+
+        GameManager.Instance.OnDiscoveredPotion += (Potion_SO discoveredPotion) =>
+        {
+            if (discoveredPotion != potion) return;
+            UncoverPage();
+        };
     }
 
     private void InitializeRecipePage()
@@ -29,5 +44,13 @@ public class RecipePage
             ingredientIcons[i] = UITK.AddElement(ingredientPanel, "ingredientIcon");
             ingredientIcons[i].style.backgroundImage = new StyleBackground(ingredient.Icon);
         }
+
+        pageCover = UITK.AddElement<Label>(page, "pageCover");
+        pageCover.text = "Неизвестно";
+    }
+
+    public void UncoverPage()
+    {
+        pageCover.style.display = DisplayStyle.None;
     }
 }

@@ -26,6 +26,17 @@
     justify-content: space-around;
 }
 
+.pageCover {
+    position: absolute;
+    bottom: 0;
+    width: 480px;
+    height: 200px;
+    background-color: rgb(30, 30, 30);
+    font-size: 96px;
+    color: rgb(220, 220, 220);
+    -unity-text-align: middle-center;
+}
+
 .ingredientPanel{
     flex-direction: row;
 }

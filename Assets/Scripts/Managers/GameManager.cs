@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public int TotalScore;
-    public List<Potion_SO> unlockedPotions;
+    public List<Potion_SO> discoveredPotions = new();
 
     [SerializeField] private IngredientList_SO ingredientList;
     [SerializeField] private PotionList_SO potionList;
@@ -62,9 +62,10 @@ public class GameManager : Singleton<GameManager>
 
     private void UnlockPotion(Potion_SO potion)
     {
-        if (!unlockedPotions.Contains(potion)) return;
+        if (discoveredPotions.Contains(potion)) return;
 
-        unlockedPotions.Add(potion);
+        discoveredPotions.Add(potion);
         OnDiscoveredPotion(potion);
+        Debug.Log("disc potion");
     }
 }
