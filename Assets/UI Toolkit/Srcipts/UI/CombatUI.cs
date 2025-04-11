@@ -28,9 +28,9 @@ public class CombatUI : MonoBehaviour
 
     private List<IngredientCard> cardsInCauldron = new List<IngredientCard>(0);
     private PotionCard potionInUse = null;
-    private List<CombatantCard> enemyCards;
+    //private List<CombatantCard> enemyCards;
 
-    private void Awake()
+    private void Start()
     {
         InitializeUI();
 
@@ -43,6 +43,7 @@ public class CombatUI : MonoBehaviour
 
     private void InitializeUI()
     {
+
         VisualElement root = uiDocument.rootVisualElement;
         root.Clear();
 
@@ -216,10 +217,11 @@ public class CombatUI : MonoBehaviour
 
         isCardAnim = true;
 
-        AudioM.Instance.PlaySound(AudioM.Instance.cardSounds[1]);
+
 
         bool nextCard = true;
         float duration = 0;
+
         while (duration < 1f)
         {
             if (duration > overlapDuration && nextCard)
@@ -235,6 +237,23 @@ public class CombatUI : MonoBehaviour
             yield return null;
         }
 
+        AudioM.Instance.PlaySound(AudioM.Instance.cardSounds[1]);
         card.cardFrame.style.translate = new StyleTranslate(StyleKeyword.Null);
     }
+
+    //private IEnumerator UsePotionAnim(UICard card, VisualElement target)
+    //{
+    //    float duration = 0;
+
+    //    target.WorldToLocal()
+
+    //    while (duration < 1f)
+    //    {
+    //        Length xPos = new Length(pos.x * (1 - UITK.EaseInOutQuad(duration)));
+    //        Length yPos = new Length(pos.y * (1 - UITK.EaseInOutQuad(duration)));
+    //        card.cardFrame.style.translate = new StyleTranslate(new Translate(xPos, yPos));
+    //        duration += Time.deltaTime / drawDuration;
+    //        yield return null;
+    //    }
+    //}
 }

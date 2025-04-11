@@ -6,6 +6,7 @@ using UnityEngine;
 public class BattleM : Singleton<BattleM>
 {
     [Header("Battle Settings")]
+    public Horde Horde { get => horde; }
     [SerializeField] private Horde horde;
     public Combatant Player => player;
     [SerializeField] private Combatant player;

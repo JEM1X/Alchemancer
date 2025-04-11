@@ -22,13 +22,10 @@ public class InGameMenu : MonoBehaviour
     private bool isDefeatVisible = true;
     private Label waveCounter;
 
-    private void Awake()
-    {
-        StartCoroutine(InitializeUI());
-    }
 
     private void Start()
     {
+        StartCoroutine(InitializeUI());
         BattleM.Instance.OnAllWavesCleared += ToggleVictoryScreen;
         BattleM.Instance.OnWaveStart += UpdateWaveCounter;
         mediator.PlayerCombat.OnDeath += ToggleDefeatScreen;

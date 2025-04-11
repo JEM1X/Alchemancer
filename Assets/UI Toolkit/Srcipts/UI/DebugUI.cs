@@ -11,7 +11,7 @@ public class DebugUI : MonoBehaviour
     private VisualElement canvas;
 
 
-    private void Awake()
+    private void Start()
     {
         InitializeUI();
     }
@@ -29,7 +29,9 @@ public class DebugUI : MonoBehaviour
         VisualElement root = uiDocument.rootVisualElement;
         root.Clear();
 
-        canvas = UITK.AddElement(root, "canvas");
+        canvas = UITK.AddElement<ScrollView>(root, "canvas");
+        canvas.style.height = 900;
+        canvas.style.width = 800;
         canvas.style.alignItems = Align.FlexStart;
         canvas.style.paddingTop = 10;
         canvas.style.paddingLeft = 10;

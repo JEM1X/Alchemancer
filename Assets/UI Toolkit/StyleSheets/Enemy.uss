@@ -6,14 +6,14 @@
     width: 900px;
 }
 
-.enemyFrame {
+.combatantFrame {
     position: absolute;
     height: 300px;
     width: 200px;
     background-color: rgba(0, 0, 0, 0);
 }
 
-    .enemyFrame:hover {
+    .combatantFrame:hover {
         background-color: rgba(0, 0, 0, 0);
     }
 

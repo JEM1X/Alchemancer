@@ -36,8 +36,8 @@ public class CombatantCard
 
     public void InitializeEnemy(Camera mainCamera)
     {
-        combatantFrame = UITK.CreateElement<Button>("enemyFrame");
-        UpdateFramePos(mainCamera);
+        combatantFrame = UITK.CreateElement<Button>("combatantFrame");
+        SetFramePos(mainCamera);
 
         var statusPanel = UITK.AddElement(combatantFrame, "statusPanel");
 
@@ -106,7 +106,7 @@ public class CombatantCard
         combatant.OnStunChanged += UpdateStun;
     }
 
-    private void UpdateFramePos(Camera mainCamera)
+    private void SetFramePos(Camera mainCamera)
     {
         Vector2 enemyScreenPos = mainCamera.WorldToScreenPoint(combatant.transform.position);
         Vector2 framePos = new Vector2(enemyScreenPos.x, Screen.height - enemyScreenPos.y);

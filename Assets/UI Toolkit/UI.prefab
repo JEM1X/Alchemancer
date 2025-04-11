@@ -66,6 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 8823154947123965883}
   styleSheet: {fileID: 11400000, guid: 556b260768c56074b83476f7a4e6d2a9, type: 2}
+  potionList: {fileID: 11400000, guid: e79c61727b3a92f4bb316e2a53811743, type: 2}
   sprite: {fileID: 21300000, guid: 7972dd97521bb1c44ba8e3774391b996, type: 3}
 --- !u!1 &2090902481536988310
 GameObject:

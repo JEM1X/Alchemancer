@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430298327b8ef0c42b57f9799ba7ddaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredientList: {fileID: 11400000, guid: 00cb3f9a946d9bf4e9427a1f3b4d0e86, type: 2}
+  potionList: {fileID: 11400000, guid: e79c61727b3a92f4bb316e2a53811743, type: 2}
   TotalScore: 0
