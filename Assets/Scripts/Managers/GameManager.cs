@@ -19,7 +19,6 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
         Enemy.OnScoreGain += AddScore;
         DontDestroyOnLoad(gameObject);
-        //GenerateRecipes();
         mediator.PlayerHand.OnNewPotion += UnlockPotion;
     }
 
@@ -29,7 +28,7 @@ public class GameManager : Singleton<GameManager>
     }
 
 
-    void GenerateRecipes()
+    public void GenerateRecipes()
     {
         List<Ingredient_SO[]> allRecipes = new();
 
@@ -58,6 +57,8 @@ public class GameManager : Singleton<GameManager>
             potionList.AllPotions[i].Ingredients = allRecipes[randomRecipe];
             allRecipes.Remove(allRecipes[randomRecipe]);
         }
+
+        discoveredPotions = new();
     }
 
     private void UnlockPotion(Potion_SO potion)
@@ -66,6 +67,5 @@ public class GameManager : Singleton<GameManager>
 
         discoveredPotions.Add(potion);
         OnDiscoveredPotion(potion);
-        Debug.Log("disc potion");
     }
 }

@@ -17,6 +17,11 @@
     justify-content: space-between;
 }
 
+.startMenu {
+    position: absolute;
+    align-self: center;
+}
+
 .InGameScreen {
     width: 1920px;
     height: 1080px;

@@ -30,7 +30,7 @@ public class CombatUI : MonoBehaviour
     private PotionCard potionInUse = null;
     //private List<CombatantCard> enemyCards;
 
-    private void Start()
+    private void Awake()
     {
         InitializeUI();
 

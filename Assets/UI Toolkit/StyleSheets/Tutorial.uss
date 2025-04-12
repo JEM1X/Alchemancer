@@ -7,3 +7,13 @@
     align-self: center;
     justify-content: space-between
 }
+
+.potionScreen {
+    align-self: center;
+    justify-content: space-between
+}
+
+.finaleScreen {
+    align-self: center;
+    justify-content: space-between
+}

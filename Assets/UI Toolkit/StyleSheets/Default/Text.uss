@@ -19,5 +19,5 @@
 .ClearText {
     font-size: 32px;
     white-space: normal;
-    -unity-font-definition: url("project://database/Assets/Assets/Fonts/Andika-Regular.ttf?fileID=12800000&guid=7f71ad1cf85d38b478cc7c23c3139ddc&type=3#Andika-Regular");
+    -unity-font-definition: url("project://database/Assets/Assets/Fonts/Andika-Bold%20SDF.asset?fileID=11400000&guid=874463b1733549a4d845ffa48746c96c&type=2#Andika-Bold SDF");
 }
