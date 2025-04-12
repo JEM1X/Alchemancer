@@ -11,16 +11,14 @@ public class Enemy : Combatant
     [SerializeField] private int _scorePoints;
 
     public static event Action<int> OnScoreGain;
+    public EnemyAttack_SO PlannedAttack { get => plannedAttack; }
+    private EnemyAttack_SO plannedAttack;
     [SerializeField] private EnemyAttack_SO[] enemyAttack_SOs;
 
     protected override IEnumerator Attack()
     {
         yield return StartCoroutine(AttackLunge());
-
-        //if (attackParticles != null)
-        //    attackParticles.Play();
-        ChooseAttack();
-        //BattleM.Instance.Player.TakeDamage(Damage);
+        plannedAttack.ExecuteAttack(Damage);
     }
 
     private IEnumerator AttackLunge()
@@ -51,9 +49,13 @@ public class Enemy : Combatant
 
         transform.position = startPos;
     }
-    private void ChooseAttack() 
+    public void PlanNextAction()
     {
-        enemyAttack_SOs[UnityEngine.Random.Range(0, enemyAttack_SOs.Length)].ExecuteAttack(Damage);
+        plannedAttack = ChooseAttack();
+    }
+    private EnemyAttack_SO ChooseAttack() 
+    {
+        return enemyAttack_SOs[UnityEngine.Random.Range(0, enemyAttack_SOs.Length)];
     }
     protected override void Death()
     {

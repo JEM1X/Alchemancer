@@ -239,6 +239,8 @@ MonoBehaviour:
   _scorePoints: 50
   enemyAttack_SOs:
   - {fileID: 11400000, guid: 31e456ba717683742aae3a519408f5b1, type: 2}
+  - {fileID: 11400000, guid: 536a0032e55da76438bb61e9de30865b, type: 2}
+  - {fileID: 11400000, guid: a3bdb3f9d68d48040b3a276e285e411b, type: 2}
 --- !u!1 &7785944347614656100
 GameObject:
   m_ObjectHideFlags: 0

@@ -47,6 +47,10 @@ public class BattleM : Singleton<BattleM>
     {
         yield return null;
 
+        foreach (var enemy in Horde.EnemyScripts) 
+        {
+            enemy.PlanNextAction();
+        }
         Debug.Log("Player Turn");
         yield return StartCoroutine(WaitForTurn(player));
 
