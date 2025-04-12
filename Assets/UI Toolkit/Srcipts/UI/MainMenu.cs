@@ -51,15 +51,15 @@ public class MainMenu : MonoBehaviour
         tutorialButton.text = "Обучение";
         tutorialButton.clicked += () =>
         {
-            GameManager.Instance.GenerateRecipes();
             SceneManager.LoadScene(4);
+            GameManager.Instance.GenerateRecipes();
         };
         var runButton = UITK.AddElement<Button>(startMenu, "runButton", "MainButton");
         runButton.text = "Начать забег";
         runButton.clicked += () =>
         {
-            GameManager.Instance.GenerateRecipes();
             SceneManager.LoadScene(1);
+            GameManager.Instance.GenerateRecipes();
         };
 
         ToggleStart();
