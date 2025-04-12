@@ -23,7 +23,7 @@ public class PlayerHand : MonoBehaviour
     private void Awake()
     {
         mediator = GetComponent<AlchemancerMediator>();
-        mediator.PlayerCombat.OnTurnStart += DrawNewHand;
+        mediator.PlayerCombat.OnAttackStart += DrawNewHand;
     }
 
     public void DrawNewHand()

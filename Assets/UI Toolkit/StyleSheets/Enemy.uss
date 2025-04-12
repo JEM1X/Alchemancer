@@ -51,3 +51,11 @@
     -unity-text-align: upper-center;
     text-shadow: -6px 3px 0 rgba(0, 0, 0, 1);
 }
+
+.enemyAttack{
+    position: absolute;
+    align-self: center;
+    top: -76px;
+    width: 76px;
+    height: 76px;
+}

@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Enemy/Attacks/weakStrongAttack")]
-public class weakStrongAttack_SO : EnemyAttack_SO
+[CreateAssetMenu(menuName = "Scriptable Objects/Enemy/Attacks/WeakStrongAttack")]
+public class WeakStrongAttack_SO : EnemyAttack_SO
 {
     [SerializeField] private int weakStrongAmount;
     public override void ExecuteAttack(int Damage)

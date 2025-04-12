@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea18a948bc58c994ca81a652984652cc, type: 3}
   m_Name: HealCastAttack
   m_EditorClassIdentifier: 
+  attackIcon: {fileID: 21300000, guid: 87a7c4321fd50514c8e41d6779a071da, type: 3}
   healAmount: 1

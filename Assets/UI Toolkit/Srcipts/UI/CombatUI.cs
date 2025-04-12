@@ -102,7 +102,7 @@ public class CombatUI : MonoBehaviour
 
     private void InitializeEnemy(Enemy enemy)
     {
-        var enemyCard = new CombatantCard(enemy, combatStyle, mainCamera);
+        var enemyCard = new EnemyCard(enemy, combatStyle, mainCamera);
         hordeUI.Add(enemyCard.combatantFrame);
         enemyCard.combatantFrame.clicked += () => AttackEnemy(enemy);
     }

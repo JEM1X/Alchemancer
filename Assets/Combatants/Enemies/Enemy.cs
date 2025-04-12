@@ -10,10 +10,12 @@ public class Enemy : Combatant
     [SerializeField] private ParticleSystem attackParticles;
     [SerializeField] private int _scorePoints;
 
-    public static event Action<int> OnScoreGain;
     public EnemyAttack_SO PlannedAttack { get => plannedAttack; }
     private EnemyAttack_SO plannedAttack;
     [SerializeField] private EnemyAttack_SO[] enemyAttack_SOs;
+
+    public static event Action<int> OnScoreGain;
+    public event Action OnNewPlannedAttack;
 
     protected override IEnumerator Attack()
     {
@@ -49,14 +51,18 @@ public class Enemy : Combatant
 
         transform.position = startPos;
     }
+
     public void PlanNextAction()
     {
         plannedAttack = ChooseAttack();
+        OnNewPlannedAttack?.Invoke();
     }
+
     private EnemyAttack_SO ChooseAttack() 
     {
         return enemyAttack_SOs[UnityEngine.Random.Range(0, enemyAttack_SOs.Length)];
     }
+
     protected override void Death()
     {
         base.Death();

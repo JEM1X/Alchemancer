@@ -51,6 +51,7 @@ public class BattleM : Singleton<BattleM>
         {
             enemy.PlanNextAction();
         }
+
         Debug.Log("Player Turn");
         yield return StartCoroutine(WaitForTurn(player));
 

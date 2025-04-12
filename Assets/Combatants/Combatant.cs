@@ -4,6 +4,8 @@ using System.Collections;
 
 public abstract class Combatant : MonoBehaviour
 {
+    public int size = 200;
+
     public int HealthMax { get => healthMax; }
     [SerializeField] protected int healthMax = 5;
     public int Health { get => health; }
@@ -17,12 +19,13 @@ public abstract class Combatant : MonoBehaviour
     public int Bleed { get => bleed; }
     [SerializeField] protected int bleed = 0;
     public int Stun { get => stun; }
-    [SerializeField] protected int stun = 0; 
+    [SerializeField] protected int stun = 0;
 
     private Animator _animator;
 
     public event Action<Combatant> OnSpawn;
     public event Action OnTurnStart;
+    public event Action OnAttackStart;
     public event Action OnTurnEnd;
     public event Action OnDeath;
     public event Action<int> OnHealthChange;
@@ -71,6 +74,7 @@ public abstract class Combatant : MonoBehaviour
         }
 
         //Attack
+        OnAttackStart?.Invoke();
         yield return StartCoroutine(Attack());
 
         //post-attack effects

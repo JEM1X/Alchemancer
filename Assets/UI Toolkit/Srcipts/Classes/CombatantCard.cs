@@ -31,12 +31,13 @@ public class CombatantCard
     {
         this.combatant = combatant;
         this.combatantStyle = enemyStyle;
-        InitializeEnemy(mainCamera);
+        InitializeCombatant(mainCamera);
     }
 
-    public void InitializeEnemy(Camera mainCamera)
+    private void InitializeCombatant(Camera mainCamera)
     {
         combatantFrame = UITK.CreateElement<Button>("combatantFrame");
+        combatantFrame.style.height = combatant.size;
         SetFramePos(mainCamera);
 
         var statusPanel = UITK.AddElement(combatantFrame, "statusPanel");
@@ -90,10 +91,10 @@ public class CombatantCard
         UpdateBleed(0);
 
         //stun
-        stunFrame = UITK.AddElement(effectsPanel, "stunFrame", "effectFrame");
+        stunFrame = UITK.AddElement(effectsPanel, "stunFrame", "EffectFrame");
         stunFrame.style.backgroundImage = new StyleBackground(combatantStyle.stunIcon);
 
-        stunAmount = UITK.AddElement<Label>(stunFrame, "stunAmount", "effectAmount", "ClearText");
+        stunAmount = UITK.AddElement<Label>(stunFrame, "stunAmount", "EffectAmount", "ClearText");
 
         UpdateStun(0);
 
@@ -111,7 +112,7 @@ public class CombatantCard
         Vector2 enemyScreenPos = mainCamera.WorldToScreenPoint(combatant.transform.position);
         Vector2 framePos = new Vector2(enemyScreenPos.x, Screen.height - enemyScreenPos.y);
 
-        combatantFrame.style.top = framePos.y - 150 - 250;
+        combatantFrame.style.top = framePos.y - 150 - combatant.size + 50;
         combatantFrame.style.left = framePos.x - 980 - 100;
     }
 

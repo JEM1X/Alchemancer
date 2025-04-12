@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d3491acf7d05c4986a655b49836419, type: 3}
   m_Name: BleedAttack_SO
   m_EditorClassIdentifier: 
+  attackIcon: {fileID: 21300000, guid: cd83922c009da4a4b879192cfaff7c67, type: 3}
   bleedAmount: 2

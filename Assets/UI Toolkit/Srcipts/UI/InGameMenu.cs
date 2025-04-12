@@ -100,9 +100,18 @@ public class InGameMenu : MonoBehaviour
         var victoryLabel = UITK.AddElement<Label>(victoryFrame, "victoryLabel", "InGameScreenLabel");
         victoryLabel.text = "Победа";
 
-        var nextButton = UITK.AddElement<Button>(victoryFrame, "nextButton", "MainButton");
-        nextButton.text = "Дальше";
-        nextButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (SceneManager.GetActiveScene().buildIndex != 3)
+        {
+            var nextButton = UITK.AddElement<Button>(victoryFrame, "nextButton", "MainButton");
+            nextButton.text = "Дальше";
+            nextButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            var endButton = UITK.AddElement<Button>(victoryFrame, "nextButton", "MainButton");
+            endButton.text = "Конец";
+            endButton.clicked += () => SceneManager.LoadScene(0);
+        }
 
         ToggleVictoryScreen();
     }
