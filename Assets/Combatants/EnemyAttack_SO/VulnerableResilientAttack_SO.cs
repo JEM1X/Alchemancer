@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class VulnerableResilientAttack_SO : EnemyAttack_SO
 {
-    [SerializeField] private int ResilentAmount;
+    [SerializeField] private int ResilientAmount;
     public override void ExecuteAttack(int Damage)
     {
-        BattleM.Instance.Player.InflictVulnerableResilient(ResilentAmount);
+        BattleM.Instance.Mediator.PlayerCombat.InflictVulnerableResilient(ResilientAmount);
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -9,7 +10,6 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] private IngredientList_SO ingredientList;
     [SerializeField] private PotionList_SO potionList;
-    [SerializeField] private AlchemancerMediator mediator;
 
     public event Action<Potion_SO> OnDiscoveredPotion;
 
@@ -19,7 +19,6 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
         Enemy.OnScoreGain += AddScore;
         DontDestroyOnLoad(gameObject);
-        mediator.PlayerHand.OnNewPotion += UnlockPotion;
     }
 
     private void AddScore(int _score) 
@@ -61,10 +60,8 @@ public class GameManager : Singleton<GameManager>
         discoveredPotions = new();
     }
 
-    private void UnlockPotion(Potion_SO potion)
+    public void UnlockPotion(Potion_SO potion)
     {
-        if (discoveredPotions.Contains(potion)) return;
-
         discoveredPotions.Add(potion);
         OnDiscoveredPotion(potion);
     }

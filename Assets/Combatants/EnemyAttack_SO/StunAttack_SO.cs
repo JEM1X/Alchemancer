@@ -4,8 +4,9 @@ using UnityEngine;
 public class StunAttack_SO : EnemyAttack_SO
 {
     [SerializeField] private int stunAmount;
+
     public override void ExecuteAttack(int Damage)
     {
-        BattleM.Instance.Player.InflictStun(stunAmount);
+        BattleM.Instance.Mediator.PlayerCombat.InflictStun(stunAmount);
     }
 }

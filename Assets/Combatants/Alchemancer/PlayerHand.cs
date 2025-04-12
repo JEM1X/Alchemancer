@@ -62,6 +62,9 @@ public class PlayerHand : MonoBehaviour
 
         playerPotions.Add(craftedPotion);
         OnNewPotion?.Invoke(craftedPotion);
+
+        if (GameManager.Instance.discoveredPotions.Contains(craftedPotion)) return;
+        GameManager.Instance.UnlockPotion(craftedPotion);
     }
 
     public bool TryCombineIngredients(Ingredient_SO[] ingredients, out Potion_SO craftedPotion)

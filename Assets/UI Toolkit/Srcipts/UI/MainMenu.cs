@@ -54,6 +54,7 @@ public class MainMenu : MonoBehaviour
             SceneManager.LoadScene(4);
             GameManager.Instance.GenerateRecipes();
         };
+
         var runButton = UITK.AddElement<Button>(startMenu, "runButton", "MainButton");
         runButton.text = "Начать забег";
         runButton.clicked += () =>

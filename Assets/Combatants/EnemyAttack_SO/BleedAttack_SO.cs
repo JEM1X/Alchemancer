@@ -7,6 +7,6 @@ public class BleedAttack_SO : EnemyAttack_SO
 
     public override void ExecuteAttack(int Damage)
     {
-        BattleM.Instance.Player.InflictBleed(bleedAmount);
+        BattleM.Instance.Mediator.PlayerCombat.InflictBleed(bleedAmount);
     }
 }

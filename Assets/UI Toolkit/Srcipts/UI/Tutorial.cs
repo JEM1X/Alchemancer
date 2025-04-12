@@ -77,7 +77,7 @@ public class Tutorial : MonoBehaviour
         potionButton.text = "OK";
         potionButton.clicked += () => potionScreen.style.display = DisplayStyle.None;
 
-        BattleM.Instance.Player.OnTurnStart += InitFinale;
+        BattleM.Instance.Mediator.PlayerCombat.OnTurnStart += InitFinale;
 
         isPotionShown = true;
     }

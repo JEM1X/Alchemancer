@@ -6,6 +6,6 @@ public class WeakStrongAttack_SO : EnemyAttack_SO
     [SerializeField] private int weakStrongAmount;
     public override void ExecuteAttack(int Damage)
     {
-        BattleM.Instance.Player.InflictWeakStrong(weakStrongAmount);
+        BattleM.Instance.Mediator.PlayerCombat.InflictWeakStrong(weakStrongAmount);
     }
 }

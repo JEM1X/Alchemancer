@@ -5,6 +5,6 @@ public class BasicAttack_SO : EnemyAttack_SO
 {
     public override void ExecuteAttack(int Damage)
     {
-        BattleM.Instance.Player.TakeDamage(Damage);
+        BattleM.Instance.Mediator.PlayerCombat.TakeDamage(Damage);
     }
 }
