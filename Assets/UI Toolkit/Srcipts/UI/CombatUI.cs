@@ -227,8 +227,8 @@ public class CombatUI : MonoBehaviour
                 nextCard = false;
             }
 
-            Length xPos = new Length(pos.x * (1 - UITK.EaseInOutQuad(duration)));
-            Length yPos = new Length(pos.y * (1 - UITK.EaseInOutQuad(duration)));
+            Length xPos = new Length(pos.x * (1 - Easing.InOutCubic(duration)));
+            Length yPos = new Length(pos.y * (1 - Easing.InOutCubic(duration)));
             card.cardFrame.style.translate = new StyleTranslate( new Translate(xPos, yPos));
             duration += Time.deltaTime / drawDuration;
             yield return null;

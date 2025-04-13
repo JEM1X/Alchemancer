@@ -5,8 +5,9 @@ using UnityEngine;
 public class Enemy : Combatant
 {
     [Header("Attack Animation")]
-    [SerializeField] private float attackMoveDistance = 0.5f;
-    [SerializeField] private float attackDuration = 0.3f;
+    [SerializeField] private float actionDuration = 0.5f;
+    [SerializeField] private Vector3 targetPos = new Vector3(-3, -1, 0);
+    [SerializeField] private Vector3 castScale = new Vector3(1.2f, 1.2f, 1);
     [SerializeField] private ParticleSystem attackParticles;
     [SerializeField] private int _scorePoints;
 
@@ -20,37 +21,58 @@ public class Enemy : Combatant
 
     protected override IEnumerator Action()
     {
-        yield return StartCoroutine(AttackLunge());
         plannedAction.ExecuteAction(this);
+        yield return new WaitForSeconds(actionDuration);
     }
 
-    private IEnumerator AttackLunge()
+    public IEnumerator AttackLunge()
     {
-        Vector3 startPos = transform.position;
+        Vector3 startPos = transform.position;;
 
-        // Направление атаки зависит от флипа по X
-        float direction = -Mathf.Sign(transform.localScale.x);
-        Vector3 attackPos = startPos + new Vector3(attackMoveDistance * direction, 0f, 0f);
-
-        // Движение вперёд
-        float time = 0;
-        while (time < attackDuration / 2)
+        // In
+        float duration = 0;
+        while (duration < 1)
         {
-            transform.position = Vector3.Lerp(startPos, attackPos, time / (attackDuration / 2));
-            time += Time.deltaTime;
+            transform.position = Vector3.Lerp(startPos, targetPos, Easing.InCubic(duration));
+            duration += Time.deltaTime / (actionDuration / 2);
             yield return null;
         }
 
-        // Возврат назад
-        time = 0;
-        while (time < attackDuration / 2)
+        // Out
+        duration = 0;
+        while (duration < 1)
         {
-            transform.position = Vector3.Lerp(attackPos, startPos, time / (attackDuration / 2));
-            time += Time.deltaTime;
+            transform.position = Vector3.Lerp(targetPos, startPos, Easing.OutCubic(duration));
+            duration += Time.deltaTime / (actionDuration / 2);
             yield return null;
         }
 
         transform.position = startPos;
+    }
+
+    public IEnumerator SelfCast()
+    {
+        Vector3 startScale = transform.localScale;
+
+        // Up
+        float duration = 0;
+        while (duration < 1)
+        {
+            transform.localScale = Vector3.Lerp(startScale, castScale, Easing.InCubic(duration));
+            duration += Time.deltaTime / (actionDuration / 2);
+            yield return null;
+        }
+
+        // Down
+        duration = 0;
+        while (duration < 1)
+        {
+            transform.localScale = Vector3.Lerp(castScale, startScale, Easing.OutCubic(duration));
+            duration += Time.deltaTime / (actionDuration / 2);
+            yield return null;
+        }
+
+        transform.localScale = startScale;
     }
 
     public void PlanNextAction()

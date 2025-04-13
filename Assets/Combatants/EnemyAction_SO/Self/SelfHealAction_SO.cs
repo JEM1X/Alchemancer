@@ -5,6 +5,7 @@ public class SelfHealAction_SO : EnemyAction_SO
 {
     public override void ExecuteAction(Enemy user)
     {
+        user.StartCoroutine(user.SelfCast());
         user.TakeHeal(user.Influence * 2);
     }
 }

@@ -290,10 +290,10 @@ MonoBehaviour:
   dullBright: 0
   bleed: 0
   stun: 0
-  attackMoveDistance: 5
-  attackDuration: 0.5
+  actionDuration: 0.6
+  targetPos: {x: -3, y: -1, z: 0}
   attackParticles: {fileID: 0}
-  _scorePoints: 60
+  _scorePoints: 50
   enemyActions:
   - {fileID: 11400000, guid: 036d44f25c34b0b419857e94fa00c95b, type: 2}
   - {fileID: 11400000, guid: fe54f04219d32f247a21f6851ec89be4, type: 2}

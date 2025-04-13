@@ -12,28 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0134db006b631bc49af1a060f1a1b065, type: 3}
   m_Name: PotionList_Base
   m_EditorClassIdentifier: 
-  allPotions:
-  - {fileID: 11400000, guid: b98caba5e37530040a2062fc5f1f5ac1, type: 2}
-  - {fileID: 11400000, guid: 37206798f0ec4a446b96b8eb31cfeaab, type: 2}
-  - {fileID: 11400000, guid: deeac889ef8fe6440bc4775791bc4ee8, type: 2}
-  - {fileID: 11400000, guid: aa5b1e12ef9c9344b8e222187b927b4d, type: 2}
-  - {fileID: 11400000, guid: 206b48cfb397bb444a8412a1807e66f9, type: 2}
-  - {fileID: 11400000, guid: 0dbdd5f118375b447bdb75c355392056, type: 2}
-  - {fileID: 11400000, guid: 0bcaec5e836c87648b4cb0331d7fb49c, type: 2}
-  - {fileID: 11400000, guid: b72767fe3dd201b4dbdccba5f2c2bd18, type: 2}
-  - {fileID: 11400000, guid: 3a37679bb6e54174eb56a38b9be10d5f, type: 2}
-  - {fileID: 11400000, guid: 84fd66c662540da408dc975515c18953, type: 2}
-  - {fileID: 11400000, guid: 4227e2df87790364d8d4347bae0e72e2, type: 2}
-  - {fileID: 11400000, guid: d92f1c6521587804694709557fa9cafc, type: 2}
-  - {fileID: 11400000, guid: 160ee48d6e3c881458fb0c3be77a8e14, type: 2}
-  - {fileID: 11400000, guid: 98aeee17371f42a4ebba96e30e5a4e80, type: 2}
-  - {fileID: 11400000, guid: 5c3b60b5892af85469abdf568888d413, type: 2}
-  - {fileID: 11400000, guid: a24b33300a172734cb06f9ea7ae08265, type: 2}
-  - {fileID: 11400000, guid: dcc7ee0462db827478f8e2c05ed75c92, type: 2}
-  - {fileID: 11400000, guid: 0119039ac01e40846897de5abc5fca53, type: 2}
-  - {fileID: 11400000, guid: 6b879e7a15295064dbf2bd2a21f3b338, type: 2}
-  - {fileID: 11400000, guid: af97206535bf57841a0bdab36dc77f3d, type: 2}
-  - {fileID: 11400000, guid: 7bc9138125eeae3429bd9259edad6836, type: 2}
   simplePotions:
   - {fileID: 11400000, guid: b98caba5e37530040a2062fc5f1f5ac1, type: 2}
   - {fileID: 11400000, guid: 37206798f0ec4a446b96b8eb31cfeaab, type: 2}
@@ -46,4 +24,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 84fd66c662540da408dc975515c18953, type: 2}
   - {fileID: 11400000, guid: 6b879e7a15295064dbf2bd2a21f3b338, type: 2}
   - {fileID: 11400000, guid: 7bc9138125eeae3429bd9259edad6836, type: 2}
-  complexPotions: []
+  - {fileID: 11400000, guid: 176396b35ffe63f47a8a8eb01862b735, type: 2}
+  - {fileID: 11400000, guid: 4227e2df87790364d8d4347bae0e72e2, type: 2}
+  - {fileID: 11400000, guid: d92f1c6521587804694709557fa9cafc, type: 2}
+  complexPotions:
+  - {fileID: 11400000, guid: 5c3b60b5892af85469abdf568888d413, type: 2}
+  - {fileID: 11400000, guid: 0119039ac01e40846897de5abc5fca53, type: 2}
+  - {fileID: 11400000, guid: dcc7ee0462db827478f8e2c05ed75c92, type: 2}
+  - {fileID: 11400000, guid: 206b48cfb397bb444a8412a1807e66f9, type: 2}
+  - {fileID: 11400000, guid: deeac889ef8fe6440bc4775791bc4ee8, type: 2}
+  - {fileID: 11400000, guid: 98aeee17371f42a4ebba96e30e5a4e80, type: 2}
+  - {fileID: 11400000, guid: 160ee48d6e3c881458fb0c3be77a8e14, type: 2}
+  - {fileID: 11400000, guid: a24b33300a172734cb06f9ea7ae08265, type: 2}
+  - {fileID: 11400000, guid: 6489a180a74463f49a2191eacca0c9ac, type: 2}
+  - {fileID: 11400000, guid: 429685487d3405a4a9354765c2d0da91, type: 2}
+  - {fileID: 11400000, guid: d7fa0a482dba89746a75340b3f3910af, type: 2}
+  - {fileID: 11400000, guid: 7f5ae76492d5bf643a36f4cd3a7f314b, type: 2}

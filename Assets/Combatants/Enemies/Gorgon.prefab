@@ -136,7 +136,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1132350558096191955}
@@ -236,10 +236,11 @@ MonoBehaviour:
   dullBright: 0
   bleed: 0
   stun: 0
-  attackMoveDistance: 5
-  attackDuration: 0.25
+  actionDuration: 0.6
+  targetPos: {x: -3, y: -1, z: 0}
+  castScale: {x: 1.2, y: 1.2, z: 1}
   attackParticles: {fileID: 0}
-  _scorePoints: 50
+  _scorePoints: 80
   enemyActions:
   - {fileID: 11400000, guid: 81fa0a1e327d4b04f82967c921279e9c, type: 2}
   - {fileID: 11400000, guid: eed154893844bad418184cc34c7e71cf, type: 2}
@@ -270,8 +271,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.125, y: 0.3, z: 1.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.1, y: 0.3, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6146386412224176642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

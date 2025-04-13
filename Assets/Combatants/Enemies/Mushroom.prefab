@@ -236,8 +236,8 @@ MonoBehaviour:
   dullBright: 0
   bleed: 0
   stun: 0
-  attackMoveDistance: 5
-  attackDuration: 0.5
+  actionDuration: 0.6
+  targetPos: {x: -3, y: -1, z: 0}
   attackParticles: {fileID: 0}
   _scorePoints: 10
   enemyActions:
