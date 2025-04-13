@@ -7,7 +7,7 @@ public class PlayerCombat : Combatant
     public Action CompletePlayerTurn;
 
 
-    protected override IEnumerator Attack()
+    protected override IEnumerator Action()
     {
         Debug.Log("Player Attack");
         bool isTurnCompleted = false;

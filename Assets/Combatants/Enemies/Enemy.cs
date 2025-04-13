@@ -10,17 +10,18 @@ public class Enemy : Combatant
     [SerializeField] private ParticleSystem attackParticles;
     [SerializeField] private int _scorePoints;
 
-    public EnemyAttack_SO PlannedAttack { get => plannedAttack; }
-    private EnemyAttack_SO plannedAttack;
-    [SerializeField] private EnemyAttack_SO[] enemyAttack_SOs;
+    public EnemyAction_SO PlannedAction { get => plannedAction; }
+    private EnemyAction_SO plannedAction;
+    [SerializeField] private EnemyAction_SO[] enemyActions;
 
     public static event Action<int> OnScoreGain;
     public event Action OnNewPlannedAttack;
 
-    protected override IEnumerator Attack()
+
+    protected override IEnumerator Action()
     {
         yield return StartCoroutine(AttackLunge());
-        plannedAttack.ExecuteAttack(Damage);
+        plannedAction.ExecuteAction(this);
     }
 
     private IEnumerator AttackLunge()
@@ -54,13 +55,8 @@ public class Enemy : Combatant
 
     public void PlanNextAction()
     {
-        plannedAttack = ChooseAttack();
+        plannedAction = enemyActions[UnityEngine.Random.Range(0, enemyActions.Length)];
         OnNewPlannedAttack?.Invoke();
-    }
-
-    private EnemyAttack_SO ChooseAttack() 
-    {
-        return enemyAttack_SOs[UnityEngine.Random.Range(0, enemyAttack_SOs.Length)];
     }
 
     protected override void Death()

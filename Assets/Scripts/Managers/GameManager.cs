@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -25,7 +24,6 @@ public class GameManager : Singleton<GameManager>
     {
         TotalScore += _score;    
     }
-
 
     public void GenerateRecipes()
     {

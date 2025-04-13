@@ -10,6 +10,8 @@ public class UICombatStyle_SO : ScriptableObject
     public Sprite resilientIcon;
     public Sprite weakIcon;
     public Sprite strongIcon;
+    public Sprite dullIcon;
+    public Sprite brightIcon;
     public Sprite bleedIcon;
     public Sprite stunIcon;
 }

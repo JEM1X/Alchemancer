@@ -281,8 +281,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 350
-  healthMax: 7
-  health: 7
+  healthMax: 10
+  health: 10
   damage: 2
   vulnerableResilient: 0
   weakStrong: 0
@@ -292,9 +292,9 @@ MonoBehaviour:
   attackDuration: 0.25
   attackParticles: {fileID: 0}
   _scorePoints: 40
-  enemyAttack_SOs:
-  - {fileID: 11400000, guid: 31e456ba717683742aae3a519408f5b1, type: 2}
-  - {fileID: 11400000, guid: 9fa13a3c618c0564fae9f6b5f7df56e7, type: 2}
+  enemyActions:
+  - {fileID: 11400000, guid: 81fa0a1e327d4b04f82967c921279e9c, type: 2}
+  - {fileID: 11400000, guid: 61c368d78cb4f08489e2fd84f9bdf352, type: 2}
 --- !u!1 &7241861950057879916
 GameObject:
   m_ObjectHideFlags: 0

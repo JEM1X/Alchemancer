@@ -283,17 +283,20 @@ MonoBehaviour:
   size: 400
   healthMax: 15
   health: 15
-  damage: 2
+  power: 2
+  influence: 1
   vulnerableResilient: 0
   weakStrong: 0
+  dullBright: 0
   bleed: 0
   stun: 0
   attackMoveDistance: 5
   attackDuration: 0.5
   attackParticles: {fileID: 0}
   _scorePoints: 60
-  enemyAttack_SOs:
-  - {fileID: 11400000, guid: 31e456ba717683742aae3a519408f5b1, type: 2}
+  enemyActions:
+  - {fileID: 11400000, guid: 036d44f25c34b0b419857e94fa00c95b, type: 2}
+  - {fileID: 11400000, guid: fe54f04219d32f247a21f6851ec89be4, type: 2}
 --- !u!1 &7588055033256090489
 GameObject:
   m_ObjectHideFlags: 0

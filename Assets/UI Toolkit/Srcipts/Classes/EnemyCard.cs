@@ -23,6 +23,6 @@ public class EnemyCard : CombatantCard
 
     private void UpdateAttack()
     {
-        enemyAttack.style.backgroundImage = new StyleBackground(enemy.PlannedAttack.attackIcon);
+        enemyAttack.style.backgroundImage = new StyleBackground(enemy.PlannedAction.actionIcon);
     }
 }

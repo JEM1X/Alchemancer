@@ -238,9 +238,8 @@ MonoBehaviour:
   attackDuration: 0.5
   attackParticles: {fileID: 0}
   _scorePoints: 10
-  enemyAttack_SOs:
-  - {fileID: 11400000, guid: 31e456ba717683742aae3a519408f5b1, type: 2}
-  - {fileID: 11400000, guid: cf88d12a1975d4e4b821c26d2b92541b, type: 2}
+  enemyActions:
+  - {fileID: 11400000, guid: 036d44f25c34b0b419857e94fa00c95b, type: 2}
 --- !u!1 &8424771789256581394
 GameObject:
   m_ObjectHideFlags: 0
