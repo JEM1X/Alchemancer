@@ -8,8 +8,8 @@ public class BattleM : Singleton<BattleM>
     [Header("Battle Settings")]
     public Horde Horde { get => horde; }
     [SerializeField] private Horde horde;
-    public AlchemancerMediator Mediator => mediator;
-    [SerializeField] private AlchemancerMediator mediator;
+    public Alchemancer Alchemancer => alchemancer;
+    [SerializeField] private Alchemancer alchemancer;
     public int TotalWaves { get => totalWaves; }
     [SerializeField] private int totalWaves = 3;
     private int currentWave = 0;
@@ -53,7 +53,7 @@ public class BattleM : Singleton<BattleM>
         }
 
         Debug.Log("Player Turn");
-        yield return StartCoroutine(WaitForTurn(mediator.PlayerCombat));
+        yield return StartCoroutine(WaitForTurn(alchemancer.PlayerCombat));
 
         OnEnemiesTurnStarted?.Invoke();
         Debug.Log("Enemy Turn");

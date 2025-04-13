@@ -6,7 +6,7 @@ public class Tutorial : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private UIStyle_SO styleSheet;
-    [SerializeField] private AlchemancerMediator mediator;
+    [SerializeField] private Alchemancer alchemancer;
 
     private VisualElement canvas;
     private bool isPotionShown = false;
@@ -14,7 +14,7 @@ public class Tutorial : MonoBehaviour
     private void Start()
     {
         InitializeUI();
-        mediator.PlayerHand.OnNewPotion += (Potion_SO potion) => InitPotion();
+        alchemancer.PlayerHand.OnNewPotion += (Potion_SO potion) => InitPotion();
     }
 
     private void InitializeUI()
@@ -77,7 +77,7 @@ public class Tutorial : MonoBehaviour
         potionButton.text = "OK";
         potionButton.clicked += () => potionScreen.style.display = DisplayStyle.None;
 
-        BattleM.Instance.Mediator.PlayerCombat.OnTurnStart += InitFinale;
+        BattleM.Instance.Alchemancer.PlayerCombat.OnTurnStart += InitFinale;
 
         isPotionShown = true;
     }

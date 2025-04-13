@@ -2,5 +2,5 @@ using UnityEngine;
 
 public abstract class Flask_SO : Potion_SO
 {
-    public abstract void UseFlask(Enemy[] enemies); 
+    public abstract void UseFlask(Alchemancer user, Enemy[] enemies); 
 }

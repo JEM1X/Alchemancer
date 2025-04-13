@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class InGameMenu : MonoBehaviour
 {
     [Header("Scene")]
-    [SerializeField] private AlchemancerMediator mediator;
+    [SerializeField] private Alchemancer alchemancer;
     [SerializeField] private string stageName;
 
     [Header("UI Toolkit")]
@@ -28,7 +28,7 @@ public class InGameMenu : MonoBehaviour
         StartCoroutine(InitializeUI());
         BattleM.Instance.OnAllWavesCleared += ToggleVictoryScreen;
         BattleM.Instance.OnWaveStart += UpdateWaveCounter;
-        mediator.PlayerCombat.OnDeath += ToggleDefeatScreen;
+        alchemancer.PlayerCombat.OnDeath += ToggleDefeatScreen;
     }
 
     private void Update()

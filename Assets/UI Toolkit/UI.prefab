@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8823154947123965883}
   - component: {fileID: 3336352935649506700}
   m_Layer: 0
-  m_Name: InGameGuide
+  m_Name: RecipeBook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06fbffadb23d338449fd468d58146440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mediator: {fileID: 0}
-  stageName: 
+  alchemancer: {fileID: 0}
+  stageName: "\u0416\u0438\u0432\u043E\u0439 \u041B\u0435\u0441"
   uiDocument: {fileID: 6535009534581756232}
   styleSheet: {fileID: 11400000, guid: 556b260768c56074b83476f7a4e6d2a9, type: 2}
 --- !u!1 &2423207154808759235
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  mediator: {fileID: 0}
+  alchemancer: {fileID: 0}
   uiDocument: {fileID: 6088067238973858789}
   styleSheet: {fileID: 11400000, guid: 556b260768c56074b83476f7a4e6d2a9, type: 2}
   combatStyle: {fileID: 11400000, guid: 24276db82a1fcc04eba2b5bc26ddeba0, type: 2}
@@ -308,5 +308,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 2602512549171743778}
-  mediator: {fileID: 0}
+  alchemancer: {fileID: 0}
   potionList: {fileID: 11400000, guid: e79c61727b3a92f4bb316e2a53811743, type: 2}

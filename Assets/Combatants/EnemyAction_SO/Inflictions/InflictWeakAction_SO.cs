@@ -5,6 +5,6 @@ public class InflictWeakAction_SO : EnemyAction_SO
 {
     public override void ExecuteAction(Enemy user)
     {
-        BattleM.Instance.Mediator.PlayerCombat.InflictWeakStrong(-user.Influence);
+        BattleM.Instance.Alchemancer.PlayerCombat.InflictWeakStrong(-user.Influence);
     }
 }

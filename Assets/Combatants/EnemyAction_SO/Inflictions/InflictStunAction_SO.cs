@@ -5,6 +5,6 @@ public class InflictStunAction_SO : EnemyAction_SO
 {
     public override void ExecuteAction(Enemy user)
     {
-        BattleM.Instance.Mediator.PlayerCombat.InflictStun(user.Influence / 2);
+        BattleM.Instance.Alchemancer.PlayerCombat.InflictStun(user.Influence / 2);
     }
 }

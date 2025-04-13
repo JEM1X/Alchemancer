@@ -12,7 +12,7 @@ public class PlayerHand : MonoBehaviour
     public List<Potion_SO> PlayerPotions { get => playerPotions; }
     [SerializeField] private List<Potion_SO> playerPotions;
 
-    private AlchemancerMediator mediator;
+    private Alchemancer alchemancer;
     private int drawAmount = 6;
     private int potionMaxAmount = 3;
 
@@ -22,8 +22,8 @@ public class PlayerHand : MonoBehaviour
 
     private void Awake()
     {
-        mediator = GetComponent<AlchemancerMediator>();
-        mediator.PlayerCombat.OnActionStart += DrawNewHand;
+        alchemancer = GetComponent<Alchemancer>();
+        alchemancer.PlayerCombat.OnActionStart += DrawNewHand;
     }
 
     public void DrawNewHand()
@@ -93,7 +93,7 @@ public class PlayerHand : MonoBehaviour
     {
         if (playerPotions.Remove(elixir))
         {
-            elixir.UseElixir(mediator);
+            elixir.UseElixir(alchemancer);
             return;
         }
 
@@ -104,7 +104,7 @@ public class PlayerHand : MonoBehaviour
     {
         if (playerPotions.Remove(capsule))
         {
-            capsule.UseCapsule(enemy);
+            capsule.UseCapsule(alchemancer, enemy);
             return;
         }
 
@@ -115,7 +115,7 @@ public class PlayerHand : MonoBehaviour
     {
         if (playerPotions.Remove(flask))
         {
-            flask.UseFlask(mediator.Horde.EnemyScripts.ToArray());
+            flask.UseFlask(alchemancer, BattleM.Instance.Horde.EnemyScripts.ToArray());
             return;
         }
 

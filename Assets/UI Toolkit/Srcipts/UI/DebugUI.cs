@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 public class DebugUI : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDocument;
-    [SerializeField] private AlchemancerMediator mediator;
+    [SerializeField] private Alchemancer alchemancer;
     [SerializeField] private PotionList_SO potionList;
 
     private bool isHidden = false;
@@ -62,6 +62,6 @@ public class DebugUI : MonoBehaviour
 
     private void AddPotion(Potion_SO potion)
     {
-        mediator.PlayerHand.BrewNewPotion(potion.Ingredients);
+        alchemancer.PlayerHand.BrewNewPotion(potion.Ingredients);
     }
 }

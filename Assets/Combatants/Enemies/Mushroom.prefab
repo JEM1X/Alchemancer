@@ -229,9 +229,11 @@ MonoBehaviour:
   size: 200
   healthMax: 3
   health: 3
-  damage: 1
+  power: 1
+  influence: 1
   vulnerableResilient: 0
   weakStrong: 0
+  dullBright: 0
   bleed: 0
   stun: 0
   attackMoveDistance: 5

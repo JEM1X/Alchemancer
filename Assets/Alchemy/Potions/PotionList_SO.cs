@@ -5,4 +5,8 @@ public class PotionList_SO : ScriptableObject
 {
     public Potion_SO[] AllPotions { get => allPotions; }
     [SerializeField] private Potion_SO[] allPotions;
+    public Potion_SO[] SimplePotions { get => simplePotions; }
+    [SerializeField] private Potion_SO[] simplePotions;
+    public Potion_SO[] ComplexPotions { get => complexPotions; }
+    [SerializeField] private Potion_SO[] complexPotions;
 }

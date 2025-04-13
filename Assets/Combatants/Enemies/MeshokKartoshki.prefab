@@ -196,9 +196,11 @@ MonoBehaviour:
   size: 250
   healthMax: 7
   health: 7
-  damage: 2
+  power: 1
+  influence: 1
   vulnerableResilient: 0
   weakStrong: 0
+  dullBright: 0
   bleed: 0
   stun: 0
   attackMoveDistance: 5
@@ -207,7 +209,7 @@ MonoBehaviour:
   _scorePoints: 25
   enemyActions:
   - {fileID: 11400000, guid: 036d44f25c34b0b419857e94fa00c95b, type: 2}
-  - {fileID: 11400000, guid: 01b775e3cd16a924b9fe89c6574093ad, type: 2}
+  - {fileID: 11400000, guid: 504a981e75618664db4f3911af9182f1, type: 2}
 --- !u!1 &8205468469911281152
 GameObject:
   m_ObjectHideFlags: 0

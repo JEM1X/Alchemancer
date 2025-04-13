@@ -5,6 +5,6 @@ public class SimpleAttack_SO : EnemyAction_SO
 {
     public override void ExecuteAction(Enemy user)
     {
-        BattleM.Instance.Mediator.PlayerCombat.TakeDamage(user.Power);
+        BattleM.Instance.Alchemancer.PlayerCombat.TakeDamage(user.Power);
     }
 }

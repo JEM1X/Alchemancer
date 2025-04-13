@@ -8,7 +8,7 @@ public class CombatUI : MonoBehaviour
 {
     [Header("Scene")]
     [SerializeField] private Camera mainCamera;
-    [SerializeField] private AlchemancerMediator mediator;
+    [SerializeField] private Alchemancer alchemancer;
 
     [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
@@ -34,11 +34,11 @@ public class CombatUI : MonoBehaviour
     {
         InitializeUI();
 
-        mediator.PlayerHand.OnNewIngredient += InitializeIngredientCard;
-        mediator.PlayerHand.OnNewPotion += InitializePotionCard;
-        mediator.PlayerCombat.OnSpawn += (Combatant combatant) => InitializePlayer((PlayerCombat)combatant);
-        mediator.PlayerCombat.OnTurnStart += ShowHand;  
-        mediator.Horde.OnNewEnemy += InitializeEnemy;
+        alchemancer.PlayerHand.OnNewIngredient += InitializeIngredientCard;
+        alchemancer.PlayerHand.OnNewPotion += InitializePotionCard;
+        alchemancer.PlayerCombat.OnSpawn += (Combatant combatant) => InitializePlayer((PlayerCombat)combatant);
+        alchemancer.PlayerCombat.OnTurnStart += ShowHand;  
+        BattleM.Instance.Horde.OnNewEnemy += InitializeEnemy;
     }
 
     private void InitializeUI()
@@ -69,7 +69,7 @@ public class CombatUI : MonoBehaviour
             ClearCauldron();
             bagUI.Clear();
             HideHand();
-            mediator.PlayerCombat.CompletePlayerTurn?.Invoke();
+            alchemancer.PlayerCombat.CompletePlayerTurn?.Invoke();
 
             AudioM.Instance.PlaySound(AudioM.Instance.uiSounds[0]);
         };
@@ -133,7 +133,7 @@ public class CombatUI : MonoBehaviour
     {
         if (card.potion is Elixir_SO elixir)
         {
-            mediator.PlayerHand.UseElixir(elixir);
+            alchemancer.PlayerHand.UseElixir(elixir);
             card.cardFrame.RemoveFromHierarchy();
             AudioM.Instance.PlaySound(AudioM.Instance.potionSounds[1]);
             return;
@@ -141,7 +141,7 @@ public class CombatUI : MonoBehaviour
 
         if (card.potion is Flask_SO flask)
         {
-            mediator.PlayerHand.UseFlask(flask);
+            alchemancer.PlayerHand.UseFlask(flask);
             card.cardFrame.RemoveFromHierarchy();
             AudioM.Instance.PlaySound(AudioM.Instance.potionSounds[2]);
             return;
@@ -169,7 +169,7 @@ public class CombatUI : MonoBehaviour
 
         Ingredient_SO[] usedIngredients = cardsInCauldron.Select(card => card.ingredient).ToArray();
 
-        mediator.PlayerHand.BrewNewPotion(usedIngredients);
+        alchemancer.PlayerHand.BrewNewPotion(usedIngredients);
 
         cardsInCauldron.ForEach(card => card.cardFrame.RemoveFromHierarchy());
 
@@ -187,7 +187,7 @@ public class CombatUI : MonoBehaviour
     {
         if (potionInUse?.potion is Capsule_SO capsule)
         {
-            mediator.PlayerHand.UseCapsule(capsule, enemy);
+            alchemancer.PlayerHand.UseCapsule(capsule, enemy);
             potionInUse.cardFrame.RemoveFromHierarchy();
             potionInUse = null;
             AudioM.Instance.PlaySound(AudioM.Instance.potionSounds[3]);

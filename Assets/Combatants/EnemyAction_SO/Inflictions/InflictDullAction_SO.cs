@@ -5,6 +5,6 @@ public class InflictDullAction_SO : EnemyAction_SO
 {
     public override void ExecuteAction(Enemy user)
     {
-        BattleM.Instance.Mediator.PlayerCombat.InflictDullBright(-user.Influence);
+        BattleM.Instance.Alchemancer.PlayerCombat.InflictDullBright(-user.Influence);
     }
 }

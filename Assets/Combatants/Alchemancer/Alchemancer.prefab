@@ -154,12 +154,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5798681244293298209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87a4c77b67785974ea6601c596551df3, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fd4e148796831040b4be6891d1f3909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerHand: {fileID: 265192376240970198}
   playerCombat: {fileID: 7218480434924797693}
-  horde: {fileID: 0}
 --- !u!114 &7218480434924797693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,11 +171,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9dee932103fc13479ff02ce56a9e87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  size: 200
   healthMax: 25
   health: 25
-  damage: 0
+  power: 4
+  influence: 2
   vulnerableResilient: 0
   weakStrong: 0
+  dullBright: 0
   bleed: 0
   stun: 0
 --- !u!114 &265192376240970198
