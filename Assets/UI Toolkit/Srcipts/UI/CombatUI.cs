@@ -164,7 +164,7 @@ public class CombatUI : MonoBehaviour
 
     private void BrewPotion()
     {
-        if (cardsInCauldron.Count < 3) return;
+        if (cardsInCauldron.Count < 2) return;
         if (beltUI.childCount >= 3) return;
 
         Ingredient_SO[] usedIngredients = cardsInCauldron.Select(card => card.ingredient).ToArray();
@@ -217,11 +217,8 @@ public class CombatUI : MonoBehaviour
 
         isCardAnim = true;
 
-
-
         bool nextCard = true;
         float duration = 0;
-
         while (duration < 1f)
         {
             if (duration > overlapDuration && nextCard)

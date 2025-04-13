@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DragonElixir", menuName = "Scriptable Objects/Potion/Elixir/DragonElixir")]
+[CreateAssetMenu(fileName = "DragonElixir", menuName = "Scriptable Objects/Potion/Elixir/Complex/DragonElixir")]
 public class DragonElixir : Elixir_SO
 {
     public override void UseElixir(Alchemancer user)

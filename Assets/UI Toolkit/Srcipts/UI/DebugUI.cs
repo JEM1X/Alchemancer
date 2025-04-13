@@ -37,13 +37,19 @@ public class DebugUI : MonoBehaviour
         canvas.style.paddingLeft = 10;
         HideDebug();
 
-        foreach(Potion_SO potion in potionList.AllPotions)
+        foreach(Potion_SO potion in potionList.SimplePotions)
         {
             var potionButton = UITK.AddElement<Button>(canvas);
             potionButton.text = "Добавить " + potion.Label;
             potionButton.clicked += () => AddPotion(potion);
         }
-        
+
+        foreach (Potion_SO potion in potionList.ComplexPotions)
+        {
+            var potionButton = UITK.AddElement<Button>(canvas);
+            potionButton.text = "Добавить " + potion.Label;
+            potionButton.clicked += () => AddPotion(potion);
+        }
     }
 
     private void HideDebug()

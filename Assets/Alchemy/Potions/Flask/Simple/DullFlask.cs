@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DullFlask", menuName = "Scriptable Objects/Potion/Flask/DullFlask")]
+[CreateAssetMenu(fileName = "DullFlask", menuName = "Scriptable Objects/Potion/Flask/Simple/DullFlask")]
 public class DullFlask : Flask_SO
 {
     public override void UseFlask(Alchemancer user, Enemy[] enemies)

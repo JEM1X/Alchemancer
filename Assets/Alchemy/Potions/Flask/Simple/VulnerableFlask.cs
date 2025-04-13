@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "VulnerableFlask", menuName = "Scriptable Objects/Potion/Flask/VulnerableFlask")]
+[CreateAssetMenu(fileName = "VulnerableFlask", menuName = "Scriptable Objects/Potion/Flask/Simple/VulnerableFlask")]
 public class VulnerableFlask : Flask_SO
 {
     public override void UseFlask(Alchemancer user, Enemy[] enemies)

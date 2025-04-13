@@ -27,6 +27,42 @@ public class GameManager : Singleton<GameManager>
 
     public void GenerateRecipes()
     {
+        GenerateSimpleRecipes();
+
+        GenerateComplexRecipes();
+
+        discoveredPotions = new();
+    }
+
+    private void GenerateSimpleRecipes()
+    {
+        List<Ingredient_SO[]> newRecipes = new();
+
+        int length = ingredientList.Ingredients.Length;
+        for (int i = 0; i < length - 1; i++)
+        {
+            for (int j = i + 1; j < length; j++)
+            {
+                Ingredient_SO[] recipe =
+                {
+                    ingredientList.Ingredients[i],
+                    ingredientList.Ingredients[j]
+                };
+
+                newRecipes.Add(recipe);
+            }
+        }
+
+        for (int i = 0; i < potionList.SimplePotions.Length; i++)
+        {
+            int randomRecipe = UnityEngine.Random.Range(0, newRecipes.Count);
+            potionList.SimplePotions[i].Ingredients = newRecipes[randomRecipe];
+            newRecipes.Remove(newRecipes[randomRecipe]);
+        }
+    }
+
+    private void GenerateComplexRecipes()
+    {
         List<Ingredient_SO[]> allRecipes = new();
 
         int length = ingredientList.Ingredients.Length;
@@ -48,14 +84,12 @@ public class GameManager : Singleton<GameManager>
             }
         }
 
-        for (int i = 0; i < potionList.AllPotions.Length; i++)
+        for (int i = 0; i < potionList.ComplexPotions.Length; i++)
         {
             int randomRecipe = UnityEngine.Random.Range(0, allRecipes.Count);
-            potionList.AllPotions[i].Ingredients = allRecipes[randomRecipe];
+            potionList.ComplexPotions[i].Ingredients = allRecipes[randomRecipe];
             allRecipes.Remove(allRecipes[randomRecipe]);
         }
-
-        discoveredPotions = new();
     }
 
     public void UnlockPotion(Potion_SO potion)

@@ -13,7 +13,7 @@ public class PlayerHand : MonoBehaviour
     [SerializeField] private List<Potion_SO> playerPotions;
 
     private Alchemancer alchemancer;
-    private int drawAmount = 6;
+    private int drawAmount = 5;
     private int potionMaxAmount = 3;
 
     public event Action<Ingredient_SO> OnNewIngredient;
@@ -54,7 +54,16 @@ public class PlayerHand : MonoBehaviour
         foreach (var ingredient in ingredients)
             playerIngredients.Remove(ingredient);
 
-        if (!TryCombineIngredients(ingredients, out Potion_SO craftedPotion))
+        Potion_SO craftedPotion = null;
+        if(TryBrewSimplePotion(ingredients, out Potion_SO craftedSimplePotion))
+        {
+            craftedPotion = craftedSimplePotion;
+        }
+        else if (TryBrewComplexPotion(ingredients, out Potion_SO craftedComplexPotion))
+        {
+            craftedPotion = craftedComplexPotion;
+        }
+        else
         {
             Debug.Log("Incorrect recipe");
             return;
@@ -64,27 +73,46 @@ public class PlayerHand : MonoBehaviour
         OnNewPotion?.Invoke(craftedPotion);
 
         if (GameManager.Instance.discoveredPotions.Contains(craftedPotion)) return;
+
         GameManager.Instance.UnlockPotion(craftedPotion);
     }
 
-    public bool TryCombineIngredients(Ingredient_SO[] ingredients, out Potion_SO craftedPotion)
+    public bool TryBrewSimplePotion(Ingredient_SO[] ingredients, out Potion_SO craftedPotion)
     {
-        int uniqueness = ingredients.Distinct().Count();
+        craftedPotion = null;
 
+        if (ingredients.Length != 2) return false;
+
+        int uniqueness = ingredients.Distinct().Count();
         if (uniqueness == 1)
         {
-            craftedPotion = potionList.AllPotions[UnityEngine.Random.Range(0, potionList.AllPotions.Length)];
+            craftedPotion = potionList.SimplePotions[UnityEngine.Random.Range(0, potionList.SimplePotions.Length)];
             return true;
         }
 
-        if (ingredients.Distinct().Count() != ingredients.Length)
+        if (uniqueness != ingredients.Length) return false;
+
+        craftedPotion = potionList.SimplePotions.FirstOrDefault(potion => ingredients.All(potion.IsinRecipe));
+
+        return craftedPotion != null;
+    }
+
+    public bool TryBrewComplexPotion(Ingredient_SO[] ingredients, out Potion_SO craftedPotion)
+    {
+        craftedPotion = null;
+
+        if (ingredients.Length != 3) return false;
+
+        int uniqueness = ingredients.Distinct().Count();
+        if (uniqueness == 1 )
         {
-            craftedPotion = null;
-            return false;
+            craftedPotion = potionList.ComplexPotions[UnityEngine.Random.Range(0, potionList.ComplexPotions.Length)];
+            return true;
         }
 
-        craftedPotion = potionList.AllPotions.FirstOrDefault(potion =>
-        potion.Ingredients.Length == ingredients.Length && ingredients.All(potion.IsinRecipe));
+        if (uniqueness != ingredients.Length) return false;
+
+        craftedPotion = potionList.ComplexPotions.FirstOrDefault(potion => ingredients.All(potion.IsinRecipe));
 
         return craftedPotion != null;
     }

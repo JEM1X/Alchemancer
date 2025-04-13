@@ -34,7 +34,15 @@ public class RecipeBook : MonoBehaviour
 
         var bookFrame = UITK.AddElement(background, "bookFrame");
 
-        foreach (Potion_SO potion  in potionList.AllPotions)
+        foreach (Potion_SO potion  in potionList.SimplePotions)
+        {
+            RecipePage recipePage = new RecipePage(potion);
+            var potionPage = recipePage.page;
+            bookFrame.Add(potionPage);
+            potionPages.Add(recipePage);
+        }
+
+        foreach (Potion_SO potion in potionList.ComplexPotions)
         {
             RecipePage recipePage = new RecipePage(potion);
             var potionPage = recipePage.page;

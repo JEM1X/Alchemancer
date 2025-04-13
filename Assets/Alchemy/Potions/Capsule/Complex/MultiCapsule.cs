@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MultiCapsule", menuName = "Scriptable Objects/Potion/Capsule/MultiCapsule")]
+[CreateAssetMenu(fileName = "MultiCapsule", menuName = "Scriptable Objects/Potion/Capsule/Complex/MultiCapsule")]
 public class MultiCapsule : Capsule_SO
 {
     public override void UseCapsule(Alchemancer user, Enemy enemy)

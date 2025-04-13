@@ -19,6 +19,10 @@ public class CombatantCard
     private Label weakAmount;
     private VisualElement strongFrame;
     private Label strongAmount;
+    private VisualElement dullFrame;
+    private Label dullAmount;
+    private VisualElement brightFrame;
+    private Label brightAmount;
     private VisualElement bleedFrame;
     private Label bleedAmount;
     private VisualElement stunFrame;
@@ -76,11 +80,25 @@ public class CombatantCard
 
         //strong
         strongFrame = UITK.AddElement(effectsPanel, "strongFrame", "EffectFrame");
-        strongFrame.style.backgroundImage = new StyleBackground(combatantStyle.weakIcon);
+        strongFrame.style.backgroundImage = new StyleBackground(combatantStyle.strongIcon);
 
         strongAmount = UITK.AddElement<Label>(strongFrame, "strongAmount", "EffectAmount", "ClearText");
 
         UpdateWeakStrong(0);
+
+        //dull
+        dullFrame = UITK.AddElement(effectsPanel, "dullFrame", "EffectFrame");
+        dullFrame.style.backgroundImage = new StyleBackground(combatantStyle.dullIcon);
+
+        dullAmount = UITK.AddElement<Label>(weakFrame, "weakAmount", "EffectAmount", "ClearText");
+
+        //bright
+        brightFrame = UITK.AddElement(effectsPanel, "brightFrame", "EffectFrame");
+        brightFrame.style.backgroundImage = new StyleBackground(combatantStyle.brightIcon);
+
+        brightAmount = UITK.AddElement<Label>(strongFrame, "strongAmount", "EffectAmount", "ClearText");
+
+        UpdateDullBright(0);
 
         //bleed
         bleedFrame = UITK.AddElement(effectsPanel, "bleedFrame", "EffectFrame");
@@ -125,24 +143,17 @@ public class CombatantCard
     private void UpdateVulnerableResilient(int amount)
     {
         int vulRes = combatant.VulnerableResilient;
-        if (vulRes == 0)
-        {
-            vulnerableFrame.style.display = DisplayStyle.None;
-            resilientFrame.style.display = DisplayStyle.None;
-        }
+        
+        vulnerableFrame.style.display = DisplayStyle.None;
+        resilientFrame.style.display = DisplayStyle.None;
 
         if (vulRes < 0)
         {
-            resilientFrame.style.display = DisplayStyle.None;
-
             vulnerableFrame.style.display = DisplayStyle.Flex;
             vulnerableAmount.text = (-vulRes).ToString();
         }
-
-        if(vulRes > 0)
+        else if(vulRes > 0)
         {
-            vulnerableFrame.style.display = DisplayStyle.None;
-
             resilientFrame.style.display = DisplayStyle.Flex;
             resilientAmount.text = vulRes.ToString();
         }
@@ -152,26 +163,37 @@ public class CombatantCard
     {
         int weakStrong = combatant.WeakStrong;
 
-        if (weakStrong == 0)
-        {
-            weakFrame.style.display = DisplayStyle.None;
-            strongFrame.style.display = DisplayStyle.None;
-        }
+        weakFrame.style.display = DisplayStyle.None;
+        strongFrame.style.display = DisplayStyle.None;
 
         if (weakStrong < 0)
         {
-            strongFrame.style.display = DisplayStyle.None;
-
             weakFrame.style.display = DisplayStyle.Flex;
             weakAmount.text = (-weakStrong).ToString();
         }
-
-        if (weakStrong > 0)
+        else if (weakStrong > 0)
         {
-            weakFrame.style.display = DisplayStyle.None;
-
             strongFrame.style.display = DisplayStyle.Flex;
             strongAmount.text = weakStrong.ToString();
+        }
+    }
+
+    private void UpdateDullBright(int amount)
+    {
+        int dullBright = combatant.DullBright;
+
+        dullFrame.style.display = DisplayStyle.None;
+        brightFrame.style.display = DisplayStyle.None;
+
+        if (dullBright < 0)
+        {
+            dullFrame.style.display = DisplayStyle.Flex;
+            dullAmount.text = (-dullBright).ToString();
+        }
+        else if (dullBright > 0)
+        {
+            brightFrame.style.display = DisplayStyle.Flex;
+            brightAmount.text = dullBright.ToString();
         }
     }
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BloodthirstFlask", menuName = "Scriptable Objects/Potion/Flask/BloodthirstFlask")]
+[CreateAssetMenu(fileName = "BloodthirstFlask", menuName = "Scriptable Objects/Potion/Flask/Complex/BloodthirstFlask")]
 public class BloodthirstFlask : Flask_SO
 {
     public override void UseFlask(Alchemancer user, Enemy[] enemies)
