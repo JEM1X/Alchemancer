@@ -27,6 +27,8 @@ public abstract class Combatant : MonoBehaviour
     [SerializeField] protected int stun = 0;
 
     private Animator _animator;
+    private int baseHealth;
+    private int baseDamage;
 
     public event Action<Combatant> OnSpawn;
     public event Action OnTurnStart;
@@ -68,6 +70,8 @@ public abstract class Combatant : MonoBehaviour
     protected void Start()
     {
         OnSpawn?.Invoke(this);
+        baseHealth = healthMax;
+        baseDamage = power;
     }
 
     public virtual IEnumerator TakeTurn(Action CompleteTurn)
@@ -243,5 +247,17 @@ public abstract class Combatant : MonoBehaviour
         OnStunChanged?.Invoke(-1);
 
         return true;
+    }
+
+    public void IncreaseStats(int healthBonus, int damageBonus)
+    {
+        float healthPercent = (float)health / healthMax;
+        healthMax += healthBonus;
+        health = Mathf.CeilToInt(healthMax * healthPercent);
+        if (health <= 0 && healthMax > 0) health = 1;
+
+        power += damageBonus;
+
+        OnHealthChange?.Invoke(0);
     }
 }

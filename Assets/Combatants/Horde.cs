@@ -16,6 +16,9 @@ public class Horde : MonoBehaviour
 
     [Header("Infinite Mode Settings")]
     [SerializeField] private int wavesPerNewEnemyType = 1; // Ќовый тип врага каждые N волн
+    [SerializeField] private int wavesPerStatIncrease = 5; // ”величение статов каждые N волн
+    [SerializeField] private int healthIncrease = 1; // +1 к здоровью
+    [SerializeField] private int damageIncrease = 1; // +1 к урону
 
     public void SpawnEnemy()
     {
@@ -66,14 +69,14 @@ public class Horde : MonoBehaviour
 
     private void InfinityGamemode()
     {
-        int currentWave = BattleM.Instance.CurrentWave;     
+        int currentWave = BattleM.Instance.CurrentWave;
         int unlockedEnemyTypes = 1 + currentWave / wavesPerNewEnemyType;
         int availableEnemyTypes = Mathf.Min(unlockedEnemyTypes, enemyPrefabs.Length);
+        int statIncreaseCount = currentWave / wavesPerStatIncrease;
 
-        
         for (int i = 0; i < spawnCount; i++)
         {
-            int enemyTypeIndex = UnityEngine.Random.Range(0, availableEnemyTypes); // ¬ыбираем случайный разблокированный тип
+            int enemyTypeIndex = UnityEngine.Random.Range(0, availableEnemyTypes);
 
             var enemy = Instantiate(
                 enemyPrefabs[enemyTypeIndex],
@@ -86,6 +89,13 @@ public class Horde : MonoBehaviour
             {
                 Debug.LogError("Enemy Script was not found");
                 continue;
+            }
+            if (BattleM.Instance.IsInfiniteMode && statIncreaseCount > 0)
+            {
+                script.IncreaseStats(
+                    healthIncrease * statIncreaseCount,
+                    damageIncrease * statIncreaseCount
+                );
             }
 
             enemyScripts.Add(script);

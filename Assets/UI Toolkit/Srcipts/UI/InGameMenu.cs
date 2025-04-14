@@ -83,7 +83,8 @@ public class InGameMenu : MonoBehaviour
 
         var restartButton = UITK.AddElement<Button>(pauseFrame, "restartButton", "MainButton");
         restartButton.text = "Начать заново";
-        restartButton.clicked += () => SceneManager.LoadScene(1);
+        if (BattleM.Instance.IsInfiniteMode) { restartButton.clicked += () => SceneManager.LoadScene(6); }
+        else { restartButton.clicked += () => SceneManager.LoadScene(1); }
 
         var quitButton = UITK.AddElement<Button>(pauseFrame, "quitButton", "MainButton");
         quitButton.text = "Выйти";
