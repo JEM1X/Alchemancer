@@ -17,7 +17,9 @@ public class PlayerHand : MonoBehaviour
     private int potionMaxAmount = 3;
 
     public event Action<Ingredient_SO> OnNewIngredient;
+    public event Action<Ingredient_SO> OnIngredientUse;
     public event Action<Potion_SO> OnNewPotion;
+    //public event Action<Potion_SO> OnPotionUse;
 
 
     private void Awake()
@@ -29,18 +31,27 @@ public class PlayerHand : MonoBehaviour
     public void DrawNewHand()
     {
         playerIngredients.Clear();
-        DrawCards(drawAmount);
+
+        for (int i = 0; i < drawAmount; i++)
+            DrawRandomIngredient();
     }
 
-    public void DrawCards(int amount)
+    public void DrawRandomIngredient()
     {
-        for (int i = 0; i < amount; i++)
-        {
-            Ingredient_SO newIngredient = ingredientList.Ingredients[UnityEngine.Random.Range(0, ingredientList.Ingredients.Length)];
-            playerIngredients.Add(newIngredient);
-            OnNewIngredient?.Invoke(newIngredient);
-        }
+        DrawIngredient(ingredientList.Ingredients[UnityEngine.Random.Range(0, ingredientList.Ingredients.Length)]);
     }
+
+    public void DrawIngredient(Ingredient_SO newIngredient)
+    {
+        playerIngredients.Add(newIngredient);
+        OnNewIngredient?.Invoke(newIngredient);
+    }
+
+    private void UseIngredient(Ingredient_SO ingredient)
+    {
+        playerIngredients.Remove(ingredient);
+        OnIngredientUse?.Invoke(ingredient);
+    } 
 
     public void BrewNewPotion(Ingredient_SO[] ingredients)
     {
@@ -49,10 +60,11 @@ public class PlayerHand : MonoBehaviour
         if (!ingredients.All(playerIngredients.Contains))
         {
             Debug.LogWarning("No ingredients available");
+            return;
         }
 
         foreach (var ingredient in ingredients)
-            playerIngredients.Remove(ingredient);
+            UseIngredient(ingredient);
 
         Potion_SO craftedPotion = null;
         if(TryBrewSimplePotion(ingredients, out Potion_SO craftedSimplePotion))

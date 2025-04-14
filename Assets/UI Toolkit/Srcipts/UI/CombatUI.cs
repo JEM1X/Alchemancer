@@ -26,7 +26,8 @@ public class CombatUI : MonoBehaviour
     private VisualElement beltUI;
     private VisualElement interactionUI;
 
-    private List<IngredientCard> cardsInCauldron = new List<IngredientCard>(0);
+    private List<IngredientCard> cardsInHand = new(0);
+    private List<IngredientCard> cardsInCauldron = new(0);
     private PotionCard potionInUse = null;
     //private List<CombatantCard> enemyCards;
 
@@ -35,6 +36,7 @@ public class CombatUI : MonoBehaviour
         InitializeUI();
 
         alchemancer.PlayerHand.OnNewIngredient += InitializeIngredientCard;
+        alchemancer.PlayerHand.OnIngredientUse += RemoveIngredientCard;
         alchemancer.PlayerHand.OnNewPotion += InitializePotionCard;
         alchemancer.PlayerCombat.OnSpawn += (Combatant combatant) => InitializePlayer((PlayerCombat)combatant);
         alchemancer.PlayerCombat.OnTurnStart += ShowHand;  
@@ -82,11 +84,35 @@ public class CombatUI : MonoBehaviour
     private void InitializeIngredientCard(Ingredient_SO ingredient)
     {
         var ingredientCard = new IngredientCard(ingredient);
-        ingredientCard.cardFrame.clicked += () => UseIngredientCard(ingredientCard);
+        ingredientCard.cardFrame.clicked += () => SelectIngredientCard(ingredientCard);
 
         bagUI.Add(ingredientCard.cardFrame);
 
         StartCoroutine(DrawCardAnim(ingredientCard, new Vector2Int(1700, 100)));
+    }
+
+    private void RemoveIngredientCard(Ingredient_SO ingredient)
+    {
+        IngredientCard ingredientCard = cardsInCauldron.FirstOrDefault(card => card.ingredient == ingredient);
+
+        if (ingredientCard != null)
+        {
+            cardsInHand.Remove(ingredientCard);
+            cardsInCauldron.Remove(ingredientCard);
+            ingredientCard.cardFrame.RemoveFromHierarchy();
+            return;
+        }
+
+        ingredientCard = cardsInHand.FirstOrDefault(card => card.ingredient == ingredient);
+
+        if (ingredientCard != null)
+        {
+            cardsInHand.Remove(ingredientCard);
+            ingredientCard.cardFrame.RemoveFromHierarchy();
+            return;
+        }
+
+        Debug.LogWarning("Could not find IngredientCard for Ingredient");
     }
 
     private void InitializePotionCard(Potion_SO potion)
@@ -94,7 +120,7 @@ public class CombatUI : MonoBehaviour
         if (potion == null) return;
 
         var potionCard = new PotionCard(potion);
-        potionCard.cardFrame.clicked += () => UsePotionCard(potionCard);
+        potionCard.cardFrame.clicked += () => SelectPotionCard(potionCard);
        
         beltUI.Add(potionCard.cardFrame);
         StartCoroutine(DrawCardAnim(potionCard, new Vector2Int(0, 500)));
@@ -113,7 +139,7 @@ public class CombatUI : MonoBehaviour
         hordeUI.Add(playerCard.combatantFrame);
     }
 
-    private void UseIngredientCard(IngredientCard card)
+    private void SelectIngredientCard(IngredientCard card)
     {
         if (!card.isSelected && cardsInCauldron.Count >= 3) return;
 
@@ -129,7 +155,7 @@ public class CombatUI : MonoBehaviour
         }
     }
 
-    private void UsePotionCard(PotionCard card)
+    private void SelectPotionCard(PotionCard card)
     {
         if (card.potion is Elixir_SO elixir)
         {
@@ -148,7 +174,7 @@ public class CombatUI : MonoBehaviour
         }
 
         if (!card.isSelected && potionInUse != null)
-            UsePotionCard(potionInUse);
+            SelectPotionCard(potionInUse);
 
         if (card.Select())
         {
@@ -171,9 +197,9 @@ public class CombatUI : MonoBehaviour
 
         alchemancer.PlayerHand.BrewNewPotion(usedIngredients);
 
-        cardsInCauldron.ForEach(card => card.cardFrame.RemoveFromHierarchy());
+        //cardsInCauldron.ForEach(card => card.cardFrame.RemoveFromHierarchy());
 
-        ClearCauldron();
+        //ClearCauldron();
 
         AudioM.Instance.PlaySound(AudioM.Instance.potionSounds[0]);
     }

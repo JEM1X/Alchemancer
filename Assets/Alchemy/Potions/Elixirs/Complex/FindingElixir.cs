@@ -8,6 +8,9 @@ public class FindingElixir : Elixir_SO
 
     public override void UseElixir(Alchemancer user)
     {
-        user.PlayerHand.DrawCards(drawAmount);
+        for (int i = 0; i < drawAmount; i++)
+        {
+            user.PlayerHand.DrawRandomIngredient();
+        }
     }
 }
