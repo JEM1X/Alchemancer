@@ -11,7 +11,13 @@ public class BattleM : Singleton<BattleM>
     public Alchemancer Alchemancer => alchemancer;
     [SerializeField] private Alchemancer alchemancer;
     public int TotalWaves { get => totalWaves; }
+    [Tooltip("Общее количество волн (игнорируется, если isInfiniteMode = true)")]
     [SerializeField] private int totalWaves = 3;
+
+    public bool IsInfiniteMode { get => isInfiniteMode; }
+    [Tooltip("Бесконечные волны? Если true, totalWaves игнорируется")]
+    [SerializeField] private bool isInfiniteMode = false;
+    public int CurrentWave { get => currentWave; }
     private int currentWave = 0;
     private float turnDelay = 0.25f;
 
@@ -27,17 +33,19 @@ public class BattleM : Singleton<BattleM>
 
     private void WaveTracker()
     {
+        if (horde.EnemyScripts.Count == 0)
+        {
+            // Если режим не бесконечный и все волны пройдены
+            if (!isInfiniteMode && currentWave >= totalWaves)
+            {
+                OnAllWavesCleared?.Invoke();
+                return;
+            }
 
-        if (horde.EnemyScripts.Count == 0 && currentWave < totalWaves)
-        {
+            // Спавним новую волну
             horde.SpawnEnemy();
-            currentWave += 1;
+            currentWave++;
             OnWaveStart?.Invoke(currentWave);
-        }
-        else if (currentWave >= totalWaves && horde.EnemyScripts.Count == 0)
-        {
-            OnAllWavesCleared();
-            return;
         }
 
         StartCoroutine(BattleSequence());
