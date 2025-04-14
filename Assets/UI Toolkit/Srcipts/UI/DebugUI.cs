@@ -68,6 +68,11 @@ public class DebugUI : MonoBehaviour
 
     private void AddPotion(Potion_SO potion)
     {
+        foreach (Ingredient_SO ingredient in potion.Ingredients)
+        {
+            alchemancer.PlayerHand.DrawIngredient(ingredient);
+        }
+
         alchemancer.PlayerHand.BrewNewPotion(potion.Ingredients);
     }
 }

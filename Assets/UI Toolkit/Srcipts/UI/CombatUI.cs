@@ -86,6 +86,7 @@ public class CombatUI : MonoBehaviour
         var ingredientCard = new IngredientCard(ingredient);
         ingredientCard.cardFrame.clicked += () => SelectIngredientCard(ingredientCard);
 
+        cardsInHand.Add(ingredientCard);
         bagUI.Add(ingredientCard.cardFrame);
 
         StartCoroutine(DrawCardAnim(ingredientCard, new Vector2Int(1700, 100)));

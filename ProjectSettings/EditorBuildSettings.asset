@@ -13,10 +13,13 @@ EditorBuildSettings:
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/BattleScene 2.unity
-    guid: 4a007d4f25ca19a43af5d53a6038f806
+    guid: b0be79fd95f96b547ba4b7152a9e62a2
   - enabled: 1
     path: Assets/Scenes/BattleScene 3.unity
-    guid: d26bb11c8bfc4a14797643859e329c35
+    guid: 4f81feb9ed2435d4da80bac91d25e770
+  - enabled: 1
+    path: Assets/Scenes/BossScene.unity
+    guid: c1a0b7c9ecf7d474889c60578e0ec399
   - enabled: 1
     path: Assets/Scenes/TutorialBattle.unity
     guid: 45d2aab835227464b830533d41b67b6f

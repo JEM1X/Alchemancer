@@ -451,6 +451,7 @@ MonoBehaviour:
   - {fileID: 1278090437}
   - {fileID: 41867262}
   spawnCount: 3
+  wavesPerNewEnemyType: 1
 --- !u!4 &1540369660
 Transform:
   m_ObjectHideFlags: 0
@@ -814,7 +815,7 @@ PrefabInstance:
       objectReference: {fileID: 1948359766}
     - target: {fileID: 1449901830896665373, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
       propertyPath: stageName
-      value: "\u0416\u0438\u0432\u043E\u0439 \u041B\u0435\u0441"
+      value: "\u0417\u0430\u043C\u043E\u043A \u0413\u0440\u0430\u0444\u0438\u043D\u0438"
       objectReference: {fileID: 0}
     - target: {fileID: 1449901830896665373, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
       propertyPath: alchemancer

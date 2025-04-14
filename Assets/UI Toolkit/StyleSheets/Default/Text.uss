@@ -17,7 +17,7 @@
 }
 
 .ClearText {
-    font-size: 32px;
+    font-size: 40px;
     white-space: normal;
-    -unity-font-definition: url("project://database/Assets/Assets/Fonts/Andika-Bold%20SDF.asset?fileID=11400000&guid=874463b1733549a4d845ffa48746c96c&type=2#Andika-Bold SDF");
+    -unity-font-definition: url("project://database/Assets/Assets/Fonts/Neucha-Regular%20SDF.asset?fileID=11400000&guid=580bd7462766478408bc9dba520f18af&type=2#Neucha-Regular SDF");
 }

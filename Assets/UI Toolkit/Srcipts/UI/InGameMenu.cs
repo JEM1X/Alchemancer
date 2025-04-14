@@ -8,6 +8,7 @@ public class InGameMenu : MonoBehaviour
     [Header("Scene")]
     [SerializeField] private Alchemancer alchemancer;
     [SerializeField] private string stageName;
+    [SerializeField] private bool isFinal;
 
     [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
@@ -104,17 +105,17 @@ public class InGameMenu : MonoBehaviour
         scoreLabel.text = scoreLabel.text = "Очки: " + GameManager.Instance.TotalScore.ToString();
         Enemy.OnScoreGain += (int amount) => scoreLabel.text = "Очки: " + GameManager.Instance.TotalScore.ToString();
 
-        if (SceneManager.GetActiveScene().buildIndex != 3)
-        {
-            var nextButton = UITK.AddElement<Button>(victoryFrame, "nextButton", "MainButton");
-            nextButton.text = "Дальше";
-            nextButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        else
+        if (isFinal)
         {
             var endButton = UITK.AddElement<Button>(victoryFrame, "nextButton", "MainButton");
             endButton.text = "Конец";
             endButton.clicked += () => SceneManager.LoadScene(0);
+        }
+        else
+        {
+            var nextButton = UITK.AddElement<Button>(victoryFrame, "nextButton", "MainButton");
+            nextButton.text = "Дальше";
+            nextButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         ToggleVictoryScreen();

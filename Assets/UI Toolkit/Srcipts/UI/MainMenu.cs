@@ -52,7 +52,7 @@ public class MainMenu : MonoBehaviour
         tutorialButton.clicked += () =>
         {
             GameManager.Instance.GenerateRecipes();
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(5);
         };
 
         var runButton = UITK.AddElement<Button>(startMenu, "runButton", "MainButton");
@@ -62,11 +62,13 @@ public class MainMenu : MonoBehaviour
             GameManager.Instance.GenerateRecipes();
             SceneManager.LoadScene(1);
         };
+
         var IGMButton = UITK.AddElement<Button>(startMenu, "IGMButton", "MainButton");
         IGMButton.text = "Бесконечный забег";
         IGMButton.clicked += () =>
         {
-            SceneManager.LoadScene(5);
+            GameManager.Instance.GenerateRecipes();
+            SceneManager.LoadScene(6);
         };
         ToggleStart();
     }
