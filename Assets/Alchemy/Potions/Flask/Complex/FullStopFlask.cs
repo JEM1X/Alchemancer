@@ -8,6 +8,8 @@ public class FullStopFlask : Flask_SO
         foreach (Enemy enemy in enemies)
         {
             enemy.InflictStun(2);
+
+            enemy.StartCoroutine(enemy.CastImpact());
         }
 
         user.PlayerCombat.InflictStun(2);

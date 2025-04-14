@@ -26,6 +26,8 @@ public class UnstableFlask : Flask_SO
                     enemy.InflictWeakStrong(-amount);
                     break;
             }
+
+            enemy.StartCoroutine(enemy.CastImpact());
         }
     }
 }

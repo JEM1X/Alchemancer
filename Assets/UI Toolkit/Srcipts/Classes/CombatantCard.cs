@@ -90,13 +90,13 @@ public class CombatantCard
         dullFrame = UITK.AddElement(effectsPanel, "dullFrame", "EffectFrame");
         dullFrame.style.backgroundImage = new StyleBackground(combatantStyle.dullIcon);
 
-        dullAmount = UITK.AddElement<Label>(weakFrame, "weakAmount", "EffectAmount", "ClearText");
+        dullAmount = UITK.AddElement<Label>(dullFrame, "weakAmount", "EffectAmount", "ClearText");
 
         //bright
         brightFrame = UITK.AddElement(effectsPanel, "brightFrame", "EffectFrame");
         brightFrame.style.backgroundImage = new StyleBackground(combatantStyle.brightIcon);
 
-        brightAmount = UITK.AddElement<Label>(strongFrame, "strongAmount", "EffectAmount", "ClearText");
+        brightAmount = UITK.AddElement<Label>(brightFrame, "strongAmount", "EffectAmount", "ClearText");
 
         UpdateDullBright(0);
 
@@ -121,6 +121,7 @@ public class CombatantCard
         combatant.OnDeath += EnemyDeath;
         combatant.OnVulnerableResilientChange += UpdateVulnerableResilient;
         combatant.OnWeakStrongChange += UpdateWeakStrong;
+        combatant.OnDullBrightChange += UpdateDullBright;
         combatant.OnBleedChanged += UpdateBleed;
         combatant.OnStunChanged += UpdateStun;
     }

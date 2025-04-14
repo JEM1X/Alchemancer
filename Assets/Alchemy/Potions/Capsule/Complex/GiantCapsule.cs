@@ -7,5 +7,7 @@ public class GiantCapsule : Capsule_SO
     {
         int damage = Mathf.Min(user.PlayerCombat.Power * 2, enemy.Health / 2);
         enemy.TakeDamage(damage);
+
+        enemy.StartCoroutine(enemy.AttackImpact());
     }
 }

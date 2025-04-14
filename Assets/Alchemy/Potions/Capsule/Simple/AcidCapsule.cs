@@ -6,5 +6,7 @@ public class AcidCapsule : Capsule_SO
     public override void UseCapsule(Alchemancer user, Enemy enemy)
     {
         enemy.TakeDamage(user.PlayerCombat.Power);
+
+        enemy.StartCoroutine(enemy.AttackImpact());
     }
 }

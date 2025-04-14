@@ -6,5 +6,7 @@ public class BleedCapsule : Capsule_SO
     public override void UseCapsule(Alchemancer user, Enemy enemy)
     {
         enemy.InflictBleed(user.PlayerCombat.Power);
+
+        enemy.StartCoroutine(enemy.AttackImpact());
     }
 }

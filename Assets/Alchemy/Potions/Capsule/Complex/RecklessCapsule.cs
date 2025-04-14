@@ -8,5 +8,7 @@ public class RecklessCapsule : Capsule_SO
         enemy.TakeDamage(user.PlayerCombat.Power * 3);
 
         user.PlayerCombat.InflictStun(1);
+
+        enemy.StartCoroutine(enemy.AttackImpact());
     }
 }

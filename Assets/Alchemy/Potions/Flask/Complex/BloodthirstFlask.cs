@@ -10,6 +10,8 @@ public class BloodthirstFlask : Flask_SO
             if (enemy.Bleed <= 0) continue;
 
             enemy.TakeDamage(enemy.Bleed);
+
+            enemy.StartCoroutine(enemy.AttackImpact());
         }
     }
 }

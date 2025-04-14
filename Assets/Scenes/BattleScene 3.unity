@@ -318,6 +318,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1484934167}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1339192520
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3839403063249540634, guid: e14478b5e8195e74c84787ad922f9a70, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171051822043551520, guid: e14478b5e8195e74c84787ad922f9a70, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171051822043551520, guid: e14478b5e8195e74c84787ad922f9a70, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171051822043551520, guid: e14478b5e8195e74c84787ad922f9a70, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171051822043551520, guid: e14478b5e8195e74c84787ad922f9a70, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171051822043551520, guid: e14478b5e8195e74c84787ad922f9a70, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171051822043551520, guid: e14478b5e8195e74c84787ad922f9a70, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171051822043551520, guid: e14478b5e8195e74c84787ad922f9a70, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171051822043551520, guid: e14478b5e8195e74c84787ad922f9a70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171051822043551520, guid: e14478b5e8195e74c84787ad922f9a70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171051822043551520, guid: e14478b5e8195e74c84787ad922f9a70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e14478b5e8195e74c84787ad922f9a70, type: 3}
 --- !u!1 &1484934166
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,10 +440,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyScripts: []
   enemyPrefabs:
-  - {fileID: 6408667138530730140, guid: b0be409f9a2a0d740926d2ca5d7cbf61, type: 3}
+  - {fileID: 6408667138530730140, guid: 2a23d62ac18491a48aebf4816f1c4fb4, type: 3}
+  - {fileID: 6408667138530730140, guid: 2a23d62ac18491a48aebf4816f1c4fb4, type: 3}
+  - {fileID: 6408667138530730140, guid: 2a23d62ac18491a48aebf4816f1c4fb4, type: 3}
+  - {fileID: 6408667138530730140, guid: 7f89e1ea0ebc0ce49b61e61d46ebf54e, type: 3}
+  - {fileID: 6408667138530730140, guid: 7f89e1ea0ebc0ce49b61e61d46ebf54e, type: 3}
+  - {fileID: 6408667138530730140, guid: 0dca4591b96efaf4f9f556ce7e066a48, type: 3}
   spawnPoints:
+  - {fileID: 1619143737}
   - {fileID: 1278090437}
-  spawnCount: 1
+  - {fileID: 41867262}
+  spawnCount: 3
 --- !u!4 &1540369660
 Transform:
   m_ObjectHideFlags: 0
@@ -507,7 +571,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87a4c77b67785974ea6601c596551df3, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fd4e148796831040b4be6891d1f3909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1948359767 stripped
@@ -531,12 +595,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 657481041244905367, guid: 770b41a42da1978479a8c55f146a1bd2, type: 3}
       propertyPath: m_FlipX
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 657481041244905367, guid: 770b41a42da1978479a8c55f146a1bd2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: efe9e99e8641a5f41b4a1fa8596f22b4, type: 3}
+      objectReference: {fileID: 21300000, guid: 82ba3a46c2a516a4c86319ee47cfda90, type: 3}
     - target: {fileID: 721300949891170579, guid: 770b41a42da1978479a8c55f146a1bd2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -680,9 +744,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1948359766}
     - target: {fileID: 3642017888385160230, guid: b957ae3a5c197b447bbbfe2d37ba04d3, type: 3}
-      propertyPath: totalWaves
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: alchemancer
+      value: 
+      objectReference: {fileID: 1948359766}
     - target: {fileID: 6486528426389239222, guid: b957ae3a5c197b447bbbfe2d37ba04d3, type: 3}
       propertyPath: m_Name
       value: BattleManager
@@ -752,6 +816,10 @@ PrefabInstance:
       propertyPath: stageName
       value: "\u0416\u0438\u0432\u043E\u0439 \u041B\u0435\u0441"
       objectReference: {fileID: 0}
+    - target: {fileID: 1449901830896665373, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
+      propertyPath: alchemancer
+      value: 
+      objectReference: {fileID: 1948359766}
     - target: {fileID: 3610072112875724854, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
       propertyPath: m_Name
       value: UI
@@ -768,6 +836,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4721977691319670551, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
+      propertyPath: alchemancer
+      value: 
+      objectReference: {fileID: 1948359766}
     - target: {fileID: 5294761668942539444, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -812,6 +884,10 @@ PrefabInstance:
       propertyPath: mediator
       value: 
       objectReference: {fileID: 1948359766}
+    - target: {fileID: 6287791253333418301, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
+      propertyPath: alchemancer
+      value: 
+      objectReference: {fileID: 1948359766}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -828,3 +904,4 @@ SceneRoots:
   - {fileID: 3506780769503950482}
   - {fileID: 2881376599667386435}
   - {fileID: 1786107401}
+  - {fileID: 1339192520}

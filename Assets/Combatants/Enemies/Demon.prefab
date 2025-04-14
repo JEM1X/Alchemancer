@@ -194,23 +194,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 250
-  healthMax: 7
-  health: 7
-  power: 1
-  influence: 1
+  healthMax: 15
+  health: 15
+  power: 2
+  influence: 2
   vulnerableResilient: 0
   weakStrong: 0
   dullBright: 0
   bleed: 0
   stun: 0
+  _scorePoints: 70
   actionDuration: 0.6
   targetPos: {x: -3, y: -1, z: 0}
-  castScale: {x: 1.2, y: 1.2, z: 1}
+  castScale: {x: 1.1, y: 1.1, z: 1}
+  impactDuration: 0.3
+  attackImpactPos: {x: 0.5, y: 0, z: 0}
+  castImpactScale: {x: 0.9, y: 0.9, z: 1}
   attackParticles: {fileID: 0}
-  _scorePoints: 25
   enemyActions:
   - {fileID: 11400000, guid: 036d44f25c34b0b419857e94fa00c95b, type: 2}
-  - {fileID: 11400000, guid: 504a981e75618664db4f3911af9182f1, type: 2}
+  - {fileID: 11400000, guid: 2ac19e88f555e874794262c83cbdf83c, type: 2}
 --- !u!1 &8205468469911281152
 GameObject:
   m_ObjectHideFlags: 0

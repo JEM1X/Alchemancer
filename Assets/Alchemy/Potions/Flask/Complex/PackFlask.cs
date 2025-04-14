@@ -8,6 +8,10 @@ public class PackFlask : Flask_SO
         int damage = enemies.Length;
 
         foreach (Enemy enemy in enemies)
+        {
             enemy.TakeDamage(damage);
+
+            enemy.StartCoroutine(enemy.AttackImpact());
+        }
     }
 }

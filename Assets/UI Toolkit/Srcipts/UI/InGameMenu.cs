@@ -100,6 +100,10 @@ public class InGameMenu : MonoBehaviour
         var victoryLabel = UITK.AddElement<Label>(victoryFrame, "victoryLabel", "InGameScreenLabel");
         victoryLabel.text = "Победа";
 
+        var scoreLabel = UITK.AddElement<Label>(victoryFrame, "scoreLabel", "MainText", "InGameScreenLabel");
+        scoreLabel.text = scoreLabel.text = "Очки: " + GameManager.Instance.TotalScore.ToString();
+        Enemy.OnScoreGain += (int amount) => scoreLabel.text = "Очки: " + GameManager.Instance.TotalScore.ToString();
+
         if (SceneManager.GetActiveScene().buildIndex != 3)
         {
             var nextButton = UITK.AddElement<Button>(victoryFrame, "nextButton", "MainButton");
@@ -125,6 +129,10 @@ public class InGameMenu : MonoBehaviour
 
         var defeatLabel = UITK.AddElement<Label>(defeatFrame, "defeatLabel", "InGameScreenLabel");
         defeatLabel.text = "Поражение";
+
+        var scoreLabel = UITK.AddElement<Label>(defeatFrame, "scoreLabel", "MainText", "InGameScreenLabel");
+        scoreLabel.text = scoreLabel.text = "Очки: " + GameManager.Instance.TotalScore.ToString();
+        Enemy.OnScoreGain += (int amount) => scoreLabel.text = "Очки: " + GameManager.Instance.TotalScore.ToString();
 
         var restartButton = UITK.AddElement<Button>(defeatFrame, "restartButton", "MainButton");
         restartButton.text = "Начать заново";
