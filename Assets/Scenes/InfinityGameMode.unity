@@ -455,8 +455,8 @@ MonoBehaviour:
   - {fileID: 1278090437}
   - {fileID: 41867262}
   spawnCount: 3
-  maxEnemyTypes: 3
-  wavesPerNewEnemyType: 3
+  maxEnemyTypes: 9
+  wavesPerNewEnemyType: 1
 --- !u!4 &1540369660
 Transform:
   m_ObjectHideFlags: 0

@@ -15,7 +15,6 @@ public class Horde : MonoBehaviour
     public event Action OnNoEnemyLeft;
 
     [Header("Infinite Mode Settings")]
-    [SerializeField] private int maxEnemyTypes = 3; // ћаксимальное количество типов врагов
     [SerializeField] private int wavesPerNewEnemyType = 1; // Ќовый тип врага каждые N волн
 
     public void SpawnEnemy()
@@ -69,14 +68,14 @@ public class Horde : MonoBehaviour
     {
         int currentWave = BattleM.Instance.CurrentWave;     
         int unlockedEnemyTypes = 1 + currentWave / wavesPerNewEnemyType;
-        int availableEnemyTypes = Mathf.Min(unlockedEnemyTypes, maxEnemyTypes, enemyPrefabs.Length);
+        int availableEnemyTypes = Mathf.Min(unlockedEnemyTypes, enemyPrefabs.Length);
 
         
         for (int i = 0; i < spawnCount; i++)
         {
             int enemyTypeIndex = UnityEngine.Random.Range(0, availableEnemyTypes); // ¬ыбираем случайный разблокированный тип
 
-            GameObject enemy = Instantiate(
+            var enemy = Instantiate(
                 enemyPrefabs[enemyTypeIndex],
                 spawnPoints[i].position,
                 spawnPoints[i].rotation,

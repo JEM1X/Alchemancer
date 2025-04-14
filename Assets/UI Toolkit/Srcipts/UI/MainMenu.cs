@@ -62,7 +62,12 @@ public class MainMenu : MonoBehaviour
             GameManager.Instance.GenerateRecipes();
             SceneManager.LoadScene(1);
         };
-
+        var IGMButton = UITK.AddElement<Button>(startMenu, "IGMButton", "MainButton");
+        IGMButton.text = "Бесконечный забег";
+        IGMButton.clicked += () =>
+        {
+            SceneManager.LoadScene(5);
+        };
         ToggleStart();
     }
 
