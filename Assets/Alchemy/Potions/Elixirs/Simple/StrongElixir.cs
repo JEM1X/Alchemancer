@@ -5,6 +5,6 @@ public class StrongElixir : Elixir_SO
 {
     public override void UseElixir(Alchemancer user)
     {
-        user.PlayerCombat.InflictWeakStrong(user.PlayerCombat.Influence);
+        user.PlayerCombat.InflictWeakStrong(user.PlayerCombat.Influence / 2);
     }
 }

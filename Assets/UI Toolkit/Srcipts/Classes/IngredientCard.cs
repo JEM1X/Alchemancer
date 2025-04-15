@@ -26,7 +26,7 @@ public class IngredientCard : UICard
         {
             isSelected = true;
             cardFrame.style.scale = new StyleScale(new Vector2(1.2f, 1.2f));
-            cardFrame.style.translate = new StyleTranslate(new Translate(0, -60));
+            cardFrame.style.translate = new StyleTranslate(new Translate(0, -80));
 
             return true;
         }

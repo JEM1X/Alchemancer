@@ -5,7 +5,7 @@ public class DragonElixir : Elixir_SO
 {
     public override void UseElixir(Alchemancer user)
     {
-        user.PlayerCombat.InflictVulnerableResilient(user.PlayerCombat.Influence / 2);
-        user.PlayerCombat.TakeHeal(user.PlayerCombat.Influence);
+        user.PlayerCombat.TakeHeal(user.PlayerCombat.Influence * 2);
+        user.PlayerCombat.InflictVulnerableResilient(1);
     }
 }

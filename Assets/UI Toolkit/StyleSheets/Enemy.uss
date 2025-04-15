@@ -47,6 +47,7 @@
 }
 
 .EffectAmount {
+    top: 16px;
     color: rgb(243, 243, 243);
     -unity-text-align: upper-center;
     text-shadow: -6px 3px 0 rgba(0, 0, 0, 1);

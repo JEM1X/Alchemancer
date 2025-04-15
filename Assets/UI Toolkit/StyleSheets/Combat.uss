@@ -33,7 +33,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: rgb(40, 40, 40);
-    padding: 6px;
+    padding: 0px;
     border-width: 12px;
     border-radius: 24px;
     border-color: rgb(9, 21, 48);
@@ -49,10 +49,11 @@
 }
 
 .cardFrame:hover {
-    scale: 1.2 1.2;
     margin-left: 100px;
     margin-right: 100px;
-    background-color: rgb(100, 100, 100);
+    background-color: rgb(40, 40, 40);
+    scale: 1.4 1.4;
+    translate: 0 -40px;
 }
 
 .beltUI .cardFrame:hover {
