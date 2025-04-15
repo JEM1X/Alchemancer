@@ -194,8 +194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 500
-  healthMax: 30
-  health: 30
+  healthMax: 40
+  health: 40
   power: 4
   influence: 2
   vulnerableResilient: 0

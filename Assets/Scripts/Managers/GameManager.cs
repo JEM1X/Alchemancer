@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public int TotalScore;
+    public int totalScore;
     public List<Potion_SO> discoveredPotions = new();
 
     [SerializeField] private IngredientList_SO ingredientList;
@@ -22,7 +22,7 @@ public class GameManager : Singleton<GameManager>
 
     private void AddScore(int _score) 
     {
-        TotalScore += _score;    
+        totalScore += _score;    
     }
 
     public void GenerateRecipes()

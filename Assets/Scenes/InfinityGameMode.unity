@@ -832,6 +832,10 @@ PrefabInstance:
       propertyPath: alchemancer
       value: 
       objectReference: {fileID: 1948359766}
+    - target: {fileID: 3336352935649506700, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
+      propertyPath: alchemancer
+      value: 
+      objectReference: {fileID: 1948359766}
     - target: {fileID: 3610072112875724854, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
       propertyPath: m_Name
       value: UI

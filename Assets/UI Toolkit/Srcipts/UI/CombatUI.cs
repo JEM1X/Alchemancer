@@ -68,7 +68,7 @@ public class CombatUI : MonoBehaviour
         endTurnButton.style.backgroundImage = new StyleBackground(combatStyle.forward);
         endTurnButton.clicked += () =>
         {
-            ClearCauldron();
+            ClearHand();
             bagUI.Clear();
             HideHand();
             alchemancer.PlayerCombat.CompletePlayerTurn?.Invoke();
@@ -198,16 +198,13 @@ public class CombatUI : MonoBehaviour
 
         alchemancer.PlayerHand.BrewNewPotion(usedIngredients);
 
-        //cardsInCauldron.ForEach(card => card.cardFrame.RemoveFromHierarchy());
-
-        //ClearCauldron();
-
         AudioM.Instance.PlaySound(AudioM.Instance.potionSounds[0]);
     }
 
-    private void ClearCauldron()
+    private void ClearHand()
     {
-        cardsInCauldron = new List<IngredientCard>(0);
+        cardsInHand = new(0);
+        cardsInCauldron = new(0);
     }
 
     private void AttackEnemy(Enemy enemy)

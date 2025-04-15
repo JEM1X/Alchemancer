@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: BloodthirstFlask
   m_EditorClassIdentifier: 
   label: "\u041A\u043E\u043B\u0431\u0430 \u041A\u0440\u043E\u0432\u043E\u0436\u0430\u0434\u043D\u043E\u0433\u043E"
-  icon: {fileID: 21300000, guid: 3d9f1b354d52b2c41bcddd0c2023d789, type: 3}
-  description: "\u041D\u0430\u043D\u043E\u0441\u0438\u0442 \u0443\u0440\u043E\u043D
-    \u0440\u0430\u0432\u043D\u044B\u0439\n\u041A\u0440\u043E\u0432\u043E\u0442\u0435\u0447\u0435\u043D\u0438\u044E
-    \u0432\u0440\u0430\u0433\u0430"
+  icon: {fileID: 21300000, guid: e1dd5c2d4be88394eb0e2c0f6244e739, type: 3}
+  description: "\u041D\u0430\u043D\u043E\u0441\u0438\u0442 \u0432\u0440\u0430\u0433\u0430
+    \n\u0443\u0440\u043E\u043D \u0440\u0430\u0432\u043D\u044B\u0439\n\u041A\u0440\u043E\u0432\u043E\u0442\u0435\u0447\u0435\u043D\u0438\u044E"
   ingredients:
   - {fileID: 11400000, guid: bf077205630315c4a918b1009ec80f70, type: 2}
-  - {fileID: 11400000, guid: 3d3682a366facc144b11a625599d12a1, type: 2}
+  - {fileID: 11400000, guid: 2e72f36a0ab5b484c872d335ec78dd96, type: 2}
   - {fileID: 11400000, guid: 03d8c2765e035554186406fe69f78b15, type: 2}

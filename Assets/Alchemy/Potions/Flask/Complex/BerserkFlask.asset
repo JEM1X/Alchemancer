@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: BerserkFlask
   m_EditorClassIdentifier: 
   label: "\u041A\u043E\u043B\u0431\u0430 \u0431\u0435\u0440\u0441\u0435\u0440\u043A\u0430"
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6ac28beb571807749803f9495fb05b7c, type: 3}
   description: "\u041D\u0430\u043D\u043E\u0441\u0438\u0442 \u0432\u0440\u0430\u0433\u0430\u043C\n\u043D\u0435\u0434\u043E\u0441\u0442\u0430\u044E\u0449\u0435\u0435
-    HP"
-  ingredients: []
+    \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435\n\u041C\u0430\u043A\u0441. (\u041C\u043E\u0449\u044C
+    * 2)"
+  ingredients:
+  - {fileID: 11400000, guid: bf077205630315c4a918b1009ec80f70, type: 2}
+  - {fileID: 11400000, guid: 1c9511ad6c08b0c419813f64acbf3db7, type: 2}
+  - {fileID: 11400000, guid: 03d8c2765e035554186406fe69f78b15, type: 2}

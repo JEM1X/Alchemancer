@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: StrongElixir
   m_EditorClassIdentifier: 
   label: "\u042D\u043B\u0438\u043A\u0441\u0438\u0440 \u0441\u0438\u043B\u044B"
-  icon: {fileID: 21300000, guid: 2d7d9ae02b7159843ac7d5ead0f8b89a, type: 3}
-  description: "\u041D\u0430\u043A\u043B\u0430\u0434\u044B\u0432\u0430\u0435\u0442
-    \u043D\u0430 \u0441\u0435\u0431\u044F\n\u0421\u0438\u043B\u0443(influence)"
-  ingredients: []
+  icon: {fileID: 21300000, guid: d15f5f4401f602346a141c3e42a2bd65, type: 3}
+  description: "\u041D\u0430\u043A\u043B\u0430\u0434\u044B\u0432\u0430\u0435\u0442\n(\u0412\u043B\u0438\u044F\u043D\u0438\u0435
+    / 2) \u0421\u0438\u043B\u0430"
+  ingredients:
+  - {fileID: 11400000, guid: 2e72f36a0ab5b484c872d335ec78dd96, type: 2}
+  - {fileID: 11400000, guid: 1c9511ad6c08b0c419813f64acbf3db7, type: 2}

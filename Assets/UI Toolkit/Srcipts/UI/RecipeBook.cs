@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class RecipeBook : MonoBehaviour
 {
+    [SerializeField] private Alchemancer alchemancer;
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private UIStyle_SO styleSheet;
     [SerializeField] private PotionList_SO potionList;
@@ -38,8 +39,39 @@ public class RecipeBook : MonoBehaviour
         {
             RecipePage recipePage = new RecipePage(potion);
             var potionPage = recipePage.page;
+
             bookFrame.Add(potionPage);
             potionPages.Add(recipePage);
+
+            recipePage.potionCard.cardFrame.clicked += () =>
+            {
+                if (recipePage.isCovered)
+                {
+                    return;
+                }
+                else
+                {
+                    Ingredient_SO[] ingredients = recipePage.potionCard.potion.Ingredients;
+                    alchemancer.PlayerHand.BrewNewPotion(ingredients);
+
+                    AudioM.Instance.PlaySound(AudioM.Instance.potionSounds[0]);
+                }
+            };
+
+            //recipePage.potionCard.cardFrame.RegisterCallback<PointerEnterEvent>(evt =>
+            //{
+            //    Ingredient_SO[] ingredients = recipePage.potionCard.potion.Ingredients;
+            //    if (alchemancer.PlayerHand.TryBrewSimplePotion(ingredients, out Potion_SO craftedPotion))
+            //    {
+            //        recipePage.potionCard.cardFrame.style.backgroundColor = new StyleColor(new Color(30, 90, 20));
+            //    }
+            //    else
+            //    {
+            //        recipePage.potionCard.cardFrame.style.backgroundColor = new StyleColor(new Color(130, 30, 10));
+            //    }
+
+            //});
+
         }
 
         foreach (Potion_SO potion in potionList.ComplexPotions)
@@ -48,6 +80,21 @@ public class RecipeBook : MonoBehaviour
             var potionPage = recipePage.page;
             bookFrame.Add(potionPage);
             potionPages.Add(recipePage);
+
+            recipePage.potionCard.cardFrame.clicked += () =>
+            {
+                if (recipePage.isCovered)
+                {
+                    return;
+                }
+                else
+                {
+                    Ingredient_SO[] ingredients = recipePage.potionCard.potion.Ingredients;
+                    alchemancer.PlayerHand.BrewNewPotion(ingredients);
+
+                    AudioM.Instance.PlaySound(AudioM.Instance.potionSounds[0]);
+                }
+            };
         }
 
         TurnPage(currentPage);

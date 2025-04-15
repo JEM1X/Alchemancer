@@ -445,6 +445,9 @@ MonoBehaviour:
   - {fileID: 1278090437}
   spawnCount: 1
   wavesPerNewEnemyType: 1
+  wavesPerStatIncrease: 5
+  healthIncrease: 1
+  damageIncrease: 1
 --- !u!4 &1540369660
 Transform:
   m_ObjectHideFlags: 0
@@ -819,6 +822,10 @@ PrefabInstance:
       value: "\u0420\u0443\u0438\u043D\u044B \u0421\u0432\u044F\u0442\u043E\u0433\u043E"
       objectReference: {fileID: 0}
     - target: {fileID: 1449901830896665373, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
+      propertyPath: alchemancer
+      value: 
+      objectReference: {fileID: 1948359766}
+    - target: {fileID: 3336352935649506700, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
       propertyPath: alchemancer
       value: 
       objectReference: {fileID: 1948359766}

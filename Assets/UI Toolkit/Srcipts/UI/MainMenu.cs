@@ -52,6 +52,7 @@ public class MainMenu : MonoBehaviour
         tutorialButton.clicked += () =>
         {
             GameManager.Instance.GenerateRecipes();
+            GameManager.Instance.totalScore = 0;
             SceneManager.LoadScene(5);
         };
 
@@ -60,6 +61,7 @@ public class MainMenu : MonoBehaviour
         runButton.clicked += () =>
         {
             GameManager.Instance.GenerateRecipes();
+            GameManager.Instance.totalScore = 0;
             SceneManager.LoadScene(1);
         };
 
@@ -68,6 +70,7 @@ public class MainMenu : MonoBehaviour
         IGMButton.clicked += () =>
         {
             GameManager.Instance.GenerateRecipes();
+            GameManager.Instance.totalScore = 0;
             SceneManager.LoadScene(6);
         };
         ToggleStart();

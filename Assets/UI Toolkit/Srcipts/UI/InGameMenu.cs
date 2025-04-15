@@ -57,6 +57,7 @@ public class InGameMenu : MonoBehaviour
         InitDefeatScreen();
 
         waveCounter = UITK.AddElement<Label>(canvas, "waveCounter");
+        UpdateWaveCounter(1);
 
         var stageLabel = UITK.AddElement<Label>(canvas, "stageLabel");
         stageLabel.text = stageName;
@@ -103,8 +104,8 @@ public class InGameMenu : MonoBehaviour
         victoryLabel.text = "Победа";
 
         var scoreLabel = UITK.AddElement<Label>(victoryFrame, "scoreLabel", "MainText", "InGameScreenLabel");
-        scoreLabel.text = scoreLabel.text = "Очки: " + GameManager.Instance.TotalScore.ToString();
-        Enemy.OnScoreGain += (int amount) => scoreLabel.text = "Очки: " + GameManager.Instance.TotalScore.ToString();
+        scoreLabel.text = scoreLabel.text = "Очки: " + GameManager.Instance.totalScore.ToString();
+        Enemy.OnScoreGain += (int amount) => scoreLabel.text = "Очки: " + GameManager.Instance.totalScore.ToString();
 
         if (isFinal)
         {
@@ -133,8 +134,8 @@ public class InGameMenu : MonoBehaviour
         defeatLabel.text = "Поражение";
 
         var scoreLabel = UITK.AddElement<Label>(defeatFrame, "scoreLabel", "MainText", "InGameScreenLabel");
-        scoreLabel.text = scoreLabel.text = "Очки: " + GameManager.Instance.TotalScore.ToString();
-        Enemy.OnScoreGain += (int amount) => scoreLabel.text = "Очки: " + GameManager.Instance.TotalScore.ToString();
+        scoreLabel.text = scoreLabel.text = "Очки: " + GameManager.Instance.totalScore.ToString();
+        Enemy.OnScoreGain += (int amount) => scoreLabel.text = "Очки: " + GameManager.Instance.totalScore.ToString();
 
         var restartButton = UITK.AddElement<Button>(defeatFrame, "restartButton", "MainButton");
         restartButton.text = "Начать заново";

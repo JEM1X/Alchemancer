@@ -28,16 +28,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4227e2df87790364d8d4347bae0e72e2, type: 2}
   - {fileID: 11400000, guid: d92f1c6521587804694709557fa9cafc, type: 2}
   complexPotions:
-  - {fileID: 11400000, guid: 5c3b60b5892af85469abdf568888d413, type: 2}
-  - {fileID: 11400000, guid: 0119039ac01e40846897de5abc5fca53, type: 2}
   - {fileID: 11400000, guid: dcc7ee0462db827478f8e2c05ed75c92, type: 2}
+  - {fileID: 11400000, guid: 429685487d3405a4a9354765c2d0da91, type: 2}
   - {fileID: 11400000, guid: 206b48cfb397bb444a8412a1807e66f9, type: 2}
   - {fileID: 11400000, guid: deeac889ef8fe6440bc4775791bc4ee8, type: 2}
+  - {fileID: 11400000, guid: 5c3b60b5892af85469abdf568888d413, type: 2}
+  - {fileID: 11400000, guid: a24b33300a172734cb06f9ea7ae08265, type: 2}
+  - {fileID: 11400000, guid: 0119039ac01e40846897de5abc5fca53, type: 2}
+  - {fileID: 11400000, guid: 6489a180a74463f49a2191eacca0c9ac, type: 2}
   - {fileID: 11400000, guid: 98aeee17371f42a4ebba96e30e5a4e80, type: 2}
   - {fileID: 11400000, guid: 160ee48d6e3c881458fb0c3be77a8e14, type: 2}
-  - {fileID: 11400000, guid: a24b33300a172734cb06f9ea7ae08265, type: 2}
-  - {fileID: 11400000, guid: 6489a180a74463f49a2191eacca0c9ac, type: 2}
-  - {fileID: 11400000, guid: 429685487d3405a4a9354765c2d0da91, type: 2}
   - {fileID: 11400000, guid: d7fa0a482dba89746a75340b3f3910af, type: 2}
   - {fileID: 11400000, guid: 7f5ae76492d5bf643a36f4cd3a7f314b, type: 2}
   - {fileID: 11400000, guid: 216f4c7d1b7d6d446849855ee6ebc95e, type: 2}

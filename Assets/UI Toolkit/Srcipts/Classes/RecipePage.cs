@@ -5,6 +5,8 @@ public class RecipePage
 {
     public Potion_SO potion;
     public VisualElement page;
+    public PotionCard potionCard;
+    public bool isCovered = true;
 
     private VisualElement[] ingredientIcons = new VisualElement[3];
     private Label pageCover;
@@ -32,7 +34,7 @@ public class RecipePage
     {
         page = UITK.CreateElement("page");
 
-        PotionCard potionCard = new PotionCard(potion);
+        potionCard = new PotionCard(potion);
         potionCard.cardFrame.pickingMode = PickingMode.Ignore;
         page.Add(potionCard.cardFrame);
 
@@ -52,5 +54,6 @@ public class RecipePage
     public void UncoverPage()
     {
         pageCover.style.display = DisplayStyle.None;
+        isCovered = false;
     }
 }

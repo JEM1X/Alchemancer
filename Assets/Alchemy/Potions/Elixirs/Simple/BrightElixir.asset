@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: BrightElixir
   m_EditorClassIdentifier: 
   label: "\u042D\u043B\u0438\u043A\u0441\u0438\u0440 \u0441\u0432\u0435\u0442\u0430"
-  icon: {fileID: 21300000, guid: 1f97848f18817cc43ba66da5a2d0ccfa, type: 3}
-  description: "\u041D\u0430\u043A\u043B\u0430\u0434\u044B\u0432\u0430\u0435\u0442
-    \u043D\u0430 \u0441\u0435\u0431\u044F\n\u0421\u0432\u0435\u0442(\u0412\u043B\u0438\u044F\u043D\u0438\u0435)"
-  ingredients: []
+  icon: {fileID: 21300000, guid: b1383792f89160e419cfb0418030debd, type: 3}
+  description: "\u041D\u0430\u043A\u043B\u0430\u0434\u044B\u0432\u0430\u0435\u0442\n(\u0412\u043B\u0438\u044F\u043D\u0438\u0435)
+    \u0421\u0432\u0435\u0442"
+  ingredients:
+  - {fileID: 11400000, guid: dbb4f5064121bc949b5c20513f33341c, type: 2}
+  - {fileID: 11400000, guid: 1c9511ad6c08b0c419813f64acbf3db7, type: 2}

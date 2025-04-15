@@ -13,12 +13,9 @@ MonoBehaviour:
   m_Name: ResilientElixir
   m_EditorClassIdentifier: 
   label: "\u042D\u043B\u0438\u043A\u0441\u0438\u0440 \u0443\u0441\u0442\u043E\u0439\u0447\u0438\u0432\u043E\u0441\u0442\u0438"
-  icon: {fileID: 21300000, guid: 2d7d9ae02b7159843ac7d5ead0f8b89a, type: 3}
-  description: "\u041D\u0430\u043A\u043B\u0430\u0434\u044B\u0432\u0430\u0435\u0442
-    \u043D\u0430 \u0441\u0435\u0431\u044F\n\u0421\u0442\u043E\u0439\u043A\u043E\u0441\u0442\u044C
-    \u043D\u0430 2 \u0445\u043E\u0434\u0430"
+  icon: {fileID: 21300000, guid: 4992808d2a974864b86f00f4cc541b47, type: 3}
+  description: "\u041D\u0430\u043A\u043B\u0430\u0434\u044B\u0432\u0430\u0435\u0442\n(\u0412\u043B\u0438\u044F\u043D\u0438\u0435)
+    \u0421\u0442\u043E\u0439\u043A\u043E\u0441\u0442\u044C"
   ingredients:
-  - {fileID: 11400000, guid: 2e72f36a0ab5b484c872d335ec78dd96, type: 2}
   - {fileID: 11400000, guid: 3d3682a366facc144b11a625599d12a1, type: 2}
   - {fileID: 11400000, guid: 1c9511ad6c08b0c419813f64acbf3db7, type: 2}
-  amount: 2

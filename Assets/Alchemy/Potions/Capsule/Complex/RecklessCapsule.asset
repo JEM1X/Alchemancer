@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: RecklessCapsule
   m_EditorClassIdentifier: 
   label: "\u041A\u0430\u043F\u0441\u044E\u043B\u044C \u043E\u0442\u0447\u0430\u044F\u043D\u0438\u044F"
-  icon: {fileID: 21300000, guid: b7f77607c82ea4142a2070c0e37e1756, type: 3}
-  description: "\u041D\u0430\u043D\u043E\u0441\u0438\u0442 \u0432\u0440\u0430\u0433\u0443
-    \u0423\u0440\u043E\u043D(\u041C\u043E\u0449\u044C * 3)\n\u043D\u0430\u043A\u043B\u0430\u0434\u044B\u0432\u0430\u0435\u0442
-    \u043D\u0430 \u0441\u0435\u0431\u044F \u041E\u0433\u043B\u0443\u0448\u0435\u043D\u0438\u0435(1)"
+  icon: {fileID: 21300000, guid: cc396e6025b358b409569f147c4a380a, type: 3}
+  description: "\u041D\u0430\u043D\u043E\u0441\u0438\u0442\n(\u041C\u043E\u0449\u044C
+    * 3) \u0423\u0440\u043E\u043D\u0430\n\u0414\u0430\u0451\u0442 \u041E\u0433\u043B\u0443\u0448\u0435\u043D\u0438\u0435"
   ingredients:
-  - {fileID: 11400000, guid: bf077205630315c4a918b1009ec80f70, type: 2}
   - {fileID: 11400000, guid: 2e72f36a0ab5b484c872d335ec78dd96, type: 2}
   - {fileID: 11400000, guid: 3d3682a366facc144b11a625599d12a1, type: 2}
+  - {fileID: 11400000, guid: 03d8c2765e035554186406fe69f78b15, type: 2}

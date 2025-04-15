@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: FullStopFlask
   m_EditorClassIdentifier: 
   label: "\u041A\u043E\u043B\u0431\u0430 \u043E\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0438"
-  icon: {fileID: 21300000, guid: ace8a02646afeda4880fc3cb14cad705, type: 3}
+  icon: {fileID: 21300000, guid: c5af4d3faacb9a1458d5d60eba85d028, type: 3}
   description: "\u041D\u0430\u043A\u043B\u0430\u0434\u044B\u0432\u0430\u0435\u0442
-    \u043D\u0430 \u0432\u0441\u0435\u0445\n\u041E\u0433\u043B\u0443\u0448\u0435\u043D\u0438(2)"
+    \u043D\u0430 \n\u0430\u0431\u0441\u043E\u043B\u044E\u0442\u043D\u043E \u0432\u0441\u0435\u0445\n(2)
+    \u041E\u0433\u043B\u0443\u0448\u0435\u043D\u0438\u0435"
   ingredients:
-  - {fileID: 11400000, guid: bf077205630315c4a918b1009ec80f70, type: 2}
+  - {fileID: 11400000, guid: dbb4f5064121bc949b5c20513f33341c, type: 2}
   - {fileID: 11400000, guid: 3d3682a366facc144b11a625599d12a1, type: 2}
-  - {fileID: 11400000, guid: 03d8c2765e035554186406fe69f78b15, type: 2}
+  - {fileID: 11400000, guid: 1c9511ad6c08b0c419813f64acbf3db7, type: 2}
