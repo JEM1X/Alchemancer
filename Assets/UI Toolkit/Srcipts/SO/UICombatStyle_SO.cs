@@ -6,6 +6,8 @@ public class UICombatStyle_SO : ScriptableObject
     public Sprite forward;
     public Sprite cauldron;
     public Sprite healthIcon;
+    public Sprite powerIcon;
+    public Sprite influenceIcon;
     public Sprite vulnerableIcon;
     public Sprite resilientIcon;
     public Sprite weakIcon;

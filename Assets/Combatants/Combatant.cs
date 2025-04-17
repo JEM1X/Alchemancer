@@ -7,13 +7,13 @@ public abstract class Combatant : MonoBehaviour
     public int size = 200;
 
     public int HealthMax { get => healthMax; }
-    [SerializeField] protected int healthMax = 5;
+    [SerializeField] protected int healthMax = 10;
     public int Health { get => health; }
-    [SerializeField] protected int health = 5;
+    [SerializeField] protected int health = 10;
 
-    [SerializeField] private int power;
+    [SerializeField] private int power = 2;
 
-    [SerializeField] private int influence;
+    [SerializeField] private int influence = 2;
 
     public int VulnerableResilient { get => vulnerableResilient; }
     [SerializeField] protected int vulnerableResilient = 0;

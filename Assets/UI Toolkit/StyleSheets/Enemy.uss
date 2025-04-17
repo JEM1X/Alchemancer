@@ -1,16 +1,17 @@
 .hordeUI {
     position: absolute;
-    right: 40px;
-    top: 150px;
-    height: 600px;
-    width: 900px;
+    align-self: center;
+    top: 50%;
+    translate: 0 -50%;
+    height: 50%;
+    width: 100%;
 }
 
 .combatantFrame {
     position: absolute;
-    height: 300px;
     width: 200px;
     background-color: rgba(0, 0, 0, 0);
+    translate: -50% 0;
 }
 
     .combatantFrame:hover {
@@ -34,7 +35,18 @@
     top: -30px;
 }
 
+.StatFrame {
+    position: absolute;
+    left: -36px;
+    top: -30px;
+    opacity: 0;
+    transition-duration: 0.2s, 0.2s;
+    transition-timing-function: ease, ease;
+    transition-property: translate, opacity;
+}
+
 .effectsPanel {
+    top: -20px;
     flex-direction: row;
     justify-content: space-evenly;
     overflow: visible;
@@ -59,4 +71,21 @@
     top: -76px;
     width: 76px;
     height: 76px;
+}
+
+.HintBox {
+    position: absolute;
+    align-self: center;
+    bottom: 0px;
+    width: 250px;
+    background-color: rgba(40, 40, 40, 0.9);
+    color: rgb(230, 230, 230);
+    border-width: 3px;
+    border-color: rgba(1, 1, 1, 0.9);
+    opacity: 0;
+    white-space: normal;
+    translate: 0 -80px;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    transition-property: opacity;
 }

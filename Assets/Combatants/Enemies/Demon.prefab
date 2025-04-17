@@ -212,7 +212,7 @@ MonoBehaviour:
   castImpactScale: {x: 0.9, y: 0.9, z: 1}
   attackParticles: {fileID: 0}
   enemyActions:
-  - {fileID: 11400000, guid: 036d44f25c34b0b419857e94fa00c95b, type: 2}
+  - {fileID: 11400000, guid: 81fa0a1e327d4b04f82967c921279e9c, type: 2}
   - {fileID: 11400000, guid: 2ac19e88f555e874794262c83cbdf83c, type: 2}
 --- !u!1 &8205468469911281152
 GameObject:

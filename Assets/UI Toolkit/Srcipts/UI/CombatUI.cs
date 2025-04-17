@@ -53,6 +53,8 @@ public class CombatUI : MonoBehaviour
             root.styleSheets.Add(sheet);
 
         var canvas = UITK.AddElement(root, "canvas", "MainText");
+        canvas.style.height = new Length(100, LengthUnit.Percent);
+        canvas.pickingMode = PickingMode.Ignore;
 
         hordeUI = UITK.AddElement(canvas, "hordeUI");
 

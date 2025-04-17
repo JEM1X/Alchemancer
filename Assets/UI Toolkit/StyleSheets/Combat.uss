@@ -1,6 +1,6 @@
 .bagUI {
     position: absolute;
-    left: 460px;
+    align-self: center;
     bottom: -1040px;
     width: 1000px;
     height: 300px;

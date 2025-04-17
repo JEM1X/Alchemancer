@@ -9,6 +9,10 @@ public class CombatantCard
     private ProgressBar healthBar;
     private VisualElement healthFrame;
     private Label healthAmount;
+    private VisualElement powerFrame;
+    private Label powerAmount;
+    private VisualElement influenceFrame;
+    private Label influenceAmount;
 
     //Buff and Debuffs
     private VisualElement vulnerableFrame;
@@ -48,14 +52,37 @@ public class CombatantCard
 
         var effectsPanel = UITK.AddElement(statusPanel, "effectsPanel");
 
+        //healthBar
         healthBar = UITK.AddElement<ProgressBar>(statusPanel, "healthBar");
         healthBar.highValue = combatant.HealthMax;
 
+        //influence
+        influenceFrame = UITK.AddElement(healthBar, "StatFrame", "EffectFrame");
+        influenceFrame.style.backgroundImage = new StyleBackground(combatantStyle.influenceIcon);
+
+        influenceAmount = UITK.AddElement<Label>(influenceFrame, "influenceAmount", "EffectAmount", "ClearText");
+
+        AddHintBox(influenceFrame, "Влияние - усиливает эффекты, которые накладывают зелья");
+        StatsHoverAnimation(influenceFrame, 200);
+        UpdateInfluence();
+
+        //power
+        powerFrame = UITK.AddElement(healthBar, "StatFrame", "EffectFrame");
+        powerFrame.style.backgroundImage = new StyleBackground(combatantStyle.powerIcon);
+
+        powerAmount = UITK.AddElement<Label>(powerFrame, "powerAmount", "EffectAmount", "ClearText");
+
+        AddHintBox(powerFrame, "Мощь - увеличивает урон, который наносят зелья");
+        StatsHoverAnimation(powerFrame, 100);
+        UpdatePower();
+
+        //health
         healthFrame = UITK.AddElement(healthBar, "healthFrame", "EffectFrame");
         healthFrame.style.backgroundImage = new StyleBackground(combatantStyle.healthIcon);
 
         healthAmount = UITK.AddElement<Label>(healthFrame, "healthAmount", "EffectAmount", "ClearText");
 
+        AddHintBox(healthFrame, "Здоровье - если оно уменьшиться до нуля наступит смерть");
         UpdateHealth(0);
 
         //vulnerable
@@ -70,6 +97,8 @@ public class CombatantCard
 
         resilientAmount = UITK.AddElement<Label>(resilientFrame, "resilientAmount", "EffectAmount", "ClearText");
 
+        AddHintBox(vulnerableFrame, "Уязвимость - увеличивает входящий урон в два раза");
+        AddHintBox(resilientFrame, "Устойчивость - уменьшает входящий урон в два раза");
         UpdateVulnerableResilient(0);
 
         //weak
@@ -84,6 +113,8 @@ public class CombatantCard
 
         strongAmount = UITK.AddElement<Label>(strongFrame, "strongAmount", "EffectAmount", "ClearText");
 
+        AddHintBox(weakFrame, "Слабость - уменьшает Мощь в два раза");
+        AddHintBox(strongFrame, "Сила - увеличивает Мощь в два раза");
         UpdateWeakStrong(0);
 
         //dull
@@ -98,6 +129,8 @@ public class CombatantCard
 
         brightAmount = UITK.AddElement<Label>(brightFrame, "strongAmount", "EffectAmount", "ClearText");
 
+        AddHintBox(dullFrame, "Тьма - уменьшает Влияние в два раза");
+        AddHintBox(brightFrame, "Свет - увеличивает Влияние в два раза");
         UpdateDullBright(0);
 
         //bleed
@@ -106,6 +139,9 @@ public class CombatantCard
 
         bleedAmount = UITK.AddElement<Label>(bleedFrame, "bleedAmount", "EffectAmount", "ClearText");
 
+
+        AddHintBox(bleedFrame, "Кровотечение - в начале хода наносит прямой урон равный половине своего значение," +
+            "затем уменьшается на тоже значение");
         UpdateBleed(0);
 
         //stun
@@ -114,10 +150,13 @@ public class CombatantCard
 
         stunAmount = UITK.AddElement<Label>(stunFrame, "stunAmount", "EffectAmount", "ClearText");
 
+        AddHintBox(bleedFrame, "Оглушение - Пропуск хода");
         UpdateStun(0);
 
         //Events
         combatant.OnHealthChange += UpdateHealth;
+        combatant.OnWeakStrongChange += (int amount) => UpdatePower();
+        combatant.OnDullBrightChange += (int amount) => UpdateInfluence();
         combatant.OnDeath += EnemyDeath;
         combatant.OnVulnerableResilientChange += UpdateVulnerableResilient;
         combatant.OnWeakStrongChange += UpdateWeakStrong;
@@ -131,14 +170,24 @@ public class CombatantCard
         Vector2 enemyScreenPos = mainCamera.WorldToScreenPoint(combatant.transform.position);
         Vector2 framePos = new Vector2(enemyScreenPos.x, Screen.height - enemyScreenPos.y);
 
-        combatantFrame.style.top = framePos.y - 150 - combatant.size + 50;
-        combatantFrame.style.left = framePos.x - 980 - 100;
+        combatantFrame.style.top = framePos.y - (Screen.height / 4) - combatant.size + 50;
+        combatantFrame.style.left = framePos.x;
     }
 
     private void UpdateHealth(int amount)
     {
         healthBar.value = combatant.Health;
         healthAmount.text = combatant.Health.ToString();
+    }
+
+    private void UpdatePower()
+    {
+        powerAmount.text = combatant.Power.ToString();
+    }
+
+    private void UpdateInfluence()
+    {
+        influenceAmount.text = combatant.Influence.ToString();
     }
 
     private void UpdateVulnerableResilient(int amount)
@@ -233,5 +282,39 @@ public class CombatantCard
     private void EnemyDeath()
     {
         combatantFrame.RemoveFromHierarchy();
+    }
+
+    private void StatsHoverAnimation(VisualElement element, int pos)
+    {
+        combatantFrame.RegisterCallback<PointerEnterEvent>(evt =>
+        {
+            StyleTranslate newPos = new StyleTranslate(new Translate(new Length(pos), new Length(0)));
+            element.style.translate = newPos;
+            element.style.opacity = 100;
+        });
+
+        combatantFrame.RegisterCallback<PointerLeaveEvent>(evt =>
+        {
+            element.style.translate = StyleKeyword.Null;
+            element.style.opacity = StyleKeyword.Null;
+        });
+    }
+
+    protected void AddHintBox(VisualElement element, string hint)
+    {
+        var hintBox = UITK.AddElement<Label>(element, "HintBox");
+        hintBox.text = hint;
+        hintBox.pickingMode = PickingMode.Ignore;
+        hintBox.BringToFront();
+
+        element.RegisterCallback<PointerEnterEvent>(evt =>
+        {
+            hintBox.style.opacity = 100;
+        });
+
+        element.RegisterCallback<PointerLeaveEvent>(evt =>
+        {
+            hintBox.style.opacity = 0;
+        });
     }
 }
