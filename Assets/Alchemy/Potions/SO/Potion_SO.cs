@@ -7,11 +7,14 @@ public abstract class Potion_SO : Card_SO
     [SerializeField] private Ingredient_SO[] ingredients;
     
 
-    public bool IsinRecipe(Ingredient_SO ingredient)
+    public bool IsinRecipe(params Ingredient_SO[] ingredients)
     {
-        if (ingredients.Contains(ingredient))
-            return true;
+        foreach(var ingredient in ingredients)
+        {
+            if (!this.ingredients.Contains(ingredient))
+                return false;
+        }
 
-        return false;
+        return true;
     }
 } 

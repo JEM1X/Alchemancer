@@ -104,7 +104,7 @@ public class PlayerHand : MonoBehaviour
 
         if (uniqueness != ingredients.Length) return false;
 
-        craftedPotion = potionList.SimplePotions.FirstOrDefault(potion => ingredients.All(potion.IsinRecipe));
+        craftedPotion = potionList.SimplePotions.FirstOrDefault(potion => potion.IsinRecipe(ingredients));
 
         return craftedPotion != null;
     }
@@ -124,7 +124,7 @@ public class PlayerHand : MonoBehaviour
 
         if (uniqueness != ingredients.Length) return false;
 
-        craftedPotion = potionList.ComplexPotions.FirstOrDefault(potion => ingredients.All(potion.IsinRecipe));
+        craftedPotion = potionList.ComplexPotions.FirstOrDefault(potion => potion.IsinRecipe(ingredients));
 
         return craftedPotion != null;
     }

@@ -28,6 +28,7 @@ public class CombatUI : MonoBehaviour
 
     private List<IngredientCard> cardsInHand = new(0);
     private List<IngredientCard> cardsInCauldron = new(0);
+    private PotionCard possiblePotion = null;
     private PotionCard potionInUse = null;
     //private List<CombatantCard> enemyCards;
 
@@ -156,6 +157,43 @@ public class CombatUI : MonoBehaviour
             cardsInCauldron.Remove(card);
             AudioM.Instance.PlaySound(AudioM.Instance.cardSounds[2]);
         }
+
+        Ingredient_SO[] ingredients = cardsInCauldron.Select(card => card.ingredient).ToArray();
+
+        if (cardsInCauldron.Count <= 1 || ingredients.Distinct().Count() <= 1)
+        {
+            HidePossiblePotion();
+            return;
+        }
+
+        Potion_SO potion = GameManager.Instance.discoveredPotions.FirstOrDefault(potion =>
+            potion.IsinRecipe(ingredients));
+
+        if (potion == null)
+        {
+            HidePossiblePotion();
+            return;
+        }
+
+        ShowPossiblePotion(potion);
+    }
+
+    private void ShowPossiblePotion(Potion_SO potion)
+    {
+        HidePossiblePotion();
+
+        possiblePotion = new(potion);
+        handUI.Add(possiblePotion.cardFrame);
+        possiblePotion.cardFrame.style.position = Position.Absolute;
+        possiblePotion.cardFrame.style.alignSelf = Align.Center;
+        possiblePotion.cardFrame.style.top = 300;
+        possiblePotion.cardFrame.style.opacity = 60;
+    }
+
+    private void HidePossiblePotion()
+    {
+        possiblePotion?.cardFrame.RemoveFromHierarchy();
+        possiblePotion = null;
     }
 
     private void SelectPotionCard(PotionCard card)
