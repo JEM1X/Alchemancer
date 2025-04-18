@@ -300,21 +300,23 @@ public class CombatantCard
         });
     }
 
-    protected void AddHintBox(VisualElement element, string hint)
+    protected Label AddHintBox(VisualElement element, string hint)
     {
-        var hintBox = UITK.AddElement<Label>(element, "HintBox");
+        var hintBox = UITK.AddElement<Label>(element, "HintBox", "SubText");
         hintBox.text = hint;
         hintBox.pickingMode = PickingMode.Ignore;
         hintBox.BringToFront();
 
         element.RegisterCallback<PointerEnterEvent>(evt =>
         {
-            hintBox.style.opacity = 100;
+            hintBox.style.display = DisplayStyle.Flex;
         });
 
         element.RegisterCallback<PointerLeaveEvent>(evt =>
         {
-            hintBox.style.opacity = 0;
+            hintBox.style.display = DisplayStyle.None;
         });
+
+        return hintBox;
     }
 }

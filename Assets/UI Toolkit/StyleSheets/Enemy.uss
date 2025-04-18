@@ -78,14 +78,11 @@
     align-self: center;
     bottom: 0px;
     width: 250px;
-    background-color: rgba(40, 40, 40, 0.9);
+    background-color: rgb(40, 40, 40);
     color: rgb(230, 230, 230);
     border-width: 3px;
-    border-color: rgba(1, 1, 1, 0.9);
-    opacity: 0;
+    border-color: rgb(1, 1, 1);
     white-space: normal;
     translate: 0 -80px;
-    transition-duration: 0.2s;
-    transition-timing-function: ease;
-    transition-property: opacity;
+    display: none;
 }

@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: InflictStun
   m_EditorClassIdentifier: 
   actionIcon: {fileID: 21300000, guid: e759d095e1dc369498b653ccb93962ef, type: 3}
+  subIcon: {fileID: 0}
+  description: "\u041D\u0430\u043A\u043B\u0430\u0434\u044B\u0432\u0430\u0435\u0442
+    (\u0412\u043B\u0438\u044F\u043D\u0438\u0435 / 2) \u041E\u0433\u043B\u0443\u0448\u0435\u043D\u0438\u0435"
