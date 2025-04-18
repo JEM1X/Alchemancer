@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 869823348420331411}
   - component: {fileID: 4818412205422069736}
-  - component: {fileID: 7190897037576916782}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -42,10 +41,10 @@ AudioSource:
   m_GameObject: {fileID: 3084813893208651892}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6529955737552223475, guid: c394b09331deda84ea0dad9e717c1f36, type: 2}
   m_audioClip: {fileID: 8300000, guid: a67249381b8487d44a565384a7251d49, type: 3}
   m_Resource: {fileID: 8300000, guid: a67249381b8487d44a565384a7251d49, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
@@ -130,37 +129,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7190897037576916782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3084813893208651892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94662c4590dfdce44b79f97779ff5a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  music:
-  - {fileID: 8300000, guid: 14d1829612efd3b41992a676c0e023c9, type: 3}
-  - {fileID: 8300000, guid: a67249381b8487d44a565384a7251d49, type: 3}
-  uiSounds:
-  - {fileID: 8300000, guid: 4bd791ff7fd937a40868b306c655b67b, type: 3}
-  cardSounds:
-  - {fileID: 8300000, guid: 2c8ec9701949f7044b922485bae5a2c2, type: 3}
-  - {fileID: 8300000, guid: a571a3225c1845444adaaa1c7a5fe788, type: 3}
-  - {fileID: 8300000, guid: 23cb2da23f38ff44bbfaedada78a9072, type: 3}
-  potionSounds:
-  - {fileID: 8300000, guid: af78d8f0ac29878469e02b47ccd3945a, type: 3}
-  - {fileID: 8300000, guid: 7949fffe1452317428048a397e8875ba, type: 3}
-  - {fileID: 8300000, guid: 153821f79f8fa38429d94ab89d62c47e, type: 3}
-  - {fileID: 8300000, guid: 2ab60841bd8c67e40a62e6de1bb21dc1, type: 3}
-  punchSounds:
-  - {fileID: 8300000, guid: 51f649aa0d4daa649b42b8ba0bc95458, type: 3}
-  - {fileID: 8300000, guid: 7d0e55069d10d88458a1b58dd50a7384, type: 3}
-  - {fileID: 8300000, guid: e4989e2e63a6d5d47a3fe0f6d4d9a265, type: 3}
-  guideSounds:
-  - {fileID: 8300000, guid: 18e716262b3d5064d84f13459aaa2fb4, type: 3}
-  - {fileID: 8300000, guid: d2c39653a858b894fbf59ef5badc1ea4, type: 3}
-  audioSource: {fileID: 4818412205422069736}

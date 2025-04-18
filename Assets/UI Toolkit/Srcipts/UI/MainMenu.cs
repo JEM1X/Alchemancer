@@ -4,6 +4,11 @@ using UnityEngine.UIElements;
 
 public class MainMenu : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioLibraire audioLibraire;
+
+    [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private UIStyle_SO styleSheet;
 
@@ -33,7 +38,7 @@ public class MainMenu : MonoBehaviour
 
         var startButton = UITK.AddElement<Button>(menu, "startButton", "MainButton");
         startButton.text = "Начать игру";
-        startButton.clicked += () => AudioM.Instance.PlaySound(AudioM.Instance.uiSounds[0]);
+        startButton.clicked += () => audioSource.PlayOneShot(audioLibraire.uiSounds[0]);
         startButton.clicked += ToggleStart;
 
         //var optionsButton = UITK.AddElement<Button>(menu, "optionsButton", "MainButton");
@@ -41,7 +46,7 @@ public class MainMenu : MonoBehaviour
 
         var exitButton = UITK.AddElement<Button>(menu, "exitButton", "MainButton");
         exitButton.text = "Выход";
-        exitButton.clicked += () => AudioM.Instance.PlaySound(AudioM.Instance.uiSounds[0]);
+        exitButton.clicked += () => audioSource.PlayOneShot(audioLibraire.uiSounds[0]);
         exitButton.clicked += Application.Quit;
 
         startMenu = UITK.AddElement(menu, "InGameFrame", "startMenu");

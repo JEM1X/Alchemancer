@@ -10,6 +10,10 @@ public class CombatUI : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Alchemancer alchemancer;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioLibraire audioLibraire;
+
     [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private UIStyle_SO styleSheet;
@@ -76,7 +80,7 @@ public class CombatUI : MonoBehaviour
             HideHand();
             alchemancer.PlayerCombat.CompletePlayerTurn?.Invoke();
 
-            AudioM.Instance.PlaySound(AudioM.Instance.uiSounds[0]);
+            audioSource.PlayOneShot(audioLibraire.uiSounds[0]);
         };
 
         var brewButton = UITK.AddElement<Button>(interactionUI, "brewButton", "MainButton");
@@ -93,6 +97,9 @@ public class CombatUI : MonoBehaviour
         bagUI.Add(ingredientCard.cardFrame);
 
         StartCoroutine(DrawCardAnim(ingredientCard, new Vector2Int(1700, 100)));
+
+        ingredientCard.cardFrame.RegisterCallback<PointerEnterEvent>(evt =>
+            audioSource.PlayOneShot(audioLibraire.cardSounds[0]));
     }
 
     private void RemoveIngredientCard(Ingredient_SO ingredient)
@@ -128,6 +135,9 @@ public class CombatUI : MonoBehaviour
        
         beltUI.Add(potionCard.cardFrame);
         StartCoroutine(DrawCardAnim(potionCard, new Vector2Int(0, 500)));
+
+        potionCard.cardFrame.RegisterCallback<PointerEnterEvent>(evt =>
+            audioSource.PlayOneShot(audioLibraire.cardSounds[0]));
     }
 
     private void InitializeEnemy(Enemy enemy)
@@ -150,12 +160,12 @@ public class CombatUI : MonoBehaviour
         if (card.Select())
         {
             cardsInCauldron.Add(card);
-            AudioM.Instance.PlaySound(AudioM.Instance.cardSounds[1]);
+            audioSource.PlayOneShot(audioLibraire.cardSounds[1]);
         }
         else
         {
             cardsInCauldron.Remove(card);
-            AudioM.Instance.PlaySound(AudioM.Instance.cardSounds[2]);
+            audioSource.PlayOneShot(audioLibraire.cardSounds[2]);
         }
 
         Ingredient_SO[] ingredients = cardsInCauldron.Select(card => card.ingredient).ToArray();
@@ -202,7 +212,7 @@ public class CombatUI : MonoBehaviour
         {
             alchemancer.PlayerHand.UseElixir(elixir);
             card.cardFrame.RemoveFromHierarchy();
-            AudioM.Instance.PlaySound(AudioM.Instance.potionSounds[1]);
+            audioSource.PlayOneShot(audioLibraire.potionSounds[1]);
             return;
         }
 
@@ -210,7 +220,7 @@ public class CombatUI : MonoBehaviour
         {
             alchemancer.PlayerHand.UseFlask(flask);
             card.cardFrame.RemoveFromHierarchy();
-            AudioM.Instance.PlaySound(AudioM.Instance.potionSounds[2]);
+            audioSource.PlayOneShot(audioLibraire.potionSounds[2]);
             return;
         }
 
@@ -220,12 +230,12 @@ public class CombatUI : MonoBehaviour
         if (card.Select())
         {
             potionInUse = card;
-            AudioM.Instance.PlaySound(AudioM.Instance.cardSounds[1]);
+            audioSource.PlayOneShot(audioLibraire.cardSounds[1]);
         }
         else
         {
             potionInUse = null;
-            AudioM.Instance.PlaySound(AudioM.Instance.cardSounds[2]);
+            audioSource.PlayOneShot(audioLibraire.cardSounds[2]);
         }
     }
 
@@ -238,7 +248,7 @@ public class CombatUI : MonoBehaviour
 
         alchemancer.PlayerHand.BrewNewPotion(usedIngredients);
 
-        AudioM.Instance.PlaySound(AudioM.Instance.potionSounds[0]);
+        audioSource.PlayOneShot(audioLibraire.potionSounds[0]);
     }
 
     private void ClearHand()
@@ -254,7 +264,7 @@ public class CombatUI : MonoBehaviour
             alchemancer.PlayerHand.UseCapsule(capsule, enemy);
             potionInUse.cardFrame.RemoveFromHierarchy();
             potionInUse = null;
-            AudioM.Instance.PlaySound(AudioM.Instance.potionSounds[3]);
+            audioSource.PlayOneShot(audioLibraire.potionSounds[3]);
         }
     }
 
@@ -298,7 +308,7 @@ public class CombatUI : MonoBehaviour
             yield return null;
         }
 
-        AudioM.Instance.PlaySound(AudioM.Instance.cardSounds[1]);
+        audioSource.PlayOneShot(audioLibraire.cardSounds[1]);
         card.cardFrame.style.translate = new StyleTranslate(StyleKeyword.Null);
     }
 

@@ -6,6 +6,10 @@ public class Enemy : Combatant
 {
     [SerializeField] private int _scorePoints;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioLibraire audioLibraire;
+
     [Header("Animations")]
     [SerializeField] private float actionDuration = 0.6f;
     [SerializeField] private Vector3 targetPos = new Vector3(-3, -1, 0);
@@ -55,8 +59,8 @@ public class Enemy : Combatant
             yield return null;
         }
 
-        AudioClip randomPunch = AudioM.Instance.punchSounds[UnityEngine.Random.Range(0, AudioM.Instance.punchSounds.Length)];
-        AudioM.Instance.PlaySound(randomPunch);
+        AudioClip randomPunch = audioLibraire.punchSounds[UnityEngine.Random.Range(0, audioLibraire.punchSounds.Length)];
+        audioSource.PlayOneShot(randomPunch);
 
         // Out
         duration = 0;

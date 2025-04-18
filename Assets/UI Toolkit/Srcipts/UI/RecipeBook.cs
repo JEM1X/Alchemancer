@@ -4,11 +4,18 @@ using System.Collections.Generic;
 
 public class RecipeBook : MonoBehaviour
 {
+    [Header("Scene")]
     [SerializeField] private Alchemancer alchemancer;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioLibraire audioLibraire;
+
+    [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private UIStyle_SO styleSheet;
-    [SerializeField] private PotionList_SO potionList;
     [SerializeField] private Sprite sprite;
+    [SerializeField] private PotionList_SO potionList;
 
     private VisualElement background;
     private List<RecipePage> potionPages = new();
@@ -54,7 +61,7 @@ public class RecipeBook : MonoBehaviour
                     Ingredient_SO[] ingredients = recipePage.potionCard.potion.Ingredients;
                     alchemancer.PlayerHand.BrewNewPotion(ingredients);
 
-                    AudioM.Instance.PlaySound(AudioM.Instance.potionSounds[0]);
+                    audioSource.PlayOneShot(audioLibraire.potionSounds[0]);
                 }
             };
 
@@ -92,7 +99,7 @@ public class RecipeBook : MonoBehaviour
                     Ingredient_SO[] ingredients = recipePage.potionCard.potion.Ingredients;
                     alchemancer.PlayerHand.BrewNewPotion(ingredients);
 
-                    AudioM.Instance.PlaySound(AudioM.Instance.potionSounds[0]);
+                    audioSource.PlayOneShot(audioLibraire.potionSounds[0]);
                 }
             };
         }
@@ -138,14 +145,14 @@ public class RecipeBook : MonoBehaviour
             isVisible = false;
 
             if(sound)
-                AudioM.Instance.PlaySound(AudioM.Instance.guideSounds[1]);
+                audioSource.PlayOneShot(audioLibraire.guideSounds[1]);
         }
         else
         {
             background.style.display = DisplayStyle.Flex;
             isVisible = true;
             if(sound)
-                AudioM.Instance.PlaySound(AudioM.Instance.guideSounds[0]);
+                audioSource.PlayOneShot(audioLibraire.guideSounds[0]);
         }
     }
 }
