@@ -140,7 +140,7 @@ public class CombatantCard
         bleedAmount = UITK.AddElement<Label>(bleedFrame, "bleedAmount", "EffectAmount", "ClearText");
 
 
-        AddHintBox(bleedFrame, " ровотечение - в начале хода наносит пр€мой урон равный половине своего значение," +
+        AddHintBox(bleedFrame, " ровотечение - в начале хода наносит пр€мой урон равный половине значени€, " +
             "затем уменьшаетс€ на тоже значение");
         UpdateBleed(0);
 
@@ -150,7 +150,7 @@ public class CombatantCard
 
         stunAmount = UITK.AddElement<Label>(stunFrame, "stunAmount", "EffectAmount", "ClearText");
 
-        AddHintBox(bleedFrame, "ќглушение - ѕропуск хода");
+        AddHintBox(stunFrame, "ќглушение - ѕропуск хода");
         UpdateStun(0);
 
         //Events

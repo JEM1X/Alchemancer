@@ -5,8 +5,9 @@ public class EnemyCard : CombatantCard
 {
     public Enemy enemy;
 
-    private VisualElement enemyAttack;
-    private Label attackHint;
+    private VisualElement actionIcon;
+    private VisualElement actionSubIcon;
+    private Label actionHint;
 
 
     public EnemyCard(Enemy enemy, UICombatStyle_SO enemyStyle, Camera mainCamera) : base(enemy, enemyStyle, mainCamera)
@@ -17,16 +18,18 @@ public class EnemyCard : CombatantCard
 
     private void InitializeEnemy()
     {
-        enemyAttack = UITK.AddElement(combatantFrame, "enemyAttack");
+        actionIcon = UITK.AddElement(combatantFrame, "actionIcon");
+        actionSubIcon = UITK.AddElement(actionIcon, "actionSubIcon");
 
-        attackHint = AddHintBox(enemyAttack, "");
+        actionHint = AddHintBox(actionIcon, "");
 
         enemy.OnNewPlannedAttack += UpdateAttack;
     }
 
     private void UpdateAttack()
     {
-        enemyAttack.style.backgroundImage = new StyleBackground(enemy.PlannedAction.ActionIcon);
-        attackHint.text = enemy.PlannedAction.Description;
+        actionIcon.style.backgroundImage = new StyleBackground(enemy.PlannedAction.ActionIcon);
+        actionSubIcon.style.backgroundImage = new StyleBackground(enemy.PlannedAction.SubIcon);
+        actionHint.text = enemy.PlannedAction.Description;
     }
 }
