@@ -446,6 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1349071520}
   audioLibraire: {fileID: 11400000, guid: 9a6f79175cc1cbc4ab1aaa0457055ad3, type: 2}
+  audioMixer: {fileID: 24100000, guid: c394b09331deda84ea0dad9e717c1f36, type: 2}
   uiDocument: {fileID: 1349071518}
   styleSheet: {fileID: 11400000, guid: 556b260768c56074b83476f7a4e6d2a9, type: 2}
 --- !u!114 &1349071518

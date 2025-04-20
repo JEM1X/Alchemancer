@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -7,13 +8,17 @@ public class MainMenu : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioLibraire audioLibraire;
+    [SerializeField] private AudioMixer audioMixer;
 
     [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private UIStyle_SO styleSheet;
 
+    private VisualElement menu;
     private VisualElement startMenu;
     private bool isStartVisible = true;
+    private VisualElement settingsScreen;
+    private bool isSettingsVisible = true;
 
 
     private void Awake()
@@ -34,21 +39,38 @@ public class MainMenu : MonoBehaviour
         var name = UITK.AddElement<Label>(canvas, "name");
         name.text = "Alchemancer";
 
-        var menu = UITK.AddElement(canvas, "menu");
+        menu = UITK.AddElement(canvas, "menu");
 
         var startButton = UITK.AddElement<Button>(menu, "startButton", "MainButton");
         startButton.text = "Начать игру";
         startButton.clicked += () => audioSource.PlayOneShot(audioLibraire.uiSounds[0]);
-        startButton.clicked += ToggleStart;
+        startButton.clicked += () => UIMenu.ToggleScreen(startMenu, ref isStartVisible);
 
-        //var optionsButton = UITK.AddElement<Button>(menu, "optionsButton", "MainButton");
-        //optionsButton.text = "Настройки";
+        var optionsButton = UITK.AddElement<Button>(menu, "optionsButton", "MainButton");
+        optionsButton.text = "Настройки";
+        optionsButton.clicked += () => UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
+
+        settingsScreen = UIMenu.InitSettingsMenu(audioMixer, out Button saveSettings);
+        settingsScreen.style.alignSelf = Align.Center;
+        settingsScreen.style.top = -70;
+        menu.Add(settingsScreen);
+
+        UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
+
+        saveSettings.clicked += () => UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
 
         var exitButton = UITK.AddElement<Button>(menu, "exitButton", "MainButton");
         exitButton.text = "Выход";
         exitButton.clicked += () => audioSource.PlayOneShot(audioLibraire.uiSounds[0]);
         exitButton.clicked += Application.Quit;
 
+        InitStartMenu();
+
+        UIMenu.ToggleScreen(startMenu, ref isStartVisible);
+    }
+
+    private void InitStartMenu()
+    {
         startMenu = UITK.AddElement(menu, "InGameFrame", "startMenu");
         startMenu.style.top = -100;
 
@@ -78,20 +100,5 @@ public class MainMenu : MonoBehaviour
             GameManager.Instance.totalScore = 0;
             SceneManager.LoadScene(6);
         };
-        ToggleStart();
-    }
-
-    private void ToggleStart()
-    {
-        if (isStartVisible)
-        {
-            startMenu.style.display = DisplayStyle.None;
-            isStartVisible = false;
-        }
-        else
-        {
-            startMenu.style.display = DisplayStyle.Flex;
-            isStartVisible = true;
-        }
     }
 }

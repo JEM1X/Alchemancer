@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -10,6 +11,11 @@ public class InGameMenu : MonoBehaviour
     [SerializeField] private string stageName;
     [SerializeField] private bool isFinal;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioLibraire audioLibraire;
+    [SerializeField] private AudioMixer audioMixer;
+
     [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private UIStyle_SO styleSheet;
@@ -17,6 +23,8 @@ public class InGameMenu : MonoBehaviour
     private VisualElement canvas;
     private VisualElement pauseScreen;
     private bool isPauseVisible = true;
+    private VisualElement settingsScreen;
+    private bool isSettingsVisible = true;
     private VisualElement victoryScreen;
     private bool isVictoryVisible = true;
     private VisualElement defeatScreen;
@@ -27,16 +35,16 @@ public class InGameMenu : MonoBehaviour
     private void Start()
     {
         StartCoroutine(InitializeUI());
-        BattleM.Instance.OnAllWavesCleared += ToggleVictoryScreen;
         BattleM.Instance.OnWaveStart += UpdateWaveCounter;
-        alchemancer.PlayerCombat.OnDeath += ToggleDefeatScreen;
+        BattleM.Instance.OnAllWavesCleared += () => UIMenu.ToggleScreen(victoryScreen, ref isVictoryVisible);
+        alchemancer.PlayerCombat.OnDeath += () => UIMenu.ToggleScreen(defeatScreen, ref isDefeatVisible);
     }
 
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            TogglePauseScreen();
+            UIMenu.ToggleScreen(pauseScreen, ref isPauseVisible);
         }
     }
 
@@ -80,7 +88,17 @@ public class InGameMenu : MonoBehaviour
 
         var continueButton = UITK.AddElement<Button>(pauseFrame, "continueButton", "MainButton");
         continueButton.text = "Продолжить";
-        continueButton.clicked += TogglePauseScreen;
+        continueButton.clicked += () => UIMenu.ToggleScreen(pauseScreen, ref isPauseVisible);
+
+        var settingsButton = UITK.AddElement<Button>(pauseFrame, "settingsButton", "MainButton");
+        settingsButton.text = "Настройки";
+        settingsButton.clicked += () => UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
+
+        settingsScreen = UIMenu.InitSettingsMenu(audioMixer, out Button saveSettings);
+        pauseScreen.Add(settingsScreen);
+        UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
+
+        saveSettings.clicked += () => UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
 
         var restartButton = UITK.AddElement<Button>(pauseFrame, "restartButton", "MainButton");
         restartButton.text = "Начать заново";
@@ -91,7 +109,7 @@ public class InGameMenu : MonoBehaviour
         quitButton.text = "Выйти";
         quitButton.clicked += () => SceneManager.LoadScene(0);
 
-        TogglePauseScreen();
+        UIMenu.ToggleScreen(pauseScreen, ref isPauseVisible);
     }
 
     private void InitVictoryScreen()
@@ -120,7 +138,7 @@ public class InGameMenu : MonoBehaviour
             nextButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        ToggleVictoryScreen();
+        UIMenu.ToggleScreen(victoryScreen, ref isVictoryVisible);
     }
 
     private void InitDefeatScreen()
@@ -141,49 +159,7 @@ public class InGameMenu : MonoBehaviour
         restartButton.text = "Начать заново";
         restartButton.clicked += () => SceneManager.LoadScene(1);
 
-        ToggleDefeatScreen();
-    }
-
-    private void TogglePauseScreen()
-    {
-        if (isPauseVisible)
-        {
-            pauseScreen.style.display = DisplayStyle.None;
-            isPauseVisible = false;
-        }
-        else
-        {
-            pauseScreen.style.display = DisplayStyle.Flex;
-            isPauseVisible = true;
-        }
-    }
-
-    private void ToggleVictoryScreen()
-    {
-        if (isVictoryVisible)
-        {
-            victoryScreen.style.display = DisplayStyle.None;
-            isVictoryVisible = false;
-        }
-        else
-        {
-            victoryScreen.style.display = DisplayStyle.Flex;
-            isVictoryVisible = true;
-        }
-    }
-
-    private void ToggleDefeatScreen()
-    {
-        if (isDefeatVisible)
-        {
-            defeatScreen.style.display = DisplayStyle.None;
-            isDefeatVisible = false;
-        }
-        else
-        {
-            defeatScreen.style.display = DisplayStyle.Flex;
-            isDefeatVisible = true;
-        }
+        UIMenu.ToggleScreen(defeatScreen, ref isDefeatVisible);
     }
 
     private void UpdateWaveCounter(int wave)
