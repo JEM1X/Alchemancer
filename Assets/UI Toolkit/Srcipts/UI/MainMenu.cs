@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using UnityEngine.Localization;
 
 public class MainMenu : MonoBehaviour
 {
@@ -42,13 +43,13 @@ public class MainMenu : MonoBehaviour
         menu = UITK.AddElement(canvas, "menu");
 
         var startButton = UITK.AddElement<Button>(menu, "startButton", "MainButton");
-        startButton.text = "Начать игру";
         startButton.clicked += () => audioSource.PlayOneShot(audioLibraire.uiSounds[0]);
         startButton.clicked += () => UIMenu.ToggleScreen(startMenu, ref isStartVisible);
+        LTK.LocalizeStringUITK(startButton, LTK.MAINTABLE, "MainMenu.Start");
 
         var optionsButton = UITK.AddElement<Button>(menu, "optionsButton", "MainButton");
-        optionsButton.text = "Настройки";
         optionsButton.clicked += () => UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
+        LTK.LocalizeStringUITK(optionsButton, LTK.MAINTABLE, "MainMenu.Settings");
 
         settingsScreen = UIMenu.InitSettingsMenu(audioMixer, out Button saveSettings);
         settingsScreen.style.alignSelf = Align.Center;
@@ -60,9 +61,9 @@ public class MainMenu : MonoBehaviour
         saveSettings.clicked += () => UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
 
         var exitButton = UITK.AddElement<Button>(menu, "exitButton", "MainButton");
-        exitButton.text = "Выход";
         exitButton.clicked += () => audioSource.PlayOneShot(audioLibraire.uiSounds[0]);
         exitButton.clicked += Application.Quit;
+        LTK.LocalizeStringUITK(exitButton, LTK.MAINTABLE, "MainMenu.Quit");
 
         InitStartMenu();
 
@@ -75,30 +76,34 @@ public class MainMenu : MonoBehaviour
         startMenu.style.top = -100;
 
         var tutorialButton = UITK.AddElement<Button>(startMenu, "tutorialButton", "MainButton");
-        tutorialButton.text = "Обучение";
         tutorialButton.clicked += () =>
         {
             GameManager.Instance.GenerateRecipes();
             GameManager.Instance.totalScore = 0;
             SceneManager.LoadScene(5);
         };
+        var tutorialButtonText = new LocalizedString("UI", "MainMenu.Tutorial");
+        tutorialButtonText.StringChanged += (value) => tutorialButton.text = value;
+
 
         var runButton = UITK.AddElement<Button>(startMenu, "runButton", "MainButton");
-        runButton.text = "Начать забег";
         runButton.clicked += () =>
         {
             GameManager.Instance.GenerateRecipes();
             GameManager.Instance.totalScore = 0;
             SceneManager.LoadScene(1);
         };
+        var runButtonText = new LocalizedString("UI", "MainMenu.Run");
+        runButtonText.StringChanged += (value) => runButton.text = value;
 
         var IGMButton = UITK.AddElement<Button>(startMenu, "IGMButton", "MainButton");
-        IGMButton.text = "Бесконечный забег";
         IGMButton.clicked += () =>
         {
             GameManager.Instance.GenerateRecipes();
             GameManager.Instance.totalScore = 0;
             SceneManager.LoadScene(6);
         };
+        var IGMButtonText = new LocalizedString("UI", "MainMenu.IGM");
+        IGMButtonText.StringChanged += (value) => IGMButton.text = value;
     }
 }

@@ -801,6 +801,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1449901830896665373, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
+      propertyPath: stageName
+      value: Stage.Forest
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449901830896665373, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
       propertyPath: alchemancer
       value: 
       objectReference: {fileID: 1948359766}

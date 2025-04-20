@@ -27,5 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/InfinityGameMode.unity
     guid: 57c0edd707161d142a5244642d94d6c6
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 577ce0141a8b6fa44a75e474bcfc59d3, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: 4b2cc8917e6715449a9167714f25ed27, type: 2}
   m_UseUCBPForAssetBundles: 0

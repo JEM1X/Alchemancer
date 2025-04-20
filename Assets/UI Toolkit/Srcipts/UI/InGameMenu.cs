@@ -68,7 +68,7 @@ public class InGameMenu : MonoBehaviour
         UpdateWaveCounter(1);
 
         var stageLabel = UITK.AddElement<Label>(canvas, "stageLabel");
-        stageLabel.text = stageName;
+        LTK.LocalizeStringUITK(stageLabel, LTK.MAINTABLE, stageName);
         stageLabel.pickingMode = PickingMode.Ignore;
 
         yield return new WaitForSeconds(2);
@@ -84,30 +84,33 @@ public class InGameMenu : MonoBehaviour
         var pauseFrame = UITK.AddElement(pauseScreen, "pauseFrame", "InGameFrame");
 
         var pauseLabel = UITK.AddElement<Label>(pauseFrame, "pauseLabel", "InGameScreenLabel");
-        pauseLabel.text = "Пауза";
+        LTK.LocalizeStringUITK(pauseLabel, LTK.MAINTABLE, "Menu.Pause");
 
         var continueButton = UITK.AddElement<Button>(pauseFrame, "continueButton", "MainButton");
-        continueButton.text = "Продолжить";
         continueButton.clicked += () => UIMenu.ToggleScreen(pauseScreen, ref isPauseVisible);
+        LTK.LocalizeStringUITK(continueButton, LTK.MAINTABLE, "Menu.Continue");
 
         var settingsButton = UITK.AddElement<Button>(pauseFrame, "settingsButton", "MainButton");
-        settingsButton.text = "Настройки";
         settingsButton.clicked += () => UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
+        LTK.LocalizeStringUITK(settingsButton, LTK.MAINTABLE, "Menu.Settings");
 
         settingsScreen = UIMenu.InitSettingsMenu(audioMixer, out Button saveSettings);
         pauseScreen.Add(settingsScreen);
-        UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
 
         saveSettings.clicked += () => UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
 
+        UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
+
         var restartButton = UITK.AddElement<Button>(pauseFrame, "restartButton", "MainButton");
-        restartButton.text = "Начать заново";
-        if (BattleM.Instance.IsInfiniteMode) { restartButton.clicked += () => SceneManager.LoadScene(6); }
-        else { restartButton.clicked += () => SceneManager.LoadScene(1); }
+        if (BattleM.Instance.IsInfiniteMode)
+        { restartButton.clicked += () => SceneManager.LoadScene(6); }
+        else 
+        { restartButton.clicked += () => SceneManager.LoadScene(1); }
+        LTK.LocalizeStringUITK(restartButton, LTK.MAINTABLE, "Menu.Restart");
 
         var quitButton = UITK.AddElement<Button>(pauseFrame, "quitButton", "MainButton");
-        quitButton.text = "Выйти";
         quitButton.clicked += () => SceneManager.LoadScene(0);
+        LTK.LocalizeStringUITK(quitButton, LTK.MAINTABLE, "Menu.Quit");
 
         UIMenu.ToggleScreen(pauseScreen, ref isPauseVisible);
     }
@@ -119,23 +122,24 @@ public class InGameMenu : MonoBehaviour
         var victoryFrame = UITK.AddElement(victoryScreen, "victoryFrame", "InGameFrame");
 
         var victoryLabel = UITK.AddElement<Label>(victoryFrame, "victoryLabel", "InGameScreenLabel");
-        victoryLabel.text = "Победа";
+        LTK.LocalizeStringUITK(victoryLabel, LTK.MAINTABLE, "Menu.Victory");
 
         var scoreLabel = UITK.AddElement<Label>(victoryFrame, "scoreLabel", "MainText", "InGameScreenLabel");
-        scoreLabel.text = scoreLabel.text = "Очки: " + GameManager.Instance.totalScore.ToString();
-        Enemy.OnScoreGain += (int amount) => scoreLabel.text = "Очки: " + GameManager.Instance.totalScore.ToString();
+        LTK.LocalizeStringUITK(scoreLabel, LTK.MAINTABLE, "Menu.Score", GameManager.Instance.totalScore.ToString());
+        Enemy.OnScoreGain += (int amount) => 
+        LTK.LocalizeStringUITK(scoreLabel, LTK.MAINTABLE, "Menu.Score", GameManager.Instance.totalScore.ToString());
 
         if (isFinal)
         {
             var endButton = UITK.AddElement<Button>(victoryFrame, "nextButton", "MainButton");
-            endButton.text = "Конец";
             endButton.clicked += () => SceneManager.LoadScene(0);
+            LTK.LocalizeStringUITK(endButton, LTK.MAINTABLE, "Menu.End");
         }
         else
         {
             var nextButton = UITK.AddElement<Button>(victoryFrame, "nextButton", "MainButton");
-            nextButton.text = "Дальше";
             nextButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            LTK.LocalizeStringUITK(nextButton, LTK.MAINTABLE, "Menu.Next");
         }
 
         UIMenu.ToggleScreen(victoryScreen, ref isVictoryVisible);
@@ -143,27 +147,27 @@ public class InGameMenu : MonoBehaviour
 
     private void InitDefeatScreen()
     {
-        //Defeat Screen
         defeatScreen = UITK.AddElement(canvas, "defeatScreen", "InGameScreen");
 
         var defeatFrame = UITK.AddElement(defeatScreen, "defeatFrame", "InGameFrame");
 
         var defeatLabel = UITK.AddElement<Label>(defeatFrame, "defeatLabel", "InGameScreenLabel");
-        defeatLabel.text = "Поражение";
+        LTK.LocalizeStringUITK(defeatLabel, LTK.MAINTABLE, "Menu.Defeat");
 
         var scoreLabel = UITK.AddElement<Label>(defeatFrame, "scoreLabel", "MainText", "InGameScreenLabel");
-        scoreLabel.text = scoreLabel.text = "Очки: " + GameManager.Instance.totalScore.ToString();
-        Enemy.OnScoreGain += (int amount) => scoreLabel.text = "Очки: " + GameManager.Instance.totalScore.ToString();
+        LTK.LocalizeStringUITK(scoreLabel, LTK.MAINTABLE, "Menu.Score", GameManager.Instance.totalScore.ToString());
+        Enemy.OnScoreGain += (int amount) =>
+        LTK.LocalizeStringUITK(scoreLabel, LTK.MAINTABLE, "Menu.Score", GameManager.Instance.totalScore.ToString());
 
         var restartButton = UITK.AddElement<Button>(defeatFrame, "restartButton", "MainButton");
-        restartButton.text = "Начать заново";
         restartButton.clicked += () => SceneManager.LoadScene(1);
+        LTK.LocalizeStringUITK(restartButton, LTK.MAINTABLE, "Menu.Restart");
 
         UIMenu.ToggleScreen(defeatScreen, ref isDefeatVisible);
     }
 
     private void UpdateWaveCounter(int wave)
     {
-        waveCounter.text = "Волна " + wave + "/" + BattleM.Instance.TotalWaves;
+        LTK.LocalizeStringUITK(waveCounter, LTK.MAINTABLE, "Menu.Wave", wave + "/" + BattleM.Instance.TotalWaves);
     }
 }
