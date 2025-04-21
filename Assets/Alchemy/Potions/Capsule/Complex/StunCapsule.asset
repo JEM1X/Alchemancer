@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ca3b313bb1b72428dc5861d1fe0c76, type: 3}
   m_Name: StunCapsule
   m_EditorClassIdentifier: 
-  label: "\u041A\u0430\u043F\u0441\u044E\u043B\u044C \u043E\u0433\u043B\u0443\u0448\u0435\u043D\u0438\u044F"
+  label: Potion.Label.StunCapsule
   icon: {fileID: 21300000, guid: beaea54bf5bcc6d49bdc71183c5f9382, type: 3}
-  description: "\u041D\u0430\u043A\u043B\u0430\u0434\u044B\u0432\u0430\u0435\u0442\n(\u0412\u043B\u0438\u044F\u043D\u0438\u0435
-    / 2) \n\u041E\u0433\u043B\u0443\u0448\u0435\u043D\u0438\u0435"
+  description: Potion.Desc.StunCapsule
   ingredients:
   - {fileID: 11400000, guid: bf077205630315c4a918b1009ec80f70, type: 2}
   - {fileID: 11400000, guid: dbb4f5064121bc949b5c20513f33341c, type: 2}

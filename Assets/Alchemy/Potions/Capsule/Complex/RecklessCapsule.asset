@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf27a0f5ceddedb4db2c1c687d02f275, type: 3}
   m_Name: RecklessCapsule
   m_EditorClassIdentifier: 
-  label: "\u041A\u0430\u043F\u0441\u044E\u043B\u044C \u043E\u0442\u0447\u0430\u044F\u043D\u0438\u044F"
+  label: Potion.Label.RecklessCapsule
   icon: {fileID: 21300000, guid: cc396e6025b358b409569f147c4a380a, type: 3}
-  description: "\u041D\u0430\u043D\u043E\u0441\u0438\u0442\n(\u041C\u043E\u0449\u044C
-    * 3) \u0423\u0440\u043E\u043D\u0430\n\u0414\u0430\u0451\u0442 \u041E\u0433\u043B\u0443\u0448\u0435\u043D\u0438\u0435"
+  description: Potion.Desc.RecklessCapsule
   ingredients:
   - {fileID: 11400000, guid: 2e72f36a0ab5b484c872d335ec78dd96, type: 2}
   - {fileID: 11400000, guid: 3d3682a366facc144b11a625599d12a1, type: 2}

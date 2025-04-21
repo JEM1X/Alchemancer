@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad155eda7b08554cba6a8836c22da56, type: 3}
   m_Name: CatEye
   m_EditorClassIdentifier: 
-  label: "\u0413\u043B\u0430\u0437 \u043A\u043E\u0448\u043A\u0438"
+  label: Ingredient.Label.CatEye
   icon: {fileID: 21300000, guid: 4461c87bad5222349b14c22b26d43b95, type: 3}
-  description: "\u0412\u0438\u0434\u0438\u0442 \u0441\u043A\u0432\u043E\u0437\u044C\n\u0442\u044C\u043C\u0443
-    \u0438 \u0438\u043B\u043B\u044E\u0437\u0438\u0438"
+  description: Ingredient.Desc.CatEye

@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e22cd6105dfb7e45a6ce17fb1980139, type: 3}
   m_Name: PackFlask
   m_EditorClassIdentifier: 
-  label: "\u041A\u043E\u043B\u0431\u0430 \u0421\u0442\u0430\u0438"
+  label: Potion.Label.PackFlask
   icon: {fileID: 21300000, guid: 4bce926c6810c1e4b9eb0cc3daaadc9b, type: 3}
-  description: "\u041D\u0430\u043D\u043E\u0441\u0438\u0442 \u0432\u0440\u0430\u0433\u0430\u043C
-    \n\u0443\u0440\u043E\u043D \u0440\u0430\u0432\u043D\u044B\u0439 \n\u0438\u0445
-    \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0443"
+  description: Potion.Desc.PackFlask
   ingredients:
   - {fileID: 11400000, guid: dbb4f5064121bc949b5c20513f33341c, type: 2}
   - {fileID: 11400000, guid: 3d3682a366facc144b11a625599d12a1, type: 2}

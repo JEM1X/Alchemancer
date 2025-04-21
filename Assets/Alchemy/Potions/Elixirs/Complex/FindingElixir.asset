@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52f293a15960a6479d2ed082de2eb1e, type: 3}
   m_Name: FindingElixir
   m_EditorClassIdentifier: 
-  label: "\u042D\u043B\u0438\u043A\u0441\u0438\u0440 \u043F\u043E\u0438\u0441\u043A\u0430"
+  label: Potion.Label.FindingElixir
   icon: {fileID: 21300000, guid: c1e2247be95d02045aba4559b484cabb, type: 3}
-  description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u0432 \u0440\u0443\u043A\u0443\n4
-    \u043A\u0430\u0440\u0442\u044B"
+  description: Potion.Desc.FindingElixir
   ingredients:
   - {fileID: 11400000, guid: bf077205630315c4a918b1009ec80f70, type: 2}
   - {fileID: 11400000, guid: 3d3682a366facc144b11a625599d12a1, type: 2}

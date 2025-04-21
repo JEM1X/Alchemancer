@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad155eda7b08554cba6a8836c22da56, type: 3}
   m_Name: MoonQuartz
   m_EditorClassIdentifier: 
-  label: "\u041B\u0443\u043D\u043D\u044B\u0439 \u043A\u0432\u0430\u0440\u0446"
+  label: Ingredient.Label.Quartz
   icon: {fileID: 21300000, guid: 8f6d58fd471ba8a45a4b681953e29c26, type: 3}
-  description: "\u0421\u0432\u0435\u0442 \u043D\u043E\u0447\u0438,\n\u043C\u0430\u0433\u0438\u044F
-    \u0441\u043D\u043E\u0432"
+  description: Ingredient.Desc.Quartz

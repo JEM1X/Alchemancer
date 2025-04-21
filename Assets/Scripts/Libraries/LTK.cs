@@ -3,7 +3,8 @@ using UnityEngine.UIElements;
 
 public static class LTK
 {
-    public const string MAINTABLE = "UI";
+    public const string UITABLE = "UI";
+    public const string CARDTABLE = "Card";
 
     public static LocalizedString LocalizeStringUITK(TextElement element, string table, string key)
     {

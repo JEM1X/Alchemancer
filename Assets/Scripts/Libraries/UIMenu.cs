@@ -14,7 +14,7 @@ public static class UIMenu
         settingsScreen.style.position = Position.Absolute;
 
         var settingsLabel = UITK.AddElement<Label>(settingsScreen, "settingsLabel", "MainText");
-        LTK.LocalizeStringUITK(settingsLabel, LTK.MAINTABLE, "Settings.Label");
+        LTK.LocalizeStringUITK(settingsLabel, LTK.UITABLE, "Settings.Label");
 
         var masterSlider = UITK.AddElement<Slider>(settingsScreen, "masterSlider");
         masterSlider.value = PlayerPrefs.GetFloat(MASTER_PARAM, 0.5f);
@@ -22,7 +22,7 @@ public static class UIMenu
         masterSlider.label = " ";
         masterSlider.RegisterValueChangedCallback(evt => OnVolumeChanged(MASTER_PARAM, evt.newValue, audioMixer));
         ApplyVolume(MASTER_PARAM, masterSlider.value, audioMixer);
-        LTK.LocalizeStringUITK(masterSlider.labelElement, LTK.MAINTABLE, "Settings.Master");
+        LTK.LocalizeStringUITK(masterSlider.labelElement, LTK.UITABLE, "Settings.Master");
 
         var musicSlider = UITK.AddElement<Slider>(settingsScreen, "musicSlider");
         musicSlider.value = PlayerPrefs.GetFloat(MUSIC_PARAM, 0.5f);
@@ -30,7 +30,7 @@ public static class UIMenu
         musicSlider.label = " ";
         musicSlider.RegisterValueChangedCallback(evt => OnVolumeChanged(MUSIC_PARAM, evt.newValue, audioMixer));
         ApplyVolume(MUSIC_PARAM, musicSlider.value, audioMixer);
-        LTK.LocalizeStringUITK(musicSlider.labelElement, LTK.MAINTABLE, "Settings.Music");
+        LTK.LocalizeStringUITK(musicSlider.labelElement, LTK.UITABLE, "Settings.Music");
 
         var sfxSlider = UITK.AddElement<Slider>(settingsScreen, "sfxSlider");
         sfxSlider.value = PlayerPrefs.GetFloat(SFX_PARAM, 0.5f);
@@ -38,10 +38,10 @@ public static class UIMenu
         sfxSlider.label = " ";
         sfxSlider.RegisterValueChangedCallback(evt => OnVolumeChanged(SFX_PARAM, evt.newValue, audioMixer));
         ApplyVolume(SFX_PARAM, sfxSlider.value, audioMixer);
-        LTK.LocalizeStringUITK(sfxSlider.labelElement, LTK.MAINTABLE, "Settings.Sound");
+        LTK.LocalizeStringUITK(sfxSlider.labelElement, LTK.UITABLE, "Settings.Sound");
 
         saveSettings = UITK.AddElement<Button>(settingsScreen, "saveSettings", "MainButton");
-        LTK.LocalizeStringUITK(saveSettings, LTK.MAINTABLE, "Settings.Save");
+        LTK.LocalizeStringUITK(saveSettings, LTK.UITABLE, "Settings.Save");
         saveSettings.clicked += PlayerPrefs.Save;
 
         return settingsScreen;

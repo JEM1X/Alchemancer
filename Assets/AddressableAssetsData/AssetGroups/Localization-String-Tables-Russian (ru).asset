@@ -15,11 +15,19 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Russian (ru)
   m_GUID: 628dc616bb9c7fc44b5b22141d64143f
   m_SerializeEntries:
+  - m_GUID: 02dd57666f5bcc54c91e8d0a6bc836dd
+    m_Address: Card_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 59408a11aab09ab458409a8c21bf8ffa
     m_Address: UI_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 0e5058ba57024f948beaa3aeae81b687, type: 2}

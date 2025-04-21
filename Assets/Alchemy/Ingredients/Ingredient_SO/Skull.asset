@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad155eda7b08554cba6a8836c22da56, type: 3}
   m_Name: Skull
   m_EditorClassIdentifier: 
-  label: "\u0427\u0435\u0440\u0435\u043F"
+  label: Ingredient.Label.Skull
   icon: {fileID: 21300000, guid: 587503b6015abc741ad5147fff8f4a06, type: 3}
-  description: "\u042D\u0445\u043E \u0441\u043C\u0435\u0440\u0442\u0438,\n\u0445\u0440\u0430\u043D\u0438\u0442\u0435\u043B\u044C
-    \u0442\u0430\u0439\u043D"
+  description: Ingredient.Desc.Skull
