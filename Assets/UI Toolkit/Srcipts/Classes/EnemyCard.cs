@@ -21,7 +21,7 @@ public class EnemyCard : CombatantCard
         actionIcon = UITK.AddElement(combatantFrame, "actionIcon");
         actionSubIcon = UITK.AddElement(actionIcon, "actionSubIcon");
 
-        actionHint = AddHintBox(actionIcon, "");
+        actionHint = UIMenu.AddHintBox(actionIcon);
 
         enemy.OnNewPlannedAttack += UpdateAttack;
     }
@@ -30,6 +30,7 @@ public class EnemyCard : CombatantCard
     {
         actionIcon.style.backgroundImage = new StyleBackground(enemy.PlannedAction.ActionIcon);
         actionSubIcon.style.backgroundImage = new StyleBackground(enemy.PlannedAction.SubIcon);
+        LTK.LocalizeStringUITK(actionHint, LTK.UITABLE, enemy.PlannedAction.Description);
         actionHint.text = enemy.PlannedAction.Description;
     }
 }

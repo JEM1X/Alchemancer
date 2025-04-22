@@ -7,7 +7,7 @@ public abstract class EnemyAction_SO : ScriptableObject
     public Sprite SubIcon { get => subIcon; }
     [SerializeField] private Sprite subIcon;
     public string Description { get => description; }
-    [TextArea] [SerializeField] private string description = "Описание";
+    [SerializeField] private string description = "Key";
 
 
     public abstract void ExecuteAction(Enemy user);

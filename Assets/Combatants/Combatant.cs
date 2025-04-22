@@ -25,8 +25,9 @@ public abstract class Combatant : MonoBehaviour
     [SerializeField] protected int bleed = 0;
     public int Stun { get => stun; }
     [SerializeField] protected int stun = 0;
+    public int Dodge { get => dodge; }
+    [SerializeField] protected int dodge = 0;
 
-    private Animator _animator;
     private int baseHealth;
     private int baseDamage;
 
@@ -39,8 +40,9 @@ public abstract class Combatant : MonoBehaviour
     public event Action<int> OnVulnerableResilientChange;
     public event Action<int> OnWeakStrongChange;
     public event Action<int> OnDullBrightChange;
-    public event Action<int> OnBleedChanged;
-    public event Action<int> OnStunChanged;
+    public event Action<int> OnBleedChange;
+    public event Action<int> OnStunChange;
+    public event Action<int> OnDodgeChange;
 
     private event Action CompleteTurn;
 
@@ -115,29 +117,12 @@ public abstract class Combatant : MonoBehaviour
         CompleteTurn?.Invoke();
         OnDeath?.Invoke();
         StopAllCoroutines();
-        ClearAllListeners();
-
-        //if (_animator != null) 
-        //{
-        //    _animator.SetBool("isDead", true);
-        //}
-        //Destroy(gameObject);
-    }
-
-    public void ClearAllListeners()
-    {
-        OnSpawn = null;
-        OnHealthChange = null;
-        OnVulnerableResilientChange = null;
-        OnWeakStrongChange = null;
-        OnBleedChanged = null;
-        OnStunChanged = null;
-        CompleteTurn = null;
-        OnDeath = null;
     }
 
     public void TakeDamage(int damage)
     {
+        if (ReduceDodge()) return;
+
         if (vulnerableResilient < 0)
             damage *= 2;
 
@@ -189,13 +174,19 @@ public abstract class Combatant : MonoBehaviour
     public void InflictBleed(int amount)
     {
         bleed += amount;
-        OnBleedChanged?.Invoke(amount);
+        OnBleedChange?.Invoke(amount);
     }
 
     public void InflictStun(int amount)
     {
         stun += amount;
-        OnStunChanged?.Invoke(amount);
+        OnStunChange?.Invoke(amount);
+    }
+
+    public void InflictDodge(int amount)
+    {
+        dodge += amount;
+        OnDodgeChange?.Invoke(amount);
     }
 
     private void ReduceVulnerableResilient()
@@ -236,7 +227,7 @@ public abstract class Combatant : MonoBehaviour
         TakeTrueDamage(bleedDamage);
         bleed = Mathf.Max(0, bleed - bleedDamage);
 
-        OnBleedChanged?.Invoke(bleed);
+        OnBleedChange?.Invoke(bleed);
     }
 
     private bool ReduceStun()
@@ -244,7 +235,17 @@ public abstract class Combatant : MonoBehaviour
         if (stun <= 0) return false;
 
         stun -= 1;
-        OnStunChanged?.Invoke(-1);
+        OnStunChange?.Invoke(-1);
+
+        return true;
+    }
+
+    private bool ReduceDodge()
+    {
+        if (stun <= 0) return false;
+
+        dodge -= 1;
+        OnDodgeChange?.Invoke(-1);
 
         return true;
     }

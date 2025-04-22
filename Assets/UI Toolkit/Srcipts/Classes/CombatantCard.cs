@@ -31,6 +31,8 @@ public class CombatantCard
     private Label bleedAmount;
     private VisualElement stunFrame;
     private Label stunAmount;
+    private VisualElement dodgeFrame;
+    private Label dodgeAmount;
 
     private UICombatStyle_SO combatantStyle;
 
@@ -62,7 +64,7 @@ public class CombatantCard
 
         influenceAmount = UITK.AddElement<Label>(influenceFrame, "influenceAmount", "EffectAmount", "ClearText");
 
-        AddHintBox(influenceFrame, "Влияние - усиливает эффекты, которые накладывают зелья");
+        UIMenu.AddLocalizedHintBox(influenceFrame, LTK.UITABLE, "Combat.Hint.Influence");
         StatsHoverAnimation(influenceFrame, 200);
         UpdateInfluence();
 
@@ -72,7 +74,7 @@ public class CombatantCard
 
         powerAmount = UITK.AddElement<Label>(powerFrame, "powerAmount", "EffectAmount", "ClearText");
 
-        AddHintBox(powerFrame, "Мощь - увеличивает урон, который наносят зелья");
+        UIMenu.AddLocalizedHintBox(powerFrame, LTK.UITABLE, "Combat.Hint.Power");
         StatsHoverAnimation(powerFrame, 100);
         UpdatePower();
 
@@ -82,7 +84,7 @@ public class CombatantCard
 
         healthAmount = UITK.AddElement<Label>(healthFrame, "healthAmount", "EffectAmount", "ClearText");
 
-        AddHintBox(healthFrame, "Здоровье - если оно уменьшиться до нуля наступит смерть");
+        UIMenu.AddLocalizedHintBox(healthFrame, LTK.UITABLE, "Combat.Hint.Health");
         UpdateHealth(0);
 
         //vulnerable
@@ -97,8 +99,8 @@ public class CombatantCard
 
         resilientAmount = UITK.AddElement<Label>(resilientFrame, "resilientAmount", "EffectAmount", "ClearText");
 
-        AddHintBox(vulnerableFrame, "Уязвимость - увеличивает входящий урон в два раза");
-        AddHintBox(resilientFrame, "Устойчивость - уменьшает входящий урон в два раза");
+        UIMenu.AddLocalizedHintBox(vulnerableFrame, LTK.UITABLE, "Combat.Hint.Vulnerability");
+        UIMenu.AddLocalizedHintBox(resilientFrame, LTK.UITABLE, "Combat.Hint.Resilience");
         UpdateVulnerableResilient(0);
 
         //weak
@@ -113,8 +115,8 @@ public class CombatantCard
 
         strongAmount = UITK.AddElement<Label>(strongFrame, "strongAmount", "EffectAmount", "ClearText");
 
-        AddHintBox(weakFrame, "Слабость - уменьшает Мощь в два раза");
-        AddHintBox(strongFrame, "Сила - увеличивает Мощь в два раза");
+        UIMenu.AddLocalizedHintBox(weakFrame, LTK.UITABLE, "Combat.Hint.Weakness");
+        UIMenu.AddLocalizedHintBox(strongFrame, LTK.UITABLE, "Combat.Hint.Strength");
         UpdateWeakStrong(0);
 
         //dull
@@ -129,8 +131,8 @@ public class CombatantCard
 
         brightAmount = UITK.AddElement<Label>(brightFrame, "strongAmount", "EffectAmount", "ClearText");
 
-        AddHintBox(dullFrame, "Тьма - уменьшает Влияние в два раза");
-        AddHintBox(brightFrame, "Свет - увеличивает Влияние в два раза");
+        UIMenu.AddLocalizedHintBox(dullFrame, LTK.UITABLE, "Combat.Hint.Dull");
+        UIMenu.AddLocalizedHintBox(brightFrame, LTK.UITABLE, "Combat.Hint.Bright");
         UpdateDullBright(0);
 
         //bleed
@@ -139,9 +141,7 @@ public class CombatantCard
 
         bleedAmount = UITK.AddElement<Label>(bleedFrame, "bleedAmount", "EffectAmount", "ClearText");
 
-
-        AddHintBox(bleedFrame, "Кровотечение - в начале хода наносит прямой урон равный половине значения, " +
-            "затем уменьшается на тоже значение");
+        UIMenu.AddLocalizedHintBox(bleedFrame, LTK.UITABLE, "Combat.Hint.Bleed");
         UpdateBleed(0);
 
         //stun
@@ -150,8 +150,17 @@ public class CombatantCard
 
         stunAmount = UITK.AddElement<Label>(stunFrame, "stunAmount", "EffectAmount", "ClearText");
 
-        AddHintBox(stunFrame, "Оглушение - Пропуск хода");
+        UIMenu.AddLocalizedHintBox(stunFrame, LTK.UITABLE, "Combat.Hint.Stun");
         UpdateStun(0);
+
+        //dodge
+        dodgeFrame = UITK.AddElement(effectsPanel, "dodgeFrame", "EffectFrame");
+        dodgeFrame.style.backgroundImage = new StyleBackground(combatantStyle.dodgeIcon);
+
+        dodgeAmount = UITK.AddElement<Label>(dodgeFrame, "dodgeAmount", "EffectAmount", "ClearText");
+
+        UIMenu.AddLocalizedHintBox(dodgeFrame, LTK.UITABLE, "Combat.Hint.Dodge");
+        UpdateDodge(0);
 
         //Events
         combatant.OnHealthChange += UpdateHealth;
@@ -161,8 +170,8 @@ public class CombatantCard
         combatant.OnVulnerableResilientChange += UpdateVulnerableResilient;
         combatant.OnWeakStrongChange += UpdateWeakStrong;
         combatant.OnDullBrightChange += UpdateDullBright;
-        combatant.OnBleedChanged += UpdateBleed;
-        combatant.OnStunChanged += UpdateStun;
+        combatant.OnBleedChange += UpdateBleed;
+        combatant.OnStunChange += UpdateStun;
     }
 
     private void SetFramePos(Camera mainCamera)
@@ -279,6 +288,22 @@ public class CombatantCard
         }
     }
 
+    private void UpdateDodge(int amount)
+    {
+        int dodge = combatant.Dodge;
+
+        if (dodge <= 0)
+        {
+            dodgeFrame.style.display = DisplayStyle.None;
+        }
+
+        if (dodge > 0)
+        {
+            dodgeFrame.style.display = DisplayStyle.Flex;
+            dodgeAmount.text = dodge.ToString();
+        }
+    }
+
     private void EnemyDeath()
     {
         combatantFrame.RemoveFromHierarchy();
@@ -298,25 +323,5 @@ public class CombatantCard
             element.style.translate = StyleKeyword.Null;
             element.style.opacity = StyleKeyword.Null;
         });
-    }
-
-    protected Label AddHintBox(VisualElement element, string hint)
-    {
-        var hintBox = UITK.AddElement<Label>(element, "HintBox", "SubText");
-        hintBox.text = hint;
-        hintBox.pickingMode = PickingMode.Ignore;
-        hintBox.BringToFront();
-
-        element.RegisterCallback<PointerEnterEvent>(evt =>
-        {
-            hintBox.style.display = DisplayStyle.Flex;
-        });
-
-        element.RegisterCallback<PointerLeaveEvent>(evt =>
-        {
-            hintBox.style.display = DisplayStyle.None;
-        });
-
-        return hintBox;
     }
 }

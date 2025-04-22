@@ -27,6 +27,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 176396b35ffe63f47a8a8eb01862b735, type: 2}
   - {fileID: 11400000, guid: 4227e2df87790364d8d4347bae0e72e2, type: 2}
   - {fileID: 11400000, guid: d92f1c6521587804694709557fa9cafc, type: 2}
+  - {fileID: 11400000, guid: 4a60c80ba763fcb42856d918437a5660, type: 2}
   complexPotions:
   - {fileID: 11400000, guid: dcc7ee0462db827478f8e2c05ed75c92, type: 2}
   - {fileID: 11400000, guid: 429685487d3405a4a9354765c2d0da91, type: 2}
@@ -44,3 +45,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83b809238a9f53b4b80f701212ca0b1b, type: 2}
   - {fileID: 11400000, guid: 02dc92b3fde945943b89d3438c1de745, type: 2}
   - {fileID: 11400000, guid: 6e8073d43f19a5b428226b0815a4b944, type: 2}
+  - {fileID: 11400000, guid: 67da7fa8aa1b9834ba1df6d13822d66f, type: 2}
+  - {fileID: 11400000, guid: de86cf1fd1f98e942990192d9aa3d1b2, type: 2}

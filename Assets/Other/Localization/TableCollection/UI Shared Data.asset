@@ -119,6 +119,114 @@ MonoBehaviour:
     m_Key: Stage.Ruins
     m_Metadata:
       m_Items: []
+  - m_Id: 358423278379008
+    m_Key: Combat.Hint.Influence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358530296045568
+    m_Key: Combat.Hint.Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358678535331840
+    m_Key: Combat.Hint.Health
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358814820851712
+    m_Key: Combat.Hint.Vulnerability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358951068622848
+    m_Key: Combat.Hint.Resilience
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359091976265728
+    m_Key: Combat.Hint.Weakness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359146992951296
+    m_Key: Combat.Hint.Strength
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359148750364672
+    m_Key: Combat.Hint.Dull
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359718873718784
+    m_Key: Combat.Hint.Bright
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359953117208576
+    m_Key: Combat.Hint.Bleed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359955063365632
+    m_Key: Combat.Hint.Stun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360482010554368
+    m_Key: Combat.Action.BleedAttack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360623111135232
+    m_Key: Combat.Action.SimpleAttack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360700244385792
+    m_Key: Combat.Action.InflictDull
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360859191730176
+    m_Key: Combat.Action.InflictStun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360927152037888
+    m_Key: Combat.Action.InflictVulnerable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361005065428992
+    m_Key: Combat.Action.InflictWeak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361064112840704
+    m_Key: Combat.Action.SelfBleedHeal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361128176640000
+    m_Key: Combat.Action.SelfHeal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361171902259200
+    m_Key: Combat.Action.SelfResilient
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361239426359296
+    m_Key: Combat.Action.SelfStrong
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361295613255680
+    m_Key: Combat.Action.TeamClensing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 370805148999680
+    m_Key: Combat.Recipe.Unknown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 730654939959296
+    m_Key: Tutorial.Intro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 731177034338304
+    m_Key: Tutorial.Hand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 731489690341376
+    m_Key: Tutorial.Potion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 732037432889344
+    m_Key: Tutorial.Finale
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

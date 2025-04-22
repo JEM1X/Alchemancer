@@ -16,4 +16,5 @@ public class UICombatStyle_SO : ScriptableObject
     public Sprite brightIcon;
     public Sprite bleedIcon;
     public Sprite stunIcon;
+    public Sprite dodgeIcon;
 }

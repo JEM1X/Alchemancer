@@ -48,7 +48,7 @@ public class RecipePage
         }
 
         pageCover = UITK.AddElement<Label>(page, "pageCover");
-        pageCover.text = "Неизвестно";
+        LTK.LocalizeStringUITK(pageCover, LTK.UITABLE, "Combat.Recipe.Unknown");
     }
 
     public void UncoverPage()

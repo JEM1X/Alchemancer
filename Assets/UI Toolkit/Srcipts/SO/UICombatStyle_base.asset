@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59bb0708533d4d14a9203619c5a862a1, type: 3}
   m_Name: UICombatStyle_base
   m_EditorClassIdentifier: 
-  forward: {fileID: 21300000, guid: 29a1226f7b5e20240942612e151c3c4c, type: 3}
+  forward: {fileID: 21300000, guid: 5170e0068a8cf184fb119834fa7ba0f3, type: 3}
   cauldron: {fileID: 21300000, guid: ad9eab52fb829cb4f8b20e85cc019276, type: 3}
   healthIcon: {fileID: 21300000, guid: 87a7c4321fd50514c8e41d6779a071da, type: 3}
   powerIcon: {fileID: 21300000, guid: 95052c6b62fb3de4695beaa99f842ac2, type: 3}
@@ -25,3 +25,4 @@ MonoBehaviour:
   brightIcon: {fileID: 21300000, guid: 3faa68d4e2f05f04786133598667ac36, type: 3}
   bleedIcon: {fileID: 21300000, guid: cd83922c009da4a4b879192cfaff7c67, type: 3}
   stunIcon: {fileID: 21300000, guid: e759d095e1dc369498b653ccb93962ef, type: 3}
+  dodgeIcon: {fileID: 21300000, guid: 29a1226f7b5e20240942612e151c3c4c, type: 3}

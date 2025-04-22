@@ -209,7 +209,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6232201383936
-    m_Localized: Grants (Influence) Resilience
+    m_Localized: Grants (Influence / 2) Resilience
     m_Metadata:
       m_Items: []
   - m_Id: 6347867705344

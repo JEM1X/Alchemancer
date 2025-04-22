@@ -51,15 +51,6 @@ public class MainMenu : MonoBehaviour
         optionsButton.clicked += () => UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
         LTK.LocalizeStringUITK(optionsButton, LTK.UITABLE, "MainMenu.Settings");
 
-        settingsScreen = UIMenu.InitSettingsMenu(audioMixer, out Button saveSettings);
-        settingsScreen.style.alignSelf = Align.Center;
-        settingsScreen.style.top = -70;
-        menu.Add(settingsScreen);
-
-        UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
-
-        saveSettings.clicked += () => UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
-
         var exitButton = UITK.AddElement<Button>(menu, "exitButton", "MainButton");
         exitButton.clicked += () => audioSource.PlayOneShot(audioLibraire.uiSounds[0]);
         exitButton.clicked += Application.Quit;
@@ -68,6 +59,15 @@ public class MainMenu : MonoBehaviour
         InitStartMenu();
 
         UIMenu.ToggleScreen(startMenu, ref isStartVisible);
+
+        settingsScreen = UIMenu.InitSettingsMenu(audioMixer, out Button saveSettings);
+        settingsScreen.style.alignSelf = Align.Center;
+        settingsScreen.style.top = -70;
+        menu.Add(settingsScreen);
+
+        UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
+
+        saveSettings.clicked += () => UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
     }
 
     private void InitStartMenu()

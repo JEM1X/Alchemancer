@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea18a948bc58c994ca81a652984652cc, type: 3}
-  m_Name: SelfHeal
+  m_Script: {fileID: 11500000, guid: ad096f906326b5f4a98f35dc2a68981e, type: 3}
+  m_Name: DodgeElixir
   m_EditorClassIdentifier: 
-  actionIcon: {fileID: 21300000, guid: 87a7c4321fd50514c8e41d6779a071da, type: 3}
-  subIcon: {fileID: 0}
-  description: Combat.Action.SelfHeal
+  label: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"
+  icon: {fileID: 0}
+  description: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435"
+  ingredients: []

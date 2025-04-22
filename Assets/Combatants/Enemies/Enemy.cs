@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : Combatant
 {
-    [SerializeField] private int _scorePoints;
+    [SerializeField] private int scorePoints;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
@@ -42,7 +42,7 @@ public class Enemy : Combatant
     protected override void Death()
     {
         base.Death();
-        OnScoreGain?.Invoke(_scorePoints);
+        OnScoreGain?.Invoke(scorePoints);
         Destroy(gameObject);
     }
 

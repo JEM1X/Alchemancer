@@ -122,6 +122,10 @@ MonoBehaviour:
     m_Localized: Saint's Ruins
     m_Metadata:
       m_Items: []
+  - m_Id: 370805148999680
+    m_Localized: Unknown
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

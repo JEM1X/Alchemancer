@@ -5,6 +5,6 @@ public class ResilientElixir : Elixir_SO
 {
     public override void UseElixir(Alchemancer user)
     {
-        user.PlayerCombat.InflictVulnerableResilient(user.PlayerCombat.Influence);
+        user.PlayerCombat.InflictVulnerableResilient(user.PlayerCombat.Influence / 2);
     }
 }

@@ -30,11 +30,7 @@ public class Tutorial : MonoBehaviour
         var welcomeScreen = UITK.AddElement(canvas, "welcomeScreen", "InGameFrame");
 
         var welcomeLabel = UITK.AddElement<Label>(welcomeScreen, "welcomeLabel", "ClearText");
-        welcomeLabel.text = "Добро пожаловать в Alchemancer. " +
-            "Вы — кобольд-алхимик, которому предстоит пробиться сквозь толпы монстров. " +
-            "Для победы вам нужно пройти все этапы, каждый из которых состоит из волн врагов. " +
-            "С каждым новым этапом сложность будет увеличиваться, и вам придётся использовать " +
-            "всю свою алхимическую сноровку, чтобы выжить.";
+        LTK.LocalizeStringUITK(welcomeLabel, LTK.UITABLE, "Tutorial.Intro");
 
         var welcomeButton = UITK.AddElement<Button>(welcomeScreen, "welcomeButton", "MainButton");
         welcomeButton.text = "OK";
@@ -45,13 +41,7 @@ public class Tutorial : MonoBehaviour
         welcomeButton.clicked += () => handScreen.style.display = DisplayStyle.Flex;
 
         var handLabel = UITK.AddElement<Label>(handScreen, "handLabel", "ClearText");
-        handLabel.text = "В бою вам помогут зелья, которые делятся на три вида: Эликсиры, Капсулы и Колбы. " +
-            "Эликсиры применяются на игрока, Капсулы воздействуют на одного врага, а Колбы поражают всех врагов сразу. " +
-            "Однако в начале каждого этапа у вас не будет ни одного зелья. " +
-            "Чтобы их создать, вам нужно правильно смешивать ингредиенты. " +
-            "Каждое зелье имеет уникальный рецепт, простые состоят из двух разных ингредиентов, сложные - из трёх " +
-            "В начале вашего хода вам будет выдано пять карт ингредиентов. " +
-            "Попробуй смешать карты ингредиентов";
+        LTK.LocalizeStringUITK(handLabel, LTK.UITABLE, "Tutorial.Hand");
 
         var handButton = UITK.AddElement<Button>(handScreen, "handButton", "MainButton");
         handButton.text = "OK";
@@ -68,10 +58,7 @@ public class Tutorial : MonoBehaviour
         potionScreen.style.display = DisplayStyle.Flex;
 
         var potionLabel = UITK.AddElement<Label>(potionScreen, "potionLabel", "ClearText");
-        potionLabel.text = "Поздравляем с первым зельем! Каждое зелье имеет свой уникальный эффект — " +
-            "это может быть обычный урон или воздействие, которое усиливает или ослабляет различные аспекты врагов или тебя самого. " +
-            "В твоей руке может находиться не более трёх зелий одновременно — если их уже три, создать новое не получится. " +
-            "Когда у тебя закончатся карты ингредиентов, нажми 'Конец хода', чтобы передать инициативу противникам.";
+        LTK.LocalizeStringUITK(potionLabel, LTK.UITABLE, "Tutorial.Potion");
 
         var potionButton = UITK.AddElement<Button>(potionScreen, "potionButton", "MainButton");
         potionButton.text = "OK";
@@ -88,14 +75,7 @@ public class Tutorial : MonoBehaviour
         finaleScreen.style.display = DisplayStyle.Flex;
 
         var finaleLabel = UITK.AddElement<Label>(finaleScreen, "finaleLabel", "ClearText");
-        finaleLabel.text = "В начале каждого хода ты получаешь пять случайных карт ингредиентов. " +
-            "Однако в конце хода все неиспользованные ингредиенты исчезают. " +
-            "Это не касается зелий — они остаются у тебя между ходами, но будут сброшены при переходе на новый этап. " +
-            "Рецепты зелий генерируются случайным образом в начале каждого забега, так что тебе придётся открывать их заново. " +
-            "Все созданные тобой зелья автоматически записываются в Книгу рецептов, " +
-            "которую ты можешь открыть в левом верхнем углу экрана. " +
-            "На этом всё. " +
-            "Удачи, алхимик!";
+        LTK.LocalizeStringUITK(finaleLabel, LTK.UITABLE, "Tutorial.Finale");
 
         var finaleButton = UITK.AddElement<Button>(finaleScreen, "finaleButton", "MainButton");
         finaleButton.text = "OK";
