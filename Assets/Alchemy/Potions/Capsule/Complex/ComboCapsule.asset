@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024467354c5634640a59567afcd202f9, type: 3}
   m_Name: ComboCapsule
   m_EditorClassIdentifier: 
-  label: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"
+  label: Potion.Label.ComboCapsule
   icon: {fileID: 0}
-  description: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435"
-  ingredients: []
+  description: Potion.Desc.ComboCapsule
+  ingredients:
+  - {fileID: 11400000, guid: bf077205630315c4a918b1009ec80f70, type: 2}
+  - {fileID: 11400000, guid: dbb4f5064121bc949b5c20513f33341c, type: 2}
+  - {fileID: 11400000, guid: 1c9511ad6c08b0c419813f64acbf3db7, type: 2}
   attacksAmount: 3

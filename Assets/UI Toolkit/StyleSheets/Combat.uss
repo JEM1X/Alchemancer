@@ -23,7 +23,7 @@
     left: 40px;
     bottom: -1040px;
     width: 200px;
-    height: 600px;
+    height: 800px;
     justify-content: space-around;
 }
 
@@ -46,6 +46,7 @@
 
 .beltUI .cardFrame {
     border-color: rgb(73, 70, 15);
+    
 }
 
 .cardFrame:hover {

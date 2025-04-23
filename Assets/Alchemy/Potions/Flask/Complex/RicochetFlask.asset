@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04cb70731d2bdd4449b670df0d9f7d07, type: 3}
   m_Name: RicochetFlask
   m_EditorClassIdentifier: 
-  label: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"
+  label: Potion.Label.RicochetFlask
   icon: {fileID: 0}
-  description: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435"
-  ingredients: []
+  description: Potion.Desc.RicochetFlask
+  ingredients:
+  - {fileID: 11400000, guid: 2e72f36a0ab5b484c872d335ec78dd96, type: 2}
+  - {fileID: 11400000, guid: 1c9511ad6c08b0c419813f64acbf3db7, type: 2}
+  - {fileID: 11400000, guid: 03d8c2765e035554186406fe69f78b15, type: 2}
+  chance: 0.5

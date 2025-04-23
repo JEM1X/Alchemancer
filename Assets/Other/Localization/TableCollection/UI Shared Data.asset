@@ -163,6 +163,10 @@ MonoBehaviour:
     m_Key: Combat.Hint.Stun
     m_Metadata:
       m_Items: []
+  - m_Id: 1031541679869952
+    m_Key: Combat.Hint.Dodge
+    m_Metadata:
+      m_Items: []
   - m_Id: 360482010554368
     m_Key: Combat.Action.BleedAttack
     m_Metadata:
@@ -225,6 +229,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 732037432889344
     m_Key: Tutorial.Finale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049509260316672
+    m_Key: Combat.Recipe.NextPage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049511411994624
+    m_Key: Combat.Recipe.PreviousPage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049587098210304
+    m_Key: Combat.Recipe.AvailableToggle
     m_Metadata:
       m_Items: []
   m_Metadata:

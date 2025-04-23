@@ -14,7 +14,7 @@ public class Tutorial : MonoBehaviour
     private void Start()
     {
         InitializeUI();
-        alchemancer.PlayerHand.OnNewPotion += (Potion_SO potion) => InitPotion();
+        PlayerHand.OnNewPotion += (Potion_SO potion) => InitPotion();
     }
 
     private void InitializeUI()

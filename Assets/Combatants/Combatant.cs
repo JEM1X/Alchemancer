@@ -242,7 +242,7 @@ public abstract class Combatant : MonoBehaviour
 
     private bool ReduceDodge()
     {
-        if (stun <= 0) return false;
+        if (dodge <= 0) return false;
 
         dodge -= 1;
         OnDodgeChange?.Invoke(-1);

@@ -24,7 +24,7 @@ public class CombatUI : MonoBehaviour
     [SerializeField] private float drawDuration = 0.4f;
     [SerializeField] private float overlapDuration = 0.5f;
 
-    private VisualElement hordeUI;
+    private Button hordeUI;
     private VisualElement handUI;
     private VisualElement bagUI;
     private VisualElement beltUI;
@@ -32,17 +32,16 @@ public class CombatUI : MonoBehaviour
 
     private List<IngredientCard> cardsInHand = new(0);
     private List<IngredientCard> cardsInCauldron = new(0);
-    private PotionCard possiblePotion = null;
+    private PotionCard potentialPotion = null;
     private PotionCard potionInUse = null;
-    //private List<CombatantCard> enemyCards;
 
     private void Awake()
     {
         InitializeUI();
 
-        alchemancer.PlayerHand.OnNewIngredient += InitializeIngredientCard;
-        alchemancer.PlayerHand.OnIngredientUse += RemoveIngredientCard;
-        alchemancer.PlayerHand.OnNewPotion += InitializePotionCard;
+        PlayerHand.OnNewIngredient += InitializeIngredientCard;
+        PlayerHand.OnIngredientUse += RemoveIngredientCard;
+        PlayerHand.OnNewPotion += InitializePotionCard;
         alchemancer.PlayerCombat.OnSpawn += (Combatant combatant) => InitializePlayer((PlayerCombat)combatant);
         alchemancer.PlayerCombat.OnTurnStart += ShowHand;  
         BattleM.Instance.Horde.OnNewEnemy += InitializeEnemy;
@@ -61,7 +60,8 @@ public class CombatUI : MonoBehaviour
         canvas.style.height = new Length(100, LengthUnit.Percent);
         canvas.pickingMode = PickingMode.Ignore;
 
-        hordeUI = UITK.AddElement(canvas, "hordeUI");
+        hordeUI = UITK.AddElement<Button>(canvas, "ClearButton", "hordeUI");
+        hordeUI.clicked += TargetEnemies;
 
         handUI = UITK.AddElement(canvas, "handUI");
 
@@ -144,13 +144,14 @@ public class CombatUI : MonoBehaviour
     {
         var enemyCard = new EnemyCard(enemy, combatStyle, mainCamera);
         hordeUI.Add(enemyCard.combatantFrame);
-        enemyCard.combatantFrame.clicked += () => AttackEnemy(enemy);
+        enemyCard.combatantFrame.clicked += () => TargetEnemy(enemy);
     }
 
     private void InitializePlayer(PlayerCombat player)
     {
         var playerCard = new CombatantCard(player, combatStyle, mainCamera);
         hordeUI.Add(playerCard.combatantFrame);
+        playerCard.combatantFrame.clicked += TargetPlayer;
     }
 
     private void SelectIngredientCard(IngredientCard card)
@@ -168,62 +169,55 @@ public class CombatUI : MonoBehaviour
             audioSource.PlayOneShot(audioLibraire.cardSounds[2]);
         }
 
-        Ingredient_SO[] ingredients = cardsInCauldron.Select(card => card.ingredient).ToArray();
+        UpdatePotentialPotion();
+    }
 
-        if (cardsInCauldron.Count <= 1 || ingredients.Distinct().Count() <= 1)
-        {
-            HidePossiblePotion();
-            return;
-        }
-
-        Potion_SO potion = GameManager.Instance.discoveredPotions.FirstOrDefault(potion =>
-            potion.IsinRecipe(ingredients));
+    private void UpdatePotentialPotion()
+    {
+        Potion_SO potion = CheckForPotentialPotion();
 
         if (potion == null)
         {
-            HidePossiblePotion();
+            HidePotentialPotion();
             return;
         }
-
-        ShowPossiblePotion(potion);
+        else
+        {
+            ShowPotentialPotion(potion);
+        }
     }
 
-    private void ShowPossiblePotion(Potion_SO potion)
+    private Potion_SO CheckForPotentialPotion()
     {
-        HidePossiblePotion();
+        if (cardsInCauldron.Count <= 1) return null;
 
-        possiblePotion = new(potion);
-        handUI.Add(possiblePotion.cardFrame);
-        possiblePotion.cardFrame.style.position = Position.Absolute;
-        possiblePotion.cardFrame.style.alignSelf = Align.Center;
-        possiblePotion.cardFrame.style.top = 300;
-        possiblePotion.cardFrame.style.opacity = 60;
+        Ingredient_SO[] ingredients = cardsInCauldron.Select(card => card.ingredient).ToArray();
+
+        if (ingredients.Distinct().Count() <= 1) return null;
+
+        return GameManager.Instance.discoveredPotions.FirstOrDefault(potion => potion.IsinRecipe(ingredients));
     }
 
-    private void HidePossiblePotion()
+    private void ShowPotentialPotion(Potion_SO potion)
     {
-        possiblePotion?.cardFrame.RemoveFromHierarchy();
-        possiblePotion = null;
+        HidePotentialPotion();
+
+        potentialPotion = new(potion);
+        handUI.Add(potentialPotion.cardFrame);
+        potentialPotion.cardFrame.style.position = Position.Absolute;
+        potentialPotion.cardFrame.style.alignSelf = Align.Center;
+        potentialPotion.cardFrame.style.top = 300;
+        potentialPotion.cardFrame.style.opacity = 0.8f;
+    }
+
+    private void HidePotentialPotion()
+    {
+        potentialPotion?.cardFrame.RemoveFromHierarchy();
+        potentialPotion = null;
     }
 
     private void SelectPotionCard(PotionCard card)
     {
-        if (card.potion is Elixir_SO elixir)
-        {
-            alchemancer.PlayerHand.UseElixir(elixir);
-            card.cardFrame.RemoveFromHierarchy();
-            audioSource.PlayOneShot(audioLibraire.potionSounds[1]);
-            return;
-        }
-
-        if (card.potion is Flask_SO flask)
-        {
-            alchemancer.PlayerHand.UseFlask(flask);
-            card.cardFrame.RemoveFromHierarchy();
-            audioSource.PlayOneShot(audioLibraire.potionSounds[2]);
-            return;
-        }
-
         if (!card.isSelected && potionInUse != null)
             SelectPotionCard(potionInUse);
 
@@ -248,6 +242,8 @@ public class CombatUI : MonoBehaviour
 
         alchemancer.PlayerHand.BrewNewPotion(usedIngredients);
 
+        UpdatePotentialPotion();
+
         audioSource.PlayOneShot(audioLibraire.potionSounds[0]);
     }
 
@@ -257,14 +253,39 @@ public class CombatUI : MonoBehaviour
         cardsInCauldron = new(0);
     }
 
-    private void AttackEnemy(Enemy enemy)
+    private void TargetEnemy(Enemy enemy)
     {
         if (potionInUse?.potion is Capsule_SO capsule)
         {
             alchemancer.PlayerHand.UseCapsule(capsule, enemy);
             potionInUse.cardFrame.RemoveFromHierarchy();
             potionInUse = null;
+
             audioSource.PlayOneShot(audioLibraire.potionSounds[3]);
+        }
+    }
+
+    private void TargetPlayer()
+    {
+        if (potionInUse?.potion is Elixir_SO elixir)
+        {
+            alchemancer.PlayerHand.UseElixir(elixir);
+            potionInUse.cardFrame.RemoveFromHierarchy();
+            potionInUse = null;
+
+            audioSource.PlayOneShot(audioLibraire.potionSounds[1]);
+        }
+    }
+
+    private void TargetEnemies()
+    {
+        if (potionInUse?.potion is Flask_SO flask)
+        {
+            alchemancer.PlayerHand.UseFlask(flask);
+            potionInUse.cardFrame.RemoveFromHierarchy();
+            potionInUse = null;
+
+            audioSource.PlayOneShot(audioLibraire.potionSounds[2]);
         }
     }
 
@@ -311,20 +332,4 @@ public class CombatUI : MonoBehaviour
         audioSource.PlayOneShot(audioLibraire.cardSounds[1]);
         card.cardFrame.style.translate = new StyleTranslate(StyleKeyword.Null);
     }
-
-    //private IEnumerator UsePotionAnim(UICard card, VisualElement target)
-    //{
-    //    float duration = 0;
-
-    //    target.WorldToLocal()
-
-    //    while (duration < 1f)
-    //    {
-    //        Length xPos = new Length(pos.x * (1 - UITK.EaseInOutQuad(duration)));
-    //        Length yPos = new Length(pos.y * (1 - UITK.EaseInOutQuad(duration)));
-    //        card.cardFrame.style.translate = new StyleTranslate(new Translate(xPos, yPos));
-    //        duration += Time.deltaTime / drawDuration;
-    //        yield return null;
-    //    }
-    //}
 }

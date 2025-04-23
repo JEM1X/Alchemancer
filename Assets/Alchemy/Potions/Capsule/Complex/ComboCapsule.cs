@@ -11,7 +11,9 @@ public class ComboCapsule : Capsule_SO
         {
             enemy.TakeDamage(user.PlayerCombat.Power / 2);
 
-            if (enemy == null) return;
+            enemy.StartCoroutine(enemy.AttackImpact());
+
+            if (enemy.Health <= 0) return;
         }
     }
 }

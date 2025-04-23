@@ -58,6 +58,12 @@
     left: 0;
 }
 
+.availableToggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .toggleButton {
     position: absolute;
     top: 20px;

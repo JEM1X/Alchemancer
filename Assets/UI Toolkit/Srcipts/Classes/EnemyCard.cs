@@ -31,6 +31,5 @@ public class EnemyCard : CombatantCard
         actionIcon.style.backgroundImage = new StyleBackground(enemy.PlannedAction.ActionIcon);
         actionSubIcon.style.backgroundImage = new StyleBackground(enemy.PlannedAction.SubIcon);
         LTK.LocalizeStringUITK(actionHint, LTK.UITABLE, enemy.PlannedAction.Description);
-        actionHint.text = enemy.PlannedAction.Description;
     }
 }

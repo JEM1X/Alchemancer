@@ -163,15 +163,16 @@ public class CombatantCard
         UpdateDodge(0);
 
         //Events
+        combatant.OnDeath += EnemyDeath;
         combatant.OnHealthChange += UpdateHealth;
         combatant.OnWeakStrongChange += (int amount) => UpdatePower();
         combatant.OnDullBrightChange += (int amount) => UpdateInfluence();
-        combatant.OnDeath += EnemyDeath;
         combatant.OnVulnerableResilientChange += UpdateVulnerableResilient;
         combatant.OnWeakStrongChange += UpdateWeakStrong;
         combatant.OnDullBrightChange += UpdateDullBright;
         combatant.OnBleedChange += UpdateBleed;
         combatant.OnStunChange += UpdateStun;
+        combatant.OnDodgeChange += UpdateDodge;
     }
 
     private void SetFramePos(Camera mainCamera)

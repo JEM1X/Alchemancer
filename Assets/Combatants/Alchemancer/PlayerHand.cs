@@ -16,9 +16,9 @@ public class PlayerHand : MonoBehaviour
     private int drawAmount = 5;
     private int potionMaxAmount = 3;
 
-    public event Action<Ingredient_SO> OnNewIngredient;
-    public event Action<Ingredient_SO> OnIngredientUse;
-    public event Action<Potion_SO> OnNewPotion;
+    public static event Action<Ingredient_SO> OnNewIngredient;
+    public static event Action<Ingredient_SO> OnIngredientUse;
+    public static event Action<Potion_SO> OnNewPotion;
     //public event Action<Potion_SO> OnPotionUse;
 
 
@@ -53,40 +53,52 @@ public class PlayerHand : MonoBehaviour
         OnIngredientUse?.Invoke(ingredient);
     } 
 
-    public void BrewNewPotion(Ingredient_SO[] ingredients)
+    public bool BrewNewPotion(Ingredient_SO[] ingredients)
     {
-        if (playerPotions.Count >= potionMaxAmount) return;
+        if (playerPotions.Count >= potionMaxAmount) return false;
 
-        if (!ingredients.All(playerIngredients.Contains))
-        {
-            Debug.LogWarning("No ingredients available");
-            return;
-        }
+        if (!CheckIngredients(ingredients)) return false;
 
         foreach (var ingredient in ingredients)
             UseIngredient(ingredient);
 
-        Potion_SO craftedPotion = null;
-        if(TryBrewSimplePotion(ingredients, out Potion_SO craftedSimplePotion))
-        {
-            craftedPotion = craftedSimplePotion;
-        }
-        else if (TryBrewComplexPotion(ingredients, out Potion_SO craftedComplexPotion))
-        {
-            craftedPotion = craftedComplexPotion;
-        }
-        else
-        {
-            Debug.Log("Incorrect recipe");
-            return;
-        }
+        if (!TryBrewPotion(ingredients, out Potion_SO craftedPotion)) return false;
 
         playerPotions.Add(craftedPotion);
         OnNewPotion?.Invoke(craftedPotion);
 
-        if (GameManager.Instance.discoveredPotions.Contains(craftedPotion)) return;
+        if (GameManager.Instance.discoveredPotions.Contains(craftedPotion)) return true;
 
         GameManager.Instance.UnlockPotion(craftedPotion);
+        return true;
+    }
+
+    public bool CheckIngredients(Ingredient_SO[] ingredients)
+    {
+        List<Ingredient_SO> tempIngred = new (playerIngredients);
+        
+        return ingredients.All(tempIngred.Remove);
+    }
+
+    public bool TryBrewPotion(Ingredient_SO[] ingredients, out Potion_SO craftedPotion)
+    {
+        craftedPotion = null;
+
+        if (TryBrewSimplePotion(ingredients, out Potion_SO craftedSimplePotion))
+        {
+            craftedPotion = craftedSimplePotion;
+            return true;
+        }
+        else if (TryBrewComplexPotion(ingredients, out Potion_SO craftedComplexPotion))
+        {
+            craftedPotion = craftedComplexPotion;
+            return true;
+        }
+        else
+        {
+            Debug.Log("Incorrect recipe");
+            return false;
+        }
     }
 
     public bool TryBrewSimplePotion(Ingredient_SO[] ingredients, out Potion_SO craftedPotion)
@@ -101,8 +113,6 @@ public class PlayerHand : MonoBehaviour
             craftedPotion = potionList.SimplePotions[UnityEngine.Random.Range(0, potionList.SimplePotions.Length)];
             return true;
         }
-
-        if (uniqueness != ingredients.Length) return false;
 
         craftedPotion = potionList.SimplePotions.FirstOrDefault(potion => potion.IsinRecipe(ingredients));
 
@@ -121,8 +131,6 @@ public class PlayerHand : MonoBehaviour
             craftedPotion = potionList.ComplexPotions[UnityEngine.Random.Range(0, potionList.ComplexPotions.Length)];
             return true;
         }
-
-        if (uniqueness != ingredients.Length) return false;
 
         craftedPotion = potionList.ComplexPotions.FirstOrDefault(potion => potion.IsinRecipe(ingredients));
 

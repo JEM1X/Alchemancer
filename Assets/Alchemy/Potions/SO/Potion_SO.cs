@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using Unity.VisualScripting;
 
 public abstract class Potion_SO : Card_SO
 {
@@ -9,6 +10,9 @@ public abstract class Potion_SO : Card_SO
 
     public bool IsinRecipe(params Ingredient_SO[] ingredients)
     {
+        if (ingredients.Length != this.ingredients.Length) return false;
+        if (ingredients.Distinct().Count() != ingredients.Length) return false;
+
         foreach(var ingredient in ingredients)
         {
             if (!this.ingredients.Contains(ingredient))

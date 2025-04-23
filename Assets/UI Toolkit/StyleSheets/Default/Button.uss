@@ -20,3 +20,12 @@
     border-color: rgb(40, 40, 40);
     font-size: 48px;
 }
+
+.ClearButton{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+    .ClearButton:hover {
+        background-color: rgba(0, 0, 0, 0);
+        scale: 1 1;
+    }
