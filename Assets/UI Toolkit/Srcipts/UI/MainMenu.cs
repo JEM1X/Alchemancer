@@ -45,16 +45,16 @@ public class MainMenu : MonoBehaviour
         var startButton = UITK.AddElement<Button>(menu, "startButton", "MainButton");
         startButton.clicked += () => audioSource.PlayOneShot(audioLibraire.uiSounds[0]);
         startButton.clicked += () => UIMenu.ToggleScreen(startMenu, ref isStartVisible);
-        LTK.LocalizeStringUITK(startButton, LTK.UITABLE, "MainMenu.Start");
+        UITK.LocalizeStringUITK(startButton, UITK.UITABLE, "MainMenu.Start");
 
         var optionsButton = UITK.AddElement<Button>(menu, "optionsButton", "MainButton");
         optionsButton.clicked += () => UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
-        LTK.LocalizeStringUITK(optionsButton, LTK.UITABLE, "MainMenu.Settings");
+        UITK.LocalizeStringUITK(optionsButton, UITK.UITABLE, "MainMenu.Settings");
 
         var exitButton = UITK.AddElement<Button>(menu, "exitButton", "MainButton");
         exitButton.clicked += () => audioSource.PlayOneShot(audioLibraire.uiSounds[0]);
         exitButton.clicked += Application.Quit;
-        LTK.LocalizeStringUITK(exitButton, LTK.UITABLE, "MainMenu.Quit");
+        UITK.LocalizeStringUITK(exitButton, UITK.UITABLE, "MainMenu.Quit");
 
         InitStartMenu();
 

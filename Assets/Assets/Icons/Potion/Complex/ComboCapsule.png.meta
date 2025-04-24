@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a304ad7a2aecdd74585782caf1f80113
+guid: 1e0194608abbfb04d980fd9ff0a98695
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7581071910437482615
-    second: VulnerabilityCapsule_0
+      213: -3407927369292508676
+    second: ComboCapsule_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -101,7 +101,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: VulnerabilityCapsule_0
+      name: ComboCapsule_0
       rect:
         serializedVersion: 2
         x: 1
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98f8ea1834f9ac690800000000000000
-      internalID: -7581071910437482615
+      spriteID: cf11df41d1c94b0d0800000000000000
+      internalID: -3407927369292508676
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      VulnerabilityCapsule_0: -7581071910437482615
+      ComboCapsule_0: -3407927369292508676
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

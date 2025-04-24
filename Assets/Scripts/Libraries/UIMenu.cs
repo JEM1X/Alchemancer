@@ -16,7 +16,7 @@ public static class UIMenu
         settingsScreen.style.position = Position.Absolute;
 
         var settingsLabel = UITK.AddElement<Label>(settingsScreen, "settingsLabel", "MainText");
-        LTK.LocalizeStringUITK(settingsLabel, LTK.UITABLE, "Settings.Label");
+        UITK.LocalizeStringUITK(settingsLabel, UITK.UITABLE, "Settings.Label");
 
         var masterSlider = UITK.AddElement<Slider>(settingsScreen, "masterSlider");
         masterSlider.value = PlayerPrefs.GetFloat(MASTER_PARAM, 0.5f);
@@ -24,7 +24,7 @@ public static class UIMenu
         masterSlider.label = " ";
         masterSlider.RegisterValueChangedCallback(evt => OnVolumeChanged(MASTER_PARAM, evt.newValue, audioMixer));
         ApplyVolume(MASTER_PARAM, masterSlider.value, audioMixer);
-        LTK.LocalizeStringUITK(masterSlider.labelElement, LTK.UITABLE, "Settings.Master");
+        UITK.LocalizeStringUITK(masterSlider.labelElement, UITK.UITABLE, "Settings.Master");
 
         var musicSlider = UITK.AddElement<Slider>(settingsScreen, "musicSlider");
         musicSlider.value = PlayerPrefs.GetFloat(MUSIC_PARAM, 0.5f);
@@ -32,7 +32,7 @@ public static class UIMenu
         musicSlider.label = " ";
         musicSlider.RegisterValueChangedCallback(evt => OnVolumeChanged(MUSIC_PARAM, evt.newValue, audioMixer));
         ApplyVolume(MUSIC_PARAM, musicSlider.value, audioMixer);
-        LTK.LocalizeStringUITK(musicSlider.labelElement, LTK.UITABLE, "Settings.Music");
+        UITK.LocalizeStringUITK(musicSlider.labelElement, UITK.UITABLE, "Settings.Music");
 
         var sfxSlider = UITK.AddElement<Slider>(settingsScreen, "sfxSlider");
         sfxSlider.value = PlayerPrefs.GetFloat(SFX_PARAM, 0.5f);
@@ -40,13 +40,13 @@ public static class UIMenu
         sfxSlider.label = " ";
         sfxSlider.RegisterValueChangedCallback(evt => OnVolumeChanged(SFX_PARAM, evt.newValue, audioMixer));
         ApplyVolume(SFX_PARAM, sfxSlider.value, audioMixer);
-        LTK.LocalizeStringUITK(sfxSlider.labelElement, LTK.UITABLE, "Settings.Sound");
+        UITK.LocalizeStringUITK(sfxSlider.labelElement, UITK.UITABLE, "Settings.Sound");
 
         var languageDropdown = UITK.AddElement<DropdownField>(settingsScreen, "languageDropdown");
         SetupLanguageDropdown(languageDropdown);
 
         saveSettings = UITK.AddElement<Button>(settingsScreen, "saveSettings", "MainButton");
-        LTK.LocalizeStringUITK(saveSettings, LTK.UITABLE, "Settings.Save");
+        UITK.LocalizeStringUITK(saveSettings, UITK.UITABLE, "Settings.Save");
         saveSettings.clicked += PlayerPrefs.Save;
 
         return settingsScreen;
@@ -154,7 +154,7 @@ public static class UIMenu
     public static Label AddLocalizedHintBox(VisualElement element, string table, string key)
     {
         var hintBox = AddHintBox(element);
-        LTK.LocalizeStringUITK(hintBox, table, key);
+        UITK.LocalizeStringUITK(hintBox, table, key);
 
         return hintBox;
     }

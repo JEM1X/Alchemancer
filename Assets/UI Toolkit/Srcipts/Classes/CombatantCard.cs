@@ -64,7 +64,7 @@ public class CombatantCard
 
         influenceAmount = UITK.AddElement<Label>(influenceFrame, "influenceAmount", "EffectAmount", "ClearText");
 
-        UIMenu.AddLocalizedHintBox(influenceFrame, LTK.UITABLE, "Combat.Hint.Influence");
+        UIMenu.AddLocalizedHintBox(influenceFrame, UITK.UITABLE, "Combat.Hint.Influence");
         StatsHoverAnimation(influenceFrame, 200);
         UpdateInfluence();
 
@@ -74,7 +74,7 @@ public class CombatantCard
 
         powerAmount = UITK.AddElement<Label>(powerFrame, "powerAmount", "EffectAmount", "ClearText");
 
-        UIMenu.AddLocalizedHintBox(powerFrame, LTK.UITABLE, "Combat.Hint.Power");
+        UIMenu.AddLocalizedHintBox(powerFrame, UITK.UITABLE, "Combat.Hint.Power");
         StatsHoverAnimation(powerFrame, 100);
         UpdatePower();
 
@@ -84,7 +84,7 @@ public class CombatantCard
 
         healthAmount = UITK.AddElement<Label>(healthFrame, "healthAmount", "EffectAmount", "ClearText");
 
-        UIMenu.AddLocalizedHintBox(healthFrame, LTK.UITABLE, "Combat.Hint.Health");
+        UIMenu.AddLocalizedHintBox(healthFrame, UITK.UITABLE, "Combat.Hint.Health");
         UpdateHealth(0);
 
         //vulnerable
@@ -99,8 +99,8 @@ public class CombatantCard
 
         resilientAmount = UITK.AddElement<Label>(resilientFrame, "resilientAmount", "EffectAmount", "ClearText");
 
-        UIMenu.AddLocalizedHintBox(vulnerableFrame, LTK.UITABLE, "Combat.Hint.Vulnerability");
-        UIMenu.AddLocalizedHintBox(resilientFrame, LTK.UITABLE, "Combat.Hint.Resilience");
+        UIMenu.AddLocalizedHintBox(vulnerableFrame, UITK.UITABLE, "Combat.Hint.Vulnerability");
+        UIMenu.AddLocalizedHintBox(resilientFrame, UITK.UITABLE, "Combat.Hint.Resilience");
         UpdateVulnerableResilient(0);
 
         //weak
@@ -115,8 +115,8 @@ public class CombatantCard
 
         strongAmount = UITK.AddElement<Label>(strongFrame, "strongAmount", "EffectAmount", "ClearText");
 
-        UIMenu.AddLocalizedHintBox(weakFrame, LTK.UITABLE, "Combat.Hint.Weakness");
-        UIMenu.AddLocalizedHintBox(strongFrame, LTK.UITABLE, "Combat.Hint.Strength");
+        UIMenu.AddLocalizedHintBox(weakFrame, UITK.UITABLE, "Combat.Hint.Weakness");
+        UIMenu.AddLocalizedHintBox(strongFrame, UITK.UITABLE, "Combat.Hint.Strength");
         UpdateWeakStrong(0);
 
         //dull
@@ -131,8 +131,8 @@ public class CombatantCard
 
         brightAmount = UITK.AddElement<Label>(brightFrame, "strongAmount", "EffectAmount", "ClearText");
 
-        UIMenu.AddLocalizedHintBox(dullFrame, LTK.UITABLE, "Combat.Hint.Dull");
-        UIMenu.AddLocalizedHintBox(brightFrame, LTK.UITABLE, "Combat.Hint.Bright");
+        UIMenu.AddLocalizedHintBox(dullFrame, UITK.UITABLE, "Combat.Hint.Dull");
+        UIMenu.AddLocalizedHintBox(brightFrame, UITK.UITABLE, "Combat.Hint.Bright");
         UpdateDullBright(0);
 
         //bleed
@@ -141,7 +141,7 @@ public class CombatantCard
 
         bleedAmount = UITK.AddElement<Label>(bleedFrame, "bleedAmount", "EffectAmount", "ClearText");
 
-        UIMenu.AddLocalizedHintBox(bleedFrame, LTK.UITABLE, "Combat.Hint.Bleed");
+        UIMenu.AddLocalizedHintBox(bleedFrame, UITK.UITABLE, "Combat.Hint.Bleed");
         UpdateBleed(0);
 
         //stun
@@ -150,7 +150,7 @@ public class CombatantCard
 
         stunAmount = UITK.AddElement<Label>(stunFrame, "stunAmount", "EffectAmount", "ClearText");
 
-        UIMenu.AddLocalizedHintBox(stunFrame, LTK.UITABLE, "Combat.Hint.Stun");
+        UIMenu.AddLocalizedHintBox(stunFrame, UITK.UITABLE, "Combat.Hint.Stun");
         UpdateStun(0);
 
         //dodge
@@ -159,7 +159,7 @@ public class CombatantCard
 
         dodgeAmount = UITK.AddElement<Label>(dodgeFrame, "dodgeAmount", "EffectAmount", "ClearText");
 
-        UIMenu.AddLocalizedHintBox(dodgeFrame, LTK.UITABLE, "Combat.Hint.Dodge");
+        UIMenu.AddLocalizedHintBox(dodgeFrame, UITK.UITABLE, "Combat.Hint.Dodge");
         UpdateDodge(0);
 
         //Events

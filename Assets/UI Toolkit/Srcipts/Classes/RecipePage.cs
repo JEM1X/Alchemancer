@@ -48,7 +48,7 @@ public class RecipePage
         }
 
         pageCover = UITK.AddElement<Label>(page, "pageCover");
-        LTK.LocalizeStringUITK(pageCover, LTK.UITABLE, "Combat.Recipe.Unknown");
+        UITK.LocalizeStringUITK(pageCover, UITK.UITABLE, "Combat.Recipe.Unknown");
     }
 
     public void UncoverPage()

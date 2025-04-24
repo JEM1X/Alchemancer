@@ -68,7 +68,7 @@ public class InGameMenu : MonoBehaviour
         UpdateWaveCounter(1);
 
         var stageLabel = UITK.AddElement<Label>(canvas, "stageLabel");
-        LTK.LocalizeStringUITK(stageLabel, LTK.UITABLE, stageName);
+        UITK.LocalizeStringUITK(stageLabel, UITK.UITABLE, stageName);
         stageLabel.pickingMode = PickingMode.Ignore;
 
         yield return new WaitForSeconds(2);
@@ -84,15 +84,15 @@ public class InGameMenu : MonoBehaviour
         var pauseFrame = UITK.AddElement(pauseScreen, "pauseFrame", "InGameFrame");
 
         var pauseLabel = UITK.AddElement<Label>(pauseFrame, "pauseLabel", "InGameScreenLabel");
-        LTK.LocalizeStringUITK(pauseLabel, LTK.UITABLE, "Menu.Pause");
+        UITK.LocalizeStringUITK(pauseLabel, UITK.UITABLE, "Menu.Pause");
 
         var continueButton = UITK.AddElement<Button>(pauseFrame, "continueButton", "MainButton");
         continueButton.clicked += () => UIMenu.ToggleScreen(pauseScreen, ref isPauseVisible);
-        LTK.LocalizeStringUITK(continueButton, LTK.UITABLE, "Menu.Continue");
+        UITK.LocalizeStringUITK(continueButton, UITK.UITABLE, "Menu.Continue");
 
         var settingsButton = UITK.AddElement<Button>(pauseFrame, "settingsButton", "MainButton");
         settingsButton.clicked += () => UIMenu.ToggleScreen(settingsScreen, ref isSettingsVisible);
-        LTK.LocalizeStringUITK(settingsButton, LTK.UITABLE, "Menu.Settings");
+        UITK.LocalizeStringUITK(settingsButton, UITK.UITABLE, "Menu.Settings");
 
         settingsScreen = UIMenu.InitSettingsMenu(audioMixer, out Button saveSettings);
         pauseScreen.Add(settingsScreen);
@@ -106,11 +106,11 @@ public class InGameMenu : MonoBehaviour
         { restartButton.clicked += () => SceneManager.LoadScene(6); }
         else 
         { restartButton.clicked += () => SceneManager.LoadScene(1); }
-        LTK.LocalizeStringUITK(restartButton, LTK.UITABLE, "Menu.Restart");
+        UITK.LocalizeStringUITK(restartButton, UITK.UITABLE, "Menu.Restart");
 
         var quitButton = UITK.AddElement<Button>(pauseFrame, "quitButton", "MainButton");
         quitButton.clicked += () => SceneManager.LoadScene(0);
-        LTK.LocalizeStringUITK(quitButton, LTK.UITABLE, "Menu.Quit");
+        UITK.LocalizeStringUITK(quitButton, UITK.UITABLE, "Menu.Quit");
 
         UIMenu.ToggleScreen(pauseScreen, ref isPauseVisible);
     }
@@ -122,24 +122,24 @@ public class InGameMenu : MonoBehaviour
         var victoryFrame = UITK.AddElement(victoryScreen, "victoryFrame", "InGameFrame");
 
         var victoryLabel = UITK.AddElement<Label>(victoryFrame, "victoryLabel", "InGameScreenLabel");
-        LTK.LocalizeStringUITK(victoryLabel, LTK.UITABLE, "Menu.Victory");
+        UITK.LocalizeStringUITK(victoryLabel, UITK.UITABLE, "Menu.Victory");
 
         var scoreLabel = UITK.AddElement<Label>(victoryFrame, "scoreLabel", "MainText", "InGameScreenLabel");
-        LTK.LocalizeStringUITK(scoreLabel, LTK.UITABLE, "Menu.Score", GameManager.Instance.totalScore.ToString());
+        UITK.LocalizeStringUITK(scoreLabel, UITK.UITABLE, "Menu.Score", GameManager.Instance.totalScore.ToString());
         Enemy.OnScoreGain += (int amount) => 
-        LTK.LocalizeStringUITK(scoreLabel, LTK.UITABLE, "Menu.Score", GameManager.Instance.totalScore.ToString());
+        UITK.LocalizeStringUITK(scoreLabel, UITK.UITABLE, "Menu.Score", GameManager.Instance.totalScore.ToString());
 
         if (isFinal)
         {
             var endButton = UITK.AddElement<Button>(victoryFrame, "nextButton", "MainButton");
             endButton.clicked += () => SceneManager.LoadScene(0);
-            LTK.LocalizeStringUITK(endButton, LTK.UITABLE, "Menu.End");
+            UITK.LocalizeStringUITK(endButton, UITK.UITABLE, "Menu.End");
         }
         else
         {
             var nextButton = UITK.AddElement<Button>(victoryFrame, "nextButton", "MainButton");
             nextButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            LTK.LocalizeStringUITK(nextButton, LTK.UITABLE, "Menu.Next");
+            UITK.LocalizeStringUITK(nextButton, UITK.UITABLE, "Menu.Next");
         }
 
         UIMenu.ToggleScreen(victoryScreen, ref isVictoryVisible);
@@ -152,22 +152,22 @@ public class InGameMenu : MonoBehaviour
         var defeatFrame = UITK.AddElement(defeatScreen, "defeatFrame", "InGameFrame");
 
         var defeatLabel = UITK.AddElement<Label>(defeatFrame, "defeatLabel", "InGameScreenLabel");
-        LTK.LocalizeStringUITK(defeatLabel, LTK.UITABLE, "Menu.Defeat");
+        UITK.LocalizeStringUITK(defeatLabel, UITK.UITABLE, "Menu.Defeat");
 
         var scoreLabel = UITK.AddElement<Label>(defeatFrame, "scoreLabel", "MainText", "InGameScreenLabel");
-        LTK.LocalizeStringUITK(scoreLabel, LTK.UITABLE, "Menu.Score", GameManager.Instance.totalScore.ToString());
+        UITK.LocalizeStringUITK(scoreLabel, UITK.UITABLE, "Menu.Score", GameManager.Instance.totalScore.ToString());
         Enemy.OnScoreGain += (int amount) =>
-        LTK.LocalizeStringUITK(scoreLabel, LTK.UITABLE, "Menu.Score", GameManager.Instance.totalScore.ToString());
+        UITK.LocalizeStringUITK(scoreLabel, UITK.UITABLE, "Menu.Score", GameManager.Instance.totalScore.ToString());
 
         var restartButton = UITK.AddElement<Button>(defeatFrame, "restartButton", "MainButton");
         restartButton.clicked += () => SceneManager.LoadScene(1);
-        LTK.LocalizeStringUITK(restartButton, LTK.UITABLE, "Menu.Restart");
+        UITK.LocalizeStringUITK(restartButton, UITK.UITABLE, "Menu.Restart");
 
         UIMenu.ToggleScreen(defeatScreen, ref isDefeatVisible);
     }
 
     private void UpdateWaveCounter(int wave)
     {
-        LTK.LocalizeStringUITK(waveCounter, LTK.UITABLE, "Menu.Wave", wave + "/" + BattleM.Instance.TotalWaves);
+        UITK.LocalizeStringUITK(waveCounter, UITK.UITABLE, "Menu.Wave", wave + "/" + BattleM.Instance.TotalWaves);
     }
 }

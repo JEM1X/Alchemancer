@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a304ad7a2aecdd74585782caf1f80113
+guid: 76faa9a6e893fc746b7931094aab35ec
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7581071910437482615
-    second: VulnerabilityCapsule_0
+      213: -5288241669293556557
+    second: MarauderCapsule_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -101,7 +101,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: VulnerabilityCapsule_0
+      name: MarauderCapsule_0
       rect:
         serializedVersion: 2
         x: 1
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98f8ea1834f9ac690800000000000000
-      internalID: -7581071910437482615
+      spriteID: 3bcb65758346c96b0800000000000000
+      internalID: -5288241669293556557
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      VulnerabilityCapsule_0: -7581071910437482615
+      MarauderCapsule_0: -5288241669293556557
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

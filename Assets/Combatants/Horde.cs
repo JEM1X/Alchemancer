@@ -4,37 +4,38 @@ using System.Collections.Generic;
 
 public class Horde : MonoBehaviour
 {
+    [Header("Horde")]
     public List<Enemy> EnemyScripts { get => enemyScripts; }
-    [SerializeField] private List<Enemy> enemyScripts;
+    [SerializeField] protected List<Enemy> enemyScripts;
 
-    [SerializeField] private GameObject[] enemyPrefabs;
-    [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private int spawnCount;
+    [SerializeField] protected GameObject[] enemyPrefabs;
+    [SerializeField] protected Transform[] spawnPoints;
+    [SerializeField] protected int spawnCount;
 
     public event Action<Enemy> OnNewEnemy;
     public event Action OnNoEnemyLeft;
 
-    [Header("Infinite Mode Settings")]
-    [SerializeField] private int wavesPerNewEnemyType = 1; // Ќовый тип врага каждые N волн
-    [SerializeField] private int wavesPerStatIncrease = 5; // ”величение статов каждые N волн
-    [SerializeField] private int healthIncrease = 1; // +1 к здоровью
-    [SerializeField] private int damageIncrease = 1; // +1 к урону
-
-    public void SpawnEnemy()
+    public virtual void SpawnNewWave()
     {
-        if (BattleM.Instance.IsInfiniteMode) 
+        for (int i = 0; i < spawnCount; i++)
         {
-            InfinityGamemode();
-            //вместо обращени€ к инстансу можно просто параметр к методу добавить и все
+            var enemy = Instantiate(enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)],
+                spawnPoints[i].position, spawnPoints[i].rotation, transform);
+
+            if (!enemy.TryGetComponent<Enemy>(out Enemy script))
+            {
+                Debug.LogError("Enemy Script was not found");
+                return;
+            }
+
+            enemyScripts.Add(script);
+
+            TriggerOnNewEnemy(script);
+            script.OnDeath += () => UpdateEnemyList(script);
         }
-        else 
-        {
-            ClassicGamemode();
-        }
-        
     }
 
-    private void UpdateEnemyList(Enemy enemy)
+    protected void UpdateEnemyList(Enemy enemy)
     {
         if (!enemyScripts.Remove(enemy))
         {
@@ -48,60 +49,8 @@ public class Horde : MonoBehaviour
         OnNoEnemyLeft?.Invoke();
     }
 
-    private void ClassicGamemode() 
+    protected void TriggerOnNewEnemy(Enemy enemy)
     {
-        for (int i = 0; i < spawnCount; i++)
-        {
-            var enemy = Instantiate(enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)], spawnPoints[i].position, spawnPoints[i].rotation, transform);
-
-            if (!enemy.TryGetComponent<Enemy>(out Enemy script))
-            {
-                Debug.LogError("Enemy Script was not found");
-                return;
-            }
-
-            enemyScripts.Add(script);
-
-            OnNewEnemy?.Invoke(script);
-            script.OnDeath += () => UpdateEnemyList(script);
-        }
+        OnNewEnemy?.Invoke(enemy);
     }
-
-    private void InfinityGamemode()
-    {
-        int currentWave = BattleM.Instance.CurrentWave;
-        int unlockedEnemyTypes = 1 + currentWave / wavesPerNewEnemyType;
-        int availableEnemyTypes = Mathf.Min(unlockedEnemyTypes, enemyPrefabs.Length);
-        int statIncreaseCount = currentWave / wavesPerStatIncrease;
-
-        for (int i = 0; i < spawnCount; i++)
-        {
-            int enemyTypeIndex = UnityEngine.Random.Range(0, availableEnemyTypes);
-
-            var enemy = Instantiate(
-                enemyPrefabs[enemyTypeIndex],
-                spawnPoints[i].position,
-                spawnPoints[i].rotation,
-                transform
-            );
-
-            if (!enemy.TryGetComponent(out Enemy script))
-            {
-                Debug.LogError("Enemy Script was not found");
-                continue;
-            }
-            if (BattleM.Instance.IsInfiniteMode && statIncreaseCount > 0)
-            {
-                script.IncreaseStats(
-                    healthIncrease * statIncreaseCount,
-                    damageIncrease * statIncreaseCount
-                );
-            }
-
-            enemyScripts.Add(script);
-            OnNewEnemy?.Invoke(script);
-            script.OnDeath += () => UpdateEnemyList(script);
-        }
-    }
-
 }

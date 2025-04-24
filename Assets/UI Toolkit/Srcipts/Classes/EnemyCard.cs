@@ -30,6 +30,6 @@ public class EnemyCard : CombatantCard
     {
         actionIcon.style.backgroundImage = new StyleBackground(enemy.PlannedAction.ActionIcon);
         actionSubIcon.style.backgroundImage = new StyleBackground(enemy.PlannedAction.SubIcon);
-        LTK.LocalizeStringUITK(actionHint, LTK.UITABLE, enemy.PlannedAction.Description);
+        UITK.LocalizeStringUITK(actionHint, UITK.UITABLE, enemy.PlannedAction.Description);
     }
 }

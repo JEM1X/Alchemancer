@@ -35,15 +35,13 @@ public class BattleM : Singleton<BattleM>
     {
         if (horde.EnemyScripts.Count == 0)
         {
-            // Если режим не бесконечный и все волны пройдены
             if (!isInfiniteMode && currentWave >= totalWaves)
             {
                 OnAllWavesCleared?.Invoke();
                 return;
             }
 
-            // Спавним новую волну
-            horde.SpawnEnemy();
+            horde.SpawnNewWave();
             currentWave++;
             OnWaveStart?.Invoke(currentWave);
         }

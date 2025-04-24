@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.UIElements;
 
 public class UICard
@@ -9,13 +10,12 @@ public class UICard
         cardFrame = UITK.CreateElement<Button>("cardFrame");
 
         var cardLabel = UITK.AddElement<Label>(cardFrame, "cardLabel", "MainText");
-        LTK.LocalizeStringUITK(cardLabel, LTK.CARDTABLE, card.Label);
+        UITK.LocalizeStringUITK(cardLabel, UITK.CARDTABLE, card.Label);
 
         var cardIcon = UITK.AddElement(cardFrame, "cardIcon");
         cardIcon.style.backgroundImage = new StyleBackground(card.Icon);
 
         var cardDescription = UITK.AddElement<Label>(cardFrame, "cardDescription", "SubText");
-        LTK.LocalizeStringUITK(cardDescription, LTK.CARDTABLE, card.Description);
+        UITK.LocalizeStringUITK(cardDescription, UITK.CARDTABLE, card.Description);
     }
-    
 }

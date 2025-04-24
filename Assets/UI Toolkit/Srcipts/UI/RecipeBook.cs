@@ -96,15 +96,15 @@ public class RecipeBook : MonoBehaviour
         TurnPage(currentPage);
 
         var nextPage = UITK.AddElement<Button>(bookFrame, "nextPage");
-        LTK.LocalizeStringUITK(nextPage, LTK.UITABLE, "Combat.Recipe.NextPage");
+        UITK.LocalizeStringUITK(nextPage, UITK.UITABLE, "Combat.Recipe.NextPage");
         nextPage.clicked += () => TurnPage(currentPage + 2);
 
         var previousPage = UITK.AddElement<Button>(bookFrame, "previousPage");
-        LTK.LocalizeStringUITK(previousPage, LTK.UITABLE, "Combat.Recipe.PreviousPage");
+        UITK.LocalizeStringUITK(previousPage, UITK.UITABLE, "Combat.Recipe.PreviousPage");
         previousPage.clicked += () => TurnPage(currentPage - 2);
 
         var availableToggle = UITK.AddElement<Button>(bookFrame, "availableToggle");
-        LTK.LocalizeStringUITK(availableToggle, LTK.UITABLE, "Combat.Recipe.AvailableToggle");
+        UITK.LocalizeStringUITK(availableToggle, UITK.UITABLE, "Combat.Recipe.AvailableToggle");
         availableToggle.clicked += () =>
         {
             if(isAvailableMode)

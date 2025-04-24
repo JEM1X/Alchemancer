@@ -30,7 +30,7 @@ public class Tutorial : MonoBehaviour
         var welcomeScreen = UITK.AddElement(canvas, "welcomeScreen", "InGameFrame");
 
         var welcomeLabel = UITK.AddElement<Label>(welcomeScreen, "welcomeLabel", "ClearText");
-        LTK.LocalizeStringUITK(welcomeLabel, LTK.UITABLE, "Tutorial.Intro");
+        UITK.LocalizeStringUITK(welcomeLabel, UITK.UITABLE, "Tutorial.Intro");
 
         var welcomeButton = UITK.AddElement<Button>(welcomeScreen, "welcomeButton", "MainButton");
         welcomeButton.text = "OK";
@@ -41,7 +41,7 @@ public class Tutorial : MonoBehaviour
         welcomeButton.clicked += () => handScreen.style.display = DisplayStyle.Flex;
 
         var handLabel = UITK.AddElement<Label>(handScreen, "handLabel", "ClearText");
-        LTK.LocalizeStringUITK(handLabel, LTK.UITABLE, "Tutorial.Hand");
+        UITK.LocalizeStringUITK(handLabel, UITK.UITABLE, "Tutorial.Hand");
 
         var handButton = UITK.AddElement<Button>(handScreen, "handButton", "MainButton");
         handButton.text = "OK";
@@ -58,7 +58,7 @@ public class Tutorial : MonoBehaviour
         potionScreen.style.display = DisplayStyle.Flex;
 
         var potionLabel = UITK.AddElement<Label>(potionScreen, "potionLabel", "ClearText");
-        LTK.LocalizeStringUITK(potionLabel, LTK.UITABLE, "Tutorial.Potion");
+        UITK.LocalizeStringUITK(potionLabel, UITK.UITABLE, "Tutorial.Potion");
 
         var potionButton = UITK.AddElement<Button>(potionScreen, "potionButton", "MainButton");
         potionButton.text = "OK";
@@ -75,7 +75,7 @@ public class Tutorial : MonoBehaviour
         finaleScreen.style.display = DisplayStyle.Flex;
 
         var finaleLabel = UITK.AddElement<Label>(finaleScreen, "finaleLabel", "ClearText");
-        LTK.LocalizeStringUITK(finaleLabel, LTK.UITABLE, "Tutorial.Finale");
+        UITK.LocalizeStringUITK(finaleLabel, UITK.UITABLE, "Tutorial.Finale");
 
         var finaleButton = UITK.AddElement<Button>(finaleScreen, "finaleButton", "MainButton");
         finaleButton.text = "OK";
