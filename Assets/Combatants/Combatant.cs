@@ -4,8 +4,10 @@ using System.Collections;
 
 public abstract class Combatant : MonoBehaviour
 {
+    [Header("UI")]
     public int size = 200;
 
+    [Header("Stats")]
     public int HealthMax { get => healthMax; }
     [SerializeField] protected int healthMax = 10;
     public int Health { get => health; }
@@ -15,6 +17,7 @@ public abstract class Combatant : MonoBehaviour
 
     [SerializeField] private int influence = 2;
 
+    [Header("Effects")]
     public int VulnerableResilient { get => vulnerableResilient; }
     [SerializeField] protected int vulnerableResilient = 0;
     public int WeakStrong { get => weakStrong; }

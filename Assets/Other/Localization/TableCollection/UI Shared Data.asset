@@ -119,6 +119,14 @@ MonoBehaviour:
     m_Key: Stage.Ruins
     m_Metadata:
       m_Items: []
+  - m_Id: 1475757128175616
+    m_Key: Stage.Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1471913740619776
+    m_Key: Stage.InfiniteMode
+    m_Metadata:
+      m_Items: []
   - m_Id: 358423278379008
     m_Key: Combat.Hint.Influence
     m_Metadata:

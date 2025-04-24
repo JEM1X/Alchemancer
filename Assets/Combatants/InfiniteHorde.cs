@@ -32,7 +32,7 @@ public class InfiniteHorde : Horde
                 continue;
             }
 
-            if (BattleM.Instance.IsInfiniteMode && statIncreaseCount > 0)
+            if (statIncreaseCount > 0)
             {
                 script.IncreaseStats(
                     healthIncrease * statIncreaseCount,

@@ -17,7 +17,254 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 4c4726fe6acae9c4b8be58aa99c503e2, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 227849687040
+    m_Localized: Commencer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 383340924928
+    m_Localized: "Param\xE8tres"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 461518557184
+    m_Localized: Quitter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4083774017536
+    m_Localized: Lancer une partie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4099972419584
+    m_Localized: Tutoriel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4103252365312
+    m_Localized: Course infinie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7204193587200
+    m_Localized: "Param\xE8tres"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7253577322496
+    m_Localized: Principal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7299609808896
+    m_Localized: Musique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7321692819456
+    m_Localized: Son
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7352172826624
+    m_Localized: Sauvegarder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22357177946112
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22453231702016
+    m_Localized: Continuer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22515076714496
+    m_Localized: "Param\xE8tres"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22556969422848
+    m_Localized: Recommencer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22604008542208
+    m_Localized: Quitter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25658468487168
+    m_Localized: Victoire !
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25902086246400
+    m_Localized: 'Score : '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25729981370368
+    m_Localized: Suivant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25955832057856
+    m_Localized: Fin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25975775973376
+    m_Localized: "D\xE9faite"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26074937708544
+    m_Localized: 'Vague '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28869946396672
+    m_Localized: "For\xEAt Respirante"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28906952740864
+    m_Localized: "Cimeti\xE8re de la Gorgone"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28962229473280
+    m_Localized: "Ch\xE2teau de la Comtesse"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28994177486848
+    m_Localized: Ruines du Saint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1475757128175616
+    m_Localized: Tutoriel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1471913740619776
+    m_Localized: Course infinie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358423278379008
+    m_Localized: Influence - renforce les effets des potions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358530296045568
+    m_Localized: "Puissance - augmente les d\xE9g\xE2ts des potions"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358678535331840
+    m_Localized: "Sant\xE9 - \xE0 z\xE9ro, la mort survient"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358814820851712
+    m_Localized: "Vuln\xE9rabilit\xE9 - double les d\xE9g\xE2ts re\xE7us"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358951068622848
+    m_Localized: "R\xE9silience - r\xE9duit les d\xE9g\xE2ts re\xE7us de moiti\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359091976265728
+    m_Localized: Faiblesse - divise la Puissance par deux
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359146992951296
+    m_Localized: Force - double la Puissance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359148750364672
+    m_Localized: Terne - divise l'Influence par deux
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359718873718784
+    m_Localized: Brillant - double l'Influence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359953117208576
+    m_Localized: "Saignement - inflige des d\xE9g\xE2ts directs (moiti\xE9 de sa
+      valeur) en d\xE9but de tour, puis diminue"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359955063365632
+    m_Localized: "\xC9tourdi - passe le tour de la cible"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1031541679869952
+    m_Localized: "Esquive - \xE9vite compl\xE8tement les d\xE9g\xE2ts"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360482010554368
+    m_Localized: Inflige (Puissance) Saignement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360623111135232
+    m_Localized: "Inflige (Puissance) d\xE9g\xE2ts"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360700244385792
+    m_Localized: Inflige (Influence) Terne
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360859191730176
+    m_Localized: "Inflige (Influence / 2) \xC9tourdi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360927152037888
+    m_Localized: "Inflige (Influence) Vuln\xE9rabilit\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361005065428992
+    m_Localized: Inflige (Influence) Faiblesse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361064112840704
+    m_Localized: "Soigne \xE9gal \xE0 votre Saignement"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361128176640000
+    m_Localized: Soigne (Influence * 2)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361171902259200
+    m_Localized: "Gagne (Influence) R\xE9silience"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361239426359296
+    m_Localized: Gagne (Influence) Force
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361295613255680
+    m_Localized: "Retire tous les effets des alli\xE9s"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 370805148999680
+    m_Localized: Inconnu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 730654939959296
+    m_Localized: "Bienvenue dans Alchemancer. Vous \xEAtes un kobold alchimiste devant
+      survivre \xE0 des hordes de monstres. Pour gagner, terminez toutes les \xE9tapes
+      (vagues d'ennemis). La difficult\xE9 augmente \xE0 chaque \xE9tape."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 731177034338304
+    m_Localized: "En combat, vous utiliserez trois types de potions : \xC9lixirs
+      (soi), Capsules (un ennemi), et Fioles (tous les ennemis). Cr\xE9ez-les en
+      m\xE9langeant des ingr\xE9dients (recettes uniques : 2-3 ingr\xE9dients). Vous
+      piochez 5 cartes d'ingr\xE9dients par tour."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 731489690341376
+    m_Localized: "F\xE9licitations pour votre premi\xE8re potion ! Chacune a un effet
+      unique (d\xE9g\xE2ts, buffs, ou debuffs). Vous pouvez en tenir 3 maximum. Appuyez
+      sur 'Fin de tour' quand vous n'avez plus d'ingr\xE9dients."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 732037432889344
+    m_Localized: "Au d\xE9but de chaque tour, vous piochez 5 cartes d'ingr\xE9dients
+      al\xE9atoires. Les ingr\xE9dients inutilis\xE9s disparaissent, mais les potions
+      persistent (r\xE9initialis\xE9es entre les \xE9tapes). Les recettes sont al\xE9atoires
+      par partie. Bonne chance, alchimiste !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049509260316672
+    m_Localized: Page suivante
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049511411994624
+    m_Localized: "Page pr\xE9c\xE9dente"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049587098210304
+    m_Localized: Disponibles seulement
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

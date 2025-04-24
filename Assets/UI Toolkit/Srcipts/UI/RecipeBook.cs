@@ -145,8 +145,10 @@ public class RecipeBook : MonoBehaviour
                 availablePotionPages.Add(recipePage);
         }
 
-        if(availablePotionPages.Count <= 0) 
+        if (availablePotionPages.Count <= 0)
             DeactivateAvailableMode();
+        else
+            TurnPage(0);
     }
 
     private void DeactivateAvailableMode()

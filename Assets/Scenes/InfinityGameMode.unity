@@ -361,7 +361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1540369660}
-  - component: {fileID: 1540369659}
+  - component: {fileID: 1540369661}
   m_Layer: 0
   m_Name: Horde
   m_TagString: Untagged
@@ -369,7 +369,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1540369659
+--- !u!4 &1540369660
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540369658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1484934167}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1540369661
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -378,7 +394,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1540369658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a084c9a66c6192e4e862cf8cfe22b13f, type: 3}
+  m_Script: {fileID: 11500000, guid: a70996ec00dfb434796c013072fdb966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyScripts: []
@@ -398,26 +414,10 @@ MonoBehaviour:
   - {fileID: 1278090437}
   - {fileID: 41867262}
   spawnCount: 3
-  wavesPerNewEnemyType: 3
+  wavesPerNewEnemyType: 1
   wavesPerStatIncrease: 5
   healthIncrease: 1
   damageIncrease: 1
---- !u!4 &1540369660
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1540369658}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1484934167}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1619143736
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +669,7 @@ PrefabInstance:
     - target: {fileID: 2454345752319418725, guid: efaebaac153717e4fa93dfe4d253b239, type: 3}
       propertyPath: horde
       value: 
-      objectReference: {fileID: 1540369659}
+      objectReference: {fileID: 0}
     - target: {fileID: 5798681244293298209, guid: efaebaac153717e4fa93dfe4d253b239, type: 3}
       propertyPath: m_Name
       value: Alchemancer
@@ -734,7 +734,7 @@ PrefabInstance:
     - target: {fileID: 585091240705898258, guid: b957ae3a5c197b447bbbfe2d37ba04d3, type: 3}
       propertyPath: horde
       value: 
-      objectReference: {fileID: 1540369659}
+      objectReference: {fileID: 0}
     - target: {fileID: 585091240705898258, guid: b957ae3a5c197b447bbbfe2d37ba04d3, type: 3}
       propertyPath: player
       value: 
@@ -742,7 +742,7 @@ PrefabInstance:
     - target: {fileID: 3642017888385160230, guid: b957ae3a5c197b447bbbfe2d37ba04d3, type: 3}
       propertyPath: horde
       value: 
-      objectReference: {fileID: 1540369659}
+      objectReference: {fileID: 1540369661}
     - target: {fileID: 3642017888385160230, guid: b957ae3a5c197b447bbbfe2d37ba04d3, type: 3}
       propertyPath: player
       value: 
@@ -826,7 +826,7 @@ PrefabInstance:
       objectReference: {fileID: 1948359766}
     - target: {fileID: 1449901830896665373, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
       propertyPath: stageName
-      value: "\u0416\u0438\u0432\u043E\u0439 \u041B\u0435\u0441"
+      value: Stage.InfiniteMode
       objectReference: {fileID: 0}
     - target: {fileID: 1449901830896665373, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
       propertyPath: alchemancer

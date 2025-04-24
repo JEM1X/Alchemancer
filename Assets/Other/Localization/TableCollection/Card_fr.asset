@@ -17,7 +17,336 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: ab448d61fe3f407499344a68a4b1ebfe, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 506842206208
+    m_Localized: "\u0152il de Chat"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696353443840
+    m_Localized: "Perce les t\xE9n\xE8bres et les illusions"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 824623648768
+    m_Localized: Plume de Griffon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1121798475776
+    m_Localized: "L\xE9ger comme le vent, f\xE9roce comme un pr\xE9dateur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1176227958784
+    m_Localized: Quartz Lunaire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1250332921856
+    m_Localized: "Lumi\xE8re de la nuit, magie des r\xEAves"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1380557672448
+    m_Localized: "\xC9clat d'Obsidienne"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1430759297024
+    m_Localized: "Lame des t\xE9n\xE8bres, h\xE9raut de la destruction"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1516004331520
+    m_Localized: "\xC9clat d'Argent"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1617732980736
+    m_Localized: "Fl\xE9au des impurs, m\xE9tal pur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1667443871744
+    m_Localized: "Cr\xE2ne Humain"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1756535083008
+    m_Localized: "\xC9cho de la mort, gardien des secrets"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 791515570262016
+    m_Localized: Capsule Combo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 791517227012096
+    m_Localized: "Inflige (Puissance / 2) d\xE9g\xE2ts trois fois"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1867713499136
+    m_Localized: "Capsule des G\xE9ants"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2310053187584
+    m_Localized: "Inflige la moiti\xE9 des PV de l'ennemi (Puissance Max * 2)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 790140203454464
+    m_Localized: Capsule de Maraudeur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 790223804321792
+    m_Localized: "Inflige (Puissance) d\xE9g\xE2ts. Si tu\xE9, pioche 2 cartes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2529943769088
+    m_Localized: Capsule Multiple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2532112224256
+    m_Localized: "Inflige tous les effets n\xE9gatifs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2811410927616
+    m_Localized: "Capsule de D\xE9sespoir"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2856671662080
+    m_Localized: "Inflige (Puissance * 3) d\xE9g\xE2ts. \xC9tourdi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3015702892544
+    m_Localized: "Capsule d'\xC9tourdissement"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3017326088192
+    m_Localized: "Inflige (Influence / 2) \xC9tourdissement"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3144786792448
+    m_Localized: "Capsule d'\xC9change"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3158300839936
+    m_Localized: "\xC9change les effets avec l'ennemi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3406406504448
+    m_Localized: Capsule d'Acide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3429965910016
+    m_Localized: "Inflige (Puissance) d\xE9g\xE2ts"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3630080348160
+    m_Localized: Capsule de Saignement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3631183450112
+    m_Localized: Inflige (Puissance) Saignement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3811148451840
+    m_Localized: "Capsule des T\xE9n\xE8bres"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3814843633664
+    m_Localized: "Inflige (Influence) T\xE9n\xE8bres"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4195053096960
+    m_Localized: "Capsule de Vuln\xE9rabilit\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4224555831296
+    m_Localized: "Inflige (Influence) Vuln\xE9rabilit\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4354814136320
+    m_Localized: Capsule de Faiblesse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4355904655360
+    m_Localized: Inflige (Influence) Faiblesse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4834084671488
+    m_Localized: "\xC9lixir de Charlatan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4837838573568
+    m_Localized: Soigne (0 - Influence * 4) PV
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4998425890816
+    m_Localized: "\xC9lixir de Purification"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5000304939008
+    m_Localized: Supprime tous les effets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5255775801344
+    m_Localized: "\xC9lixir du Dragon"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5257239613440
+    m_Localized: "Soigne (Influence * 2) PV. Conf\xE8re R\xE9silience"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5418992947200
+    m_Localized: "\xC9lixir de D\xE9couverte"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5419655647232
+    m_Localized: "Ajoute 4 cartes \xE0 votre main"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792196578430976
+    m_Localized: "\xC9lixir de Peau de Pierre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792198411341824
+    m_Localized: "Conf\xE8re (Influence) R\xE9silience. Inflige Faiblesse"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5720970252288
+    m_Localized: "\xC9lixir de Vampire"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5722434064384
+    m_Localized: "Soigne \xE9gal au Saignement des ennemis"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5824930271232
+    m_Localized: "\xC9lixir de Lumi\xE8re"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5827895644160
+    m_Localized: "Conf\xE8re (Influence) Lumi\xE8re"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792882733010944
+    m_Localized: "\xC9lixir d'Esquive"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792883869667328
+    m_Localized: "Conf\xE8re (Influence / 2) Esquive"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6146666942464
+    m_Localized: "\xC9lixir de Sant\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6148353052672
+    m_Localized: Soigne (Influence * 2) PV
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6230850818048
+    m_Localized: "\xC9lixir de R\xE9silience"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6232201383936
+    m_Localized: "Conf\xE8re (Influence / 2) R\xE9silience"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6347867705344
+    m_Localized: "\xC9lixir de Force"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6348693983232
+    m_Localized: "Conf\xE8re (Influence / 2) Force"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7070047162368
+    m_Localized: Fiole de Berserker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7072123342848
+    m_Localized: Inflige les PV manquants aux ennemis. Max (Puissance * 2)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7273496072192
+    m_Localized: Fiole de Sanguinaire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7274452373504
+    m_Localized: "Inflige des d\xE9g\xE2ts \xE9gaux au Saignement"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7368887128064
+    m_Localized: "Fiole d'Arr\xEAt Total"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7369918926848
+    m_Localized: "Inflige (2) \xC9tourdissement \xE0 absolument tous"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7479495118848
+    m_Localized: Fiole du Joueur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7481193811968
+    m_Localized: Tue tous les ennemis ou vous tue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7699163402240
+    m_Localized: Fiole de Meute
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7699876433920
+    m_Localized: "Inflige des d\xE9g\xE2ts \xE9gaux au nombre d'ennemis"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 793359335968768
+    m_Localized: Fiole de Ricochet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 793360996913152
+    m_Localized: "Inflige (Puissance) d\xE9g\xE2ts \xE0 un ennemi al\xE9atoire. 50%
+      de chance de se relancer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7778200866816
+    m_Localized: Fiole Instable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7780071526400
+    m_Localized: "Inflige un effet al\xE9atoire"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7932639334400
+    m_Localized: Fiole de Saignement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7935357243392
+    m_Localized: Inflige (Puissance / 2) Saignement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8140882333696
+    m_Localized: "Fiole des T\xE9n\xE8bres"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8141796691968
+    m_Localized: "Inflige (Influence / 2) T\xE9n\xE8bres"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8289243254784
+    m_Localized: Fiole de Poison
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8290136641536
+    m_Localized: "Inflige (Puissance / 2) d\xE9g\xE2ts"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9201122693120
+    m_Localized: "Fiole de Vuln\xE9rabilit\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9216968773632
+    m_Localized: "Inflige (Influence / 2) Vuln\xE9rabilit\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9355364028416
+    m_Localized: Fiole de Faiblesse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9356324524032
+    m_Localized: Inflige (Influence / 2) Faiblesse
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -31,7 +31,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4083774017536
-    m_Localized: Start a Run
+    m_Localized: Start Run
     m_Metadata:
       m_Items: []
   - m_Id: 4099972419584
@@ -39,7 +39,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4103252365312
-    m_Localized: Infinite run
+    m_Localized: Infinite Run
     m_Metadata:
       m_Items: []
   - m_Id: 7204193587200
@@ -124,6 +124,148 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 370805148999680
     m_Localized: Unknown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1471913740619776
+    m_Localized: Infinite Run
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1475757128175616
+    m_Localized: Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358423278379008
+    m_Localized: Influence - enhances effects applied by potions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358530296045568
+    m_Localized: Power - increases damage dealt by potions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358678535331840
+    m_Localized: Health - if it reaches zero, death occurs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358814820851712
+    m_Localized: Vulnerability - doubles incoming damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358951068622848
+    m_Localized: Resilience - halves incoming damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359091976265728
+    m_Localized: Weakness - halves Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359146992951296
+    m_Localized: Strength - doubles Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359148750364672
+    m_Localized: Dull - halves Influence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359718873718784
+    m_Localized: Bright - doubles Influence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359953117208576
+    m_Localized: Bleed - deals direct damage at turn start (half its value), then
+      decreases by the same amount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359955063365632
+    m_Localized: Stun - skips the target's turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1031541679869952
+    m_Localized: Dodge - completely avoids attack damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360482010554368
+    m_Localized: Inflict (Power) Bleed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360623111135232
+    m_Localized: Deal (Power) damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360700244385792
+    m_Localized: Inflict (Influence) Dull
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360859191730176
+    m_Localized: Inflict (Influence / 2) Stun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360927152037888
+    m_Localized: Inflict (Influence) Vulnerability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361005065428992
+    m_Localized: Inflict (Influence) Weakness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361064112840704
+    m_Localized: Heal equal to your Bleed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361128176640000
+    m_Localized: Heal (Influence * 2)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361171902259200
+    m_Localized: Gain (Influence) Resilience
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361239426359296
+    m_Localized: Gain (Influence) Strength
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361295613255680
+    m_Localized: Remove all effects from allies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 730654939959296
+    m_Localized: Welcome to Alchemancer. You are a kobold alchemist who must fight
+      through hordes of monsters. To win, you must complete all stages, each consisting
+      of enemy waves. Difficulty increases with each stage, requiring your full alchemical
+      prowess to survive.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 731177034338304
+    m_Localized: "In combat, you\u2019ll use three potion types: Elixirs (self),
+      Capsules (single enemy), and Flasks (all enemies). You start each stage with
+      no potions\u2014create them by mixing ingredients. Each potion has a unique
+      recipe (2-3 ingredients). At turn start, you draw 5 ingredient cards. Try mixing
+      them now!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 731489690341376
+    m_Localized: "Congratulations on your first potion! Each has a unique effect
+      (damage, buffs, or debuffs). You can hold up to 3 potions\u2014if full, you
+      can\u2019t create more. When out of ingredients, press 'End Turn' to pass to
+      enemies."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 732037432889344
+    m_Localized: At turn start, you draw 5 random ingredient cards. Unused ingredients
+      vanish at turn end, but potions persist between turns (reset between stages).
+      Recipes are randomized per run and logged in your Recipe Book (top-left corner).
+      Good luck, alchemist!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049509260316672
+    m_Localized: Next Page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049511411994624
+    m_Localized: Previous Page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049587098210304
+    m_Localized: Available Only
     m_Metadata:
       m_Items: []
   references:

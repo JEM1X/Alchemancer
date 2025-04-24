@@ -6,6 +6,6 @@ public class SelfResilientAction_SO : EnemyAction_SO
     public override void ExecuteAction(Enemy user)
     {
         user.StartCoroutine(user.SelfCast());
-        user.InflictVulnerableResilient(user.Influence + 1);
+        user.InflictVulnerableResilient(user.Influence);
     }
 }

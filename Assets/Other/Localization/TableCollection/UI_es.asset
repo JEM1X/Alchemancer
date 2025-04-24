@@ -17,7 +17,253 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 4c4726fe6acae9c4b8be58aa99c503e2, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 227849687040
+    m_Localized: Comenzar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 383340924928
+    m_Localized: Ajustes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 461518557184
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4083774017536
+    m_Localized: Comenzar partida
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4099972419584
+    m_Localized: Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4103252365312
+    m_Localized: Carrera infinita
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7204193587200
+    m_Localized: Ajustes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7253577322496
+    m_Localized: Principal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7299609808896
+    m_Localized: "M\xFAsica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7321692819456
+    m_Localized: Sonido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7352172826624
+    m_Localized: Guardar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22357177946112
+    m_Localized: Pausa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22453231702016
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22515076714496
+    m_Localized: Ajustes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22556969422848
+    m_Localized: Reiniciar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22604008542208
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25658468487168
+    m_Localized: "\xA1Victoria!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25902086246400
+    m_Localized: "Puntuaci\xF3n: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25729981370368
+    m_Localized: Siguiente
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25955832057856
+    m_Localized: Fin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25975775973376
+    m_Localized: Derrota
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26074937708544
+    m_Localized: 'Oleada '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28869946396672
+    m_Localized: Bosque Palpitante
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28906952740864
+    m_Localized: Cementerio de la Gorgona
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28962229473280
+    m_Localized: Castillo de la Condesa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28994177486848
+    m_Localized: Ruinas del Santo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1475757128175616
+    m_Localized: Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1471913740619776
+    m_Localized: Carrera infinita
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358423278379008
+    m_Localized: Influencia - potencia efectos de pociones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358530296045568
+    m_Localized: "Poder - aumenta da\xF1o de pociones"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358678535331840
+    m_Localized: Salud - si llega a cero, mueres
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358814820851712
+    m_Localized: "Vulnerabilidad - dobla da\xF1o recibido"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358951068622848
+    m_Localized: "Resistencia - reduce da\xF1o recibido a la mitad"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359091976265728
+    m_Localized: Debilidad - reduce Poder a la mitad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359146992951296
+    m_Localized: Fuerza - dobla Poder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359148750364672
+    m_Localized: Opaco - reduce Influencia a la mitad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359718873718784
+    m_Localized: Brillante - dobla Influencia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359953117208576
+    m_Localized: "Sangrado - causa da\xF1o directo (mitad de su valor) al inicio
+      del turno, luego disminuye"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359955063365632
+    m_Localized: Aturdimiento - el objetivo pierde turno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1031541679869952
+    m_Localized: "Esquivar - evita da\xF1o de ataque"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360482010554368
+    m_Localized: Inflige (Poder) Sangrado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360623111135232
+    m_Localized: "Inflige (Poder) da\xF1o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360700244385792
+    m_Localized: Inflige (Influencia) Opaco
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360859191730176
+    m_Localized: Inflige (Influencia / 2) Aturdimiento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360927152037888
+    m_Localized: Inflige (Influencia) Vulnerabilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361005065428992
+    m_Localized: Inflige (Influencia) Debilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361064112840704
+    m_Localized: Cura igual a tu Sangrado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361128176640000
+    m_Localized: Cura (Influencia * 2)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361171902259200
+    m_Localized: Gana (Influencia) Resistencia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361239426359296
+    m_Localized: Gana (Influencia) Fuerza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361295613255680
+    m_Localized: Elimina efectos de aliados
+    m_Metadata:
+      m_Items: []
+  - m_Id: 370805148999680
+    m_Localized: Desconocido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 730654939959296
+    m_Localized: Bienvenido a Alchemancer. Eres un kobold alquimista que debe superar
+      oleadas de monstruos. Completa todas las etapas (cada una con oleadas). La
+      dificultad aumenta en cada etapa.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 731177034338304
+    m_Localized: "En combate, usar\xE1s tres tipos de pociones: Elixires (ti mismo),
+      C\xE1psulas (un enemigo) y Frascos (todos los enemigos). Cr\xE9alas mezclando
+      ingredientes (recetas \xFAnicas: 2-3 ingredientes). Robas 5 cartas de ingredientes
+      por turno."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 731489690341376
+    m_Localized: "\xA1Felicidades por tu primera poci\xF3n! Cada una tiene un efecto
+      \xFAnico (da\xF1o, mejoras, o debuffs). Puedes tener hasta 3. Presiona 'Terminar
+      turno' si no hay ingredientes."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 732037432889344
+    m_Localized: "Al inicio de cada turno, robas 5 cartas de ingredientes. Los ingredientes
+      no usados desaparecen, pero las pociones persisten (se reinician entre etapas).
+      Las recetas son aleatorias por partida. \xA1Buena suerte, alquimista!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049509260316672
+    m_Localized: "Siguiente p\xE1gina"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049511411994624
+    m_Localized: "P\xE1gina anterior"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049587098210304
+    m_Localized: Solo disponibles
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

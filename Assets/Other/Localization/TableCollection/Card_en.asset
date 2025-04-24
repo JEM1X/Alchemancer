@@ -167,9 +167,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5257239613440
-    m_Localized: 'Restores (Influence * 2) health.
-
-      Grants Resilience'
+    m_Localized: Restores (Influence * 2) health. Grants Resilience
     m_Metadata:
       m_Items: []
   - m_Id: 5418992947200
@@ -217,7 +215,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6348693983232
-    m_Localized: Inflicts (Influence / 2) Strength
+    m_Localized: Grants (Influence / 2) Strength
     m_Metadata:
       m_Items: []
   - m_Id: 7070047162368
@@ -225,9 +223,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7072123342848
-    m_Localized: 'Deals missing health to enemies.
-
-      Max (Power * 2)'
+    m_Localized: Deals missing health to enemies. Max (Power * 2)
     m_Metadata:
       m_Items: []
   - m_Id: 7273496072192
@@ -251,9 +247,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7481193811968
-    m_Localized: 'Either kills all enemies
-
-      or kills you'
+    m_Localized: Either kills all enemies or kills you
     m_Metadata:
       m_Items: []
   - m_Id: 7699163402240
@@ -310,6 +304,46 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 9356324524032
     m_Localized: Inflicts (Influence / 2) Weakness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 791515570262016
+    m_Localized: Combo Capsule
+    m_Metadata:
+      m_Items: []
+  - m_Id: 791517227012096
+    m_Localized: Deals (Power / 2) damage three times
+    m_Metadata:
+      m_Items: []
+  - m_Id: 790140203454464
+    m_Localized: Marauder Capsule
+    m_Metadata:
+      m_Items: []
+  - m_Id: 790223804321792
+    m_Localized: Deals (Power) damage. On kill, draw 2 cards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792196578430976
+    m_Localized: Stone Skin Elixir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792198411341824
+    m_Localized: Grants (Influence) Resilience. Inflicts Weakness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792882733010944
+    m_Localized: Dodge Elixir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792883869667328
+    m_Localized: Grants (Influence / 2) Dodge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 793359335968768
+    m_Localized: Ricochet Flask
+    m_Metadata:
+      m_Items: []
+  - m_Id: 793360996913152
+    m_Localized: Deals (Power) damage to a random enemy. 50% chance to trigger again
     m_Metadata:
       m_Items: []
   references:

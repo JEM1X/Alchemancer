@@ -17,7 +17,338 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: ab448d61fe3f407499344a68a4b1ebfe, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 506842206208
+    m_Localized: Katzenauge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696353443840
+    m_Localized: Durchdringt Dunkelheit und Illusionen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 824623648768
+    m_Localized: Greifenfeder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1121798475776
+    m_Localized: Leicht wie der Wind, stark wie ein Raubtier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1176227958784
+    m_Localized: Mondquarz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1250332921856
+    m_Localized: "Licht der Nacht, Magie der Tr\xE4ume"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1380557672448
+    m_Localized: Obsidiansplitter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1430759297024
+    m_Localized: "Klinge der Dunkelheit, Vorbote der Zerst\xF6rung"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1516004331520
+    m_Localized: Silbersplitter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1617732980736
+    m_Localized: "Gei\xDFel des Unheiligen, reines Metall"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1667443871744
+    m_Localized: "Menschlicher Sch\xE4del"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1756535083008
+    m_Localized: "Echo des Todes, H\xFCter von Geheimnissen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 791515570262016
+    m_Localized: Kombokapsel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 791517227012096
+    m_Localized: "F\xFCgt (Macht / 2) Schaden dreimal zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1867713499136
+    m_Localized: Riesenkapsel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2310053187584
+    m_Localized: "F\xFCgt die H\xE4lfte der gegnerischen Gesundheit zu (Max. Macht
+      * 2)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 790140203454464
+    m_Localized: "Pl\xFCndererkapsel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 790223804321792
+    m_Localized: "F\xFCgt (Macht) Schaden zu. Bei Tod: 2 Karten ziehen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2529943769088
+    m_Localized: Multikapsel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2532112224256
+    m_Localized: "F\xFCgt alle negativen Effekte zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2811410927616
+    m_Localized: Verzweiflungskapsel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2856671662080
+    m_Localized: "F\xFCgt (Macht * 3) Schaden zu. Bet\xE4ubung"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3015702892544
+    m_Localized: "Bet\xE4ubungskapsel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3017326088192
+    m_Localized: "F\xFCgt (Einfluss / 2) Bet\xE4ubung zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3144786792448
+    m_Localized: Tauschkapsel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3158300839936
+    m_Localized: Tauscht Effekte mit dem Gegner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3406406504448
+    m_Localized: "S\xE4urekapsel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3429965910016
+    m_Localized: "F\xFCgt (Macht) Schaden zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3630080348160
+    m_Localized: Blutungskapsel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3631183450112
+    m_Localized: "F\xFCgt (Macht) Bluten zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3811148451840
+    m_Localized: Dunkelheitskapsel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3814843633664
+    m_Localized: "F\xFCgt (Einfluss) Dunkelheit zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4195053096960
+    m_Localized: Verwundbarkeitskapsel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4224555831296
+    m_Localized: "F\xFCgt (Einfluss) Verwundbarkeit zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4354814136320
+    m_Localized: "Schw\xE4chekapsel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4355904655360
+    m_Localized: "F\xFCgt (Einfluss) Schw\xE4che zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4834084671488
+    m_Localized: Scharlatanelixier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4837838573568
+    m_Localized: Heilt (0 - Einfluss * 4) Gesundheit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4998425890816
+    m_Localized: Reinigungselixier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5000304939008
+    m_Localized: Entfernt alle Effekte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5255775801344
+    m_Localized: Drachenelixier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5257239613440
+    m_Localized: "Heilt (Einfluss * 2) Gesundheit. Gew\xE4hrt Widerstandsf\xE4higkeit"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5418992947200
+    m_Localized: Findelixier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5419655647232
+    m_Localized: "F\xFCgt 4 Karten hinzu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792196578430976
+    m_Localized: Steinhautelixier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792198411341824
+    m_Localized: "Gew\xE4hrt (Einfluss) Widerstandsf\xE4higkeit. F\xFCgt Schw\xE4che
+      zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5720970252288
+    m_Localized: Vampirelixier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5722434064384
+    m_Localized: Heilt gleich dem Bluten der Gegner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5824930271232
+    m_Localized: Lichtelixier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5827895644160
+    m_Localized: "Gew\xE4hrt (Einfluss) Licht"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792882733010944
+    m_Localized: Ausweichelixier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792883869667328
+    m_Localized: "Gew\xE4hrt (Einfluss / 2) Ausweichen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6146666942464
+    m_Localized: Gesundheitstelixier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6148353052672
+    m_Localized: Heilt (Einfluss * 2) Gesundheit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6230850818048
+    m_Localized: Widerstandselixier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6232201383936
+    m_Localized: "Gew\xE4hrt (Einfluss / 2) Widerstandsf\xE4higkeit"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6347867705344
+    m_Localized: "St\xE4rkeelixier"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6348693983232
+    m_Localized: "Gew\xE4hrt (Einfluss / 2) St\xE4rke"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7070047162368
+    m_Localized: Berserkerflasche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7072123342848
+    m_Localized: "F\xFCgt fehlende Gesundheit der Gegner zu. Max (Macht * 2)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7273496072192
+    m_Localized: Blutdurstflasche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7274452373504
+    m_Localized: "F\xFCgt Schaden gleich dem Bluten zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7368887128064
+    m_Localized: Stoppflasche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7369918926848
+    m_Localized: "F\xFCgt (2) Bet\xE4ubung allen zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7479495118848
+    m_Localized: Spielerflasche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7481193811968
+    m_Localized: "T\xF6tet alle Gegner oder dich"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7699163402240
+    m_Localized: Rudelflasche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7699876433920
+    m_Localized: "F\xFCgt Schaden gleich der Anzahl der Gegner zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 793359335968768
+    m_Localized: Abprallflasche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 793360996913152
+    m_Localized: "F\xFCgt (Macht) Schaden einem zuf\xE4lligen Gegner zu. 50% Chance,
+      erneut auszul\xF6sen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7778200866816
+    m_Localized: Instabile Flasche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7780071526400
+    m_Localized: "F\xFCgt zuf\xE4lligen Effekt zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7932639334400
+    m_Localized: Blutungsflasche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7935357243392
+    m_Localized: "F\xFCgt (Macht / 2) Bluten zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8140882333696
+    m_Localized: Dunkelheitsflasche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8141796691968
+    m_Localized: "F\xFCgt (Einfluss / 2) Dunkelheit zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8289243254784
+    m_Localized: Giftflasche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8290136641536
+    m_Localized: "F\xFCgt (Macht / 2) Schaden zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9201122693120
+    m_Localized: Verwundbarkeitsflasche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9216968773632
+    m_Localized: "F\xFCgt (Einfluss / 2) Verwundbarkeit zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9355364028416
+    m_Localized: "Schw\xE4cheflasche"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9356324524032
+    m_Localized: "F\xFCgt (Einfluss / 2) Schw\xE4che zu"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

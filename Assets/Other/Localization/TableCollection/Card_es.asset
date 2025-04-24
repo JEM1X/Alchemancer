@@ -17,7 +17,335 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: ab448d61fe3f407499344a68a4b1ebfe, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 506842206208
+    m_Localized: Ojo de Gato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696353443840
+    m_Localized: "Ve a trav\xE9s de oscuridad e ilusiones"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 824623648768
+    m_Localized: Pluma de Grifo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1121798475776
+    m_Localized: Ligero como el viento, feroz como depredador
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1176227958784
+    m_Localized: Cuarzo Lunar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1250332921856
+    m_Localized: "Luz de noche, magia de sue\xF1os"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1380557672448
+    m_Localized: Fragmento de Obsidiana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1430759297024
+    m_Localized: "Hoja de oscuridad, heraldo de destrucci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1516004331520
+    m_Localized: Fragmento de Plata
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1617732980736
+    m_Localized: "Perdici\xF3n de lo impuro, metal puro"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1667443871744
+    m_Localized: "Cr\xE1neo Humano"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1756535083008
+    m_Localized: "Eco de muerte, guardi\xE1n de secretos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 791515570262016
+    m_Localized: "C\xE1psula Combinada"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 791517227012096
+    m_Localized: "Inflige (Poder / 2) da\xF1o tres veces"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1867713499136
+    m_Localized: "C\xE1psula de Gigantes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2310053187584
+    m_Localized: "Inflige la mitad de la salud del enemigo (Poder M\xE1x. * 2)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 790140203454464
+    m_Localized: "C\xE1psula de Merodeador"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 790223804321792
+    m_Localized: "Inflige (Poder) da\xF1o. Al matar, roba 2 cartas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2529943769088
+    m_Localized: "C\xE1psula M\xFAltiple"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2532112224256
+    m_Localized: Inflige todos los efectos negativos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2811410927616
+    m_Localized: "C\xE1psula de Desesperaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2856671662080
+    m_Localized: "Inflige (Poder * 3) da\xF1o. Aturdimiento"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3015702892544
+    m_Localized: "C\xE1psula de Aturdimiento"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3017326088192
+    m_Localized: Inflige (Influencia / 2) Aturdimiento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3144786792448
+    m_Localized: "C\xE1psula de Intercambio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3158300839936
+    m_Localized: Intercambia efectos con el enemigo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3406406504448
+    m_Localized: "C\xE1psula de \xC1cido"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3429965910016
+    m_Localized: "Inflige (Poder) da\xF1o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3630080348160
+    m_Localized: "C\xE1psula de Sangrado"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3631183450112
+    m_Localized: Inflige (Poder) Sangrado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3811148451840
+    m_Localized: "C\xE1psula de Oscuridad"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3814843633664
+    m_Localized: Inflige (Influencia) Oscuridad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4195053096960
+    m_Localized: "C\xE1psula de Vulnerabilidad"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4224555831296
+    m_Localized: Inflige (Influencia) Vulnerabilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4354814136320
+    m_Localized: "C\xE1psula de Debilidad"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4355904655360
+    m_Localized: Inflige (Influencia) Debilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4834084671488
+    m_Localized: "Elixir de Charlat\xE1n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4837838573568
+    m_Localized: Cura (0 - Influencia * 4) salud
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4998425890816
+    m_Localized: "Elixir de Purificaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5000304939008
+    m_Localized: Elimina todos los efectos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5255775801344
+    m_Localized: "Elixir de Drag\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5257239613440
+    m_Localized: Cura (Influencia * 2) salud. Otorga Resistencia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5418992947200
+    m_Localized: Elixir de Hallazgo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5419655647232
+    m_Localized: "A\xF1ade 4 cartas a tu mano"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792196578430976
+    m_Localized: Elixir de Piel de Piedra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792198411341824
+    m_Localized: Otorga (Influencia) Resistencia. Inflige Debilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5720970252288
+    m_Localized: Elixir de Vampiro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5722434064384
+    m_Localized: Cura igual al Sangrado de enemigos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5824930271232
+    m_Localized: Elixir de Luz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5827895644160
+    m_Localized: Otorga (Influencia) Luz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792882733010944
+    m_Localized: Elixir de Esquivar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 792883869667328
+    m_Localized: Otorga (Influencia / 2) Esquivar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6146666942464
+    m_Localized: Elixir de Salud
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6148353052672
+    m_Localized: Cura (Influencia * 2) salud
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6230850818048
+    m_Localized: Elixir de Resistencia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6232201383936
+    m_Localized: Otorga (Influencia / 2) Resistencia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6347867705344
+    m_Localized: Elixir de Fuerza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6348693983232
+    m_Localized: Otorga (Influencia / 2) Fuerza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7070047162368
+    m_Localized: Frasco de Berserker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7072123342848
+    m_Localized: "Inflige salud faltante a enemigos. M\xE1x. (Poder * 2)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7273496072192
+    m_Localized: Frasco de Sed de Sangre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7274452373504
+    m_Localized: "Inflige da\xF1o igual al Sangrado"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7368887128064
+    m_Localized: Frasco de Parada Total
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7369918926848
+    m_Localized: Inflige (2) Aturdimiento a todos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7479495118848
+    m_Localized: Frasco del Jugador
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7481193811968
+    m_Localized: Mata a todos los enemigos o a ti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7699163402240
+    m_Localized: Frasco de Manada
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7699876433920
+    m_Localized: "Inflige da\xF1o igual al n\xFAmero de enemigos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 793359335968768
+    m_Localized: Frasco de Rebote
+    m_Metadata:
+      m_Items: []
+  - m_Id: 793360996913152
+    m_Localized: "Inflige (Poder) da\xF1o a enemigo aleatorio. 50% de chance de repetir"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7778200866816
+    m_Localized: Frasco Inestable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7780071526400
+    m_Localized: Inflige efecto aleatorio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7932639334400
+    m_Localized: Frasco de Sangrado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7935357243392
+    m_Localized: Inflige (Poder / 2) Sangrado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8140882333696
+    m_Localized: Frasco de Oscuridad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8141796691968
+    m_Localized: Inflige (Influencia / 2) Oscuridad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8289243254784
+    m_Localized: Frasco de Veneno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8290136641536
+    m_Localized: "Inflige (Poder / 2) da\xF1o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9201122693120
+    m_Localized: Frasco de Vulnerabilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9216968773632
+    m_Localized: Inflige (Influencia / 2) Vulnerabilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9355364028416
+    m_Localized: Frasco de Debilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9356324524032
+    m_Localized: Inflige (Influencia / 2) Debilidad
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

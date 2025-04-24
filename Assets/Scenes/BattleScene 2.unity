@@ -451,10 +451,6 @@ MonoBehaviour:
   - {fileID: 1278090437}
   - {fileID: 41867262}
   spawnCount: 3
-  wavesPerNewEnemyType: 1
-  wavesPerStatIncrease: 5
-  healthIncrease: 1
-  damageIncrease: 1
 --- !u!4 &1540369660
 Transform:
   m_ObjectHideFlags: 0
@@ -818,7 +814,7 @@ PrefabInstance:
       objectReference: {fileID: 1948359766}
     - target: {fileID: 1449901830896665373, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
       propertyPath: stageName
-      value: "\u0421\u043A\u043B\u0435\u043F \u0413\u043E\u0440\u0433\u043E\u043D\u044B"
+      value: Stage.Grave
       objectReference: {fileID: 0}
     - target: {fileID: 1449901830896665373, guid: 238a8ea72d560774da3a0307a502c4b4, type: 3}
       propertyPath: alchemancer

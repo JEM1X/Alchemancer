@@ -17,7 +17,251 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 4c4726fe6acae9c4b8be58aa99c503e2, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 227849687040
+    m_Localized: Starten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 383340924928
+    m_Localized: Einstellungen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 461518557184
+    m_Localized: Beenden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4083774017536
+    m_Localized: Runde starten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4099972419584
+    m_Localized: Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4103252365312
+    m_Localized: Endloslauf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7204193587200
+    m_Localized: Einstellungen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7253577322496
+    m_Localized: Master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7299609808896
+    m_Localized: Musik
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7321692819456
+    m_Localized: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7352172826624
+    m_Localized: Speichern
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22357177946112
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22453231702016
+    m_Localized: Fortsetzen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22515076714496
+    m_Localized: Einstellungen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22556969422848
+    m_Localized: Neustart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22604008542208
+    m_Localized: Beenden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25658468487168
+    m_Localized: Sieg!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25902086246400
+    m_Localized: 'Punkte: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25729981370368
+    m_Localized: Weiter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25955832057856
+    m_Localized: Ende
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25975775973376
+    m_Localized: Niederlage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26074937708544
+    m_Localized: 'Welle '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28869946396672
+    m_Localized: Atmender Wald
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28906952740864
+    m_Localized: Gorgonengrab
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28962229473280
+    m_Localized: "Gr\xE4finnenburg"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28994177486848
+    m_Localized: Heiligenruinen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1475757128175616
+    m_Localized: Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1471913740619776
+    m_Localized: Endloslauf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358423278379008
+    m_Localized: "Einfluss - verst\xE4rkt Effekte von Tr\xE4nken"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358530296045568
+    m_Localized: "Macht - erh\xF6ht Schaden durch Tr\xE4nke"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358678535331840
+    m_Localized: Gesundheit - bei Null tritt Tod ein
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358814820851712
+    m_Localized: Verwundbarkeit - verdoppelt erlittenen Schaden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 358951068622848
+    m_Localized: "Widerstandsf\xE4higkeit - halbiert erlittenen Schaden"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359091976265728
+    m_Localized: "Schw\xE4che - halbiert Macht"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359146992951296
+    m_Localized: "St\xE4rke - verdoppelt Macht"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359148750364672
+    m_Localized: Matt - halbiert Einfluss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359718873718784
+    m_Localized: Hell - verdoppelt Einfluss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359953117208576
+    m_Localized: "Bluten - verursacht zu Rundenbeginn direkten Schaden (H\xE4lfte
+      des Werts), dann Abnahme"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359955063365632
+    m_Localized: "Bet\xE4ubung - Ziel \xFCberspringt Zug"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1031541679869952
+    m_Localized: Ausweichen - verhindert Angriffsschaden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360482010554368
+    m_Localized: "F\xFCgt (Macht) Bluten zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360623111135232
+    m_Localized: "F\xFCgt (Macht) Schaden zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360700244385792
+    m_Localized: "F\xFCgt (Einfluss) Matt zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360859191730176
+    m_Localized: "F\xFCgt (Einfluss / 2) Bet\xE4ubung zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360927152037888
+    m_Localized: "F\xFCgt (Einfluss) Verwundbarkeit zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361005065428992
+    m_Localized: "F\xFCgt (Einfluss) Schw\xE4che zu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361064112840704
+    m_Localized: Heilt gleich viel wie dein Bluten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361128176640000
+    m_Localized: Heilt (Einfluss * 2)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361171902259200
+    m_Localized: "Erhalte (Einfluss) Widerstandsf\xE4higkeit"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361239426359296
+    m_Localized: "Erhalte (Einfluss) St\xE4rke"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361295613255680
+    m_Localized: "Entfernt alle Effekte von Verb\xFCndeten"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 370805148999680
+    m_Localized: Unbekannt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 730654939959296
+    m_Localized: Willkommen in Alchemancer. Du bist ein Kobold-Alchemist, der Monsterhorden
+      besiegen muss. Schaffe alle Wellen jeder Stufe. Der Schwierigkeitsgrad steigt.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 731177034338304
+    m_Localized: 'Im Kampf nutzt du drei Trankarten: Elixiere (selbst), Kapseln (ein
+      Gegner) und Flaschen (alle Gegner). Erschaffe sie durch Mischen von Zutaten
+      (eindeutige Rezepte: 2-3 Zutaten). Ziehe 5 Zutatenkarten pro Zug.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 731489690341376
+    m_Localized: "Gl\xFCckwunsch zum ersten Trank! Jeder hat einen einzigartigen
+      Effekt (Schaden, Buffs, Debuffs). Du kannst maximal 3 halten. Dr\xFCcke 'Zug
+      beenden', wenn keine Zutaten \xFCbrig sind."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 732037432889344
+    m_Localized: "Zu Zugbeginn ziehst du 5 zuf\xE4llige Zutatenkarten. Unbenutzte
+      Zutaten verschwinden, aber Tr\xE4nke bleiben (zwischen Stufen zur\xFCckgesetzt).
+      Rezepte sind pro Durchgang zuf\xE4llig. Viel Gl\xFCck, Alchemist!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049509260316672
+    m_Localized: "N\xE4chste Seite"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049511411994624
+    m_Localized: Vorherige Seite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1049587098210304
+    m_Localized: "Nur verf\xFCgbare"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

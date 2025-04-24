@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DodgeElixir
   m_EditorClassIdentifier: 
   label: Potion.Label.DodgeElixir
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6e885aee723cea14b894ab4595c678fb, type: 3}
   description: Potion.Desc.DodgeElixir
   ingredients:
-  - {fileID: 11400000, guid: bf077205630315c4a918b1009ec80f70, type: 2}
+  - {fileID: 11400000, guid: 3d3682a366facc144b11a625599d12a1, type: 2}
   - {fileID: 11400000, guid: 1c9511ad6c08b0c419813f64acbf3db7, type: 2}
