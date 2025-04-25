@@ -50,19 +50,38 @@
     position: absolute;
     top: 600px;
     right: 0;
+    width: 96px;
+    height: 96px;
 }
+    .nextPage:hover {
+        scale: 1.3 1.3;
+    }
 
 .previousPage {
     position: absolute;
     top: 600px;
     left: 0;
+    width: 96px;
+    height: 96px;
+    scale: -1 1;
 }
+    .previousPage:hover {
+        scale: -1.3 1.3;
+    }
 
 .availableToggle {
     position: absolute;
     top: 0;
     right: 0;
+    width: 96px;
+    height: 96px;
+    font-size: 32px;
+    translate: 0 -100%;
 }
+
+    .availableToggle:hover {
+        scale: 1.3 1.3;
+    }
 
 .toggleButton {
     position: absolute;

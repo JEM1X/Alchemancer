@@ -167,8 +167,10 @@ MonoBehaviour:
   audioLibraire: {fileID: 11400000, guid: 9a6f79175cc1cbc4ab1aaa0457055ad3, type: 2}
   uiDocument: {fileID: 8823154947123965883}
   styleSheet: {fileID: 11400000, guid: 556b260768c56074b83476f7a4e6d2a9, type: 2}
-  sprite: {fileID: 21300000, guid: 7972dd97521bb1c44ba8e3774391b996, type: 3}
   potionList: {fileID: 11400000, guid: e79c61727b3a92f4bb316e2a53811743, type: 2}
+  bookIcon: {fileID: 21300000, guid: 6b22156af64babe4f9bff6441c5b942f, type: 3}
+  forwardIcon: {fileID: 21300000, guid: f7753d3d1a34f754692056d485cf1797, type: 3}
+  markIcon: {fileID: 21300000, guid: 8a94dcc1a884ac143bbf0b1d6d3e9470, type: 3}
 --- !u!1 &2090902481536988310
 GameObject:
   m_ObjectHideFlags: 0

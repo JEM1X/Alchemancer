@@ -297,7 +297,7 @@ MonoBehaviour:
   bleed: 0
   stun: 0
   dodge: 0
-  scorePoints: 0
+  scorePoints: 10
   audioSource: {fileID: -1947146497681086157}
   audioLibraire: {fileID: 11400000, guid: 9a6f79175cc1cbc4ab1aaa0457055ad3, type: 2}
   actionDuration: 0.6

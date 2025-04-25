@@ -153,7 +153,6 @@ GameObject:
   m_Component:
   - component: {fileID: 442216746868948326}
   - component: {fileID: 6886478971960481651}
-  - component: {fileID: 2514864870080427005}
   - component: {fileID: 1708493921753635649}
   m_Layer: 0
   m_Name: Gorgon
@@ -275,43 +274,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!70 &2514864870080427005
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6408667138530730140}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.5, y: 2}
-  m_Direction: 0
 --- !u!114 &1708493921753635649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +296,8 @@ MonoBehaviour:
   dullBright: 0
   bleed: 0
   stun: 0
-  _scorePoints: 80
+  dodge: 0
+  scorePoints: 100
   audioSource: {fileID: 6886478971960481651}
   audioLibraire: {fileID: 11400000, guid: 9a6f79175cc1cbc4ab1aaa0457055ad3, type: 2}
   actionDuration: 0.6

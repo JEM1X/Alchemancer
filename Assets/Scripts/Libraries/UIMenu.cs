@@ -96,7 +96,6 @@ public static class UIMenu
     {
         string savedCode = PlayerPrefs.GetString("SelectedLocale", "en");
         
-        Debug.Log(savedCode);
         var savedLocale = LocalizationSettings.AvailableLocales.GetLocale(savedCode);
         if (savedLocale != null)
         {

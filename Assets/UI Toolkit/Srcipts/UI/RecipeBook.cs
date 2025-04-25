@@ -14,8 +14,10 @@ public class RecipeBook : MonoBehaviour
     [Header("UI Toolkit")]
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private UIStyle_SO styleSheet;
-    [SerializeField] private Sprite sprite;
     [SerializeField] private PotionList_SO potionList;
+    [SerializeField] private Sprite bookIcon;
+    [SerializeField] private Sprite forwardIcon;
+    [SerializeField] private Sprite markIcon;
 
     private VisualElement background;
     private List<RecipePage> potionPages = new();
@@ -27,8 +29,8 @@ public class RecipeBook : MonoBehaviour
     private void Start()
     {
         InitializeUI();
-        PlayerHand.OnNewIngredient += (Ingredient_SO _) => UpdateAvailablePotions();
-        PlayerHand.OnIngredientUse += (Ingredient_SO _) => UpdateAvailablePotions();
+        PlayerHand.OnNewIngredient += UpdateAvailablePotionsEvt;
+        PlayerHand.OnIngredientUse += UpdateAvailablePotionsEvt;
     }
 
     private void InitializeUI()
@@ -62,9 +64,9 @@ public class RecipeBook : MonoBehaviour
                 else
                 {
                     Ingredient_SO[] ingredients = recipePage.potionCard.potion.Ingredients;
-                    alchemancer.PlayerHand.BrewNewPotion(ingredients);
 
-                    audioSource.PlayOneShot(audioLibraire.potionSounds[0]);
+                    if(alchemancer.PlayerHand.BrewNewPotion(ingredients))
+                        audioSource.PlayOneShot(audioLibraire.potionSounds[0]);
                 }
             };
         }
@@ -92,17 +94,18 @@ public class RecipeBook : MonoBehaviour
             };
         }
 
-        TurnPage(currentPage);
+        TurnPage(currentPage, false);
 
-        var nextPage = UITK.AddElement<Button>(bookFrame, "nextPage");
-        UITK.LocalizeStringUITK(nextPage, UITK.UITABLE, "Combat.Recipe.NextPage");
+        var nextPage = UITK.AddElement<Button>(bookFrame, "nextPage", "ClearButton");
+        nextPage.style.backgroundImage = new StyleBackground(forwardIcon);
         nextPage.clicked += () => TurnPage(currentPage + 2);
 
-        var previousPage = UITK.AddElement<Button>(bookFrame, "previousPage");
-        UITK.LocalizeStringUITK(previousPage, UITK.UITABLE, "Combat.Recipe.PreviousPage");
+        var previousPage = UITK.AddElement<Button>(bookFrame, "previousPage", "ClearButton");
+        previousPage.style.backgroundImage = new StyleBackground(forwardIcon);
         previousPage.clicked += () => TurnPage(currentPage - 2);
 
-        var availableToggle = UITK.AddElement<Button>(bookFrame, "availableToggle");
+        var availableToggle = UITK.AddElement<Button>(bookFrame, "availableToggle", "ClearButton");
+        availableToggle.style.backgroundImage = new StyleBackground(markIcon);
         UITK.LocalizeStringUITK(availableToggle, UITK.UITABLE, "Combat.Recipe.AvailableToggle");
         availableToggle.clicked += () =>
         {
@@ -113,7 +116,7 @@ public class RecipeBook : MonoBehaviour
         };
 
         var toggleButton = UITK.AddElement<Button>(canvas, "toggleButton");
-        toggleButton.style.backgroundImage = new StyleBackground(sprite);
+        toggleButton.style.backgroundImage = new StyleBackground(bookIcon);
         toggleButton.clicked += () => ToggleGuide();
 
         ToggleGuide(false);
@@ -128,6 +131,11 @@ public class RecipeBook : MonoBehaviour
 
         isAvailableMode = true;
         TurnPage(0);
+    }
+
+    private void UpdateAvailablePotionsEvt(Ingredient_SO _)
+    {
+        UpdateAvailablePotions();
     }
 
     private void UpdateAvailablePotions()
@@ -156,7 +164,7 @@ public class RecipeBook : MonoBehaviour
         TurnPage(0);
     }
 
-    private void TurnPage(int page)
+    private void TurnPage(int page, bool sound = true)
     {
         if (page < 0) return;
 
@@ -172,6 +180,9 @@ public class RecipeBook : MonoBehaviour
             currentPages[page + 1].page.style.display = DisplayStyle.Flex;
 
         currentPage = page;
+
+        if (sound)
+            PlayTurnPage();
     }
 
     private static void HideAllPages(List<RecipePage> pages)
@@ -188,5 +199,18 @@ public class RecipeBook : MonoBehaviour
             UITK.ToggleScreenWSound(background, audioSource, audioLibraire.guideSounds[0], audioLibraire.guideSounds[1]);
         else
             UITK.ToggleScreen(background, out _);
+    }
+
+    private void PlayTurnPage()
+    {
+        if(background.resolvedStyle.display == DisplayStyle.Flex)
+            audioSource.PlayOneShot(audioLibraire.guideSounds[2]);
+
+    }
+
+    private void OnDestroy()
+    {
+        PlayerHand.OnNewIngredient -= UpdateAvailablePotionsEvt;
+        PlayerHand.OnIngredientUse -= UpdateAvailablePotionsEvt;
     }
 }

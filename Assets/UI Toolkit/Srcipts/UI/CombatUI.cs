@@ -43,7 +43,7 @@ public class CombatUI : MonoBehaviour
         PlayerHand.OnIngredientUse += RemoveIngredientCard;
         PlayerHand.OnNewPotion += InitializePotionCard;
         alchemancer.PlayerCombat.OnSpawn += (Combatant combatant) => InitializePlayer((PlayerCombat)combatant);
-        alchemancer.PlayerCombat.OnTurnStart += ShowHand;  
+        alchemancer.PlayerCombat.OnTurnStart += ShowHand;
         BattleM.Instance.Horde.OnNewEnemy += InitializeEnemy;
     }
 
@@ -331,5 +331,12 @@ public class CombatUI : MonoBehaviour
 
         audioSource.PlayOneShot(audioLibraire.cardSounds[1]);
         card.cardFrame.style.translate = new StyleTranslate(StyleKeyword.Null);
+    }
+
+    private void OnDestroy()
+    {
+        PlayerHand.OnNewIngredient -= InitializeIngredientCard;
+        PlayerHand.OnIngredientUse -= RemoveIngredientCard;
+        PlayerHand.OnNewPotion -= InitializePotionCard;
     }
 }
