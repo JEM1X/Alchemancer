@@ -7,21 +7,12 @@ public class DebugUI : MonoBehaviour
     [SerializeField] private Alchemancer alchemancer;
     [SerializeField] private PotionList_SO potionList;
 
-    private bool isHidden = false;
     private VisualElement canvas;
 
 
     private void Start()
     {
         InitializeUI();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.BackQuote))
-        {
-            HideDebug();
-        }
     }
 
     private void InitializeUI()
@@ -35,7 +26,7 @@ public class DebugUI : MonoBehaviour
         canvas.style.alignItems = Align.FlexStart;
         canvas.style.paddingTop = 10;
         canvas.style.paddingLeft = 10;
-        HideDebug();
+        ToggleDebug();
 
         foreach(Potion_SO potion in potionList.SimplePotions)
         {
@@ -52,20 +43,6 @@ public class DebugUI : MonoBehaviour
         }
     }
 
-    private void HideDebug()
-    {
-        if (isHidden)
-        {
-            canvas.style.display = DisplayStyle.Flex;
-            isHidden = false;
-        }
-        else
-        {
-            canvas.style.display = DisplayStyle.None;
-            isHidden = true;
-        }
-    }
-
     private void AddPotion(Potion_SO potion)
     {
         foreach (Ingredient_SO ingredient in potion.Ingredients)
@@ -74,5 +51,10 @@ public class DebugUI : MonoBehaviour
         }
 
         alchemancer.PlayerHand.BrewNewPotion(potion.Ingredients);
+    }
+
+    public void ToggleDebug()
+    {
+        UITK.ToggleScreen(canvas, out _);
     }
 }

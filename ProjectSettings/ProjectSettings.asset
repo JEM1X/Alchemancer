@@ -291,7 +291,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 6509adb73ba1de04d898264b898cdf2e, type: 3}
+      m_Icon: {fileID: 2800000, guid: 20a1bc3c48e3d034fb0898e9a552cf2f, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -771,7 +771,7 @@ PlayerSettings:
   qnxGraphicConfPath: 
   apiCompatibilityLevel: 6
   captureStartupLogs: {}
-  activeInputHandler: 2
+  activeInputHandler: 1
   windowsGamepadBackendHint: 0
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0

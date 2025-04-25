@@ -40,14 +40,6 @@ public class InGameMenu : MonoBehaviour
         alchemancer.PlayerCombat.OnDeath += () => UIMenu.ToggleScreen(defeatScreen, ref isDefeatVisible);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            UIMenu.ToggleScreen(pauseScreen, ref isPauseVisible);
-        }
-    }
-
     private IEnumerator InitializeUI()
     {
         VisualElement root = uiDocument.rootVisualElement;
@@ -169,5 +161,10 @@ public class InGameMenu : MonoBehaviour
     private void UpdateWaveCounter(int wave)
     {
         UITK.LocalizeStringUITK(waveCounter, UITK.UITABLE, "Menu.Wave", wave + "/" + BattleM.Instance.TotalWaves);
+    }
+
+    public void TogglePauseScreen()
+    {
+        UIMenu.ToggleScreen(pauseScreen, ref isPauseVisible);
     }
 }

@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Linq;
-using Unity.VisualScripting;
 
 public abstract class Potion_SO : Card_SO
 {

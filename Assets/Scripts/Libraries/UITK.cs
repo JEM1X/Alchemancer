@@ -34,6 +34,38 @@ public static class UITK
         return element;
     }
 
+    public static void ToggleScreen(VisualElement element, out bool isVisible)
+    {
+        isVisible = element.resolvedStyle.display == DisplayStyle.Flex;
+
+        if (isVisible)
+        {
+            element.style.display = DisplayStyle.None;
+            isVisible = false;
+        }
+        else
+        {
+            element.style.display = DisplayStyle.Flex;
+            isVisible= true;
+        }
+    }
+
+    public static void ToggleScreenWSound(VisualElement element, AudioSource source, AudioClip soundOn, AudioClip soundOff)
+    {
+        ToggleScreen(element, out bool isVisible);
+
+        if (isVisible)
+        {
+            if (soundOn != null)
+                source.PlayOneShot(soundOn);
+        }
+        else
+        {
+            if (soundOff != null)
+                source.PlayOneShot(soundOff);
+        }
+    }
+
     public static LocalizedString LocalizeStringUITK(TextElement element, string table, string key)
     {
         var localString = new LocalizedString(table, key);

@@ -22,7 +22,6 @@ public class RecipeBook : MonoBehaviour
     private List<RecipePage> availablePotionPages = new();
     private int currentPage = 0;
     private bool isAvailableMode = false;
-    private bool isVisible = true;
 
 
     private void Start()
@@ -183,23 +182,11 @@ public class RecipeBook : MonoBehaviour
         }
     }
 
-    private void ToggleGuide(bool sound = true)
+    public void ToggleGuide(bool sound = true)
     {
-        if (isVisible)
-        {
-            background.style.display = DisplayStyle.None;
-            isVisible = false;
-
-            if(sound)
-                audioSource.PlayOneShot(audioLibraire.guideSounds[1]);
-        }
+        if (sound)
+            UITK.ToggleScreenWSound(background, audioSource, audioLibraire.guideSounds[0], audioLibraire.guideSounds[1]);
         else
-        {
-            background.style.display = DisplayStyle.Flex;
-            isVisible = true;
-
-            if(sound)
-                audioSource.PlayOneShot(audioLibraire.guideSounds[0]);
-        }
+            UITK.ToggleScreen(background, out _);
     }
 }

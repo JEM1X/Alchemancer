@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alchemancer: {fileID: 0}
-  stageName: "\u0416\u0438\u0432\u043E\u0439 \u041B\u0435\u0441"
+  stageName: Stage.Forest
   isFinal: 0
   audioSource: {fileID: 6510490286388958155}
   audioLibraire: {fileID: 11400000, guid: 9a6f79175cc1cbc4ab1aaa0457055ad3, type: 2}
@@ -511,6 +511,53 @@ MonoBehaviour:
   isCardAnim: 0
   drawDuration: 0.4
   overlapDuration: 0.5
+--- !u!1 &2717242994279895554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 943079588478936861}
+  - component: {fileID: 1385207689877194665}
+  m_Layer: 5
+  m_Name: InputHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &943079588478936861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2717242994279895554}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5294761668942539444}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1385207689877194665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2717242994279895554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd12b5d170c5c043bc8e15287fbe4f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inGameMenu: {fileID: 1449901830896665373}
+  recipeBook: {fileID: 3336352935649506700}
+  debug: {fileID: 6287791253333418301}
 --- !u!1 &3610072112875724854
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +591,7 @@ Transform:
   - {fileID: 9121675629993870914}
   - {fileID: 5886102097145800967}
   - {fileID: 5313621959835002116}
+  - {fileID: 943079588478936861}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6309299313419631332
