@@ -261,7 +261,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1049587098210304
-    m_Localized: Solo disponibles
+    m_Localized: 'Pos
+
+      ible'
     m_Metadata:
       m_Items: []
   references:
