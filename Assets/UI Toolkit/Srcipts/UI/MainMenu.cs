@@ -44,6 +44,7 @@ public class MainMenu : MonoBehaviour
 
         var startButton = UITK.AddElement<Button>(menu, "startButton", "MainButton");
         startButton.clicked += () => audioSource.PlayOneShot(audioLibraire.uiSounds[0]);
+        startButton.clicked += () => OnWatchAdForReward();
         startButton.clicked += () => UIMenu.ToggleScreen(startMenu, ref isStartVisible);
         UITK.LocalizeStringUITK(startButton, UITK.UITABLE, "MainMenu.Start");
 
@@ -91,6 +92,7 @@ public class MainMenu : MonoBehaviour
         {
             GameManager.Instance.GenerateRecipes();
             GameManager.Instance.totalScore = 0;
+            //OnWatchAdForReward();// Реклама
             SceneManager.LoadScene(1);
         };
         var runButtonText = new LocalizedString("UI", "MainMenu.Run");
@@ -105,5 +107,16 @@ public class MainMenu : MonoBehaviour
         };
         var IGMButtonText = new LocalizedString("UI", "MainMenu.IGM");
         IGMButtonText.StringChanged += (value) => IGMButton.text = value;
+    }
+
+
+    public void OnWatchAdForReward() 
+    {
+        AdsManager.Instance.ShowRewarded(() =>
+        {
+            Debug.Log("Player gets reward");
+            // логика получения награды
+
+        });
     }
 }
