@@ -44,7 +44,10 @@ public class MainMenu : MonoBehaviour
 
         var startButton = UITK.AddElement<Button>(menu, "startButton", "MainButton");
         startButton.clicked += () => audioSource.PlayOneShot(audioLibraire.uiSounds[0]);
-        startButton.clicked += () => OnWatchAdForReward();
+        if (AdsManager.Instance != null) 
+        {
+            startButton.clicked += () => OnWatchAdForReward();
+        }
         startButton.clicked += () => UIMenu.ToggleScreen(startMenu, ref isStartVisible);
         UITK.LocalizeStringUITK(startButton, UITK.UITABLE, "MainMenu.Start");
 
@@ -92,6 +95,9 @@ public class MainMenu : MonoBehaviour
         {
             GameManager.Instance.GenerateRecipes();
             GameManager.Instance.totalScore = 0;
+            AnalyticsManager.Instance.TrackGameStart(); // Аналитика сохраняет  что начался уровень
+
+
             //OnWatchAdForReward();// Реклама
             SceneManager.LoadScene(1);
         };
